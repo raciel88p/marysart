@@ -1,5 +1,5 @@
 import React from 'react';
-import { PackageCheck, Coffee, BookOpen, Users, Sparkles, Smile, ShieldCheck, HeartHandshake } from 'lucide-react';
+import { PackageCheck, Coffee, BookOpen, Users, Smile, ShieldCheck, HeartHandshake } from 'lucide-react';
 
 export default function IncludesSection() {
   const features = [
@@ -50,7 +50,7 @@ export default function IncludesSection() {
             <span>Cuidamos Cada Detalle</span>
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#3d2c29] font-bold">
-            ¿Qué Hace Especial la Experiencia Marys Art?
+            ¿Qué Hace Especial la Experiencia Resina Art & Mary?
           </h2>
           <p className="text-[#6b5852] text-lg font-light">
             Más que un curso tradicional, creamos un verdadero ritual para consentirte, recargar energías y descubrir tu capacidad creadora.

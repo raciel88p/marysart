@@ -3,7 +3,7 @@ import { Heart, Sparkles, MapPin, Calendar, Clock, ArrowRight } from 'lucide-rea
 
 export default function Hero() {
   const whatsappMessage = encodeURIComponent(
-    "¡Hola Marys Art! Quisiera información sobre las próximas fechas para los talleres de Velas y Pintura."
+    "¡Hola Resina Art & Mary! Quisiera información sobre las próximas fechas para los talleres de Velas y Pintura."
   );
   const whatsappUrl = `https://wa.me/50688390436?text=${whatsappMessage}`;
 
@@ -91,7 +91,7 @@ export default function Hero() {
               </div>
               <div className="text-xs sm:text-sm text-[#6b5852] text-left">
                 <span className="font-bold text-[#3d2c29]">Más de 350+ alumnas</span>
-                <p>han vivido la experiencia Marys Art</p>
+                <p>han vivido la experiencia Resina Art & Mary</p>
               </div>
             </div>
 

@@ -3,7 +3,7 @@ import { Heart, MapPin, Phone, Mail, Rss } from 'lucide-react';
 
 export default function Footer({ onOpenModal }) {
   const whatsappMessage = encodeURIComponent(
-    "¡Hola Marys Art! Deseo recibir información sobre los cursos de Velas Artesanales y Pintura."
+    "¡Hola Resina Art & Mary! Deseo recibir información sobre los cursos de Velas Artesanales y Pintura."
   );
   const whatsappUrl = `https://wa.me/50688390436?text=${whatsappMessage}`;
 
@@ -18,10 +18,10 @@ export default function Footer({ onOpenModal }) {
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-[#e8a598] text-white flex items-center justify-center font-serif text-xl font-bold">
-                M
+                R
               </div>
               <span className="font-serif text-2xl font-bold text-white">
-                Marys Art
+                Resina Art & Mary
               </span>
             </div>
             <p className="text-xs sm:text-sm text-[#a8988e] leading-relaxed">
@@ -72,7 +72,7 @@ export default function Footer({ onOpenModal }) {
                   onClick={() => onOpenModal && onOpenModal('nosotras')}
                   className="hover:text-[#e8a598] transition-colors text-left"
                 >
-                  Sobre Nosotras (Marys Art)
+                  Sobre Nosotras (Resina Art & Mary)
                 </button>
               </li>
               <li>
@@ -129,8 +129,8 @@ export default function Footer({ onOpenModal }) {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-[#e8a598] shrink-0" />
-                <a href="mailto:info@marysart.cr" className="hover:text-white transition-colors">
-                  info@marysart.cr
+                <a href="mailto:info@resinaartmary.cr" className="hover:text-white transition-colors">
+                  info@resinaartmary.cr
                 </a>
               </li>
             </ul>
@@ -156,7 +156,7 @@ export default function Footer({ onOpenModal }) {
 
         {/* Footer Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#8c7a6b] gap-4">
-          <p>© {new Date().getFullYear()} Marys Art Costa Rica. Todos los derechos reservados.</p>
+          <p>© {new Date().getFullYear()} Resina Art & Mary Costa Rica. Todos los derechos reservados.</p>
           <div className="flex items-center gap-1">
             <span>Hecho con</span>
             <Heart className="w-3.5 h-3.5 text-[#e8a598] fill-current" />

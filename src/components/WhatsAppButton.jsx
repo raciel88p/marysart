@@ -3,7 +3,7 @@ import { MessageCircle } from 'lucide-react';
 
 export default function WhatsAppButton() {
   const whatsappMessage = encodeURIComponent(
-    "¡Hola Marys Art! Me gustaría consultar sobre la disponibilidad de cupos para los cursos de Velas Artesanales y Pintura."
+    "¡Hola Resina Art & Mary! Me gustaría consultar sobre la disponibilidad de cupos para los cursos de Velas Artesanales y Pintura."
   );
   const whatsappUrl = `https://wa.me/50688390436?text=${whatsappMessage}`;
 

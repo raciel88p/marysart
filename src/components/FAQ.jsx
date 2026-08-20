@@ -7,7 +7,7 @@ export default function FAQ() {
   const faqs = [
     {
       question: '¿Necesito experiencia previa en elaboración de velas o pintura?',
-      answer: '¡Para nada! Nuestros talleres están 100% diseñados para principiantes. La instructora te guiara paso a paso durante todo el proceso, desde la mezcla de insumos hasta los detalles finales.'
+      answer: '¡Para nada! Nuestros talleres están 100% diseñados para principiantes. La instructora te guiará paso a paso durante todo el proceso, desde la mezcla de insumos hasta los detalles finales.'
     },
     {
       question: '¿Qué incluye la inversión del taller?',
@@ -93,7 +93,7 @@ export default function FAQ() {
             Estamos disponibles en WhatsApp para ayudarte con cualquier detalle adicional sobre fechas o reservas.
           </p>
           <a
-            href="https://wa.me/50688390436?text=Hola%20Marys%20Art%2C%20tengo%20una%20pregunta%20sobre%20los%20talleres."
+            href="https://wa.me/50688390436?text=Hola%20Resina%20Art%20%26%20Mary%2C%20tengo%20una%20pregunta%20sobre%20los%20talleres."
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20ba59] text-white font-medium text-sm py-3 px-6 rounded-full shadow-md transition-all"

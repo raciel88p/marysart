@@ -25,7 +25,7 @@ export default function Courses() {
         'Todos los materiales y herramientas incluidos',
         'Merienda especial con bebidas calientes y refrigerios'
       ],
-      whatsappMsg: '¡Hola! Me interesa reservar un cupo para el Taller de Velas Artesanales de Marys Art.'
+      whatsappMsg: '¡Hola! Me interesa reservar un cupo para el Taller de Velas Artesanales de Resina Art & Mary.'
     },
     {
       id: 'pintura',
@@ -47,7 +47,7 @@ export default function Courses() {
         'Todos los pinceles, pinturas y delantal incluidos',
         'Bocadillos y merienda artesanal'
       ],
-      whatsappMsg: '¡Hola! Quisiera más detalles para inscribirme al Taller de Pintura Creativa de Marys Art.'
+      whatsappMsg: '¡Hola! Quisiera más detalles para inscribirme al Taller de Pintura Creativa de Resina Art & Mary.'
     },
     {
       id: 'combo',
@@ -229,7 +229,7 @@ export default function Courses() {
             </p>
           </div>
           <a
-            href="https://wa.me/50688390436?text=Hola%20Marys%20Art%2C%20quisiera%20cotizar%20un%20taller%20privado%20para%20un%20grupo."
+            href="https://wa.me/50688390436?text=Hola%20Resina%20Art%20%26%20Mary%2C%20quisiera%20cotizar%20un%20taller%20privado%20para%20un%20grupo."
             target="_blank"
             rel="noopener noreferrer"
             className="shrink-0 bg-[#3d2c29] hover:bg-[#2a1e1c] text-white px-8 py-4 rounded-full text-sm font-medium transition-all shadow-md inline-flex items-center gap-2"

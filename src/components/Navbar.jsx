@@ -5,7 +5,7 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const whatsappMessage = encodeURIComponent(
-    "¡Hola Marys Art! Deseo recibir información sobre los cursos de Velas Artesanales y Pintura."
+    "¡Hola Resina Art & Mary! Deseo recibir información sobre los cursos de Velas Artesanales y Pintura."
   );
   const whatsappUrl = `https://wa.me/50688390436?text=${whatsappMessage}`;
 
@@ -16,11 +16,11 @@ export default function Navbar() {
           {/* Logo */}
           <a href="#" className="flex items-center gap-3 group">
             <div className="w-11 h-11 rounded-full bg-[#e8a598] text-white flex items-center justify-center font-serif text-xl font-bold shadow-md group-hover:bg-[#d98a7b] transition-colors">
-              M
+              R
             </div>
             <div className="flex flex-col">
               <span className="font-serif text-2xl font-bold tracking-tight text-[#3d2c29] group-hover:text-[#e8a598] transition-colors">
-                Marys Art
+                Resina Art & Mary
               </span>
               <span className="text-[10px] tracking-widest uppercase text-[#8c7a6b] font-medium">
                 Velas & Arte Botánico

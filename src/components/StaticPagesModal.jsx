@@ -13,7 +13,7 @@ export default function StaticPagesModal({ pageType, onClose }) {
           content: (
             <div className="space-y-4 text-sm text-[#5c4a43] leading-relaxed">
               <p>
-                Bienvenida/o a <strong>Marys Art</strong>. Al inscribirte o adquirir un cupo para nuestros talleres presenciales o virtuales de velas artesanales y pintura, aceptas los siguientes términos y condiciones:
+                Bienvenida/o a <strong>Resina Art & Mary</strong>. Al inscribirte o adquirir un cupo para nuestros talleres presenciales o virtuales de velas artesanales y pintura, aceptas los siguientes términos y condiciones:
               </p>
               <h4 className="font-serif font-bold text-[#3d2c29] text-base">1. Inscripciones y Reservas</h4>
               <p>
@@ -21,7 +21,7 @@ export default function StaticPagesModal({ pageType, onClose }) {
               </p>
               <h4 className="font-serif font-bold text-[#3d2c29] text-base">2. Uso de Insumos y Seguridad</h4>
               <p>
-                Todos los insumos utilizados (cera de soya, aceites esenciales, mechas, pigmentos y pinturas) cumplen con normativas de seguridad e higiene. Marys Art provee delantales y equipo de protección adecuado.
+                Todos los insumos utilizados (cera de soya, aceites esenciales, mechas, pigmentos y pinturas) cumplen con normativas de seguridad e higiene. Resina Art & Mary provee delantales y equipo de protección adecuado.
               </p>
               <h4 className="font-serif font-bold text-[#3d2c29] text-base">3. Propiedad Intelectual</h4>
               <p>
@@ -37,7 +37,7 @@ export default function StaticPagesModal({ pageType, onClose }) {
           content: (
             <div className="space-y-4 text-sm text-[#5c4a43] leading-relaxed">
               <p>
-                En <strong>Marys Art</strong> respetamos tu privacidad y nos comprometemos a proteger tus datos personales.
+                En <strong>Resina Art & Mary</strong> respetamos tu privacidad y nos comprometemos a proteger tus datos personales.
               </p>
               <h4 className="font-serif font-bold text-[#3d2c29] text-base">1. Datos Recopilados</h4>
               <p>
@@ -80,12 +80,12 @@ export default function StaticPagesModal({ pageType, onClose }) {
         };
       case 'nosotras':
         return {
-          title: 'Quienes Somos - Marys Art',
+          title: 'Quienes Somos - Resina Art & Mary',
           icon: <Info className="w-6 h-6 text-[#c87563]" />,
           content: (
             <div className="space-y-4 text-sm text-[#5c4a43] leading-relaxed">
               <p>
-                <strong>Marys Art</strong> nació del amor por la creatividad, los aromas botánicos y la convicción de que todos necesitamos espacios para pausar en medio de la rutina diaria.
+                <strong>Resina Art & Mary</strong> nació del amor por la creatividad, los aromas botánicos y la convicción de que todos necesitamos espacios para pausar en medio de la rutina diaria.
               </p>
               <p>
                 En Costa Rica no tenemos estaciones marcadas, pero creemos firmemente en crear nuestros propios rituales de bienestar. Nuestros talleres de velas artesanales de cera de soya y pintura en lienzo son experiencias diseñadas para estimular tus sentidos, elevar tu autoestima y regalarte momentos de paz.

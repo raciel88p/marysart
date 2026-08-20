@@ -67,7 +67,7 @@ export default function Gallery() {
             Fotografías de Nuestros Talleres
           </h2>
           <p className="text-[#6b5852] text-lg font-light">
-            Echa un vistazo a los momentos especiales, risas y hermosas creaciones que nacen en Marys Art.
+            Echa un vistazo a los momentos especiales, risas y hermosas creaciones que nacen en Resina Art & Mary.
           </p>
 
           {/* Gallery Filters */}
@@ -149,7 +149,7 @@ export default function Gallery() {
             rel="noopener noreferrer"
             className="font-bold text-[#c87563] underline hover:text-[#b56250]"
           >
-            @marysart.cr
+            @resinaartmary.cr
           </a>{' '}
           para ver más publicaciones en vivo y fotos de cada taller.
         </div>
