@@ -1,7 +1,7 @@
 import React from 'react';
-import { Heart, MapPin, Phone, Mail, Rss, Grid } from 'lucide-react';
+import { Heart, MapPin, Phone, Mail, Rss, Grid, Package } from 'lucide-react';
 
-export default function Footer({ onOpenModal, onNavigateHome, onNavigateCatalog, onSelectCourseDetail }) {
+export default function Footer({ onOpenModal, onNavigateHome, onNavigateCatalog, onNavigatePieces, onSelectCourseDetail }) {
   const whatsappMessage = encodeURIComponent(
     "¡Hola Resina Art & Mary! Deseo recibir información sobre los cursos de Velas Artesanales y Pintura."
   );
@@ -25,7 +25,7 @@ export default function Footer({ onOpenModal, onNavigateHome, onNavigateCatalog,
               </span>
             </div>
             <p className="text-xs sm:text-sm text-[#a8988e] leading-relaxed">
-              Taller de Velas Artesanales de Cera de Soya y Pintura Creativa en Costa Rica. Un espacio diseñado para reconectar con tu esencia, relajarte y crear belleza con tus manos.
+              Taller de Velas Artesanales de Cera de Soya, Pintura Creativa y Pátinas en Costa Rica. Un espacio diseñado para reconectar con tu esencia, relajarte y crear belleza con tus manos.
             </p>
             <div className="flex items-center gap-3 pt-2">
               <a
@@ -63,9 +63,9 @@ export default function Footer({ onOpenModal, onNavigateHome, onNavigateCatalog,
             </div>
           </div>
 
-          {/* Catalog & Courses Subpages */}
+          {/* Subpages Navigation */}
           <div className="space-y-4">
-            <h3 className="font-serif text-lg font-bold text-white">Talleres & Subpáginas</h3>
+            <h3 className="font-serif text-lg font-bold text-white">Catálogos & Subpáginas</h3>
             <ul className="space-y-2.5 text-sm text-[#a8988e]">
               <li>
                 <button
@@ -73,31 +73,42 @@ export default function Footer({ onOpenModal, onNavigateHome, onNavigateCatalog,
                   className="hover:text-[#e8a598] transition-colors text-left flex items-center gap-1.5 font-bold text-[#e8a598]"
                 >
                   <Grid className="w-3.5 h-3.5" />
-                  <span>Ver Catálogo General</span>
+                  <span>Catálogo de Cursos (7 Niveles)</span>
+                </button>
+              </li>
+              {onNavigatePieces && (
+                <li>
+                  <button
+                    onClick={onNavigatePieces}
+                    className="hover:text-[#e8a598] transition-colors text-left flex items-center gap-1.5 font-bold text-[#e8a598]"
+                  >
+                    <Package className="w-3.5 h-3.5" />
+                    <span>Catálogo de Piezas Artesanales</span>
+                  </button>
+                </li>
+              )}
+              <li>
+                <button
+                  onClick={() => onSelectCourseDetail && onSelectCourseDetail('pintura-basico')}
+                  className="hover:text-[#e8a598] transition-colors text-left"
+                >
+                  Curso Básico de Pintura
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => onSelectCourseDetail && onSelectCourseDetail('velas')}
+                  onClick={() => onSelectCourseDetail && onSelectCourseDetail('velas-basico')}
                   className="hover:text-[#e8a598] transition-colors text-left"
                 >
-                  Subpágina: Velas Artesanales
+                  Curso Básico de Velas
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => onSelectCourseDetail && onSelectCourseDetail('pintura')}
+                  onClick={() => onSelectCourseDetail && onSelectCourseDetail('patinas')}
                   className="hover:text-[#e8a598] transition-colors text-left"
                 >
-                  Subpágina: Pintura & Vino
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => onSelectCourseDetail && onSelectCourseDetail('combo')}
-                  className="hover:text-[#e8a598] transition-colors text-left"
-                >
-                  Subpágina: Combo Completo
+                  Curso de Pátinas
                 </button>
               </li>
             </ul>

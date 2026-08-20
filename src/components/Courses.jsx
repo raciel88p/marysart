@@ -1,80 +1,162 @@
 import React, { useState } from 'react';
-import { Flame, Palette, CheckCircle, Clock, MapPin, Sparkles, MessageCircle, ArrowRight, Eye } from 'lucide-react';
+import { Flame, Palette, CheckCircle, Clock, MapPin, Sparkles, MessageCircle, ArrowRight, Eye, Layers } from 'lucide-react';
 
 export default function Courses({ onSelectCourseDetail }) {
-  const [selectedCourse, setSelectedCourse] = useState('all');
+  const [selectedCategory, setSelectedCategory] = useState('all');
 
   const courses = [
     {
-      id: 'velas',
-      category: 'velas',
-      title: 'Taller de Velas Artesanales & Rituales de Bienestar',
-      subtitle: 'Crea tu propia vela aromática con cera de soya natural y aceites esenciales.',
-      image: 'https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=800&q=80',
-      price: '₡29.500',
+      id: 'pintura-basico',
+      category: 'pintura',
+      title: 'Curso Básico de Pintura',
+      subtitle: 'Aprende los fundamentos del pincel, teoría del color y mezcla de tonos acrílicos desde cero.',
+      image: 'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=800&q=80',
+      price: '₡25.000',
       currency: 'CRC por persona',
-      duration: '3 horas 30 minutos',
+      duration: '3 horas',
       location: 'San José / Turrialba / San Carlos',
-      badge: 'Más Popular',
-      description: 'Un ritual de calma y aprendizaje para conectar con tus sentidos. Elabora una vela personalizada desde cero utilizando ceras vegetales ecológicas, flores secas y aromas relajantes.',
+      badge: 'Nivel Principiante',
+      description: 'Ideal para quienes nunca han tomado un pincel. Conocerás técnicas de degradado, manejo de agua y fijación de capas sobre lienzo.',
       highlights: [
-        'Derretido y pigmentación de cera de soya 100% vegetal',
-        'Creación de mezclas aromáticas personalizadas',
-        'Decoración de la base y acabado botánico con flores secas',
-        'Guía de trabajo física e impresa + plantilla digital de fórmulas',
-        'Todos los materiales y herramientas incluidos',
-        'Merienda especial con bebidas calientes y refrigerios'
+        'Principios de teoría del color y círculo cromático',
+        'Técnicas de pincelada limpia y degradados suaves',
+        'Lienzo de 30x40cm listo para llevarte a casa',
+        'Todos los insumos acrílicos y pinceles incluidos',
+        'Merienda artesanal con café o té caliente'
       ],
-      whatsappMsg: '¡Hola! Me interesa reservar un cupo para el Taller de Velas Artesanales de Resina Art & Mary.'
+      whatsappMsg: '¡Hola! Me interesa reservar un cupo para el Curso Básico de Pintura.'
     },
     {
-      id: 'pintura',
+      id: 'pintura-medio',
       category: 'pintura',
-      title: 'Taller de Pintura Creativa & Pinta y Vino',
-      subtitle: 'Expresa tu arte sobre lienzo mientras disfrutas de una tarde de relajación.',
+      title: 'Curso Medio de Pintura',
+      subtitle: 'Domina técnicas de luces, sombras y composición para dar profundidad a tus obras.',
       image: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80',
       price: '₡29.500',
       currency: 'CRC por persona',
       duration: '3 horas 30 minutos',
       location: 'San José / Turrialba / San Carlos',
-      badge: 'Novedad',
-      description: 'Aprende técnicas básicas y avanzadas de pintura en acrílico y texturas sobre lienzo. Libera tu mente sin presión en un entorno alegre, lleno de colores y buena compañía.',
+      badge: 'Nivel Intermedio',
+      description: 'Avanza en tu expresión artística profundizando en el volumen, contrastes y armonías complejas de color en bodegones y paisajes.',
       highlights: [
-        'Paso a paso de técnicas en acrílico, espátula y pincel',
-        'Lienzo de alta calidad (te llevas tu obra terminada a casa)',
-        'Copa de vino de bienvenida o bebidas calientes/frías',
-        'Acompañamiento personalizado de la instructora',
-        'Todos los pinceles, pinturas y delantal incluidos',
-        'Bocadillos y merienda artesanal'
+        'Manejo de contrastes luz/sombra en capas acrílicas',
+        'Perspectiva atmosférica y planos de profundidad',
+        'Lienzo sobre bastidor de madera de alta calidad',
+        'Copa de vino de bienvenida o bebidas calientes',
+        'Acompañamiento personalizado de la instructora'
       ],
-      whatsappMsg: '¡Hola! Quisiera más detalles para inscribirme al Taller de Pintura Creativa de Resina Art & Mary.'
+      whatsappMsg: '¡Hola! Quisiera más detalles para el Curso Medio de Pintura.'
     },
     {
-      id: 'combo',
-      category: 'combo',
-      title: 'Experiencia Completa: Combo Velas + Pintura Artística',
-      subtitle: 'Pasa un día completo creativo con ambas experiencias sensoriales.',
-      image: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=80',
-      price: '₡52.000',
+      id: 'pintura-avanzado',
+      category: 'pintura',
+      title: 'Curso Avanzado de Pintura',
+      subtitle: 'Explora técnicas mixtas, texturas tridimensionales con espátula y acabado profesional.',
+      image: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=80',
+      price: '₡35.000',
       currency: 'CRC por persona',
-      duration: 'Jornada doble (6 horas total)',
+      duration: '4 horas',
       location: 'San José / Turrialba / San Carlos',
-      badge: 'Ahorra ₡7.000',
-      description: 'La combinación perfecta para regalarte un fin de semana lleno de arte, velas, aromas y excelente compañía. Incluye certificado simbólico y regalo sorpresa.',
+      badge: 'Nivel Avanzado',
+      description: 'Un taller intensivo enfocado en la técnica impasto con pasta de relieve, espátulas de metal y sellado con verniz de galería.',
       highlights: [
-        'Participación completa en ambos talleres (Velas + Pintura)',
-        'Almuerzo o merienda ampliada incluida',
-        'Cajas de regalo especiales para transportar tus creaciones',
-        'Descuento exclusivo en insumos para seguir creando en casa',
-        'Asesoría para iniciar tu propio emprendimiento'
+        'Uso de pastas de relieve y gesso estructural',
+        'Técnica de espátula para flores y relieves botánicos',
+        'Lienzo de gran formato con marco de madera',
+        'Protección final con varniz satinado o brillante',
+        'Copa de vino premium y tabla de bocadillos gourmet'
       ],
-      whatsappMsg: '¡Hola! Me interesa solicitar información sobre la Experiencia Completa Combo Velas + Pintura.'
+      whatsappMsg: '¡Hola! Deseo información e inscripción para el Curso Avanzado de Pintura.'
+    },
+    {
+      id: 'patinas',
+      category: 'patinas',
+      title: 'Curso de Pátinas & Acabados Artísticos',
+      subtitle: 'Aprende a transformar figuras de yeso y cerámica con técnicas metálicas envejecidas.',
+      image: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=800&q=80',
+      price: '₡28.000',
+      currency: 'CRC por persona',
+      duration: '3 horas 30 minutos',
+      location: 'San José / Turrialba / San Carlos',
+      badge: 'Especialidad',
+      description: 'Aprende el arte tradicional de las pátinas a la cera, bronces, cobres, pátinas oxidadas y decapados sobre superficies rígidas.',
+      highlights: [
+        'Preparación y sellado de figuras en yeso cerámico',
+        'Aplicación de ceras metálicas, betún de Judea y pátina verde turquesa',
+        'Técnica de pincel seco para resaltar relieves',
+        '2 Figuras esculturales incluidas para llevar a casa',
+        'Guía impresa de combinaciones de fórmulas'
+      ],
+      whatsappMsg: '¡Hola! Quisiera matricular el Curso de Pátinas & Acabados Artísticos.'
+    },
+    {
+      id: 'velas-basico',
+      category: 'velas',
+      title: 'Curso Básico de Velas',
+      subtitle: 'Iníciate en la cerería artesanal creando velas aromáticas de cera de soya en frasco.',
+      image: 'https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=800&q=80',
+      price: '₡25.000',
+      currency: 'CRC por persona',
+      duration: '3 horas',
+      location: 'San José / Turrialba / San Carlos',
+      badge: 'Más Popular',
+      description: 'Conoce los tipos de ceras ecológicas, puntos de fusión y el cálculo exacto de fragancia para elaborar velas perfectas.',
+      highlights: [
+        'Propiedades de la cera de soya 100% vegetal',
+        'Cálculo de porcentaje de aromas e inserción de mechas de algodón',
+        'Elaboración de 2 velas en vaso de vidrio ámbar y lata decorativa',
+        'Guía básica impresa de formulación',
+        'Merienda especial con bebidas calientes'
+      ],
+      whatsappMsg: '¡Hola! Me interesa inscribirme en el Curso Básico de Velas.'
+    },
+    {
+      id: 'velas-medio',
+      category: 'velas',
+      title: 'Curso Medio de Velas',
+      subtitle: 'Crea velas en moldes de silicona, incrustaciones de flores botánicas y efectos de color.',
+      image: 'https://images.unsplash.com/photo-1605651202774-7d573fd3f12d?auto=format&fit=crop&w=800&q=80',
+      price: '₡29.500',
+      currency: 'CRC por persona',
+      duration: '3 horas 30 minutos',
+      location: 'San José / Turrialba / San Carlos',
+      badge: 'Recomendado',
+      description: 'Aprende a trabajar con ceras de alto punto de fusión para desmolde perfecto de figuras geométricas y decoración con flores secas.',
+      highlights: [
+        'Uso de ceras duras para velas de molde sin contenedor',
+        'Decoración de superficie con botánica y cuarzos naturales',
+        'Pigmentación uniforme y técnica de capas de colores',
+        '3 Velas de molde esculturales terminadas',
+        'Manual intermedio de aditivos para mayor durabilidad'
+      ],
+      whatsappMsg: '¡Hola! Quisiera información para el Curso Medio de Velas.'
+    },
+    {
+      id: 'velas-avanzado',
+      category: 'velas',
+      title: 'Curso Avanzado de Velas',
+      subtitle: 'Formulación profesional de masajes, mechas de madera, velas de gel y proyectos para negocio.',
+      image: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=800&q=80',
+      price: '₡38.000',
+      currency: 'CRC por persona',
+      duration: '4 horas',
+      location: 'San José / Turrialba / San Carlos',
+      badge: 'Profesional / Emprendedor',
+      description: 'Diseñado para quienes buscan comercializar su propia marca. Incluye velas terapéuticas para masaje, mechas de cedro y etiquetado normativo.',
+      highlights: [
+        'Formulación de velas de masaje con mantecas de karité y coco',
+        'Técnica de colocación de mechas de madera de cedro crepitante',
+        'Creación de velas transparentes en cera de gel cristalina',
+        'Costeo de materiales y guía de proveedores locales',
+        'Asesoría personalizada para emprendimientos'
+      ],
+      whatsappMsg: '¡Hola! Me interesa inscribirme en el Curso Avanzado de Velas.'
     }
   ];
 
-  const filteredCourses = selectedCourse === 'all'
+  const filteredCourses = selectedCategory === 'all'
     ? courses
-    : courses.filter(c => c.category === selectedCourse);
+    : courses.filter(c => c.category === selectedCategory);
 
   return (
     <section id="cursos" className="py-20 bg-white">
@@ -83,54 +165,65 @@ export default function Courses({ onSelectCourseDetail }) {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <span className="text-[#c87563] font-semibold text-sm uppercase tracking-wider">
-            Nuestros Talleres
+            Nuestros 7 Cursos Especializados
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#3d2c29] font-bold">
-            Elige Tu Experiencia Creativa
+            Elige Tu Nivel & Experiencia Creativa
           </h2>
           <p className="text-[#6b5852] text-lg font-light">
-            Nuestros talleres están diseñados para principiantes y entusiastas del arte. No requieres conocimientos previos, solo tus ganas de conectar y crear.
+            Desde niveles básicos para principiantes hasta módulos avanzados y pátinas artísticas. Impartidos en San José, Turrialba y San Carlos.
           </p>
 
           {/* Filter Tabs */}
           <div className="flex flex-wrap items-center justify-center gap-2 pt-4">
             <button
-              onClick={() => setSelectedCourse('all')}
+              onClick={() => setSelectedCategory('all')}
               className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
-                selectedCourse === 'all'
+                selectedCategory === 'all'
                   ? 'bg-[#3d2c29] text-white shadow-md'
                   : 'bg-[#faf7f5] text-[#5c4a43] hover:bg-[#f2dfd8]'
               }`}
             >
-              Todos los Cursos
+              Todos los 7 Cursos
             </button>
             <button
-              onClick={() => setSelectedCourse('velas')}
+              onClick={() => setSelectedCategory('pintura')}
               className={`inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
-                selectedCourse === 'velas'
-                  ? 'bg-[#c87563] text-white shadow-md'
-                  : 'bg-[#faf7f5] text-[#5c4a43] hover:bg-[#f2dfd8]'
-              }`}
-            >
-              <Flame className="w-4 h-4" />
-              <span>Velas Artesanales</span>
-            </button>
-            <button
-              onClick={() => setSelectedCourse('pintura')}
-              className={`inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
-                selectedCourse === 'pintura'
+                selectedCategory === 'pintura'
                   ? 'bg-[#c87563] text-white shadow-md'
                   : 'bg-[#faf7f5] text-[#5c4a43] hover:bg-[#f2dfd8]'
               }`}
             >
               <Palette className="w-4 h-4" />
-              <span>Pintura & Arte</span>
+              <span>Cursos de Pintura</span>
+            </button>
+            <button
+              onClick={() => setSelectedCategory('velas')}
+              className={`inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
+                selectedCategory === 'velas'
+                  ? 'bg-[#c87563] text-white shadow-md'
+                  : 'bg-[#faf7f5] text-[#5c4a43] hover:bg-[#f2dfd8]'
+              }`}
+            >
+              <Flame className="w-4 h-4" />
+              <span>Cursos de Velas</span>
+            </button>
+            <button
+              onClick={() => setSelectedCategory('patinas')}
+              className={`inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
+                selectedCategory === 'patinas'
+                  ? 'bg-[#c87563] text-white shadow-md'
+                  : 'bg-[#faf7f5] text-[#5c4a43] hover:bg-[#f2dfd8]'
+              }`}
+            >
+              <Layers className="w-4 h-4" />
+              <span>Curso de Pátinas</span>
             </button>
           </div>
         </div>
 
         {/* Courses Cards Grid */}
-        <div className="mt-14 grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredCourses.map((course) => {
             const whatsappUrl = `https://wa.me/50688390436?text=${encodeURIComponent(course.whatsappMsg)}`;
 
@@ -205,7 +298,7 @@ export default function Courses({ onSelectCourseDetail }) {
                       className="w-full inline-flex items-center justify-center gap-2 bg-[#3d2c29] hover:bg-[#2a1e1c] text-white py-3 px-6 rounded-2xl font-medium text-sm transition-all shadow-md"
                     >
                       <Eye className="w-4 h-4" />
-                      <span>Ver Detalle del Curso</span>
+                      <span>Ver Ficha del Curso</span>
                     </button>
                   )}
                   <a
@@ -234,7 +327,7 @@ export default function Courses({ onSelectCourseDetail }) {
               ¿Buscas un Taller Privado para tu Grupo o Empresa?
             </h3>
             <p className="text-sm sm:text-base text-[#6b5852] max-w-2xl">
-              Organizamos talleres personalizados para cumpleaños, despedidas de soltera, team building corporativo y reuniones de amigas. Nos adaptamos a tu horario y lugar.
+              Organizamos talleres personalizados para cumpleaños, despedidas de soltera, team building corporativo y reuniones de amigas en San José, Turrialba y San Carlos.
             </p>
           </div>
           <a

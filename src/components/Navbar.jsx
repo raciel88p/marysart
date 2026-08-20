@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Sparkles, Menu, X, MessageCircle, Grid, Home } from 'lucide-react';
+import { Sparkles, Menu, X, MessageCircle, Grid, Package, Home } from 'lucide-react';
 
-export default function Navbar({ currentView, onNavigateHome, onNavigateCatalog }) {
+export default function Navbar({ currentView, onNavigateHome, onNavigateCatalog, onNavigatePieces }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const whatsappMessage = encodeURIComponent(
@@ -33,11 +33,11 @@ export default function Navbar({ currentView, onNavigateHome, onNavigateCatalog 
           </button>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-[#5c4a43]">
+          <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-[#5c4a43]">
             <button
               onClick={onNavigateHome}
               className={`hover:text-[#e8a598] transition-colors ${
-                currentView?.type === 'home' ? 'text-[#c87563] font-bold' : ''
+                currentView === 'home' ? 'text-[#c87563] font-bold' : ''
               }`}
             >
               Inicio
@@ -45,22 +45,31 @@ export default function Navbar({ currentView, onNavigateHome, onNavigateCatalog 
             <button
               onClick={onNavigateCatalog}
               className={`inline-flex items-center gap-1 hover:text-[#e8a598] transition-colors ${
-                currentView?.type === 'catalog' ? 'text-[#c87563] font-bold' : ''
+                currentView === 'catalog' ? 'text-[#c87563] font-bold' : ''
               }`}
             >
               <Grid className="w-4 h-4 text-[#c87563]" />
-              <span>Ver Catálogo Completo</span>
+              <span>Catálogo Cursos</span>
             </button>
-            <a href="#cursos" onClick={currentView?.type !== 'home' ? onNavigateHome : undefined} className="hover:text-[#e8a598] transition-colors">
+            <button
+              onClick={onNavigatePieces}
+              className={`inline-flex items-center gap-1 hover:text-[#e8a598] transition-colors ${
+                currentView === 'pieces' ? 'text-[#c87563] font-bold' : ''
+              }`}
+            >
+              <Package className="w-4 h-4 text-[#c87563]" />
+              <span>Catálogo Piezas</span>
+            </button>
+            <a href="#cursos" onClick={currentView !== 'home' ? onNavigateHome : undefined} className="hover:text-[#e8a598] transition-colors">
               Talleres
             </a>
-            <a href="#galeria" onClick={currentView?.type !== 'home' ? onNavigateHome : undefined} className="hover:text-[#e8a598] transition-colors">
+            <a href="#galeria" onClick={currentView !== 'home' ? onNavigateHome : undefined} className="hover:text-[#e8a598] transition-colors">
               Galería
             </a>
-            <a href="#testimonios" onClick={currentView?.type !== 'home' ? onNavigateHome : undefined} className="hover:text-[#e8a598] transition-colors">
+            <a href="#testimonios" onClick={currentView !== 'home' ? onNavigateHome : undefined} className="hover:text-[#e8a598] transition-colors">
               Testimonios
             </a>
-            <a href="#faqs" onClick={currentView?.type !== 'home' ? onNavigateHome : undefined} className="hover:text-[#e8a598] transition-colors">
+            <a href="#faqs" onClick={currentView !== 'home' ? onNavigateHome : undefined} className="hover:text-[#e8a598] transition-colors">
               FAQs
             </a>
           </nav>
@@ -104,7 +113,13 @@ export default function Navbar({ currentView, onNavigateHome, onNavigateCatalog 
             onClick={() => { onNavigateCatalog(); setMobileMenuOpen(false); }}
             className="block w-full text-left py-2 text-[#c87563] font-bold"
           >
-            Ver Catálogo de Cursos
+            Catálogo de Cursos
+          </button>
+          <button
+            onClick={() => { onNavigatePieces(); setMobileMenuOpen(false); }}
+            className="block w-full text-left py-2 text-[#c87563] font-bold"
+          >
+            Catálogo de Piezas
           </button>
           <a
             href="#cursos"

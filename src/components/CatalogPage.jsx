@@ -1,90 +1,123 @@
 import React, { useState } from 'react';
-import { Search, Flame, Palette, Package, Filter, ArrowLeft, Clock, MapPin, CheckCircle, MessageCircle, Eye, Sparkles } from 'lucide-react';
+import { Search, Flame, Palette, Package, Filter, ArrowLeft, Clock, MapPin, CheckCircle, MessageCircle, Eye, Sparkles, Layers } from 'lucide-react';
 
-export default function CatalogPage({ onNavigateHome, onSelectCourseDetail }) {
+export default function CatalogPage({ onNavigateHome, onSelectCourseDetail, onNavigatePieces }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [sortBy, setSortBy] = useState('popular');
 
   const catalogItems = [
     {
-      id: 'velas',
-      category: 'velas',
-      type: 'Taller Presencial',
-      title: 'Taller de Velas Artesanales & Rituales de Bienestar',
-      subtitle: 'Aprende a formular y verter velas aromáticas de cera de soya natural con flores botánicas.',
-      image: 'https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=800&q=80',
-      price: 29500,
-      priceFormatted: '₡29.500',
-      duration: '3h 30m',
-      location: 'San José / Turrialba / San Carlos',
-      badge: 'Más Vendido',
-      popularity: 10,
-      description: 'Elaboración paso a paso de 2 velas completas en envase de vidrio y lata decorativa. Selección de fragancias botánicas, colocación de mechas de algodón y acabado en flores secas.',
-      included: ['Ceras vegetales 100% naturales', 'Fragancias esenciales puras', 'Merienda y bebidas incluidas', 'Manual impreso de fórmulas']
-    },
-    {
-      id: 'pintura',
+      id: 'pintura-basico',
       category: 'pintura',
       type: 'Taller Presencial',
-      title: 'Taller de Pintura Creativa & Pinta y Vino',
-      subtitle: 'Expresa tu creatividad en lienzo con acrílicos y técnicas de espátula relajantes.',
+      title: 'Curso Básico de Pintura',
+      subtitle: 'Aprende los fundamentos del pincel, teoría del color y mezcla de tonos acrílicos desde cero.',
+      image: 'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=800&q=80',
+      price: 25000,
+      priceFormatted: '₡25.000',
+      duration: '3h',
+      location: 'San José / Turrialba / San Carlos',
+      badge: 'Principiante',
+      popularity: 9,
+      description: 'Ideal para quienes nunca han tomado un pincel. Conocerás técnicas de degradado, manejo de agua y fijación de capas sobre lienzo.',
+      included: ['Principios de teoría del color', 'Lienzo de 30x40cm incluido', 'Insumos acrílicos y pinceles', 'Merienda y café artesanal']
+    },
+    {
+      id: 'pintura-medio',
+      category: 'pintura',
+      type: 'Taller Presencial',
+      title: 'Curso Medio de Pintura',
+      subtitle: 'Domina técnicas de luces, sombras y composición para dar profundidad a tus obras.',
       image: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80',
       price: 29500,
       priceFormatted: '₡29.500',
       duration: '3h 30m',
       location: 'San José / Turrialba / San Carlos',
-      badge: 'Novedad',
+      badge: 'Intermedio',
       popularity: 8,
-      description: 'Una velada relajante para soltar el estrés mediante pinceladas libres. No requieres saber pintar: la guía te acompaña en cada trazo.',
-      included: ['Lienzo 30x40cm', 'Acrílicos y pinceles profesionales', 'Copa de vino o café gourmet', 'Obra lista para colgar']
+      description: 'Avanza en tu expresión artística profundizando en el volumen, contrastes y armonías complejas de color en bodegones y paisajes.',
+      included: ['Manejo de luz/sombra en acrílico', 'Perspectiva y volumen', 'Copa de vino de bienvenida', 'Lienzo sobre bastidor']
     },
     {
-      id: 'combo',
-      category: 'combo',
-      title: 'Experiencia Completa: Combo Velas + Pintura Artística',
-      subtitle: 'Sumérgete en un día entero de creación, velas aromáticas y pintura sobre lienzo.',
-      image: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=80',
-      price: 52000,
-      priceFormatted: '₡52.000',
-      duration: '6h (Jornada Doble)',
-      location: 'San José / Turrialba / San Carlos',
-      badge: 'Ahorra ₡7.000',
-      popularity: 9,
-      description: 'La experiencia definitiva para los amantes de las manualidades y el bienestar. Incluye los dos módulos completos con un descuento especial.',
-      included: ['Ambos talleres incluidos', 'Almuerzo / merienda especial', 'Empaque de regalo para creaciones', 'Asesoría para emprendimiento']
-    },
-    {
-      id: 'kit-velas',
-      category: 'kits',
-      type: 'Kit en Casa',
-      title: 'Kit Inicial DIY: Haz tu Vela Artesanal en Casa',
-      subtitle: 'Todo lo que necesitas empaquetado en una hermosa caja con guía en video.',
-      image: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=800&q=80',
-      price: 18500,
-      priceFormatted: '₡18.500',
-      duration: 'A tu propio ritmo',
-      location: 'Envío a todo Costa Rica',
-      badge: 'Para Regalo',
-      popularity: 7,
-      description: 'Disfruta la experiencia desde la comodidad de tu hogar. Incluye cera de soya, mechas, esencias concentradas, contenedor e instrucciones ilustradas.',
-      included: ['500g Cera de soya ecológica', 'Esencia de Lavanda & Vainilla', '2 Frascos de vidrio ambar', 'Acceso a tutorial en video']
-    },
-    {
-      id: 'kit-pintura',
-      category: 'kits',
-      type: 'Kit en Casa',
-      title: 'Kit de Pintura Acrílica & Set de Pinceles',
-      subtitle: 'Caja con bastidor de tela, paleta de mezclas y tubos de pintura de alta pigmentación.',
+      id: 'pintura-avanzado',
+      category: 'pintura',
+      type: 'Taller Presencial',
+      title: 'Curso Avanzado de Pintura',
+      subtitle: 'Explora técnicas mixtas, texturas tridimensionales con espátula y acabado profesional.',
       image: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=80',
-      price: 16000,
-      priceFormatted: '₡16.000',
-      duration: 'A tu propio ritmo',
-      location: 'Envío a todo Costa Rica',
-      badge: 'Kit Creativo',
-      popularity: 6,
-      description: 'Perfecto para tardes lluviosas o proyectos de fin de semana. Todo el material necesario para soltar la imaginación.',
-      included: ['1 Lienzo con bastidor de madera', 'Set de 12 pinturas acrílicas', 'Set de 5 pinceles variados', 'Paleta y delantal protector']
+      price: 35000,
+      priceFormatted: '₡35.000',
+      duration: '4h',
+      location: 'San José / Turrialba / San Carlos',
+      badge: 'Avanzado',
+      popularity: 7,
+      description: 'Un taller intensivo enfocado en la técnica impasto con pasta de relieve, espátulas de metal y sellado con verniz de galería.',
+      included: ['Uso de pastas de relieve gesso', 'Técnica de espátula para flores', 'Lienzo gran formato', 'Bocadillos gourmet']
+    },
+    {
+      id: 'patinas',
+      category: 'patinas',
+      type: 'Taller Presencial',
+      title: 'Curso de Pátinas & Acabados Artísticos',
+      subtitle: 'Aprende a transformar figuras de yeso y cerámica con técnicas metálicas envejecidas.',
+      image: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=800&q=80',
+      price: 28000,
+      priceFormatted: '₡28.000',
+      duration: '3h 30m',
+      location: 'San José / Turrialba / San Carlos',
+      badge: 'Especialidad',
+      popularity: 10,
+      description: 'Aprende el arte tradicional de las pátinas a la cera, bronces, cobres, pátinas oxidadas y decapados sobre superficies rígidas.',
+      included: ['Preparación de yeso cerámico', 'Ceras metálicas y betún de Judea', '2 Figuras esculturales incluidas', 'Manual de fórmulas']
+    },
+    {
+      id: 'velas-basico',
+      category: 'velas',
+      type: 'Taller Presencial',
+      title: 'Curso Básico de Velas',
+      subtitle: 'Iníciate en la cerería artesanal creando velas aromáticas de cera de soya en frasco.',
+      image: 'https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=800&q=80',
+      price: 25000,
+      priceFormatted: '₡25.000',
+      duration: '3h',
+      location: 'San José / Turrialba / San Carlos',
+      badge: 'Principiante',
+      popularity: 10,
+      description: 'Conoce los tipos de ceras ecológicas, puntos de fusión y el cálculo exacto de fragancia para elaborar velas perfectas.',
+      included: ['Cera de soya 100% vegetal', 'Medición de aromas y mechas', '2 Velas terminadas en frasco', 'Guía impresa paso a paso']
+    },
+    {
+      id: 'velas-medio',
+      category: 'velas',
+      type: 'Taller Presencial',
+      title: 'Curso Medio de Velas',
+      subtitle: 'Crea velas en moldes de silicona, incrustaciones de flores botánicas y efectos de color.',
+      image: 'https://images.unsplash.com/photo-1605651202774-7d573fd3f12d?auto=format&fit=crop&w=800&q=80',
+      price: 29500,
+      priceFormatted: '₡29.500',
+      duration: '3h 30m',
+      location: 'San José / Turrialba / San Carlos',
+      badge: 'Intermedio',
+      popularity: 8,
+      description: 'Aprende a trabajar con ceras de alto punto de fusión para desmolde perfecto de figuras geométricas y decoración con flores secas.',
+      included: ['Ceras duras para moldes', 'Botánica y cuarzos naturales', 'Pigmentación uniforme', '3 Velas de molde hechas por ti']
+    },
+    {
+      id: 'velas-avanzado',
+      category: 'velas',
+      type: 'Taller Presencial',
+      title: 'Curso Avanzado de Velas',
+      subtitle: 'Formulación profesional de masajes, mechas de madera, velas de gel y proyectos para negocio.',
+      image: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=800&q=80',
+      price: 38000,
+      priceFormatted: '₡38.000',
+      duration: '4h',
+      location: 'San José / Turrialba / San Carlos',
+      badge: 'Profesional',
+      popularity: 9,
+      description: 'Diseñado para quienes buscan comercializar su propia marca. Incluye velas terapéuticas para masaje, mechas de cedro y etiquetado normativo.',
+      included: ['Velas de masaje con karité', 'Mechas de madera crepitante', 'Velas transparentes en gel', 'Guía de proveedores y costeo']
     }
   ];
 
@@ -99,7 +132,7 @@ export default function CatalogPage({ onNavigateHome, onSelectCourseDetail }) {
     .sort((a, b) => {
       if (sortBy === 'price-low') return a.price - b.price;
       if (sortBy === 'price-high') return b.price - a.price;
-      return b.popularity - a.popularity; // Default: popular
+      return b.popularity - a.popularity;
     });
 
   return (
@@ -107,16 +140,26 @@ export default function CatalogPage({ onNavigateHome, onSelectCourseDetail }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Top Breadcrumb & Return button */}
-        <div className="flex items-center justify-between mb-8">
-          <button
-            onClick={onNavigateHome}
-            className="inline-flex items-center gap-2 text-sm font-medium text-[#c87563] hover:text-[#a85848] transition-colors bg-white px-4 py-2 rounded-full border border-[#e8ded5] shadow-sm"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            <span>Volver al Inicio</span>
-          </button>
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
+          <div className="flex items-center gap-2">
+            <button
+              onClick={onNavigateHome}
+              className="inline-flex items-center gap-2 text-xs font-semibold text-[#8c7a6b] hover:text-[#3d2c29] transition-colors bg-white px-4 py-2 rounded-full border border-[#e8ded5] shadow-sm"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              <span>Volver al Inicio</span>
+            </button>
+            {onNavigatePieces && (
+              <button
+                onClick={onNavigatePieces}
+                className="inline-flex items-center gap-2 text-xs font-semibold text-[#8c7a6b] hover:text-[#3d2c29] transition-colors bg-white px-4 py-2 rounded-full border border-[#e8ded5] shadow-sm"
+              >
+                <span>Ver Catálogo de Piezas</span>
+              </button>
+            )}
+          </div>
           <span className="text-xs text-[#8c7a6b] font-medium uppercase tracking-wider">
-            Catálogo Completo de Experiencias & Kits
+            Catálogo de Cursos & Niveles
           </span>
         </div>
 
@@ -124,13 +167,13 @@ export default function CatalogPage({ onNavigateHome, onSelectCourseDetail }) {
         <div className="bg-gradient-to-r from-[#3d2c29] to-[#5c4a43] rounded-3xl p-8 sm:p-12 text-white shadow-lg mb-12 relative overflow-hidden">
           <div className="relative z-10 max-w-2xl space-y-4">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#c87563]/30 text-[#f2dfd8] border border-[#c87563]/40">
-              <Sparkles className="w-3.5 h-3.5" /> Catálogo 2025
+              <Sparkles className="w-3.5 h-3.5" /> 7 Cursos Disponibles
             </span>
             <h1 className="font-serif text-3xl sm:text-5xl font-bold leading-tight">
-              Catálogo de Talleres Presenciales y Kits Creativos
+              Catálogo de Cursos Presenciales por Nivel
             </h1>
             <p className="text-[#e8ded5] text-base font-light">
-              Explora nuestra oferta completa de talleres de arte botánico, elaboración de velas y kits DIY para regalar o disfrutar en casa.
+              Explora nuestros 7 cursos estructurados en Pintura (Básico, Medio, Avanzado), Velas (Básico, Medio, Avanzado) y Pátinas Artísticas.
             </p>
           </div>
         </div>
@@ -144,7 +187,7 @@ export default function CatalogPage({ onNavigateHome, onSelectCourseDetail }) {
               <Search className="w-5 h-5 text-[#8c7a6b] absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
-                placeholder="Buscar talleres, técnicas, kits..."
+                placeholder="Buscar cursos por nivel, técnica o insumos..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-[#e8ded5] text-sm text-[#3d2c29] focus:outline-none focus:ring-2 focus:ring-[#c87563] bg-[#faf7f5]"
@@ -178,17 +221,7 @@ export default function CatalogPage({ onNavigateHome, onSelectCourseDetail }) {
                   : 'bg-[#faf7f5] text-[#5c4a43] hover:bg-[#f2dfd8]'
               }`}
             >
-              Todos ({catalogItems.length})
-            </button>
-            <button
-              onClick={() => setSelectedCategory('velas')}
-              className={`inline-flex items-center gap-1 px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
-                selectedCategory === 'velas'
-                  ? 'bg-[#c87563] text-white'
-                  : 'bg-[#faf7f5] text-[#5c4a43] hover:bg-[#f2dfd8]'
-              }`}
-            >
-              <Flame className="w-3.5 h-3.5" /> Velas Artesanales
+              Todos los Cursos ({catalogItems.length})
             </button>
             <button
               onClick={() => setSelectedCategory('pintura')}
@@ -198,27 +231,27 @@ export default function CatalogPage({ onNavigateHome, onSelectCourseDetail }) {
                   : 'bg-[#faf7f5] text-[#5c4a43] hover:bg-[#f2dfd8]'
               }`}
             >
-              <Palette className="w-3.5 h-3.5" /> Pintura & Arte
+              <Palette className="w-3.5 h-3.5" /> Pintura (3 Niveles)
             </button>
             <button
-              onClick={() => setSelectedCategory('combo')}
+              onClick={() => setSelectedCategory('velas')}
               className={`inline-flex items-center gap-1 px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
-                selectedCategory === 'combo'
+                selectedCategory === 'velas'
                   ? 'bg-[#c87563] text-white'
                   : 'bg-[#faf7f5] text-[#5c4a43] hover:bg-[#f2dfd8]'
               }`}
             >
-              <Sparkles className="w-3.5 h-3.5" /> Combos Especiales
+              <Flame className="w-3.5 h-3.5" /> Velas (3 Niveles)
             </button>
             <button
-              onClick={() => setSelectedCategory('kits')}
+              onClick={() => setSelectedCategory('patinas')}
               className={`inline-flex items-center gap-1 px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
-                selectedCategory === 'kits'
+                selectedCategory === 'patinas'
                   ? 'bg-[#c87563] text-white'
                   : 'bg-[#faf7f5] text-[#5c4a43] hover:bg-[#f2dfd8]'
               }`}
             >
-              <Package className="w-3.5 h-3.5" /> Kits DIY en Casa
+              <Layers className="w-3.5 h-3.5" /> Pátinas
             </button>
           </div>
         </div>
@@ -238,7 +271,7 @@ export default function CatalogPage({ onNavigateHome, onSelectCourseDetail }) {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredItems.map((item) => {
-              const whatsappUrl = `https://wa.me/50688390436?text=${encodeURIComponent(`¡Hola! Quisiera más detalles sobre: ${item.title}`)}`;
+              const whatsappUrl = `https://wa.me/50688390436?text=${encodeURIComponent(`¡Hola! Quisiera más detalles para matricular: ${item.title}`)}`;
 
               return (
                 <div
@@ -295,7 +328,7 @@ export default function CatalogPage({ onNavigateHome, onSelectCourseDetail }) {
 
                   {/* Card Footer Actions */}
                   <div className="p-6 pt-0 space-y-2">
-                    {item.category !== 'kits' && onSelectCourseDetail && (
+                    {onSelectCourseDetail && (
                       <button
                         onClick={() => onSelectCourseDetail(item.id)}
                         className="w-full inline-flex items-center justify-center gap-2 bg-[#3d2c29] hover:bg-[#2a1e1c] text-white py-2.5 px-4 rounded-xl font-medium text-xs transition-all"

@@ -2,173 +2,262 @@ import React from 'react';
 import { ArrowLeft, Clock, MapPin, CheckCircle2, Calendar, ShieldCheck, Heart, Sparkles, MessageCircle, User, Award, BookOpen } from 'lucide-react';
 
 const COURSES_DATA = {
-  velas: {
-    id: 'velas',
-    title: 'Taller de Velas Artesanales & Rituales de Bienestar',
-    subtitle: 'Aprende a formular y verter velas aromáticas de cera de soya natural con flores botánicas.',
-    badge: 'Más Popular',
-    price: '₡29.500',
+  'pintura-basico': {
+    id: 'pintura-basico',
+    title: 'Curso Básico de Pintura',
+    subtitle: 'Aprende los fundamentos del pincel, teoría del color y mezcla de tonos acrílicos desde cero.',
+    badge: 'Nivel Principiante',
+    price: '₡25.000',
     currency: 'CRC por persona (Todo incluido)',
-    duration: '3 horas 30 minutos',
+    duration: '3 horas',
     location: 'Sedes en San José (Tres Ríos), Turrialba (Sede CATIE/Centro) y San Carlos (Ciudad Quesada)',
-    image: 'https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=1000&q=80',
-    description: `Sumérgete en un espacio de paz y desconexión donde aprenderás la alquimia de la cerería botánica. En este taller teórico-práctico dominarás la temperatura de vertido, cálculo de fragancias y técnicas de fijado de mechas ecológicas para crear velas limpias, duraderas y libres de parafinas contaminantes.`,
+    image: 'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=1000&q=80',
+    description: `El punto de partida ideal si nunca has agarrado un pincel. En este curso aprenderás la postura correcta, tipos de pincel, soltura de trazo, mezcla en paleta y aplicación de capas base sobre lienzo.`,
     syllabus: [
-      {
-        time: '30 mins',
-        title: 'Módulo 1: Introducción a las Ceras Vegetales',
-        desc: 'Tipos de ceras (soya, coco, palma), propiedades térmicas, punto de fusión y diferencia contra ceras de parafina sintética.'
-      },
-      {
-        time: '45 mins',
-        title: 'Módulo 2: Formulación y Porcentaje de Fragancia',
-        desc: 'Cálculo de densidad y porcentaje de fragancias esenciales. Medición exacta de temperatura de adición y vertido.'
-      },
-      {
-        time: '60 mins',
-        title: 'Módulo 3: Armado, Vertido y Fijación de Mecha',
-        desc: 'Selección del grosor de mecha de algodón ecológico. Proceso de vertido en contenedores de vidrio ambar y lata decorativa.'
-      },
-      {
-        time: '45 mins',
-        title: 'Módulo 4: Decoración Botánica y Acabados',
-        desc: 'Diseño estético en superficie utilizando lavanda, manzanilla, pétalos de rosa secos y cuarzos naturales.'
-      },
-      {
-        time: '30 mins',
-        title: 'Módulo 5: Merienda y Cierre Sensorial',
-        desc: 'Espacio de convivencia con café gourmet, bebidas calientes y refrigerios mientras las velas completan su proceso inicial de curado.'
-      }
+      { time: '30 mins', title: 'Módulo 1: Tipos de Pinceles y Lienzos', desc: 'Introducción a fibras sintéticas y cerda dura, preparación del lienzo y boceto.' },
+      { time: '45 mins', title: 'Módulo 2: Círculo Cromático y Mezclas', desc: 'Creación de matices secundarios y terciarios a partir de colores primarios.' },
+      { time: '60 mins', title: 'Módulo 3: Primeras Pinceladas y Bloques de Color', desc: 'Pintado del fondo y formas principales con técnica acrílica fluida.' },
+      { time: '45 mins', title: 'Módulo 4: Cierre, Firma y Merienda', desc: 'Detalles finales, firma de autoría y espacio de relajación con bebidas calientes.' }
     ],
     materials: [
-      'Cera de soya 100% natural libre de toxinas',
-      'Esencias aromáticas puras de grado cosmético',
-      '2 Contenedores (1 vaso de vidrio y 1 lata metálica artesanal)',
-      'Mechas de algodón no blanqueado y soportes',
-      'Variedad de flores botánicas secas y cuarzos decorativos',
-      'Guía impresa paso a paso + Hoja de fórmulas para repetir en casa',
-      'Delantal protector durante el taller',
-      'Caja de empaque especial para llevarte tus obras'
+      'Lienzo 30x40cm sobre bastidor de madera',
+      'Set de 12 acrílicos de alta concentración',
+      'Set de 5 pinceles para nivel principiante',
+      'Paleta de mezclas y delantal protector',
+      'Merienda artesanal con café o té'
     ],
     instructor: {
       name: 'Mary Rodríguez',
-      role: 'Fundadora & Crafter Principal de Resina Art & Mary',
-      bio: 'Con más de 6 años de experiencia en artes manuales y formulación botánica, Mary ha guiado a más de 350 personas en el aprendizaje de velas artesanales y resina.',
+      role: 'Fundadora & Instructora Principal',
+      bio: 'Apasionada por enseñar a personas sin conocimientos previos a perder el miedo al lienzo.',
       avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80'
     },
     dates: [
-      'Sábado 15 de Marzo - 9:00 AM a 12:30 PM (Últimos 3 cupos)',
-      'Domingo 23 de Marzo - 2:00 PM a 5:30 PM (Cupos disponibles)',
-      'Sábado 5 de Abril - 9:00 AM a 12:30 PM (Cupos disponibles)'
+      'Sábado 15 de Marzo - 9:00 AM a 12:00 PM',
+      'Domingo 23 de Marzo - 2:00 PM a 5:00 PM'
     ],
-    whatsappMsg: '¡Hola Mary! Quisiera reservar un cupo para el Taller de Velas Artesanales.'
+    whatsappMsg: '¡Hola Mary! Quisiera reservar un cupo para el Curso Básico de Pintura.'
   },
-  pintura: {
-    id: 'pintura',
-    title: 'Taller de Pintura Creativa & Pinta y Vino',
-    subtitle: 'Expresa tu creatividad en lienzo con acrílicos y técnicas de espátula en una velada alegre y relajante.',
-    badge: 'Novedad',
+  'pintura-medio': {
+    id: 'pintura-medio',
+    title: 'Curso Medio de Pintura',
+    subtitle: 'Domina técnicas de luces, sombras y composición para dar profundidad a tus obras.',
+    badge: 'Nivel Intermedio',
     price: '₡29.500',
     currency: 'CRC por persona (Todo incluido)',
     duration: '3 horas 30 minutos',
     location: 'Sedes en San José (Tres Ríos), Turrialba (Sede CATIE/Centro) y San Carlos (Ciudad Quesada)',
     image: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=1000&q=80',
-    description: `Libera tu mente y descubre el placer de pintar sin miedo al lienzo en blanco. Un taller diseñado para conectar con tu lado artístico mediante capas de pintura acrílica, mezclas de color y texturas con espátula, todo acompañado de buena música y copa de vino.`,
+    description: `Avanza en tu técnica estudiando la incidencia de la luz, reflejos, sombras proyectadas y contraste para dar volumen tridimensional a figuras y paisajes.`,
     syllabus: [
-      {
-        time: '30 mins',
-        title: 'Módulo 1: Teoría del Color y Boceto Inicial',
-        desc: 'Comprensión de paletas armónicas, contraste de sombras y transferencia del diseño base al lienzo.'
-      },
-      {
-        time: '60 mins',
-        title: 'Módulo 2: Primeras Capas y Fondos con Pincel',
-        desc: 'Aplicación de acrílicos en capas ligeras para crear degradados suaves y sensación de profundidad.'
-      },
-      {
-        time: '60 mins',
-        title: 'Módulo 3: Textura Impasto y Detalles con Espátula',
-        desc: 'Uso de la espátula para dar relieve, relieve botánico y trazos expresivos a la obra.'
-      },
-      {
-        time: '60 mins',
-        title: 'Módulo 4: Firma, Verniz y Degustación',
-        desc: 'Toques finales, aplicación de sellador protector, copa de vino o bebidas calientes con tabla de aperitivos.'
-      }
+      { time: '30 mins', title: 'Módulo 1: Estudio de Puntos de Luz', desc: 'Análisis de claroscuro y valores tonales en la composición.' },
+      { time: '60 mins', title: 'Módulo 2: Veladuras y Degradados', desc: 'Aplicación de transparencias acrílicas para efectos de atmósfera.' },
+      { time: '60 mins', title: 'Módulo 3: Detallado y Volumen', desc: 'Uso de pinceles finos y perfilado de bordes suaves vs duros.' },
+      { time: '60 mins', title: 'Módulo 4: Pinta y Vino & Convivencia', desc: 'Degustación de vino o té artesanal mientras se seca la obra.' }
     ],
     materials: [
-      'Lienzo de tela sobre bastidor de madera 30x40cm',
-      'Pinturas acrílicas de alta concentración pigmentaria',
-      'Set de pinceles de fibra sintética y espátulas de pintura',
-      'Paleta de mezclas y caballete de mesa',
-      'Delantal protector de tela',
-      'Copa de vino de bienvenida o bebidas calientes/frías',
-      'Aperitivos y bocadillos artesanales'
+      'Lienzo 30x40cm de grano fino',
+      'Pinturas acrílicas profesionales',
+      'Pinceles abanico, biselados y linners',
+      'Copa de vino de bienvenida o refresco',
+      'Tabla de aperitivos'
     ],
     instructor: {
       name: 'Mary Rodríguez',
       role: 'Fundadora & Artista de Resina Art & Mary',
-      bio: 'Apasionada por transmitir la pintura como una herramienta de mindfulness y descompresión del estrés cotidiano.',
+      bio: 'Especialista en guiar a los estudiantes a encontrar su propio estilo compositivo.',
       avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80'
     },
     dates: [
-      'Sábado 22 de Marzo - 2:00 PM a 5:30 PM (Cupos disponibles)',
-      'Domingo 30 de Marzo - 9:00 AM a 12:30 PM (Últimos 2 cupos)',
-      'Sábado 12 de Abril - 2:00 PM a 5:30 PM (Cupos disponibles)'
+      'Sábado 22 de Marzo - 2:00 PM a 5:30 PM',
+      'Sábado 12 de Abril - 2:00 PM a 5:30 PM'
     ],
-    whatsappMsg: '¡Hola Mary! Quisiera reservar un cupo para el Taller de Pintura Creativa.'
+    whatsappMsg: '¡Hola Mary! Quisiera reservar un cupo para el Curso Medio de Pintura.'
   },
-  combo: {
-    id: 'combo',
-    title: 'Experiencia Completa: Combo Velas + Pintura Artística',
-    subtitle: 'Sumérgete en una jornada creativa completa donde aprenderás tanto velas artesanales como pintura en lienzo.',
-    badge: 'Ahorra ₡7.000',
-    price: '₡52.000',
-    currency: 'CRC por persona (Jornada Doble)',
-    duration: '6 horas (Dividido en 2 sesiones o 1 día completo)',
+  'pintura-avanzado': {
+    id: 'pintura-avanzado',
+    title: 'Curso Avanzado de Pintura',
+    subtitle: 'Explora técnicas mixtas, texturas tridimensionales con espátula y acabado profesional.',
+    badge: 'Nivel Avanzado',
+    price: '₡35.000',
+    currency: 'CRC por persona (Todo incluido)',
+    duration: '4 horas',
     location: 'Sedes en San José (Tres Ríos), Turrialba (Sede CATIE/Centro) y San Carlos (Ciudad Quesada)',
-    image: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=1000&q=80',
-    description: `La opción preferida de quienes buscan una inmersión completa de fin de semana. Combina el taller de velas aromáticas y el taller de pintura acrílica con un descuento exclusivo, almuerzo/merienda especial y caja de regalos.`,
+    image: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=1000&q=80',
+    description: `Una inmersión profunda para artistas que desean incorporar volúmenes con pastas impasto, espátulas metálicas de precisión y barnices protectores de alta durabilidad.`,
     syllabus: [
-      {
-        time: '3.5 Horas',
-        title: 'Módulo Matutino: Taller Completo de Velas Artesanales',
-        desc: 'Elaboración de 2 velas completas con cera de soya, fragancias y flores botánicas.'
-      },
-      {
-        time: '1 Hora',
-        title: 'Receso & Almuerzo Gourmet Incluido',
-        desc: 'Tiempo para descansar, disfrutar del jardín y compartir con las compañeras de taller.'
-      },
-      {
-        time: '3.5 Horas',
-        title: 'Módulo Vespertino: Taller de Pintura & Pinta y Vino',
-        desc: 'Creación de tu obra de arte en lienzo con técnica acrílica y espátula.'
-      }
+      { time: '45 mins', title: 'Módulo 1: Aplicación de Pastas de Relieve', desc: 'Modelado con gesso denso sobre lienzo de gran formato.' },
+      { time: '75 mins', title: 'Módulo 2: Carga y Trazo con Espátula', desc: 'Creación de pétalos, texturas orgánicas y capas gruesas de acrílico.' },
+      { time: '60 mins', title: 'Módulo 3: Pátinas de Sombra y Brillos', desc: 'Incorporación de pigmentos metalizados y toques dorados.' },
+      { time: '60 mins', title: 'Módulo 4: Barnizado y Degustación Gourmet', desc: 'Sellado protector mate/brillante y tiempo de degustación.' }
     ],
     materials: [
-      'Todos los materiales de Velas + Todos los materiales de Pintura',
-      'Almuerzo o merienda ejecutiva completa',
-      'Certificado simbólico de participación',
-      'Kit sorpresa con muestras de esencias y regalito artesanal',
-      'Descuento del 10% en tu próxima compra de materiales'
+      'Lienzo de gran formato 40x50cm',
+      'Pasta de relieve impasto y gesso denso',
+      'Set de 3 espátulas metálicas de artista',
+      'Barniz acrílico de protección UV',
+      'Copa de vino premium y merienda gourmet'
     ],
     instructor: {
       name: 'Mary Rodríguez',
-      role: 'Fundadora & Artista de Resina Art & Mary',
-      bio: 'Guía experimentada que te acompañará paso a paso para asegurar que disfrutes cada minuto de la experiencia.',
+      role: 'Fundadora & Artista Plastica',
+      bio: 'Acompaña a creadores avanzados a potenciar obras con impacto tridimensional.',
       avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80'
     },
     dates: [
-      'Sábado 29 de Marzo - 9:00 AM a 4:30 PM (Cupos disponibles)',
-      'Sábado 26 de Abril - 9:00 AM a 4:30 PM (Cupos disponibles)'
+      'Sábado 29 de Marzo - 1:00 PM a 5:00 PM',
+      'Sábado 26 de Abril - 1:00 PM a 5:00 PM'
     ],
-    whatsappMsg: '¡Hola Mary! Quisiera información y reserva para el Combo Completo Velas + Pintura.'
+    whatsappMsg: '¡Hola Mary! Quisiera reservar mi cupo para el Curso Avanzado de Pintura.'
+  },
+  'patinas': {
+    id: 'patinas',
+    title: 'Curso de Pátinas & Acabados Artísticos',
+    subtitle: 'Aprende a transformar figuras de yeso y cerámica con técnicas metálicas envejecidas.',
+    badge: 'Especialidad',
+    price: '₡28.000',
+    currency: 'CRC por persona (Todo incluido)',
+    duration: '3 horas 30 minutos',
+    location: 'Sedes en San José (Tres Ríos), Turrialba (Sede CATIE/Centro) y San Carlos (Ciudad Quesada)',
+    image: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=1000&q=80',
+    description: `Aprende el arte clásico de las pátinas decorativas sobre yeso cerámico. Dominarás el envejecido con betún de Judea, aplicación de ceras de cobre, bronce y oro, así como el efecto verde óxido.`,
+    syllabus: [
+      { time: '45 mins', title: 'Módulo 1: Sellado de Yeso Cerámico', desc: 'Aplicación de imprimantes impermeabilizantes para fijación de pigmento.' },
+      { time: '60 mins', title: 'Módulo 2: Pátinas Metálicas a la Cera', desc: 'Aplicación de ceras con los dedos y trapo suave para relucir bordes.' },
+      { time: '60 mins', title: 'Módulo 3: Envejecidos y Verde Óxido', desc: 'Técnica de lavado con betún y acrílico turquesa para óxido real.' },
+      { time: '45 mins', title: 'Módulo 4: Sellado Final y Merienda', desc: 'Aplicación de laca mate de fijación y receso ameno.' }
+    ],
+    materials: [
+      '2 Figuras esculturales de yeso cerámico denso',
+      'Set de ceras metálicas (oro, bronce, cobre)',
+      'Betún de Judea y pátina azul/verde turquesa',
+      'Trapos de algodón, pinceles de estarcido y delantal',
+      'Merienda completa y bebidas'
+    ],
+    instructor: {
+      name: 'Mary Rodríguez',
+      role: 'Especialista en Pátinas & Restauración',
+      bio: 'Especialista en acabados de época y conservación de piezas en yeso y resina.',
+      avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80'
+    },
+    dates: [
+      'Domingo 16 de Marzo - 9:00 AM a 12:30 PM',
+      'Sábado 5 de Abril - 2:00 PM a 5:30 PM'
+    ],
+    whatsappMsg: '¡Hola Mary! Deseo información e inscripción para el Curso de Pátinas.'
+  },
+  'velas-basico': {
+    id: 'velas-basico',
+    title: 'Curso Básico de Velas',
+    subtitle: 'Iníciate en la cerería artesanal creando velas aromáticas de cera de soya en frasco.',
+    badge: 'Más Popular',
+    price: '₡25.000',
+    currency: 'CRC por persona (Todo incluido)',
+    duration: '3 horas',
+    location: 'Sedes en San José (Tres Ríos), Turrialba (Sede CATIE/Centro) y San Carlos (Ciudad Quesada)',
+    image: 'https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=1000&q=80',
+    description: `Aprende las bases fundamentales de la cerería botánica. Domina las temperaturas de fusión, porcentajes de esencias aromáticas y colocado de mecha para velas de soya en contenedor.`,
+    syllabus: [
+      { time: '30 mins', title: 'Módulo 1: Tipos de Ceras Ecológicas', desc: 'Diferencia entre cera de soya, coco y parafinas sintéticas.' },
+      { time: '45 mins', title: 'Módulo 2: Cálculo de Esencias Aromáticas', desc: 'Punto de vertido ideal y porcentaje óptimo de fragancia.' },
+      { time: '60 mins', title: 'Módulo 3: Vertido y Curado', desc: 'Fijación de mechas de algodón y vertido en vaso ámbar y lata.' },
+      { time: '45 mins', title: 'Módulo 4: Decora tu Vela & Merienda', desc: 'Decoración con lavanda seca y retiro de burbujas.' }
+    ],
+    materials: [
+      'Cera de soya 100% natural',
+      'Esencias puras cosméticas (Lavanda, Vainilla, Bergamota)',
+      '1 Vaso de vidrio ámbar + 1 lata decorativa',
+      'Mechas de algodón ecológico no blanqueado',
+      'Manual de fórmulas impreso y merienda'
+    ],
+    instructor: {
+      name: 'Mary Rodríguez',
+      role: 'Crafter Principal en Velas Botánicas',
+      bio: 'Ha enseñado la alquimia de la cera de soya a cientos de alumnas en todo Costa Rica.',
+      avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80'
+    },
+    dates: [
+      'Sábado 15 de Marzo - 9:00 AM a 12:00 PM',
+      'Sábado 22 de Marzo - 9:00 AM a 12:00 PM'
+    ],
+    whatsappMsg: '¡Hola Mary! Quisiera reservar un cupo para el Curso Básico de Velas.'
+  },
+  'velas-medio': {
+    id: 'velas-medio',
+    title: 'Curso Medio de Velas',
+    subtitle: 'Crea velas en moldes de silicona, incrustaciones de flores botánicas y efectos de color.',
+    badge: 'Nivel Intermedio',
+    price: '₡29.500',
+    currency: 'CRC por persona (Todo incluido)',
+    duration: '3 horas 30 minutos',
+    location: 'Sedes en San José (Tres Ríos), Turrialba (Sede CATIE/Centro) y San Carlos (Ciudad Quesada)',
+    image: 'https://images.unsplash.com/photo-1605651202774-7d573fd3f12d?auto=format&fit=crop&w=1000&q=80',
+    description: `Diseñado para quienes desean ir más allá de los envases. Aprenderás a usar ceras de soya de mayor dureza para desmolde limpio de figuras geométricas, cuarzos y flores encapsuladas.`,
+    syllabus: [
+      { time: '30 mins', title: 'Módulo 1: Ceras de Alto Punto de Fusión', desc: 'Formulación para velas rígidas sin contenedor.' },
+      { time: '60 mins', title: 'Módulo 2: Uso de Moldes de Silicona', desc: 'Técnica de vertido, aireación y desmolde impecable.' },
+      { time: '60 mins', title: 'Módulo 3: Encapsulado Botánico', desc: 'Incrustaciones de flores prensadas y cuarzos energéticos.' },
+      { time: '30 mins', title: 'Módulo 4: Acabado y Merienda', desc: 'Limpieza de imperfecciones con pistola de calor y café.' }
+    ],
+    materials: [
+      'Ceras de soya duras para molde',
+      'Uso de moldes de silicona variados',
+      'Flores deshidratadas, musgo y cuarzos decorativos',
+      'Pigmentos orgánicos liposolubles',
+      '3 Velas esculturales terminadas para llevarte'
+    ],
+    instructor: {
+      name: 'Mary Rodríguez',
+      role: 'Fundadora & Crafter Principal',
+      bio: 'Especialista en estética escultural de velas para decoración de interiores.',
+      avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80'
+    },
+    dates: [
+      'Domingo 23 de Marzo - 2:00 PM a 5:30 PM',
+      'Sábado 12 de Abril - 9:00 AM a 12:30 PM'
+    ],
+    whatsappMsg: '¡Hola Mary! Quisiera información para el Curso Medio de Velas.'
+  },
+  'velas-avanzado': {
+    id: 'velas-avanzado',
+    title: 'Curso Avanzado de Velas',
+    subtitle: 'Formulación profesional de masajes, mechas de madera, velas de gel y proyectos para negocio.',
+    badge: 'Profesional / Emprendedor',
+    price: '₡38.000',
+    currency: 'CRC por persona (Todo incluido)',
+    duration: '4 horas',
+    location: 'Sedes en San José (Tres Ríos), Turrialba (Sede CATIE/Centro) y San Carlos (Ciudad Quesada)',
+    image: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=1000&q=80',
+    description: `El programa más completo para quienes aspiran a vender sus creaciones. Dominarás velas terapéuticas para cuerpo con manteca de karité, mechas crepitantes de cedro, cera de gel cristalina y estructura de costos.`,
+    syllabus: [
+      { time: '60 mins', title: 'Módulo 1: Velas Terapéuticas de Masaje', desc: 'Formulación cosmetológica con mantecas vegetales y vitamina E.' },
+      { time: '60 mins', title: 'Módulo 2: Mechas de Madera de Cedro', desc: 'Análisis de sonido crepitante, grosor de madera y quemado parejo.' },
+      { time: '60 mins', title: 'Módulo 3: Velas de Gel Cristalino', desc: 'Transparencia total, burbujas decorativas y encapsulado subacuático.' },
+      { time: '60 mins', title: 'Módulo 4: Costeo, Marcas y Merienda', desc: 'Estructura de precios, permisos, etiquetas y asesoría de negocio.' }
+    ],
+    materials: [
+      'Mantecas de karité, coco y cera de soya de masaje',
+      'Mechas de madera de cedro importada con base metálica',
+      'Cera de gel cristalina transparente',
+      'Frascos de cerámica y cristal borosilicato',
+      'Plantilla Excel de costeo + Guía de proveedores'
+    ],
+    instructor: {
+      name: 'Mary Rodríguez',
+      role: 'Fundadora & Asesora de Emprendimientos',
+      bio: 'Ha asesorado a decenas de alumnas para lanzar con éxito su propia marca de velas en Costa Rica.',
+      avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80'
+    },
+    dates: [
+      'Sábado 29 de Marzo - 9:00 AM a 1:00 PM',
+      'Sábado 26 de Abril - 9:00 AM a 1:00 PM'
+    ],
+    whatsappMsg: '¡Hola Mary! Quisiera matricularme en el Curso Avanzado de Velas.'
   }
 };
 
-export default function CourseDetailPage({ courseId, onNavigateHome, onNavigateCatalog }) {
-  const course = COURSES_DATA[courseId] || COURSES_DATA.velas;
+export default function CourseDetailPage({ courseId, onNavigateHome, onNavigateCatalog, onNavigatePieces }) {
+  const course = COURSES_DATA[courseId] || COURSES_DATA['velas-basico'];
   const whatsappUrl = `https://wa.me/50688390436?text=${encodeURIComponent(course.whatsappMsg)}`;
 
   return (
@@ -189,8 +278,19 @@ export default function CourseDetailPage({ courseId, onNavigateHome, onNavigateC
               onClick={onNavigateCatalog}
               className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#8c7a6b] hover:text-[#3d2c29] transition-colors"
             >
-              Catálogo
+              Cursos
             </button>
+            {onNavigatePieces && (
+              <>
+                <span className="text-[#8c7a6b] text-xs">/</span>
+                <button
+                  onClick={onNavigatePieces}
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#8c7a6b] hover:text-[#3d2c29] transition-colors"
+                >
+                  Piezas
+                </button>
+              </>
+            )}
             <span className="text-[#8c7a6b] text-xs">/</span>
             <span className="text-xs font-bold text-[#c87563] truncate max-w-xs sm:max-w-md">
               {course.title}

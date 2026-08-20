@@ -10,11 +10,12 @@ import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
 import StaticPagesModal from './components/StaticPagesModal';
 import CatalogPage from './components/CatalogPage';
+import PieceCatalogPage from './components/PieceCatalogPage';
 import CourseDetailPage from './components/CourseDetailPage';
 
 export default function App() {
-  const [currentView, setCurrentView] = useState('home'); // 'home', 'catalog', 'course-detail'
-  const [selectedCourseId, setSelectedCourseId] = useState('velas');
+  const [currentView, setCurrentView] = useState('home'); // 'home', 'catalog', 'pieces', 'course-detail'
+  const [selectedCourseId, setSelectedCourseId] = useState('velas-basico');
   const [activeModalPage, setActiveModalPage] = useState(null);
 
   const handleNavigateHome = () => {
@@ -24,6 +25,11 @@ export default function App() {
 
   const handleNavigateCatalog = () => {
     setCurrentView('catalog');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleNavigatePieces = () => {
+    setCurrentView('pieces');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -45,8 +51,10 @@ export default function App() {
     <div className="min-h-screen bg-[#faf7f5] flex flex-col font-sans text-[#4a3e3d] selection:bg-[#f2dfd8] selection:text-[#8c483b]">
       {/* Navigation Header */}
       <Navbar
+        currentView={currentView}
         onNavigateHome={handleNavigateHome}
         onNavigateCatalog={handleNavigateCatalog}
+        onNavigatePieces={handleNavigatePieces}
       />
 
       {/* Main Page Content based on View */}
@@ -66,6 +74,14 @@ export default function App() {
           <CatalogPage
             onNavigateHome={handleNavigateHome}
             onSelectCourseDetail={handleSelectCourseDetail}
+            onNavigatePieces={handleNavigatePieces}
+          />
+        )}
+
+        {currentView === 'pieces' && (
+          <PieceCatalogPage
+            onNavigateHome={handleNavigateHome}
+            onNavigateCatalog={handleNavigateCatalog}
           />
         )}
 
@@ -74,6 +90,7 @@ export default function App() {
             courseId={selectedCourseId}
             onNavigateHome={handleNavigateHome}
             onNavigateCatalog={handleNavigateCatalog}
+            onNavigatePieces={handleNavigatePieces}
           />
         )}
       </main>
@@ -83,6 +100,7 @@ export default function App() {
         onOpenModal={handleOpenModal}
         onNavigateHome={handleNavigateHome}
         onNavigateCatalog={handleNavigateCatalog}
+        onNavigatePieces={handleNavigatePieces}
         onSelectCourseDetail={handleSelectCourseDetail}
       />
 
