@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Marys Art - Cursos de Velas Artesanales y Pintura en Costa Rica</title>
+  <link>https://www.marysart.cr/</link>
+  <description>Novedades, próximas fechas y artículos sobre talleres de velas artesanales de cera de soya, arte y rituales de bienestar en Costa Rica.</description>
+  <language>es-cr</language>
+  <atom:link href="https://www.marysart.cr/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>Taller de Velas Artesanales &amp; Cera de Soya Natural en Costa Rica</title>
+    <link>https://www.marysart.cr/#cursos</link>
+    <description>Aprende a elaborar tus propias velas aromáticas desde cero con cera de soya, aceites esenciales de alta calidad y decoración botánica. Incluye todos los materiales y merienda gourmet.</description>
+    <pubDate>Thu, 20 Aug 2026 10:00:00 GMT</pubDate>
+    <guid>https://www.marysart.cr/#taller-velas</guid>
+  </item>
+
+  <item>
+    <title>Taller de Pintura Creativa &amp; Pinta y Vino en Tres Ríos y San José</title>
+    <link>https://www.marysart.cr/#cursos</link>
+    <description>Desconecta del estrés cotidiano con nuestro taller de pintura acrílica sobre lienzo. Disfruta de una copa de vino o café en un espacio amigable para principiantes.</description>
+    <pubDate>Wed, 12 Aug 2026 14:00:00 GMT</pubDate>
+    <guid>https://www.marysart.cr/#taller-pintura</guid>
+  </item>
+
+  <item>
+    <title>Eventos Privados y Talleres Corporativos para Cumpleaños o Despedidas</title>
+    <link>https://www.marysart.cr/#cursos</link>
+    <description>Organiza una experiencia personalizada de velas o pintura para tu grupo de amigas o equipo de trabajo en Costa Rica. Nos adaptamos a tu horario y espacio.</description>
+    <pubDate>Sat, 01 Aug 2026 09:00:00 GMT</pubDate>
+    <guid>https://www.marysart.cr/#eventos-privados</guid>
+  </item>
+</channel>
+</rss>
