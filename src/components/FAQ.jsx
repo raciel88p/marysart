@@ -15,7 +15,7 @@ export default function FAQ() {
     },
     {
       question: '¿Dónde están ubicados los talleres y cuál es el horario?',
-      answer: 'Nuestras clases presenciales se imparten en Concepción de Tres Ríos y San José centro, Costa Rica. Impartimos talleres los sábados y domingos en horarios matutinos (9:00 am) y vespertinos (2:00 pm).'
+      answer: 'Nuestras clases presenciales se imparten en nuestras sedes de San José (Concepción de Tres Ríos), Turrialba (Sede CATIE / Centro) y San Carlos (Ciudad Quesada / La Fortuna). Impartimos talleres los sábados y domingos en horarios matutinos (9:00 am) y vespertinos (2:00 pm).'
     },
     {
       question: '¿Cómo reservo mi lugar y qué políticas de reprogramación tienen?',

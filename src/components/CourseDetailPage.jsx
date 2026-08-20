@@ -10,7 +10,7 @@ const COURSES_DATA = {
     price: '₡29.500',
     currency: 'CRC por persona (Todo incluido)',
     duration: '3 horas 30 minutos',
-    location: 'Taller Resina Art & Mary, Concepción de Tres Ríos / San José',
+    location: 'Sedes en San José (Tres Ríos), Turrialba (Sede CATIE/Centro) y San Carlos (Ciudad Quesada)',
     image: 'https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=1000&q=80',
     description: `Sumérgete en un espacio de paz y desconexión donde aprenderás la alquimia de la cerería botánica. En este taller teórico-práctico dominarás la temperatura de vertido, cálculo de fragancias y técnicas de fijado de mechas ecológicas para crear velas limpias, duraderas y libres de parafinas contaminantes.`,
     syllabus: [
@@ -71,7 +71,7 @@ const COURSES_DATA = {
     price: '₡29.500',
     currency: 'CRC por persona (Todo incluido)',
     duration: '3 horas 30 minutos',
-    location: 'Taller Resina Art & Mary, Concepción de Tres Ríos / San José',
+    location: 'Sedes en San José (Tres Ríos), Turrialba (Sede CATIE/Centro) y San Carlos (Ciudad Quesada)',
     image: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=1000&q=80',
     description: `Libera tu mente y descubre el placer de pintar sin miedo al lienzo en blanco. Un taller diseñado para conectar con tu lado artístico mediante capas de pintura acrílica, mezclas de color y texturas con espátula, todo acompañado de buena música y copa de vino.`,
     syllabus: [
@@ -126,7 +126,7 @@ const COURSES_DATA = {
     price: '₡52.000',
     currency: 'CRC por persona (Jornada Doble)',
     duration: '6 horas (Dividido en 2 sesiones o 1 día completo)',
-    location: 'Taller Resina Art & Mary, Concepción de Tres Ríos / San José',
+    location: 'Sedes en San José (Tres Ríos), Turrialba (Sede CATIE/Centro) y San Carlos (Ciudad Quesada)',
     image: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=1000&q=80',
     description: `La opción preferida de quienes buscan una inmersión completa de fin de semana. Combina el taller de velas aromáticas y el taller de pintura acrílica con un descuento exclusivo, almuerzo/merienda especial y caja de regalos.`,
     syllabus: [

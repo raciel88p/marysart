@@ -159,7 +159,7 @@ export default function Footer({ onOpenModal, onNavigateHome, onNavigateCatalog,
             <ul className="space-y-3 text-sm text-[#a8988e]">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-[#e8a598] shrink-0 mt-0.5" />
-                <span>Concepción de Tres Ríos / San José, Costa Rica</span>
+                <span>San José, Turrialba & San Carlos, Costa Rica</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-[#e8a598] shrink-0" />

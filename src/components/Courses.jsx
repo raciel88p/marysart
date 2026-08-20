@@ -14,7 +14,7 @@ export default function Courses({ onSelectCourseDetail }) {
       price: '₡29.500',
       currency: 'CRC por persona',
       duration: '3 horas 30 minutos',
-      location: 'Concepción de Tres Ríos / San José',
+      location: 'San José / Turrialba / San Carlos',
       badge: 'Más Popular',
       description: 'Un ritual de calma y aprendizaje para conectar con tus sentidos. Elabora una vela personalizada desde cero utilizando ceras vegetales ecológicas, flores secas y aromas relajantes.',
       highlights: [
@@ -36,7 +36,7 @@ export default function Courses({ onSelectCourseDetail }) {
       price: '₡29.500',
       currency: 'CRC por persona',
       duration: '3 horas 30 minutos',
-      location: 'Concepción de Tres Ríos / San José',
+      location: 'San José / Turrialba / San Carlos',
       badge: 'Novedad',
       description: 'Aprende técnicas básicas y avanzadas de pintura en acrílico y texturas sobre lienzo. Libera tu mente sin presión en un entorno alegre, lleno de colores y buena compañía.',
       highlights: [
@@ -58,7 +58,7 @@ export default function Courses({ onSelectCourseDetail }) {
       price: '₡52.000',
       currency: 'CRC por persona',
       duration: 'Jornada doble (6 horas total)',
-      location: 'Concepción de Tres Ríos / San José',
+      location: 'San José / Turrialba / San Carlos',
       badge: 'Ahorra ₡7.000',
       description: 'La combinación perfecta para regalarte un fin de semana lleno de arte, velas, aromas y excelente compañía. Incluye certificado simbólico y regalo sorpresa.',
       highlights: [
