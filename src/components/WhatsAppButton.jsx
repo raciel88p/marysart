@@ -5,7 +5,7 @@ export default function WhatsAppButton() {
   const whatsappMessage = encodeURIComponent(
     "¡Hola Resina Art & Mary! Me gustaría consultar sobre la disponibilidad de cupos para los cursos de Velas Artesanales y Pintura."
   );
-  const whatsappUrl = `https://wa.me/50688390436?text=${whatsappMessage}`;
+  const whatsappUrl = `https://wa.me/50660367249?text=${whatsappMessage}`;
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex items-center group pointer-events-auto">

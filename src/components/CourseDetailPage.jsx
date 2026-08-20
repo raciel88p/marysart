@@ -5,156 +5,160 @@ const COURSES_DATA = {
   'pintura-basico': {
     id: 'pintura-basico',
     title: 'Curso Básico de Pintura',
-    subtitle: 'Aprende los fundamentos del pincel, teoría del color y mezcla de tonos acrílicos desde cero.',
-    badge: 'Nivel Principiante',
-    price: '₡25.000',
-    currency: 'CRC por persona (Todo incluido)',
-    duration: '3 horas',
-    location: 'Sedes en San José (Tres Ríos), Turrialba (Sede CATIE/Centro) y San Carlos (Ciudad Quesada)',
+    subtitle: '¡Al comprar tu pieza, la clase es totalmente GRATIS! Aprende desde cero con Maria.',
+    badge: 'Clase Gratis con tu Pieza',
+    price: 'Clase GRATIS',
+    currency: 'Al comprar tu pieza (Insumos incluidos)',
+    duration: '3 - 4 horas',
+    location: 'Turrialba, Urbanización Jorge Debravo',
     image: 'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=1000&q=80',
-    description: `El punto de partida ideal si nunca has agarrado un pincel. En este curso aprenderás la postura correcta, tipos de pincel, soltura de trazo, mezcla en paleta y aplicación de capas base sobre lienzo.`,
+    description: `Al comprar tu pieza en nuestro taller o por encargo (reserva con 50%), la clase de pintura acrílica es totalmente GRATIS. Maria te acompañará paso a paso en el manejo de pinceles, teoría del color y acabado de tu pieza.`,
     syllabus: [
-      { time: '30 mins', title: 'Módulo 1: Tipos de Pinceles y Lienzos', desc: 'Introducción a fibras sintéticas y cerda dura, preparación del lienzo y boceto.' },
-      { time: '45 mins', title: 'Módulo 2: Círculo Cromático y Mezclas', desc: 'Creación de matices secundarios y terciarios a partir de colores primarios.' },
-      { time: '60 mins', title: 'Módulo 3: Primeras Pinceladas y Bloques de Color', desc: 'Pintado del fondo y formas principales con técnica acrílica fluida.' },
-      { time: '45 mins', title: 'Módulo 4: Cierre, Firma y Merienda', desc: 'Detalles finales, firma de autoría y espacio de relajación con bebidas calientes.' }
+      { time: '30 mins', title: 'Módulo 1: Selección de Pieza y Preparación', desc: 'Sella y prepara tu pieza o lienzo para recibir la pintura.' },
+      { time: '45 mins', title: 'Módulo 2: Teoría del Color y Mezclas', desc: 'Mezcla paletas armoniosas para darle vida a tu diseño.' },
+      { time: '90 mins', title: 'Módulo 3: Pintado Guiado con Maria', desc: 'Paso a paso para aplicar sombras, volumen y pincelada limpia.' },
+      { time: '45 mins', title: 'Módulo 4: Acabado Protector y Firma', desc: 'Protección final de tu pieza lista para lucir en tu hogar.' }
     ],
     materials: [
-      'Lienzo 30x40cm sobre bastidor de madera',
-      'Set de 12 acrílicos de alta concentración',
-      'Set de 5 pinceles para nivel principiante',
-      'Paleta de mezclas y delantal protector',
-      'Merienda artesanal con café o té'
+      'Pieza o lienzo de tu elección',
+      'Todos los insumos acrílicos y selladores',
+      'Set de pinceles de precisión y paletas',
+      'Delantal protector durante la clase',
+      'Merienda y atención personalizada'
     ],
     instructor: {
-      name: 'Mary Rodríguez',
-      role: 'Fundadora & Instructora Principal',
-      bio: 'Apasionada por enseñar a personas sin conocimientos previos a perder el miedo al lienzo.',
+      name: 'Maria',
+      role: 'Artistas & Instructora Principal',
+      bio: 'Instructora de Resina Art & Mary en Turrialba. Apasionada por guiarte en el arte de pintar piezas únicas.',
       avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80'
     },
     dates: [
-      'Sábado 15 de Marzo - 9:00 AM a 12:00 PM',
-      'Domingo 23 de Marzo - 2:00 PM a 5:00 PM'
+      'Miércoles: 9:00 AM - 1:00 PM / 2:00 PM - 5:00 PM',
+      'Viernes: 2:00 PM - 5:00 PM',
+      'Sábados: 9:00 AM - 1:00 PM'
     ],
-    whatsappMsg: '¡Hola Mary! Quisiera reservar un cupo para el Curso Básico de Pintura.'
+    whatsappMsg: '¡Hola Maria! Quisiera comprar mi pieza y reservar mi clase gratis de Pintura Básica.'
   },
   'pintura-medio': {
     id: 'pintura-medio',
     title: 'Curso Medio de Pintura',
-    subtitle: 'Domina técnicas de luces, sombras y composición para dar profundidad a tus obras.',
-    badge: 'Nivel Intermedio',
-    price: '₡29.500',
-    currency: 'CRC por persona (Todo incluido)',
-    duration: '3 horas 30 minutos',
-    location: 'Sedes en San José (Tres Ríos), Turrialba (Sede CATIE/Centro) y San Carlos (Ciudad Quesada)',
+    subtitle: 'Domina técnicas de luces, sombras y profundidad. Clase GRATIS al comprar tu pieza.',
+    badge: 'Clase Gratis con tu Pieza',
+    price: 'Clase GRATIS',
+    currency: 'Al comprar tu pieza (Insumos incluidos)',
+    duration: '3 - 4 horas',
+    location: 'Turrialba, Urbanización Jorge Debravo',
     image: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=1000&q=80',
-    description: `Avanza en tu técnica estudiando la incidencia de la luz, reflejos, sombras proyectadas y contraste para dar volumen tridimensional a figuras y paisajes.`,
+    description: `Eleva el acabado de tus figuras y cuadros. Adquiere la pieza de tu preferencia y la lección técnica con Maria es totalmente GRATIS.`,
     syllabus: [
-      { time: '30 mins', title: 'Módulo 1: Estudio de Puntos de Luz', desc: 'Análisis de claroscuro y valores tonales en la composición.' },
-      { time: '60 mins', title: 'Módulo 2: Veladuras y Degradados', desc: 'Aplicación de transparencias acrílicas para efectos de atmósfera.' },
-      { time: '60 mins', title: 'Módulo 3: Detallado y Volumen', desc: 'Uso de pinceles finos y perfilado de bordes suaves vs duros.' },
-      { time: '60 mins', title: 'Módulo 4: Pinta y Vino & Convivencia', desc: 'Degustación de vino o té artesanal mientras se seca la obra.' }
+      { time: '30 mins', title: 'Módulo 1: Puntos de Luz y Sombra', desc: 'Análisis de volúmenes en figuras esculturales o lienzos.' },
+      { time: '60 mins', title: 'Módulo 2: Degradados y Capas', desc: 'Técnicas de difuminado suave para efectos realistas.' },
+      { time: '90 mins', title: 'Módulo 3: Detallado de Alta Precisión', desc: 'Perfilado de bordes y realce de texturas.' },
+      { time: '30 mins', title: 'Módulo 4: Sellado Final', desc: 'Aplicación de laca satinada para máxima durabilidad.' }
     ],
     materials: [
-      'Lienzo 30x40cm de grano fino',
-      'Pinturas acrílicas profesionales',
-      'Pinceles abanico, biselados y linners',
-      'Copa de vino de bienvenida o refresco',
-      'Tabla de aperitivos'
+      'Pieza seleccionada',
+      'Pinturas acrílicas y pigmentos especiales',
+      'Pinceles de detalle y difuminado',
+      'Acompañamiento personalizado de Maria',
+      'Bebidas y bocadillos'
     ],
     instructor: {
-      name: 'Mary Rodríguez',
-      role: 'Fundadora & Artista de Resina Art & Mary',
-      bio: 'Especialista en guiar a los estudiantes a encontrar su propio estilo compositivo.',
+      name: 'Maria',
+      role: 'Artistas & Instructora Principal',
+      bio: 'Especialista en guiar técnicas de detalle, luces y volumen sobre yeso, cerámica y lienzo.',
       avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80'
     },
     dates: [
-      'Sábado 22 de Marzo - 2:00 PM a 5:30 PM',
-      'Sábado 12 de Abril - 2:00 PM a 5:30 PM'
+      'Miércoles: 9:00 AM - 1:00 PM / 2:00 PM - 5:00 PM',
+      'Viernes: 2:00 PM - 5:00 PM',
+      'Sábados: 9:00 AM - 1:00 PM'
     ],
-    whatsappMsg: '¡Hola Mary! Quisiera reservar un cupo para el Curso Medio de Pintura.'
+    whatsappMsg: '¡Hola Maria! Quisiera consultar sobre las piezas para el Curso Medio de Pintura.'
   },
   'pintura-avanzado': {
     id: 'pintura-avanzado',
     title: 'Curso Avanzado de Pintura',
-    subtitle: 'Explora técnicas mixtas, texturas tridimensionales con espátula y acabado profesional.',
-    badge: 'Nivel Avanzado',
-    price: '₡35.000',
-    currency: 'CRC por persona (Todo incluido)',
-    duration: '4 horas',
-    location: 'Sedes en San José (Tres Ríos), Turrialba (Sede CATIE/Centro) y San Carlos (Ciudad Quesada)',
+    subtitle: 'Relieves tridimensionales y espátulas. Clase GRATIS al comprar tu pieza.',
+    badge: 'Clase Gratis con tu Pieza',
+    price: 'Clase GRATIS',
+    currency: 'Al comprar tu pieza (Insumos incluidos)',
+    duration: '3 - 4 horas',
+    location: 'Turrialba, Urbanización Jorge Debravo',
     image: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=1000&q=80',
-    description: `Una inmersión profunda para artistas que desean incorporar volúmenes con pastas impasto, espátulas metálicas de precisión y barnices protectores de alta durabilidad.`,
+    description: `Explora el uso de pastas de relieve y espátula. Compra tu pieza o encárgala con 50% de anticipación y recibe la clase sin costo adicional.`,
     syllabus: [
-      { time: '45 mins', title: 'Módulo 1: Aplicación de Pastas de Relieve', desc: 'Modelado con gesso denso sobre lienzo de gran formato.' },
-      { time: '75 mins', title: 'Módulo 2: Carga y Trazo con Espátula', desc: 'Creación de pétalos, texturas orgánicas y capas gruesas de acrílico.' },
-      { time: '60 mins', title: 'Módulo 3: Pátinas de Sombra y Brillos', desc: 'Incorporación de pigmentos metalizados y toques dorados.' },
-      { time: '60 mins', title: 'Módulo 4: Barnizado y Degustación Gourmet', desc: 'Sellado protector mate/brillante y tiempo de degustación.' }
+      { time: '45 mins', title: 'Módulo 1: Pastas de Relieve', desc: 'Aplicación de textura tridimensional impasto.' },
+      { time: '75 mins', title: 'Módulo 2: Carga de Espátula', desc: 'Efectos orgánicos y pinceladas gruesas de relieve.' },
+      { time: '60 mins', title: 'Módulo 3: Destellos Metálicos', desc: 'Aplicación de pan de oro o toques metalizados.' },
+      { time: '30 mins', title: 'Módulo 4: Sellado de Galería', desc: 'Barniz de protección profesional.' }
     ],
     materials: [
-      'Lienzo de gran formato 40x50cm',
-      'Pasta de relieve impasto y gesso denso',
-      'Set de 3 espátulas metálicas de artista',
-      'Barniz acrílico de protección UV',
-      'Copa de vino premium y merienda gourmet'
+      'Pieza o lienzo seleccionado',
+      'Pastas impasto de relieve',
+      'Espátulas metálicas y pinceles',
+      'Barnices y acabados mate/brillante',
+      'Atención personalizada'
     ],
     instructor: {
-      name: 'Mary Rodríguez',
-      role: 'Fundadora & Artista Plastica',
-      bio: 'Acompaña a creadores avanzados a potenciar obras con impacto tridimensional.',
+      name: 'Maria',
+      role: 'Artistas & Instructora Principal',
+      bio: 'Apasionada por la textura tridimensional y acabados de lujo.',
       avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80'
     },
     dates: [
-      'Sábado 29 de Marzo - 1:00 PM a 5:00 PM',
-      'Sábado 26 de Abril - 1:00 PM a 5:00 PM'
+      'Miércoles: 9:00 AM - 1:00 PM / 2:00 PM - 5:00 PM',
+      'Viernes: 2:00 PM - 5:00 PM',
+      'Sábados: 9:00 AM - 1:00 PM'
     ],
-    whatsappMsg: '¡Hola Mary! Quisiera reservar mi cupo para el Curso Avanzado de Pintura.'
+    whatsappMsg: '¡Hola Maria! Quisiera información para la clase de Pintura Avanzada.'
   },
   'patinas': {
     id: 'patinas',
     title: 'Curso de Pátinas & Acabados Artísticos',
-    subtitle: 'Aprende a transformar figuras de yeso y cerámica con técnicas metálicas envejecidas.',
-    badge: 'Especialidad',
-    price: '₡28.000',
-    currency: 'CRC por persona (Todo incluido)',
-    duration: '3 horas 30 minutos',
-    location: 'Sedes en San José (Tres Ríos), Turrialba (Sede CATIE/Centro) y San Carlos (Ciudad Quesada)',
+    subtitle: 'Transforma figuras de yeso y cerámica. Clase GRATIS al comprar tu figura.',
+    badge: 'Clase Gratis con tu Figura',
+    price: 'Clase GRATIS',
+    currency: 'Al comprar tu figura (Insumos incluidos)',
+    duration: '3 - 4 horas',
+    location: 'Turrialba, Urbanización Jorge Debravo',
     image: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=1000&q=80',
-    description: `Aprende el arte clásico de las pátinas decorativas sobre yeso cerámico. Dominarás el envejecido con betún de Judea, aplicación de ceras de cobre, bronce y oro, así como el efecto verde óxido.`,
+    description: `Aprende el arte de las pátinas a la cera, bronces, betún de Judea y envejecidos. Al comprar tu figura en el taller, la lección es GRATIS.`,
     syllabus: [
-      { time: '45 mins', title: 'Módulo 1: Sellado de Yeso Cerámico', desc: 'Aplicación de imprimantes impermeabilizantes para fijación de pigmento.' },
-      { time: '60 mins', title: 'Módulo 2: Pátinas Metálicas a la Cera', desc: 'Aplicación de ceras con los dedos y trapo suave para relucir bordes.' },
-      { time: '60 mins', title: 'Módulo 3: Envejecidos y Verde Óxido', desc: 'Técnica de lavado con betún y acrílico turquesa para óxido real.' },
-      { time: '45 mins', title: 'Módulo 4: Sellado Final y Merienda', desc: 'Aplicación de laca mate de fijación y receso ameno.' }
+      { time: '45 mins', title: 'Módulo 1: Sellado de Superficie', desc: 'Preparación de yeso o cerámica.' },
+      { time: '60 mins', title: 'Módulo 2: Ceras Metálicas', desc: 'Aplicación de ceras oro, bronce y cobre.' },
+      { time: '60 mins', title: 'Módulo 3: Envejecidos y Óxido', desc: 'Betún de Judea y efectos de sombras profundas.' },
+      { time: '35 mins', title: 'Módulo 4: Fijación Final', desc: 'Sellador protector satinado.' }
     ],
     materials: [
-      '2 Figuras esculturales de yeso cerámico denso',
-      'Set de ceras metálicas (oro, bronce, cobre)',
-      'Betún de Judea y pátina azul/verde turquesa',
-      'Trapos de algodón, pinceles de estarcido y delantal',
-      'Merienda completa y bebidas'
+      'Figura escultural elegida',
+      'Set de ceras metálicas y betún de Judea',
+      'Trapos de algodón y pinceles de estarcido',
+      'Todos los insumos incluidos',
+      'Merienda amena'
     ],
     instructor: {
-      name: 'Mary Rodríguez',
-      role: 'Especialista en Pátinas & Restauración',
-      bio: 'Especialista en acabados de época y conservación de piezas en yeso y resina.',
+      name: 'Maria',
+      role: 'Instructora de Pátinas & Arte',
+      bio: 'Especialista en acabados metálicos y técnicas envejecidas sobre esculturas.',
       avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80'
     },
     dates: [
-      'Domingo 16 de Marzo - 9:00 AM a 12:30 PM',
-      'Sábado 5 de Abril - 2:00 PM a 5:30 PM'
+      'Miércoles: 9:00 AM - 1:00 PM / 2:00 PM - 5:00 PM',
+      'Viernes: 2:00 PM - 5:00 PM',
+      'Sábados: 9:00 AM - 1:00 PM'
     ],
-    whatsappMsg: '¡Hola Mary! Deseo información e inscripción para el Curso de Pátinas.'
+    whatsappMsg: '¡Hola Maria! Deseo elegir una figura y reservar clase gratis de Pátinas.'
   },
   'velas-basico': {
     id: 'velas-basico',
-    title: 'Curso Básico de Velas',
+    title: 'Curso Básico de Velas Artesanales',
     subtitle: 'Iníciate en la cerería artesanal creando velas aromáticas de cera de soya en frasco.',
     badge: 'Más Popular',
     price: '₡25.000',
     currency: 'CRC por persona (Todo incluido)',
     duration: '3 horas',
-    location: 'Sedes en San José (Tres Ríos), Turrialba (Sede CATIE/Centro) y San Carlos (Ciudad Quesada)',
+    location: 'Turrialba, Urbanización Jorge Debravo',
     image: 'https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=1000&q=80',
     description: `Aprende las bases fundamentales de la cerería botánica. Domina las temperaturas de fusión, porcentajes de esencias aromáticas y colocado de mecha para velas de soya en contenedor.`,
     syllabus: [
@@ -171,26 +175,27 @@ const COURSES_DATA = {
       'Manual de fórmulas impreso y merienda'
     ],
     instructor: {
-      name: 'Mary Rodríguez',
-      role: 'Crafter Principal en Velas Botánicas',
-      bio: 'Ha enseñado la alquimia de la cera de soya a cientos de alumnas en todo Costa Rica.',
+      name: 'Maria',
+      role: 'Instructora en Cerería Botánica',
+      bio: 'Experta en cerería vegetal y formulaciones de aromas naturales.',
       avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80'
     },
     dates: [
-      'Sábado 15 de Marzo - 9:00 AM a 12:00 PM',
-      'Sábado 22 de Marzo - 9:00 AM a 12:00 PM'
+      'Miércoles: 9:00 AM - 1:00 PM / 2:00 PM - 5:00 PM',
+      'Viernes: 2:00 PM - 5:00 PM',
+      'Sábados: 9:00 AM - 1:00 PM'
     ],
-    whatsappMsg: '¡Hola Mary! Quisiera reservar un cupo para el Curso Básico de Velas.'
+    whatsappMsg: '¡Hola Maria! Quisiera reservar un cupo para el Curso Básico de Velas.'
   },
   'velas-medio': {
     id: 'velas-medio',
-    title: 'Curso Medio de Velas',
+    title: 'Curso Medio de Velas Artesanales',
     subtitle: 'Crea velas en moldes de silicona, incrustaciones de flores botánicas y efectos de color.',
     badge: 'Nivel Intermedio',
     price: '₡29.500',
     currency: 'CRC por persona (Todo incluido)',
     duration: '3 horas 30 minutos',
-    location: 'Sedes en San José (Tres Ríos), Turrialba (Sede CATIE/Centro) y San Carlos (Ciudad Quesada)',
+    location: 'Turrialba, Urbanización Jorge Debravo',
     image: 'https://images.unsplash.com/photo-1605651202774-7d573fd3f12d?auto=format&fit=crop&w=1000&q=80',
     description: `Diseñado para quienes desean ir más allá de los envases. Aprenderás a usar ceras de soya de mayor dureza para desmolde limpio de figuras geométricas, cuarzos y flores encapsuladas.`,
     syllabus: [
@@ -207,26 +212,27 @@ const COURSES_DATA = {
       '3 Velas esculturales terminadas para llevarte'
     ],
     instructor: {
-      name: 'Mary Rodríguez',
-      role: 'Fundadora & Crafter Principal',
-      bio: 'Especialista en estética escultural de velas para decoración de interiores.',
+      name: 'Maria',
+      role: 'Instructora en Cerería Botánica',
+      bio: 'Especialista en velas esculturales de diseño.',
       avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80'
     },
     dates: [
-      'Domingo 23 de Marzo - 2:00 PM a 5:30 PM',
-      'Sábado 12 de Abril - 9:00 AM a 12:30 PM'
+      'Miércoles: 9:00 AM - 1:00 PM / 2:00 PM - 5:00 PM',
+      'Viernes: 2:00 PM - 5:00 PM',
+      'Sábados: 9:00 AM - 1:00 PM'
     ],
-    whatsappMsg: '¡Hola Mary! Quisiera información para el Curso Medio de Velas.'
+    whatsappMsg: '¡Hola Maria! Quisiera información para el Curso Medio de Velas.'
   },
   'velas-avanzado': {
     id: 'velas-avanzado',
-    title: 'Curso Avanzado de Velas',
+    title: 'Curso Avanzado de Velas Artesanales',
     subtitle: 'Formulación profesional de masajes, mechas de madera, velas de gel y proyectos para negocio.',
     badge: 'Profesional / Emprendedor',
     price: '₡38.000',
     currency: 'CRC por persona (Todo incluido)',
     duration: '4 horas',
-    location: 'Sedes en San José (Tres Ríos), Turrialba (Sede CATIE/Centro) y San Carlos (Ciudad Quesada)',
+    location: 'Turrialba, Urbanización Jorge Debravo',
     image: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=1000&q=80',
     description: `El programa más completo para quienes aspiran a vender sus creaciones. Dominarás velas terapéuticas para cuerpo con manteca de karité, mechas crepitantes de cedro, cera de gel cristalina y estructura de costos.`,
     syllabus: [
@@ -243,22 +249,23 @@ const COURSES_DATA = {
       'Plantilla Excel de costeo + Guía de proveedores'
     ],
     instructor: {
-      name: 'Mary Rodríguez',
-      role: 'Fundadora & Asesora de Emprendimientos',
-      bio: 'Ha asesorado a decenas de alumnas para lanzar con éxito su propia marca de velas en Costa Rica.',
+      name: 'Maria',
+      role: 'Instructora & Asesora',
+      bio: 'Asesora a alumnas para lanzar con éxito su propia marca de velas artesanales.',
       avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80'
     },
     dates: [
-      'Sábado 29 de Marzo - 9:00 AM a 1:00 PM',
-      'Sábado 26 de Abril - 9:00 AM a 1:00 PM'
+      'Miércoles: 9:00 AM - 1:00 PM / 2:00 PM - 5:00 PM',
+      'Viernes: 2:00 PM - 5:00 PM',
+      'Sábados: 9:00 AM - 1:00 PM'
     ],
-    whatsappMsg: '¡Hola Mary! Quisiera matricularme en el Curso Avanzado de Velas.'
+    whatsappMsg: '¡Hola Maria! Quisiera matricularme en el Curso Avanzado de Velas.'
   }
 };
 
 export default function CourseDetailPage({ courseId, onNavigateHome, onNavigateCatalog, onNavigatePieces }) {
   const course = COURSES_DATA[courseId] || COURSES_DATA['velas-basico'];
-  const whatsappUrl = `https://wa.me/50688390436?text=${encodeURIComponent(course.whatsappMsg)}`;
+  const whatsappUrl = `https://wa.me/50660367249?text=${encodeURIComponent(course.whatsappMsg)}`;
 
   return (
     <div className="bg-[#faf7f5] min-h-screen pt-24 pb-20">

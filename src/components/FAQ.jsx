@@ -11,11 +11,11 @@ export default function FAQ() {
     },
     {
       question: '¿Qué incluye la inversión del taller?',
-      answer: 'Incluye absolutamente todos los materiales (cera de soya, fragancias, moldes/recipientes, lienzo, pinturas acrílicas, delantal), guía impresa y digital, una deliciosa merienda con bebidas y te llevas tus creaciones listas a casa.'
+      answer: 'En los cursos de pintura y pátinas, al comprar tu pieza la clase es totalmente GRATIS e incluye todos los insumos de pintura, acrílicos, delantal y la guía personalizada de Maria. En los talleres de velas artesanales, incluye todos los insumos (cera de soya, fragancias, recipientes) y guía impresa.'
     },
     {
       question: '¿Dónde están ubicados los talleres y cuál es el horario?',
-      answer: 'Nuestras clases presenciales se imparten en nuestras sedes de San José (Concepción de Tres Ríos), Turrialba (Sede CATIE / Centro) y San Carlos (Ciudad Quesada / La Fortuna). Impartimos talleres los sábados y domingos en horarios matutinos (9:00 am) y vespertinos (2:00 pm).'
+      answer: 'Nuestros talleres presenciales se imparten en Turrialba, Urbanización Jorge Debravo. Ofrecemos horarios los Miércoles (9:00 AM - 1:00 PM y 2:00 PM - 5:00 PM), Viernes (2:00 PM - 5:00 PM) y Sábados (9:00 AM - 1:00 PM). También coordinamos encargos de figuras todas las semanas (reserva con 50%).'
     },
     {
       question: '¿Cómo reservo mi lugar y qué políticas de reprogramación tienen?',
@@ -93,7 +93,7 @@ export default function FAQ() {
             Estamos disponibles en WhatsApp para ayudarte con cualquier detalle adicional sobre fechas o reservas.
           </p>
           <a
-            href="https://wa.me/50688390436?text=Hola%20Resina%20Art%20%26%20Mary%2C%20tengo%20una%20pregunta%20sobre%20los%20talleres."
+            href="https://wa.me/50660367249?text=Hola%20Maria%2C%20tengo%20una%20pregunta%20sobre%20los%20talleres%20y%20piezas."
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20ba59] text-white font-medium text-sm py-3 px-6 rounded-full shadow-md transition-all"

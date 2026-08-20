@@ -5,7 +5,7 @@ export default function Hero() {
   const whatsappMessage = encodeURIComponent(
     "¡Hola Resina Art & Mary! Quisiera información sobre las próximas fechas para los talleres de Velas y Pintura."
   );
-  const whatsappUrl = `https://wa.me/50688390436?text=${whatsappMessage}`;
+  const whatsappUrl = `https://wa.me/50660367249?text=${whatsappMessage}`;
 
   return (
     <section id="inicio" className="relative overflow-hidden pt-12 pb-20 md:pt-20 md:pb-32 bg-gradient-to-b from-[#faf7f5] via-[#f7eeea] to-[#faf7f5]">
@@ -35,7 +35,7 @@ export default function Hero() {
             <div className="flex flex-wrap justify-center lg:justify-start gap-4 text-xs sm:text-sm text-[#5c4a43] pt-2">
               <div className="flex items-center gap-1.5 bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-full border border-[#e8ded5]">
                 <MapPin className="w-4 h-4 text-[#c87563]" />
-                <span>San José, Turrialba & San Carlos</span>
+                <span>Turrialba, Urb. Jorge Debravo</span>
               </div>
               <div className="flex items-center gap-1.5 bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-full border border-[#e8ded5]">
                 <Clock className="w-4 h-4 text-[#c87563]" />

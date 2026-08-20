@@ -5,7 +5,7 @@ export default function Footer({ onOpenModal, onNavigateHome, onNavigateCatalog,
   const whatsappMessage = encodeURIComponent(
     "¡Hola Resina Art & Mary! Deseo recibir información sobre los cursos de Velas Artesanales y Pintura."
   );
-  const whatsappUrl = `https://wa.me/50688390436?text=${whatsappMessage}`;
+  const whatsappUrl = `https://wa.me/50660367249?text=${whatsappMessage}`;
 
   return (
     <footer className="bg-[#2c211f] text-[#d8c8bf] pt-16 pb-8 border-t border-[#3d2c29]">
@@ -170,12 +170,12 @@ export default function Footer({ onOpenModal, onNavigateHome, onNavigateCatalog,
             <ul className="space-y-3 text-sm text-[#a8988e]">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-[#e8a598] shrink-0 mt-0.5" />
-                <span>San José, Turrialba & San Carlos, Costa Rica</span>
+                <span>Turrialba (Urbanización Jorge Debravo), Costa Rica</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-[#e8a598] shrink-0" />
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-                  WhatsApp: +506 8839-0436
+                  WhatsApp: +506 6036-7249
                 </a>
               </li>
               <li className="flex items-center gap-3">

@@ -230,8 +230,8 @@ export default function PieceCatalogPage({ onNavigateHome, onNavigateCatalog }) 
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredPieces.map((piece) => {
-              const whatsappMsg = `¡Hola Resina Art & Mary! Me interesa encargar/comprar la pieza: "${piece.title}" (${piece.price}).`;
-              const whatsappUrl = `https://wa.me/50688390436?text=${encodeURIComponent(whatsappMsg)}`;
+              const whatsappMsg = `¡Hola Maria! Me interesa encargar/comprar la pieza: "${piece.title}" (${piece.price}) para la clase de pintura.`;
+              const whatsappUrl = `https://wa.me/50660367249?text=${encodeURIComponent(whatsappMsg)}`;
 
               return (
                 <div
@@ -357,7 +357,7 @@ export default function PieceCatalogPage({ onNavigateHome, onNavigateCatalog }) 
 
               <div className="pt-2">
                 <a
-                  href={`https://wa.me/50688390436?text=${encodeURIComponent(`¡Hola Mary! Quisiera encargar la pieza: ${selectedPieceModal.title}`)}`}
+                  href={`https://wa.me/50660367249?text=${encodeURIComponent(`¡Hola Maria! Quisiera encargar la pieza: ${selectedPieceModal.title}`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] text-white py-3.5 px-6 rounded-2xl font-bold text-sm transition-all shadow-md"

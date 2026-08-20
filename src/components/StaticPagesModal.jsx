@@ -91,7 +91,7 @@ export default function StaticPagesModal({ pageType, onClose }) {
                 En Costa Rica no tenemos estaciones marcadas, pero creemos firmemente en crear nuestros propios rituales de bienestar. Nuestros talleres de velas artesanales de cera de soya y pintura en lienzo son experiencias diseñadas para estimular tus sentidos, elevar tu autoestima y regalarte momentos de paz.
               </p>
               <p>
-                Te esperamos con los brazos abiertos en nuestro taller en Concepción de Tres Ríos y San José para crear juntos momentos llenos de luz, color y buenas intenciones.
+                Impartidos por Maria, te esperamos con los brazos abiertos en nuestro taller ubicado en Turrialba, Urbanización Jorge Debravo, para crear juntos momentos llenos de luz, color y expresión artística.
               </p>
             </div>
           )

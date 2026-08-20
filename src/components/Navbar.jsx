@@ -7,7 +7,7 @@ export default function Navbar({ currentView, onNavigateHome, onNavigateCatalog,
   const whatsappMessage = encodeURIComponent(
     "¡Hola Resina Art & Mary! Deseo recibir información sobre los cursos de Velas Artesanales y Pintura."
   );
-  const whatsappUrl = `https://wa.me/50688390436?text=${whatsappMessage}`;
+  const whatsappUrl = `https://wa.me/50660367249?text=${whatsappMessage}`;
 
   return (
     <header className="sticky top-0 z-50 bg-[#faf7f5]/90 backdrop-blur-md border-b border-[#e8ded5]">

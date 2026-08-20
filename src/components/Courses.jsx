@@ -11,20 +11,20 @@ export default function Courses({ onSelectCourseDetail }) {
       title: 'Curso Básico de Pintura',
       subtitle: 'Aprende los fundamentos del pincel, teoría del color y mezcla de tonos acrílicos desde cero.',
       image: 'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=800&q=80',
-      price: '₡25.000',
-      currency: 'CRC por persona',
-      duration: '3 horas',
-      location: 'San José / Turrialba / San Carlos',
-      badge: 'Nivel Principiante',
-      description: 'Ideal para quienes nunca han tomado un pincel. Conocerás técnicas de degradado, manejo de agua y fijación de capas sobre lienzo.',
+      price: 'Clase GRATIS',
+      currency: 'Al comprar tu pieza (Insumos incluidos)',
+      duration: '3 - 4 horas',
+      location: 'Turrialba, Urb. Jorge Debravo',
+      badge: 'Clase Gratis con tu Pieza',
+      description: '¡Al comprar tu pieza, la clase es totalmente GRATIS! Aprende técnicas de degradado, mezcla de acrílicos y soltura de trazo guiada por Maria.',
       highlights: [
-        'Principios de teoría del color y círculo cromático',
-        'Técnicas de pincelada limpia y degradados suaves',
-        'Lienzo de 30x40cm listo para llevarte a casa',
-        'Todos los insumos acrílicos y pinceles incluidos',
-        'Merienda artesanal con café o té caliente'
+        '¡Clase totalmente GRATIS al comprar tu pieza!',
+        'Todos los materiales e insumos incluidos',
+        'Principios de teoría del color y pincelada',
+        'Encargos de figuras todas las semanas (Reserva con 50%)',
+        'Horarios: Miércoles (9am-1pm/2pm-5pm), Viernes (2pm-5pm), Sábados (9am-1pm)'
       ],
-      whatsappMsg: '¡Hola! Me interesa reservar un cupo para el Curso Básico de Pintura.'
+      whatsappMsg: '¡Hola Maria! Quisiera comprar mi pieza y reservar cupo para la clase gratis de Pintura Básica.'
     },
     {
       id: 'pintura-medio',
@@ -32,20 +32,20 @@ export default function Courses({ onSelectCourseDetail }) {
       title: 'Curso Medio de Pintura',
       subtitle: 'Domina técnicas de luces, sombras y composición para dar profundidad a tus obras.',
       image: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80',
-      price: '₡29.500',
-      currency: 'CRC por persona',
-      duration: '3 horas 30 minutos',
-      location: 'San José / Turrialba / San Carlos',
-      badge: 'Nivel Intermedio',
-      description: 'Avanza en tu expresión artística profundizando en el volumen, contrastes y armonías complejas de color en bodegones y paisajes.',
+      price: 'Clase GRATIS',
+      currency: 'Al comprar tu pieza (Insumos incluidos)',
+      duration: '3 - 4 horas',
+      location: 'Turrialba, Urb. Jorge Debravo',
+      badge: 'Clase Gratis con tu Pieza',
+      description: 'Avanza en tu expresión artística profundizando en volumen y contrastes. La clase es totalmente GRATIS al adquirir tu pieza con Maria.',
       highlights: [
-        'Manejo de contrastes luz/sombra en capas acrílicas',
-        'Perspectiva atmosférica y planos de profundidad',
-        'Lienzo sobre bastidor de madera de alta calidad',
-        'Copa de vino de bienvenida o bebidas calientes',
-        'Acompañamiento personalizado de la instructora'
+        '¡Clase GRATIS al comprar tu pieza de pintura!',
+        'Manejo de contrastes luz/sombra y volumen',
+        'Materiales completos y acompañamiento de Maria',
+        'Reserva tu pieza con el 50% de adelanto',
+        'Horarios: Miércoles, Viernes y Sábados'
       ],
-      whatsappMsg: '¡Hola! Quisiera más detalles para el Curso Medio de Pintura.'
+      whatsappMsg: '¡Hola Maria! Quisiera consultar las piezas disponibles para la clase de Pintura Nivel Medio.'
     },
     {
       id: 'pintura-avanzado',
@@ -53,20 +53,20 @@ export default function Courses({ onSelectCourseDetail }) {
       title: 'Curso Avanzado de Pintura',
       subtitle: 'Explora técnicas mixtas, texturas tridimensionales con espátula y acabado profesional.',
       image: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=80',
-      price: '₡35.000',
-      currency: 'CRC por persona',
-      duration: '4 horas',
-      location: 'San José / Turrialba / San Carlos',
-      badge: 'Nivel Avanzado',
-      description: 'Un taller intensivo enfocado en la técnica impasto con pasta de relieve, espátulas de metal y sellado con verniz de galería.',
+      price: 'Clase GRATIS',
+      currency: 'Al comprar tu pieza (Insumos incluidos)',
+      duration: '3 - 4 horas',
+      location: 'Turrialba, Urb. Jorge Debravo',
+      badge: 'Clase Gratis con tu Pieza',
+      description: 'Un taller intensivo con pasta de relieve y espátulas. Adquiere tu pieza y la lección personalizada es totalmente GRATIS.',
       highlights: [
-        'Uso de pastas de relieve y gesso estructural',
-        'Técnica de espátula para flores y relieves botánicos',
-        'Lienzo de gran formato con marco de madera',
-        'Protección final con varniz satinado o brillante',
-        'Copa de vino premium y tabla de bocadillos gourmet'
+        '¡Clase GRATIS al comprar tu pieza artística!',
+        'Pastas de relieve impasto y técnicas de espátula',
+        'Encargos semanales de figuras especiales',
+        'Atención personalizada en grupos reducidos',
+        'Horarios flexibles los Miércoles, Viernes y Sábados'
       ],
-      whatsappMsg: '¡Hola! Deseo información e inscripción para el Curso Avanzado de Pintura.'
+      whatsappMsg: '¡Hola Maria! Deseo información sobre las piezas para la clase de Pintura Avanzada.'
     },
     {
       id: 'patinas',
@@ -74,31 +74,31 @@ export default function Courses({ onSelectCourseDetail }) {
       title: 'Curso de Pátinas & Acabados Artísticos',
       subtitle: 'Aprende a transformar figuras de yeso y cerámica con técnicas metálicas envejecidas.',
       image: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=800&q=80',
-      price: '₡28.000',
-      currency: 'CRC por persona',
-      duration: '3 horas 30 minutos',
-      location: 'San José / Turrialba / San Carlos',
+      price: 'Clase GRATIS',
+      currency: 'Al comprar tu figura (Insumos incluidos)',
+      duration: '3 - 4 horas',
+      location: 'Turrialba, Urb. Jorge Debravo',
       badge: 'Especialidad',
-      description: 'Aprende el arte tradicional de las pátinas a la cera, bronces, cobres, pátinas oxidadas y decapados sobre superficies rígidas.',
+      description: 'Elige tu figura de yeso o cerámica en nuestro catálogo y la clase de pátinas metálicas y envejecidos es totalmente GRATIS.',
       highlights: [
-        'Preparación y sellado de figuras en yeso cerámico',
-        'Aplicación de ceras metálicas, betún de Judea y pátina verde turquesa',
-        'Técnica de pincel seco para resaltar relieves',
-        '2 Figuras esculturales incluidas para llevar a casa',
-        'Guía impresa de combinaciones de fórmulas'
+        '¡Clase GRATIS al adquirir tu figura en taller!',
+        'Ceras metálicas, betún de Judea y efectos oxidados',
+        'Todos los insumos de aplicación incluidos',
+        'Encargos de figuras todas las semanas (Reserva con 50%)',
+        'Horarios: Miércoles (9-1 / 2-5), Viernes (2-5), Sábados (9-1)'
       ],
-      whatsappMsg: '¡Hola! Quisiera matricular el Curso de Pátinas & Acabados Artísticos.'
+      whatsappMsg: '¡Hola Maria! Quisiera elegir una figura de yeso/cerámica y matricular la clase gratis de Pátinas.'
     },
     {
       id: 'velas-basico',
       category: 'velas',
-      title: 'Curso Básico de Velas',
+      title: 'Curso Básico de Velas Artesanales',
       subtitle: 'Iníciate en la cerería artesanal creando velas aromáticas de cera de soya en frasco.',
       image: 'https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=800&q=80',
       price: '₡25.000',
-      currency: 'CRC por persona',
+      currency: 'CRC por persona (Todo incluido)',
       duration: '3 horas',
-      location: 'San José / Turrialba / San Carlos',
+      location: 'Turrialba, Urb. Jorge Debravo',
       badge: 'Más Popular',
       description: 'Conoce los tipos de ceras ecológicas, puntos de fusión y el cálculo exacto de fragancia para elaborar velas perfectas.',
       highlights: [
@@ -108,18 +108,18 @@ export default function Courses({ onSelectCourseDetail }) {
         'Guía básica impresa de formulación',
         'Merienda especial con bebidas calientes'
       ],
-      whatsappMsg: '¡Hola! Me interesa inscribirme en el Curso Básico de Velas.'
+      whatsappMsg: '¡Hola Maria! Me interesa inscribirme en el Curso Básico de Velas.'
     },
     {
       id: 'velas-medio',
       category: 'velas',
-      title: 'Curso Medio de Velas',
+      title: 'Curso Medio de Velas Artesanales',
       subtitle: 'Crea velas en moldes de silicona, incrustaciones de flores botánicas y efectos de color.',
       image: 'https://images.unsplash.com/photo-1605651202774-7d573fd3f12d?auto=format&fit=crop&w=800&q=80',
       price: '₡29.500',
-      currency: 'CRC por persona',
+      currency: 'CRC por persona (Todo incluido)',
       duration: '3 horas 30 minutos',
-      location: 'San José / Turrialba / San Carlos',
+      location: 'Turrialba, Urb. Jorge Debravo',
       badge: 'Recomendado',
       description: 'Aprende a trabajar con ceras de alto punto de fusión para desmolde perfecto de figuras geométricas y decoración con flores secas.',
       highlights: [
@@ -129,18 +129,18 @@ export default function Courses({ onSelectCourseDetail }) {
         '3 Velas de molde esculturales terminadas',
         'Manual intermedio de aditivos para mayor durabilidad'
       ],
-      whatsappMsg: '¡Hola! Quisiera información para el Curso Medio de Velas.'
+      whatsappMsg: '¡Hola Maria! Quisiera información para el Curso Medio de Velas.'
     },
     {
       id: 'velas-avanzado',
       category: 'velas',
-      title: 'Curso Avanzado de Velas',
+      title: 'Curso Avanzado de Velas Artesanales',
       subtitle: 'Formulación profesional de masajes, mechas de madera, velas de gel y proyectos para negocio.',
       image: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=800&q=80',
       price: '₡38.000',
-      currency: 'CRC por persona',
+      currency: 'CRC por persona (Todo incluido)',
       duration: '4 horas',
-      location: 'San José / Turrialba / San Carlos',
+      location: 'Turrialba, Urb. Jorge Debravo',
       badge: 'Profesional / Emprendedor',
       description: 'Diseñado para quienes buscan comercializar su propia marca. Incluye velas terapéuticas para masaje, mechas de cedro y etiquetado normativo.',
       highlights: [
@@ -148,9 +148,9 @@ export default function Courses({ onSelectCourseDetail }) {
         'Técnica de colocación de mechas de madera de cedro crepitante',
         'Creación de velas transparentes en cera de gel cristalina',
         'Costeo de materiales y guía de proveedores locales',
-        'Asesoría personalizada para emprendimientos'
+        'Asesoría personalizada con Maria'
       ],
-      whatsappMsg: '¡Hola! Me interesa inscribirme en el Curso Avanzado de Velas.'
+      whatsappMsg: '¡Hola Maria! Me interesa inscribirme en el Curso Avanzado de Velas.'
     }
   ];
 
@@ -171,7 +171,7 @@ export default function Courses({ onSelectCourseDetail }) {
             Elige Tu Nivel & Experiencia Creativa
           </h2>
           <p className="text-[#6b5852] text-lg font-light">
-            Desde niveles básicos para principiantes hasta módulos avanzados y pátinas artísticas. Impartidos en San José, Turrialba y San Carlos.
+            ¡Al comprar tu pieza, la clase de pintura es totalmente GRATIS con todos los materiales incluidos! Impartidos por Maria en Turrialba (Urbanización Jorge Debravo).
           </p>
 
           {/* Filter Tabs */}
@@ -225,7 +225,7 @@ export default function Courses({ onSelectCourseDetail }) {
         {/* Courses Cards Grid */}
         <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredCourses.map((course) => {
-            const whatsappUrl = `https://wa.me/50688390436?text=${encodeURIComponent(course.whatsappMsg)}`;
+            const whatsappUrl = `https://wa.me/50660367249?text=${encodeURIComponent(course.whatsappMsg)}`;
 
             return (
               <div
@@ -327,11 +327,11 @@ export default function Courses({ onSelectCourseDetail }) {
               ¿Buscas un Taller Privado para tu Grupo o Empresa?
             </h3>
             <p className="text-sm sm:text-base text-[#6b5852] max-w-2xl">
-              Organizamos talleres personalizados para cumpleaños, despedidas de soltera, team building corporativo y reuniones de amigas en San José, Turrialba y San Carlos.
+            Organizamos talleres personalizados para cumpleaños, despedidas de soltera, team building corporativo y reuniones de amigas en Turrialba y zonas aledañas.
             </p>
           </div>
           <a
-            href="https://wa.me/50688390436?text=Hola%20Resina%20Art%20%26%20Mary%2C%20quisiera%20cotizar%20un%20taller%20privado%20para%20un%20grupo."
+          href="https://wa.me/50660367249?text=Hola%20Maria%2C%20quisiera%20cotizar%20un%20taller%20privado%20para%20un%20grupo."
             target="_blank"
             rel="noopener noreferrer"
             className="shrink-0 bg-[#3d2c29] hover:bg-[#2a1e1c] text-white px-8 py-4 rounded-full text-sm font-medium transition-all shadow-md inline-flex items-center gap-2"
