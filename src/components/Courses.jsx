@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Flame, Palette, CheckCircle, Clock, MapPin, Sparkles, MessageCircle, ArrowRight } from 'lucide-react';
+import { Flame, Palette, CheckCircle, Clock, MapPin, Sparkles, MessageCircle, ArrowRight, Eye } from 'lucide-react';
 
-export default function Courses() {
+export default function Courses({ onSelectCourseDetail }) {
   const [selectedCourse, setSelectedCourse] = useState('all');
 
   const courses = [
@@ -32,7 +32,7 @@ export default function Courses() {
       category: 'pintura',
       title: 'Taller de Pintura Creativa & Pinta y Vino',
       subtitle: 'Expresa tu arte sobre lienzo mientras disfrutas de una tarde de relajación.',
-      image: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80',
       price: '₡29.500',
       currency: 'CRC por persona',
       duration: '3 horas 30 minutos',
@@ -197,13 +197,22 @@ export default function Courses() {
                   </div>
                 </div>
 
-                {/* Card Action CTA */}
-                <div className="p-6 sm:p-8 pt-0">
+                {/* Card Action CTAs */}
+                <div className="p-6 sm:p-8 pt-0 space-y-2.5">
+                  {onSelectCourseDetail && (
+                    <button
+                      onClick={() => onSelectCourseDetail(course.id)}
+                      className="w-full inline-flex items-center justify-center gap-2 bg-[#3d2c29] hover:bg-[#2a1e1c] text-white py-3 px-6 rounded-2xl font-medium text-sm transition-all shadow-md"
+                    >
+                      <Eye className="w-4 h-4" />
+                      <span>Ver Detalle del Curso</span>
+                    </button>
+                  )}
                   <a
                     href={whatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] text-white py-3.5 px-6 rounded-2xl font-medium transition-all shadow-md hover:shadow-lg"
+                    className="w-full inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] text-white py-3.5 px-6 rounded-2xl font-medium text-sm transition-all shadow-md hover:shadow-lg"
                   >
                     <MessageCircle className="w-5 h-5 fill-current" />
                     <span>Inscribirme por WhatsApp</span>

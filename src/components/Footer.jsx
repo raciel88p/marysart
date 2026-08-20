@@ -1,7 +1,7 @@
 import React from 'react';
-import { Heart, MapPin, Phone, Mail, Rss } from 'lucide-react';
+import { Heart, MapPin, Phone, Mail, Rss, Grid } from 'lucide-react';
 
-export default function Footer({ onOpenModal }) {
+export default function Footer({ onOpenModal, onNavigateHome, onNavigateCatalog, onSelectCourseDetail }) {
   const whatsappMessage = encodeURIComponent(
     "¡Hola Resina Art & Mary! Deseo recibir información sobre los cursos de Velas Artesanales y Pintura."
   );
@@ -63,6 +63,46 @@ export default function Footer({ onOpenModal }) {
             </div>
           </div>
 
+          {/* Catalog & Courses Subpages */}
+          <div className="space-y-4">
+            <h3 className="font-serif text-lg font-bold text-white">Talleres & Subpáginas</h3>
+            <ul className="space-y-2.5 text-sm text-[#a8988e]">
+              <li>
+                <button
+                  onClick={onNavigateCatalog}
+                  className="hover:text-[#e8a598] transition-colors text-left flex items-center gap-1.5 font-bold text-[#e8a598]"
+                >
+                  <Grid className="w-3.5 h-3.5" />
+                  <span>Ver Catálogo General</span>
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onSelectCourseDetail && onSelectCourseDetail('velas')}
+                  className="hover:text-[#e8a598] transition-colors text-left"
+                >
+                  Subpágina: Velas Artesanales
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onSelectCourseDetail && onSelectCourseDetail('pintura')}
+                  className="hover:text-[#e8a598] transition-colors text-left"
+                >
+                  Subpágina: Pintura & Vino
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onSelectCourseDetail && onSelectCourseDetail('combo')}
+                  className="hover:text-[#e8a598] transition-colors text-left"
+                >
+                  Subpágina: Combo Completo
+                </button>
+              </li>
+            </ul>
+          </div>
+
           {/* Static Pages Links */}
           <div className="space-y-4">
             <h3 className="font-serif text-lg font-bold text-white">Información & Políticas</h3>
@@ -104,7 +144,7 @@ export default function Footer({ onOpenModal }) {
                   href="/rss.xml"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#e8a598] transition-colors inline-flex items-center gap-1.5"
+                  className="hover:text-[#e8a598] transition-colors inline-flex items-center gap-1.5 text-xs"
                 >
                   <Rss className="w-3.5 h-3.5" />
                   <span>Canal RSS Novedades</span>
@@ -134,22 +174,6 @@ export default function Footer({ onOpenModal }) {
                 </a>
               </li>
             </ul>
-          </div>
-
-          {/* Payment Methods & Policy */}
-          <div className="space-y-4">
-            <h3 className="font-serif text-lg font-bold text-white">Métodos de Pago</h3>
-            <p className="text-xs text-[#a8988e]">
-              Aceptamos SINPE Móvil, transferencias bancarias locales y pagos con tarjetas de crédito/débito.
-            </p>
-            <div className="flex flex-wrap gap-2 text-xs font-medium text-[#d8c8bf]">
-              <span className="bg-[#3d2c29] px-3 py-1.5 rounded-lg border border-[#4d3a37]">SINPE Móvil</span>
-              <span className="bg-[#3d2c29] px-3 py-1.5 rounded-lg border border-[#4d3a37]">Transferencia</span>
-              <span className="bg-[#3d2c29] px-3 py-1.5 rounded-lg border border-[#4d3a37]">Tarjeta</span>
-            </div>
-            <p className="text-[11px] text-[#8c7a6b] italic pt-2">
-              * Recuerda confirmar tu cupo con anticipación debido a cupos limitados por sesión.
-            </p>
           </div>
 
         </div>

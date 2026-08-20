@@ -114,7 +114,7 @@ export default function Hero() {
                 </div>
                 <div className="relative overflow-hidden rounded-2xl shadow-xl group">
                   <img
-                    src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=600&q=80"
+                    src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=600&q=80"
                     alt="Taller de pintura y arte"
                     className="w-full h-40 object-cover transform group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
