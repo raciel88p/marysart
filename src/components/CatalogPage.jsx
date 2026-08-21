@@ -329,13 +329,14 @@ export default function CatalogPage({ onNavigateHome, onSelectCourseDetail, onNa
                   {/* Card Footer Actions */}
                   <div className="p-6 pt-0 space-y-2">
                     {onSelectCourseDetail && (
-                      <button
-                        onClick={() => onSelectCourseDetail(item.id)}
+                      <a
+                        href={`/cursos/${item.id}`}
+                        onClick={(e) => { e.preventDefault(); onSelectCourseDetail(item.id); }}
                         className="w-full inline-flex items-center justify-center gap-2 bg-[#3d2c29] hover:bg-[#2a1e1c] text-white py-2.5 px-4 rounded-xl font-medium text-xs transition-all"
                       >
                         <Eye className="w-4 h-4" />
                         <span>Ver Ficha Completa</span>
-                      </button>
+                      </a>
                     )}
                     <a
                       href={whatsappUrl}

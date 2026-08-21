@@ -14,30 +14,42 @@ import PieceCatalogPage from './components/PieceCatalogPage';
 import CourseDetailPage from './components/CourseDetailPage';
 
 export default function App() {
-  const [currentView, setCurrentView] = useState('home'); // 'home', 'catalog', 'pieces', 'course-detail'
-  const [selectedCourseId, setSelectedCourseId] = useState('velas-basico');
+  const parsePath = () => {
+    const path = window.location.pathname;
+    if (path === '/' || path === '') return { view: 'home', courseId: null };
+    if (path === '/cursos' || path === '/cursos/') return { view: 'catalog', courseId: null };
+    if (path === '/piezas' || path === '/piezas/') return { view: 'pieces', courseId: null };
+    if (path.startsWith('/cursos/')) {
+      const courseId = path.replace('/cursos/', '').replace(/\/$/, '');
+      if (courseId) return { view: 'course-detail', courseId };
+    }
+    return { view: 'home', courseId: null };
+  };
+
+  const [route, setRoute] = useState(parsePath());
   const [activeModalPage, setActiveModalPage] = useState(null);
 
-  const handleNavigateHome = () => {
-    setCurrentView('home');
+  React.useEffect(() => {
+    const handlePopState = () => {
+      setRoute(parsePath());
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  const navigateTo = (url) => {
+    window.history.pushState({}, '', url);
+    setRoute(parsePath());
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleNavigateCatalog = () => {
-    setCurrentView('catalog');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  const handleNavigateHome = () => navigateTo('/');
+  const handleNavigateCatalog = () => navigateTo('/cursos');
+  const handleNavigatePieces = () => navigateTo('/piezas');
+  const handleSelectCourseDetail = (courseId) => navigateTo(`/cursos/${courseId}`);
 
-  const handleNavigatePieces = () => {
-    setCurrentView('pieces');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const handleSelectCourseDetail = (courseId) => {
-    setSelectedCourseId(courseId);
-    setCurrentView('course-detail');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  const currentView = route.view;
+  const selectedCourseId = route.courseId || 'pintura-basico';
 
   const handleOpenModal = (pageType) => {
     setActiveModalPage(pageType);

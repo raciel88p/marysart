@@ -293,13 +293,14 @@ export default function Courses({ onSelectCourseDetail }) {
                 {/* Card Action CTAs */}
                 <div className="p-6 sm:p-8 pt-0 space-y-2.5">
                   {onSelectCourseDetail && (
-                    <button
-                      onClick={() => onSelectCourseDetail(course.id)}
+                    <a
+                      href={`/cursos/${course.id}`}
+                      onClick={(e) => { e.preventDefault(); onSelectCourseDetail(course.id); }}
                       className="w-full inline-flex items-center justify-center gap-2 bg-[#3d2c29] hover:bg-[#2a1e1c] text-white py-3 px-6 rounded-2xl font-medium text-sm transition-all shadow-md"
                     >
                       <Eye className="w-4 h-4" />
                       <span>Ver Ficha del Curso</span>
-                    </button>
+                    </a>
                   )}
                   <a
                     href={whatsappUrl}

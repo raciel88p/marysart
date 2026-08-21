@@ -15,8 +15,9 @@ export default function Navbar({ currentView, onNavigateHome, onNavigateCatalog,
         <div className="flex items-center justify-between h-20">
 
           {/* Logo */}
-          <button
-            onClick={onNavigateHome}
+          <a
+            href="/"
+            onClick={(e) => { e.preventDefault(); onNavigateHome(); }}
             className="flex items-center gap-3 group text-left focus:outline-none"
           >
             <div className="w-11 h-11 rounded-full bg-[#e8a598] text-white flex items-center justify-center font-serif text-xl font-bold shadow-md group-hover:bg-[#d98a7b] transition-colors">
@@ -30,36 +31,39 @@ export default function Navbar({ currentView, onNavigateHome, onNavigateCatalog,
                 Velas & Arte Botánico
               </span>
             </div>
-          </button>
+          </a>
 
           {/* Desktop Navigation Links */}
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-[#5c4a43]">
-            <button
-              onClick={onNavigateHome}
+            <a
+              href="/"
+              onClick={(e) => { e.preventDefault(); onNavigateHome(); }}
               className={`hover:text-[#e8a598] transition-colors ${
                 currentView === 'home' ? 'text-[#c87563] font-bold' : ''
               }`}
             >
               Inicio
-            </button>
-            <button
-              onClick={onNavigateCatalog}
+            </a>
+            <a
+              href="/cursos"
+              onClick={(e) => { e.preventDefault(); onNavigateCatalog(); }}
               className={`inline-flex items-center gap-1 hover:text-[#e8a598] transition-colors ${
                 currentView === 'catalog' ? 'text-[#c87563] font-bold' : ''
               }`}
             >
               <Grid className="w-4 h-4 text-[#c87563]" />
               <span>Catálogo Cursos</span>
-            </button>
-            <button
-              onClick={onNavigatePieces}
+            </a>
+            <a
+              href="/piezas"
+              onClick={(e) => { e.preventDefault(); onNavigatePieces(); }}
               className={`inline-flex items-center gap-1 hover:text-[#e8a598] transition-colors ${
                 currentView === 'pieces' ? 'text-[#c87563] font-bold' : ''
               }`}
             >
               <Package className="w-4 h-4 text-[#c87563]" />
               <span>Catálogo Piezas</span>
-            </button>
+            </a>
             <a href="#cursos" onClick={currentView !== 'home' ? onNavigateHome : undefined} className="hover:text-[#e8a598] transition-colors">
               Talleres
             </a>

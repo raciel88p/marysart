@@ -68,48 +68,53 @@ export default function Footer({ onOpenModal, onNavigateHome, onNavigateCatalog,
             <h3 className="font-serif text-lg font-bold text-white">Catálogos & Subpáginas</h3>
             <ul className="space-y-2.5 text-sm text-[#a8988e]">
               <li>
-                <button
-                  onClick={onNavigateCatalog}
+                <a
+                  href="/cursos"
+                  onClick={(e) => { e.preventDefault(); onNavigateCatalog(); }}
                   className="hover:text-[#e8a598] transition-colors text-left flex items-center gap-1.5 font-bold text-[#e8a598]"
                 >
                   <Grid className="w-3.5 h-3.5" />
                   <span>Catálogo de Cursos (7 Niveles)</span>
-                </button>
+                </a>
               </li>
               {onNavigatePieces && (
                 <li>
-                  <button
-                    onClick={onNavigatePieces}
+                  <a
+                    href="/piezas"
+                    onClick={(e) => { e.preventDefault(); onNavigatePieces(); }}
                     className="hover:text-[#e8a598] transition-colors text-left flex items-center gap-1.5 font-bold text-[#e8a598]"
                   >
                     <Package className="w-3.5 h-3.5" />
                     <span>Catálogo de Piezas Artesanales</span>
-                  </button>
+                  </a>
                 </li>
               )}
               <li>
-                <button
-                  onClick={() => onSelectCourseDetail && onSelectCourseDetail('pintura-basico')}
-                  className="hover:text-[#e8a598] transition-colors text-left"
+                <a
+                  href="/cursos/pintura-basico"
+                  onClick={(e) => { e.preventDefault(); onSelectCourseDetail && onSelectCourseDetail('pintura-basico'); }}
+                  className="hover:text-[#e8a598] transition-colors text-left block"
                 >
                   Curso Básico de Pintura
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => onSelectCourseDetail && onSelectCourseDetail('velas-basico')}
-                  className="hover:text-[#e8a598] transition-colors text-left"
+                <a
+                  href="/cursos/velas-basico"
+                  onClick={(e) => { e.preventDefault(); onSelectCourseDetail && onSelectCourseDetail('velas-basico'); }}
+                  className="hover:text-[#e8a598] transition-colors text-left block"
                 >
                   Curso Básico de Velas
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => onSelectCourseDetail && onSelectCourseDetail('patinas')}
-                  className="hover:text-[#e8a598] transition-colors text-left"
+                <a
+                  href="/cursos/patinas"
+                  onClick={(e) => { e.preventDefault(); onSelectCourseDetail && onSelectCourseDetail('patinas'); }}
+                  className="hover:text-[#e8a598] transition-colors text-left block"
                 >
                   Curso de Pátinas
-                </button>
+                </a>
               </li>
             </ul>
           </div>
