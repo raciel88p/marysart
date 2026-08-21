@@ -61,7 +61,7 @@ export default function CatalogPage({ onNavigateHome, onSelectCourseDetail, onNa
       type: 'Taller Presencial',
       title: 'Curso de Pátinas & Acabados Artísticos',
       subtitle: 'Transforma figuras de yeso y cerámica. Clase GRATIS al comprar tu figura.',
-      image: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80',
       price: 0,
       priceFormatted: 'Clase GRATIS',
       duration: '3h 30m',

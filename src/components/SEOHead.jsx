@@ -18,7 +18,7 @@ export const seoMetaData = {
       'address': {
         '@type': 'PostalAddress',
         'streetAddress': 'Urbanización Jorge Debravo',
-        'addressLocality': 'Turrialba',
+        'addressLocality': 'Turrialba y San Carlos',
         'addressRegion': 'Cartago',
         'addressCountry': 'CR'
       },

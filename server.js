@@ -22,22 +22,23 @@ async function createServer() {
     const compression = (await import('compression')).default;
     app.use(compression());
     const serveStatic = (await import('serve-static')).default;
-    app.use(serveStatic(path.resolve(__dirname, 'dist/client'), { index: false }));
+    app.use(serveStatic(path.resolve(process.cwd(), 'dist/client'), { index: false }));
   }
 
-  app.use('{*path}', async (req, res, next) => {
+  app.get('*', async (req, res, next) => {
     const url = req.originalUrl;
 
     try {
       let template, render;
 
       if (!isProd) {
-        template = fs.readFileSync(path.resolve(__dirname, 'index.html'), 'utf-8');
+        template = fs.readFileSync(path.resolve(process.cwd(), 'index.html'), 'utf-8');
         template = await vite.transformIndexHtml(url, template);
         render = (await vite.ssrLoadModule('/src/entry-server.jsx')).render;
       } else {
-        template = fs.readFileSync(path.resolve(__dirname, 'dist/client/index.html'), 'utf-8');
-        render = (await import('./dist/server/entry-server.js')).render;
+        template = fs.readFileSync(path.resolve(process.cwd(), 'dist/client/index.html'), 'utf-8');
+        const serverEntryPath = path.resolve(process.cwd(), 'dist/server/entry-server.js');
+        render = (await import(`file://${serverEntryPath}`)).render;
       }
 
       const { html: appHtml, meta, isNotFound } = render(url);
@@ -78,7 +79,7 @@ async function createServer() {
     }
   });
 
-  if (process.env.NODE_ENV !== 'test') {
+  if (process.env.NODE_ENV !== 'test' && !process.env.VERCEL) {
     app.listen(PORT, () => {
       console.log(`Server running at http://localhost:${PORT}`);
     });
@@ -88,4 +89,5 @@ async function createServer() {
 }
 
 const appPromise = createServer();
+export { createServer, appPromise };
 export default appPromise;

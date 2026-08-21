@@ -1,9 +1,15 @@
 {
   "version": 2,
+  "outputDirectory": "dist/client",
+  "functions": {
+    "api/index.js": {
+      "includeFiles": "dist/**"
+    }
+  },
   "rewrites": [
     {
-      "source": "/((?!assets/|sitemap.xml|robots.txt|.*\\..*).*)",
-      "destination": "/index.html"
+      "source": "/((?!assets/|sitemap.xml|robots.txt|rss.xml|.*\\..*).*)",
+      "destination": "/api/index.js"
     }
   ]
 }

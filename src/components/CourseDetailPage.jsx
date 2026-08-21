@@ -127,7 +127,7 @@ Además, compartiremos un momento especial en nuestra comunidad disfrutando de u
     currency: 'Al comprar tu figura (Insumos incluidos)',
     duration: '3 - 4 horas',
     location: 'Turrialba, Urbanización Jorge Debravo',
-    image: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=1000&q=80',
+    image: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=1000&q=80',
     description: `Aprende el arte de las pátinas a la cera, bronces, betún de Judea y envejecidos. Al comprar tu figura en el taller, la lección es GRATIS.`,
     syllabus: [
       { time: '45 mins', title: 'Módulo 1: Sellado de Superficie', desc: 'Preparación de yeso o cerámica.' },

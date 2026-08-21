@@ -38,7 +38,7 @@ export default function PieceCatalogPage({ onNavigateHome, onNavigateCatalog }) 
       category: 'patinas',
       title: 'Busto Escultural de Yeso con Pátina Bronce Antiguo',
       subtitle: 'Figura artística acabada a mano con técnica tradicional de ceras envejecidas.',
-      image: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80',
       price: '₡24.000',
       status: 'Disponible',
       dimensions: '22 cm alto x 12 cm ancho',

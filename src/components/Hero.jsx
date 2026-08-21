@@ -35,7 +35,7 @@ export default function Hero() {
             <div className="flex flex-wrap justify-center lg:justify-start gap-4 text-xs sm:text-sm text-[#5c4a43] pt-2">
               <div className="flex items-center gap-1.5 bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-full border border-[#e8ded5]">
                 <MapPin className="w-4 h-4 text-[#c87563]" />
-                <span>Turrialba, Urb. Jorge Debravo</span>
+                <span>Turrialba y San Carlos, Costa Rica</span>
               </div>
               <div className="flex items-center gap-1.5 bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-full border border-[#e8ded5]">
                 <Clock className="w-4 h-4 text-[#c87563]" />
