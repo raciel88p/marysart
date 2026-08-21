@@ -12,7 +12,12 @@ export const coursesData = {
     duration: '3 - 4 horas',
     location: 'Turrialba, Urbanización Jorge Debravo',
     image: 'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=1000&q=80',
-    description: `Al comprar tu pieza en nuestro taller o por encargo (reserva con 50%), la clase de pintura acrílica es totalmente GRATIS. Maria te acompañará paso a paso en el manejo de pinceles, teoría del color y acabado de tu pieza.`,
+    description: `¡Crea, pinta y disfruta una experiencia única! 🎨☕
+Reserva tu pieza con un 50% de adelanto y cancela el 50% restante al finalizar en nuestro taller, o realiza tu pedido por encargo.
+
+Al adquirir tu pieza, recibirás una clase de pintura acrílica completamente GRATIS. María te acompañará paso a paso en el manejo de pinceles, teoría del color y técnicas de acabado para que puedas crear una pieza única con tus propias manos.
+
+Además, compartiremos un momento especial en nuestra comunidad disfrutando de un cafecito y un quequito, creando un espacio lleno de creatividad, aprendizaje y conexión. ✨🎨☕`,
     syllabus: [
       { time: '30 mins', title: 'Módulo 1: Selección de Pieza y Preparación', desc: 'Sella y prepara tu pieza o lienzo para recibir la pintura.' },
       { time: '45 mins', title: 'Módulo 2: Teoría del Color y Mezclas', desc: 'Mezcla paletas armoniosas para darle vida a tu diseño.' },
