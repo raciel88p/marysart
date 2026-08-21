@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Courses from './components/Courses';
@@ -12,35 +12,58 @@ import StaticPagesModal from './components/StaticPagesModal';
 import CatalogPage from './components/CatalogPage';
 import PieceCatalogPage from './components/PieceCatalogPage';
 import CourseDetailPage from './components/CourseDetailPage';
+import NotFoundPage from './components/NotFoundPage';
+import SEOHead from './components/SEOHead';
 
-export default function App() {
-  const parsePath = () => {
-    const path = window.location.pathname;
-    if (path === '/' || path === '') return { view: 'home', courseId: null };
-    if (path === '/cursos' || path === '/cursos/') return { view: 'catalog', courseId: null };
-    if (path === '/piezas' || path === '/piezas/') return { view: 'pieces', courseId: null };
-    if (path.startsWith('/cursos/')) {
-      const courseId = path.replace('/cursos/', '').replace(/\/$/, '');
-      if (courseId) return { view: 'course-detail', courseId };
+export const VALID_COURSE_IDS = [
+  'pintura-basico',
+  'pintura-medio',
+  'pintura-avanzado',
+  'patinas',
+  'velas-basico',
+  'velas-medio',
+  'velas-avanzado'
+];
+
+export function parseRoute(path) {
+  const normalized = (path || '/').split('?')[0].split('#')[0];
+  if (normalized === '/' || normalized === '') return { view: 'home', courseId: null, isNotFound: false };
+  if (normalized === '/cursos' || normalized === '/cursos/') return { view: 'catalog', courseId: null, isNotFound: false };
+  if (normalized === '/piezas' || normalized === '/piezas/') return { view: 'pieces', courseId: null, isNotFound: false };
+
+  if (normalized.startsWith('/cursos/')) {
+    const courseId = normalized.replace('/cursos/', '').replace(/\/$/, '');
+    if (VALID_COURSE_IDS.includes(courseId)) {
+      return { view: 'course-detail', courseId, isNotFound: false };
     }
-    return { view: 'home', courseId: null };
-  };
+  }
 
-  const [route, setRoute] = useState(parsePath());
+  return { view: '404', courseId: null, isNotFound: true };
+}
+
+export default function App({ initialPath = '/' }) {
+  const [route, setRoute] = useState(() => parseRoute(initialPath));
   const [activeModalPage, setActiveModalPage] = useState(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    // Sync initial route with window.location.pathname on client mount
+    setRoute(parseRoute(window.location.pathname));
+
     const handlePopState = () => {
-      setRoute(parsePath());
+      setRoute(parseRoute(window.location.pathname));
     };
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
   const navigateTo = (url) => {
-    window.history.pushState({}, '', url);
-    setRoute(parsePath());
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (typeof window !== 'undefined') {
+      window.history.pushState({}, '', url);
+      setRoute(parseRoute(url));
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   const handleNavigateHome = () => navigateTo('/');
@@ -49,7 +72,7 @@ export default function App() {
   const handleSelectCourseDetail = (courseId) => navigateTo(`/cursos/${courseId}`);
 
   const currentView = route.view;
-  const selectedCourseId = route.courseId || 'pintura-basico';
+  const selectedCourseId = route.courseId;
 
   const handleOpenModal = (pageType) => {
     setActiveModalPage(pageType);
@@ -61,6 +84,9 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#faf7f5] flex flex-col font-sans text-[#4a3e3d] selection:bg-[#f2dfd8] selection:text-[#8c483b]">
+      {/* Dynamic SEO Head Management */}
+      <SEOHead view={currentView} courseId={selectedCourseId} path={initialPath} />
+
       {/* Navigation Header */}
       <Navbar
         currentView={currentView}
@@ -103,6 +129,14 @@ export default function App() {
             onNavigateHome={handleNavigateHome}
             onNavigateCatalog={handleNavigateCatalog}
             onNavigatePieces={handleNavigatePieces}
+          />
+        )}
+
+        {currentView === '404' && (
+          <NotFoundPage
+            onNavigateHome={handleNavigateHome}
+            onNavigateCatalog={handleNavigateCatalog}
+            onSelectCourseDetail={handleSelectCourseDetail}
           />
         )}
       </main>

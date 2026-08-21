@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowLeft, Clock, MapPin, CheckCircle2, Calendar, ShieldCheck, Heart, Sparkles, MessageCircle, User, Award, BookOpen } from 'lucide-react';
 
-const COURSES_DATA = {
+export const coursesData = {
   'pintura-basico': {
     id: 'pintura-basico',
     title: 'Curso Básico de Pintura',
@@ -264,7 +264,7 @@ const COURSES_DATA = {
 };
 
 export default function CourseDetailPage({ courseId, onNavigateHome, onNavigateCatalog, onNavigatePieces }) {
-  const course = COURSES_DATA[courseId] || COURSES_DATA['velas-basico'];
+  const course = coursesData[courseId] || coursesData['velas-basico'];
   const whatsappUrl = `https://wa.me/50660367249?text=${encodeURIComponent(course.whatsappMsg)}`;
 
   return (
