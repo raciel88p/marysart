@@ -344,9 +344,11 @@ export default function CourseDetailPage({ courseId, onNavigateHome, onNavigateC
               </div>
             </div>
 
-            <p className="text-sm text-[#5c4a43] leading-relaxed pt-2">
-              {course.description}
-            </p>
+            <div className="text-sm text-[#5c4a43] leading-relaxed pt-2 space-y-4">
+              {course.description.split('\n\n').map((paragraph, idx) => (
+                <p key={idx}>{paragraph}</p>
+              ))}
+            </div>
           </div>
 
           {/* Pricing & Booking Sidebar Card */}
