@@ -78,9 +78,14 @@ async function createServer() {
     }
   });
 
-  app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
-  });
+  if (process.env.NODE_ENV !== 'test') {
+    app.listen(PORT, () => {
+      console.log(`Server running at http://localhost:${PORT}`);
+    });
+  }
+
+  return app;
 }
 
-createServer();
+const appPromise = createServer();
+export default appPromise;
