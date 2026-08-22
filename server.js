@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import express from 'express';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -25,7 +25,7 @@ async function createServer() {
     app.use(serveStatic(path.resolve(process.cwd(), 'dist/client'), { index: false }));
   }
 
-  app.get('*', async (req, res, next) => {
+  app.use(async (req, res, next) => {
     const url = req.originalUrl;
 
     try {
@@ -36,9 +36,11 @@ async function createServer() {
         template = await vite.transformIndexHtml(url, template);
         render = (await vite.ssrLoadModule('/src/entry-server.jsx')).render;
       } else {
-        template = fs.readFileSync(path.resolve(process.cwd(), 'dist/client/index.html'), 'utf-8');
+        const clientHtmlPath = path.resolve(process.cwd(), 'dist/client/index.html');
+        template = fs.readFileSync(clientHtmlPath, 'utf-8');
         const serverEntryPath = path.resolve(process.cwd(), 'dist/server/entry-server.js');
-        render = (await import(`file://${serverEntryPath}`)).render;
+        const entryUrl = pathToFileURL(serverEntryPath).href;
+        render = (await import(entryUrl)).render;
       }
 
       const { html: appHtml, meta, isNotFound } = render(url);
@@ -72,8 +74,19 @@ async function createServer() {
 
       res.status(isNotFound ? 404 : 200).set({ 'Content-Type': 'text/html' }).end(finalHtml);
     } catch (e) {
+      console.error('SSR Error:', e);
       if (!isProd && vite) {
         vite.ssrFixStacktrace(e);
+      }
+      // Fallback: serve index.html directly without SSR if SSR encounters an error
+      try {
+        const clientHtmlPath = path.resolve(process.cwd(), 'dist/client/index.html');
+        if (fs.existsSync(clientHtmlPath)) {
+          const fallbackHtml = fs.readFileSync(clientHtmlPath, 'utf-8');
+          return res.status(200).set({ 'Content-Type': 'text/html' }).end(fallbackHtml);
+        }
+      } catch (fallbackError) {
+        console.error('Fallback Error:', fallbackError);
       }
       next(e);
     }
