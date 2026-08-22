@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
-import { Search, Filter, ArrowLeft, Sparkles, MessageCircle, Eye, CheckCircle2, ShieldAlert, Heart, X, Tag } from 'lucide-react';
+import { Search, Filter, ArrowLeft, Sparkles, MessageCircle, Eye, CheckCircle2, ShieldAlert, Heart, X, Tag, ExternalLink, BookOpen } from 'lucide-react';
 
 export default function PieceCatalogPage({ onNavigateHome, onNavigateCatalog }) {
+  const canvaCatalogs = [
+    { title: 'Catálogo 1', url: 'https://canva.link/c2ba9dnbjbw0jm4' },
+    { title: 'Catálogo 2', url: 'https://canva.link/elg8ke0fdza9st2' },
+    { title: 'Catálogo 3', url: 'https://canva.link/ouazp1ozgd3zwlz' },
+    { title: 'Catálogo 4', url: 'https://canva.link/l9nsz009fgnu0l6' },
+    { title: 'Catálogo 5', url: 'https://canva.link/plhkmmzzgz67upn' },
+    { title: 'Catálogo 6', url: 'https://canva.link/62d3xsm2tx9b0wg' }
+  ];
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedPieceModal, setSelectedPieceModal] = useState(null);
@@ -125,7 +133,7 @@ export default function PieceCatalogPage({ onNavigateHome, onNavigateCatalog }) 
         </div>
 
         {/* Page Banner Header */}
-        <div className="bg-gradient-to-r from-[#2c211f] via-[#3d2c29] to-[#2c211f] rounded-3xl p-8 sm:p-12 text-white shadow-xl mb-12 relative overflow-hidden">
+        <div className="bg-gradient-to-r from-[#2c211f] via-[#3d2c29] to-[#2c211f] rounded-3xl p-8 sm:p-12 text-white shadow-xl mb-8 relative overflow-hidden">
           <div className="relative z-10 max-w-2xl space-y-4">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-[#c87563] text-white">
               <Sparkles className="w-3.5 h-3.5" /> Piezas Únicas Hechas a Mano
@@ -136,6 +144,30 @@ export default function PieceCatalogPage({ onNavigateHome, onNavigateCatalog }) 
             <p className="text-[#d8c8bf] text-base font-light leading-relaxed">
               Descubre nuestras creaciones exclusivas en velas botánicas, accesorios en resina, esculturas en pátinas y lienzos originales. Todas las piezas son elaboradas una a una con amor e insumos premium.
             </p>
+          </div>
+        </div>
+
+        {/* Canva Quick Links Bar */}
+        <div className="bg-white rounded-2xl p-6 border border-[#e8ded5] shadow-sm mb-10 space-y-4">
+          <div className="flex items-center gap-2">
+            <BookOpen className="w-5 h-5 text-[#c87563]" />
+            <h2 className="font-serif font-bold text-lg text-[#3d2c29]">
+              Ver Revistas & Catálogos Digitales Completos (Canva)
+            </h2>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+            {canvaCatalogs.map((cat, idx) => (
+              <a
+                key={idx}
+                href={cat.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-1.5 bg-[#faf7f5] hover:bg-[#f2dfd8] border border-[#e8ded5] text-[#3d2c29] text-xs font-bold py-2.5 px-3 rounded-xl transition-all"
+              >
+                <span>{cat.title}</span>
+                <ExternalLink className="w-3 h-3 text-[#c87563]" />
+              </a>
+            ))}
           </div>
         </div>
 

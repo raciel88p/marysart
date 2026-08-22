@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
-import { Search, Flame, Palette, Package, Filter, ArrowLeft, Clock, MapPin, CheckCircle, MessageCircle, Eye, Sparkles, Layers } from 'lucide-react';
+import { Search, Flame, Palette, Package, Filter, ArrowLeft, Clock, MapPin, CheckCircle, MessageCircle, Eye, Sparkles, Layers, ExternalLink, BookOpen } from 'lucide-react';
 
 export default function CatalogPage({ onNavigateHome, onSelectCourseDetail, onNavigatePieces }) {
+  const canvaCatalogs = [
+    { title: 'Catálogo Digital 1: Colección General', desc: 'Explora nuestra primera colección de productos, moldes y diseños exclusivos.', url: 'https://canva.link/c2ba9dnbjbw0jm4' },
+    { title: 'Catálogo Digital 2: Velas & Cerería', desc: 'Colección especial de velas botánicas, frascos decorativos e insumos.', url: 'https://canva.link/elg8ke0fdza9st2' },
+    { title: 'Catálogo Digital 3: Piezas en Yeso y Bizcocho', desc: 'Esculturas y macetas listas para pintar e incluir tu clase GRATIS.', url: 'https://canva.link/ouazp1ozgd3zwlz' },
+    { title: 'Catálogo Digital 4: Pátinas & Acabados', desc: 'Figuras acabadas con ceras metálicas, bronces y tonos envejecidos.', url: 'https://canva.link/l9nsz009fgnu0l6' },
+    { title: 'Catálogo Digital 5: Novedades & Temporada', desc: 'Ediciones especiales, piezas festivas y combos para regalo.', url: 'https://canva.link/plhkmmzzgz67upn' },
+    { title: 'Catálogo Digital 6: Obras & Cuadros en Lienzo', desc: 'Lienzos en acrílico con relieve, espátula y texturas botánicas.', url: 'https://canva.link/62d3xsm2tx9b0wg' }
+  ];
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [sortBy, setSortBy] = useState('popular');
@@ -164,17 +172,64 @@ export default function CatalogPage({ onNavigateHome, onSelectCourseDetail, onNa
         </div>
 
         {/* Catalog Banner Header */}
-        <div className="bg-gradient-to-r from-[#3d2c29] to-[#5c4a43] rounded-3xl p-8 sm:p-12 text-white shadow-lg mb-12 relative overflow-hidden">
+        <div className="bg-gradient-to-r from-[#3d2c29] to-[#5c4a43] rounded-3xl p-8 sm:p-12 text-white shadow-lg mb-10 relative overflow-hidden">
           <div className="relative z-10 max-w-2xl space-y-4">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#c87563]/30 text-[#f2dfd8] border border-[#c87563]/40">
-              <Sparkles className="w-3.5 h-3.5" /> 7 Cursos Disponibles
+              <Sparkles className="w-3.5 h-3.5" /> Catálogos Digitales & Cursos Presenciales
             </span>
             <h1 className="font-serif text-3xl sm:text-5xl font-bold leading-tight">
-              Catálogo de Cursos Presenciales por Nivel
+              Catálogos de Productos & Cursos
             </h1>
             <p className="text-[#e8ded5] text-base font-light">
-              Explora nuestros 7 cursos estructurados en Pintura (Básico, Medio, Avanzado), Velas (Básico, Medio, Avanzado) y Pátinas Artísticas.
+              Revisa nuestros 6 catálogos digitales interactivos en Canva con todos los productos, piezas e insumos, así como nuestros cursos presenciales en Costa Rica.
             </p>
+          </div>
+        </div>
+
+        {/* Canva Digital Catalogs Grid Section */}
+        <div className="mb-14 space-y-6">
+          <div className="flex items-center gap-2">
+            <BookOpen className="w-6 h-6 text-[#c87563]" />
+            <h2 className="font-serif text-2xl font-bold text-[#3d2c29]">
+              Catálogos Digitales Interactivos (Canva)
+            </h2>
+          </div>
+          <p className="text-sm text-[#6b5852]">
+            Haz clic en cualquiera de nuestras revistas/catálogos digitales para explorar fotos en alta resolución, colecciones actualizadas y precios:
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {canvaCatalogs.map((cat, idx) => (
+              <div
+                key={idx}
+                className="bg-white rounded-2xl p-6 border border-[#e8ded5] shadow-sm hover:shadow-md transition-all flex flex-col justify-between space-y-4 group"
+              >
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[11px] font-bold text-[#c87563] bg-[#f2dfd8] px-2.5 py-1 rounded-full uppercase tracking-wider">
+                      Catálogo {idx + 1}
+                    </span>
+                    <ExternalLink className="w-4 h-4 text-[#8c7a6b] group-hover:text-[#c87563] transition-colors" />
+                  </div>
+                  <h3 className="font-serif font-bold text-lg text-[#3d2c29] leading-snug">
+                    {cat.title}
+                  </h3>
+                  <p className="text-xs text-[#6b5852] leading-relaxed">
+                    {cat.desc}
+                  </p>
+                </div>
+
+                <a
+                  href={cat.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-[#c87563] hover:bg-[#b56250] text-white py-2.5 px-4 rounded-xl font-bold text-xs shadow-sm transition-all"
+                >
+                  <span>Ver Catálogo Digital en Canva</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            ))}
           </div>
         </div>
 
