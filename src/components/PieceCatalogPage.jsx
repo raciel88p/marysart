@@ -5,81 +5,45 @@ export default function PieceCatalogPage({ onNavigateHome, onNavigateCatalog }) 
   const canvaCatalogs = [
     {
       id: 'canva-1',
-      title: 'Vela Botánica en Vaso de Vidrio Ámbar',
-      subtitle: 'Cera de soya natural infusionada con lavanda, flores secas y mecha de madera crepitante.',
-      description: 'Hermosa pieza artesanal creada a mano en nuestro taller. Perfecta para ambientar espacios de meditación, salas o como regalo especial.',
-      url: 'https://canva.link/c2ba9dnbjbw0jm4',
-      image: 'https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=800&q=80',
-      status: 'Disponible',
-      price: '₡12.500',
-      dimensions: '250g - 8.5 x 9 cm',
-      materials: 'Cera de soya 100% vegetal, esencias botánicas puras, lavanda orgánica, mecha de cedro.',
-      care: 'Cortar la mecha a 0.5 cm antes de encender. Primera encendida mínima de 2 horas.'
+      number: 'Catálogo 1',
+      title: 'Catálogo Digital 1: Colección General',
+      desc: 'Explora nuestra primera colección de productos, moldes y diseños exclusivos.',
+      url: 'https://canva.link/c2ba9dnbjbw0jm4'
     },
     {
       id: 'canva-2',
-      title: 'Bandeja Ovalada Decorativa de Resina & Pan de Oro',
-      subtitle: 'Plato organizador con pigmentos perlados en tono rosa cuarzo y hojuelas doradas.',
-      description: 'Ideal para colocar joyas, perfumes, llaves o como base protectora para velas aromáticas. Pieza única e irrepetible.',
-      url: 'https://canva.link/elg8ke0fdza9st2',
-      image: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=80',
-      status: 'Por Encargo',
-      price: '₡18.000',
-      dimensions: '18 x 10 cm - Espesor 1.2 cm',
-      materials: 'Resina epóxica de alta transparencia, pigmentos micas perlados, hojuela de pan de oro.',
-      care: 'Limpiar con paño suave húmedo. No apto para microondas ni lavavajillas.'
+      number: 'Catálogo 2',
+      title: 'Catálogo Digital 2: Velas & Cerería',
+      desc: 'Colección especial de velas botánicas, frascos decorativos e insumos.',
+      url: 'https://canva.link/elg8ke0fdza9st2'
     },
     {
       id: 'canva-3',
-      title: 'Busto Escultural de Yeso con Pátina Bronce Antiguo',
-      subtitle: 'Figura artística acabada a mano con técnica tradicional de ceras envejecidas.',
-      description: 'Una pieza clásica con toque contemporáneo. La técnica de pátina le otorga sombras profundas y un brillo metálico sutil muy elegante.',
-      url: 'https://canva.link/ouazp1ozgd3zwlz',
-      image: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80',
-      status: 'Disponible',
-      price: '₡24.000',
-      dimensions: '22 cm alto x 12 cm ancho',
-      materials: 'Escultura en yeso cerámico denso, pátina metálica a la cera, sellador satinado.',
-      care: 'Manejar con cuidado. Despolvar con pincel suave de cerda natural.'
+      number: 'Catálogo 3',
+      title: 'Catálogo Digital 3: Piezas en Yeso y Bizcocho',
+      desc: 'Esculturas y macetas listas para pintar e incluir tu clase GRATIS.',
+      url: 'https://canva.link/ouazp1ozgd3zwlz'
     },
     {
       id: 'canva-4',
-      title: 'Cuadro Botánico Texturizado en Acrílico',
-      subtitle: 'Lienzo original pintado a mano con relieve en espátula y tonos pastel relajantes.',
-      description: 'Obra de arte original lista para colgar. Sus capas tridimensionales aportan dinamismo y calma a la decoración de cualquier espacio.',
-      url: 'https://canva.link/l9nsz009fgnu0l6',
-      image: 'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=800&q=80',
-      status: 'Disponible',
-      price: '₡35.000',
-      dimensions: '30 x 40 cm (Bastidor de madera)',
-      materials: 'Acrílicos profesionales de alta densidad, pasta de relieve impasto, verniz mate.',
-      care: 'Mantener alejado de humedad directa y luz solar extrema prolongada.'
+      number: 'Catálogo 4',
+      title: 'Catálogo Digital 4: Pátinas & Acabados',
+      desc: 'Figuras acabadas con ceras metálicas, bronces y tonos envejecidos.',
+      url: 'https://canva.link/l9nsz009fgnu0l6'
     },
     {
       id: 'canva-5',
-      title: 'Set Trío de Velas Cónicas Esculturales',
-      subtitle: 'Conjunto de tres velas decorativas geométricas en tonos terracota y crema.',
-      description: 'Diseño arquitectónico moderno para centros de mesa o repisas. Quemado uniforme y libre de humo tóxico.',
-      url: 'https://canva.link/plhkmmzzgz67upn',
-      image: 'https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?auto=format&fit=crop&w=800&q=80',
-      status: 'Disponible',
-      price: '₡15.000',
-      dimensions: '3 alturas: 15cm, 18cm, 22cm',
-      materials: 'Cera de soya dura de alto punto de fusión, pigmentos liposolubles orgánicos.',
-      care: 'Usar siempre plato o portavelas resistente al calor al encender.'
+      number: 'Catálogo 5',
+      title: 'Catálogo Digital 5: Novedades & Temporada',
+      desc: 'Ediciones especiales, piezas festivas y combos para regalo.',
+      url: 'https://canva.link/plhkmmzzgz67upn'
     },
     {
       id: 'canva-6',
-      title: 'Set de 4 Posavasos Geoda de Resina & Cuarzo',
-      subtitle: 'Bordes en dorado hoja y centro cristalino transparente con incrustaciones.',
-      description: 'Inspirados en las geodas naturales. Protegen tus superficies al mismo tiempo que visten la mesa con distinción.',
-      url: 'https://canva.link/62d3xsm2tx9b0wg',
-      image: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80',
-      status: 'Por Encargo',
-      price: '₡22.000',
-      dimensions: '10 cm diámetro c/u',
-      materials: 'Resina resistente al calor hasta 70°C, bordes en pintura metálica líquida.',
-      care: 'Lavar a mano con agua fría y jabón neutro suave.'
+      number: 'Catálogo 6',
+      title: 'Catálogo Digital 6: Obras & Cuadros en Lienzo',
+      desc: 'Lienzos en acrílico con relieve, espátula y texturas botánicas.',
+      url: 'https://canva.link/62d3xsm2tx9b0wg'
     }
   ];
   const [searchTerm, setSearchTerm] = useState('');
@@ -223,85 +187,48 @@ export default function PieceCatalogPage({ onNavigateHome, onNavigateCatalog }) 
         <div className="mb-14 space-y-6">
           <div className="flex items-center gap-2">
             <BookOpen className="w-6 h-6 text-[#c87563]" />
-            <h2 className="font-serif text-2xl font-bold text-[#3d2c29]">
-              Catálogos Digitales Interactivos (Canva)
-            </h2>
+            <div>
+              <h2 className="font-serif text-2xl font-bold text-[#3d2c29]">
+                Catálogos Digitales Interactivos (Canva)
+              </h2>
+              <p className="text-xs text-[#6b5852] mt-0.5">
+                Haz clic en cualquiera de nuestras revistas/catálogos digitales para explorar fotos en alta resolución, colecciones actualizadas y precios:
+              </p>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {canvaCatalogs.map((cat) => {
-              const whatsappMsg = `¡Hola Maria! Me interesa solicitar información sobre la pieza del catálogo: "${cat.title}" (${cat.price}).`;
-              const whatsappUrl = `https://wa.me/50660367249?text=${encodeURIComponent(whatsappMsg)}`;
-
-              return (
-                <div
-                  key={cat.id}
-                  className="bg-white rounded-3xl overflow-hidden border border-[#e8ded5] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
-                >
-                  <div>
-                    {/* Image Container */}
-                    <div className="relative h-64 overflow-hidden">
-                      <img
-                        src={cat.image}
-                        alt={cat.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                      />
-                      <span className={`absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-bold shadow-sm ${
-                        cat.status === 'Disponible'
-                          ? 'bg-emerald-100 text-emerald-800 border border-emerald-300'
-                          : 'bg-amber-100 text-amber-800 border border-amber-300'
-                      }`}>
-                        {cat.status}
-                      </span>
-                      <span className="absolute bottom-4 right-4 bg-[#3d2c29]/90 backdrop-blur-md text-white px-4 py-1.5 rounded-2xl text-sm font-bold">
-                        {cat.price}
-                      </span>
-                    </div>
-
-                    {/* Content Details */}
-                    <div className="p-6 space-y-3">
-                      <div className="text-[11px] font-bold uppercase tracking-wider text-[#c87563]">
-                        {cat.dimensions}
-                      </div>
-
-                      <h3 className="font-serif text-xl font-bold text-[#3d2c29] leading-tight">
-                        {cat.title}
-                      </h3>
-
-                      <p className="text-xs text-[#6b5852] leading-relaxed">
-                        {cat.subtitle}
-                      </p>
-
-                      <p className="text-xs text-[#5c4a43] line-clamp-2 pt-1 border-t border-[#f2dfd8]">
-                        {cat.description}
-                      </p>
-                    </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {canvaCatalogs.map((cat) => (
+              <div
+                key={cat.id}
+                className="bg-white rounded-2xl p-6 border border-[#e8ded5] shadow-sm hover:shadow-md transition-all flex flex-col justify-between space-y-4 group"
+              >
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[11px] font-bold text-[#c87563] bg-[#f2dfd8] px-2.5 py-1 rounded-full uppercase tracking-wider">
+                      {cat.number}
+                    </span>
+                    <ExternalLink className="w-4 h-4 text-[#8c7a6b] group-hover:text-[#c87563] transition-colors" />
                   </div>
-
-                  {/* Actions */}
-                  <div className="p-6 pt-0 space-y-2">
-                    <button
-                      onClick={() => setSelectedPieceModal(cat)}
-                      className="w-full inline-flex items-center justify-center gap-2 bg-[#3d2c29] hover:bg-[#2a1e1c] text-white py-2.5 px-4 rounded-xl font-medium text-xs transition-all"
-                    >
-                      <Eye className="w-4 h-4" />
-                      <span>Ver Ficha & Cuidados</span>
-                    </button>
-
-                    <a
-                      href={whatsappUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] text-white py-2.5 px-4 rounded-xl font-medium text-xs transition-all"
-                    >
-                      <MessageCircle className="w-4 h-4 fill-current" />
-                      <span>Solicitar por WhatsApp</span>
-                    </a>
-                  </div>
+                  <h3 className="font-serif font-bold text-lg text-[#3d2c29] leading-snug">
+                    {cat.title}
+                  </h3>
+                  <p className="text-xs text-[#6b5852] leading-relaxed">
+                    {cat.desc}
+                  </p>
                 </div>
-              );
-            })}
+
+                <a
+                  href={cat.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-[#c87563] hover:bg-[#b56250] text-white py-2.5 px-4 rounded-xl font-bold text-xs shadow-sm transition-all"
+                >
+                  <span>Ver Catálogo Digital en Canva</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            ))}
           </div>
         </div>
 
