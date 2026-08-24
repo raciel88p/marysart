@@ -30,7 +30,7 @@ export default function Gallery() {
       id: 4,
       category: 'velas',
       title: 'Detalles de Flores Secas y Aromas',
-      image: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80',
       tag: 'Velas Artesanales'
     },
     {
