@@ -5,44 +5,44 @@ export default function PieceCatalogPage({ onNavigateHome, onNavigateCatalog }) 
   const canvaCatalogs = [
     {
       id: 'canva-1',
-      number: 'Catálogo 1',
-      title: 'Catálogo Digital 1: Colección General',
-      desc: 'Explora nuestra primera colección de productos, moldes y diseños exclusivos.',
+      number: 'Duendes y Hadas',
+      title: 'Duendes y Hadas',
+      desc: 'Colección mágica de figuras de duendes, hadas y seres místico-fantasiosos.',
       url: 'https://canva.link/c2ba9dnbjbw0jm4'
     },
     {
       id: 'canva-2',
-      number: 'Catálogo 2',
-      title: 'Catálogo Digital 2: Velas & Cerería',
-      desc: 'Colección especial de velas botánicas, frascos decorativos e insumos.',
+      number: 'Religiosos',
+      title: 'Religiosos',
+      desc: 'Esculturas sacras, vírgenes, ángeles y figuras devocionales.',
       url: 'https://canva.link/elg8ke0fdza9st2'
     },
     {
       id: 'canva-3',
-      number: 'Catálogo 3',
-      title: 'Catálogo Digital 3: Piezas en Yeso y Bizcocho',
-      desc: 'Esculturas y macetas listas para pintar e incluir tu clase GRATIS.',
+      number: 'Animales',
+      title: 'Animales',
+      desc: 'Figuras detalladas de fauna silvestre, mascotas y criaturas de la naturaleza.',
       url: 'https://canva.link/ouazp1ozgd3zwlz'
     },
     {
       id: 'canva-4',
-      number: 'Catálogo 4',
-      title: 'Catálogo Digital 4: Pátinas & Acabados',
-      desc: 'Figuras acabadas con ceras metálicas, bronces y tonos envejecidos.',
+      number: 'Africanas',
+      title: 'Africanas',
+      desc: 'Esculturas y bustos de estilo étnico africano con acabados artísticos.',
       url: 'https://canva.link/l9nsz009fgnu0l6'
     },
     {
       id: 'canva-5',
-      number: 'Catálogo 5',
-      title: 'Catálogo Digital 5: Novedades & Temporada',
-      desc: 'Ediciones especiales, piezas festivas y combos para regalo.',
+      number: 'Hogar',
+      title: 'Hogar',
+      desc: 'Piezas decorativas, maceteros, jarrones y elementos utilitarios para tu espacio.',
       url: 'https://canva.link/plhkmmzzgz67upn'
     },
     {
       id: 'canva-6',
-      number: 'Catálogo 6',
-      title: 'Catálogo Digital 6: Obras & Cuadros en Lienzo',
-      desc: 'Lienzos en acrílico con relieve, espátula y texturas botánicas.',
+      number: 'Navideñas',
+      title: 'Navideñas',
+      desc: 'Pasitos, portales, nacimientos y adornos de temporada navideña.',
       url: 'https://canva.link/62d3xsm2tx9b0wg'
     }
   ];
