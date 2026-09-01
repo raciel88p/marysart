@@ -67,6 +67,136 @@ export default function Gallery() {
       fallback: '/images/gallery/taller-2.jpg',
       alt: 'Mesa de trabajo equipada para taller de manualidades con alumnas disfrutando de la clase',
       tag: 'Momentos Especiales'
+    },
+    {
+      id: 7,
+      category: 'talleres',
+      title: 'Acompañamiento Personalizado',
+      subtitle: 'Guía paso a paso para perfeccionar tus técnicas',
+      image: '/images/gallery/taller-7.webp',
+      fallback: '/images/gallery/taller-7.jpg',
+      alt: 'Participante aplicando técnicas de pintura sobre figura de resina en clase presencial',
+      tag: 'Taller Presencial'
+    },
+    {
+      id: 8,
+      category: 'velas',
+      title: 'Creación de Velas de Cera de Soya',
+      subtitle: 'Materiales 100% naturales, aromas y diseños únicos',
+      image: '/images/gallery/taller-8.webp',
+      fallback: '/images/gallery/taller-8.jpg',
+      alt: 'Mesa de trabajo con insumos y molde de cera para elaboración de velas artesanales',
+      tag: 'Velas Artesanales'
+    },
+    {
+      id: 9,
+      category: 'pintura',
+      title: 'Detalles y Sombreados en Resina',
+      subtitle: 'Expresa tu creatividad en cada pincelada',
+      image: '/images/gallery/taller-9.webp',
+      fallback: '/images/gallery/taller-9.jpg',
+      alt: 'Alumna mostrando complacida su figura decorativa en resina terminada',
+      tag: 'Pintura & Resina'
+    },
+    {
+      id: 10,
+      category: 'talleres',
+      title: 'Paso a Paso en Cada Taller',
+      subtitle: 'Aprende las mejores técnicas de la mano de expertas',
+      image: '/images/gallery/taller-10.webp',
+      fallback: '/images/gallery/taller-10.jpg',
+      alt: 'Momento de aprendizaje práctico durante la clase de pintura y resina',
+      tag: 'Experiencia Taller'
+    },
+    {
+      id: 11,
+      category: 'talleres',
+      title: 'Convivencia y Creatividad',
+      subtitle: 'Espacios creados para aprender y compartir en armonía',
+      image: '/images/gallery/taller-11.webp',
+      fallback: '/images/gallery/taller-11.jpg',
+      alt: 'Grupo de alumnas compartiendo ideas y técnicas en el espacio de trabajo',
+      tag: 'Taller Presencial'
+    },
+    {
+      id: 12,
+      category: 'pintura',
+      title: 'Orgullo en Cada Creación',
+      subtitle: 'Piezas listas para decorar tu hogar o regalar',
+      image: '/images/gallery/taller-12.webp',
+      fallback: '/images/gallery/taller-12.jpg',
+      alt: 'Participantes sonrientes sosteniendo sus piezas de resina pintadas a mano',
+      tag: 'Pintura & Resina'
+    },
+    {
+      id: 13,
+      category: 'pintura',
+      title: 'Técnicas de Acabado Profesional',
+      subtitle: 'Uso de pátinas, pincel seco y brillos espectaculares',
+      image: '/images/gallery/taller-13.webp',
+      fallback: '/images/gallery/taller-13.jpg',
+      alt: 'Detalle en primer plano de figura decorativa con pintura artística en resina',
+      tag: 'Pintura & Resina'
+    },
+    {
+      id: 14,
+      category: 'velas',
+      title: 'Velas Aromáticas Personalizadas',
+      subtitle: 'Combinación perfecta de fragancias, formas y elegancia',
+      image: '/images/gallery/taller-14.webp',
+      fallback: '/images/gallery/taller-14.jpg',
+      alt: 'Velas artesanales aromáticas terminadas y decoradas con elementos naturales',
+      tag: 'Velas Artesanales'
+    },
+    {
+      id: 15,
+      category: 'talleres',
+      title: 'Aprendizaje Práctico Directo',
+      subtitle: 'Sin experiencia previa requerida, todos son bienvenidos',
+      image: '/images/gallery/taller-15.webp',
+      fallback: '/images/gallery/taller-15.jpg',
+      alt: 'Alumnas realizando mezclas y aplicando acabados en sus proyectos',
+      tag: 'Taller Presencial'
+    },
+    {
+      id: 16,
+      category: 'velas',
+      title: 'Velas Moldeadas y Botánicas',
+      subtitle: 'Aprende a desmoldar y lograr acabados impecables',
+      image: '/images/gallery/taller-16.webp',
+      fallback: '/images/gallery/taller-16.jpg',
+      alt: 'Proceso de desmoldeo y acabado de velas artesanales en el taller',
+      tag: 'Velas Artesanales'
+    },
+    {
+      id: 17,
+      category: 'talleres',
+      title: 'Celebrando Nuevos Logros',
+      subtitle: 'Cada taller finaliza con hermosas obras de arte hechas por ti',
+      image: '/images/gallery/taller-17.webp',
+      fallback: '/images/gallery/taller-17.jpg',
+      alt: 'Grupo de graduadas del taller presencial exhibiendo sus piezas terminadas',
+      tag: 'Momentos Especiales'
+    },
+    {
+      id: 18,
+      category: 'talleres',
+      title: 'Instructora Mary en Resina Art & Mary',
+      subtitle: 'Pasión por el arte, la enseñanza y el detalle artesanal',
+      image: '/images/gallery/taller-18.webp',
+      fallback: '/images/gallery/taller-18.jpg',
+      alt: 'Mary instructora de Resina Art Mary sonriendo con figura de resina artesanal',
+      tag: 'Resina Art & Mary'
+    },
+    {
+      id: 19,
+      category: 'pintura',
+      title: 'Galería de Obras Terminadas',
+      subtitle: 'Resultados sorprendentes al finalizar cada sesión',
+      image: '/images/gallery/taller-19.webp',
+      fallback: '/images/gallery/taller-19.jpg',
+      alt: 'Exposición final de obras en resina pintadas por los participantes del taller',
+      tag: 'Pintura & Resina'
     }
   ];
 
