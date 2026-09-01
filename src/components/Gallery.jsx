@@ -1,8 +1,13 @@
-import React, { useState } from 'react';
-import { Camera } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Camera, ZoomIn, ZoomOut, RotateCcw, X, ChevronLeft, ChevronRight, Maximize2 } from 'lucide-react';
 
 export default function Gallery() {
   const [filter, setFilter] = useState('todos');
+  const [activeModalIndex, setActiveModalIndex] = useState(null); // index in filteredItems or null
+  const [zoomScale, setZoomScale] = useState(1);
+  const [panOffset, setPanOffset] = useState({ x: 0, y: 0 });
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
 
   const galleryItems = [
     {
@@ -151,6 +156,97 @@ export default function Gallery() {
     ? galleryItems
     : galleryItems.filter(item => item.category === filter);
 
+  // Reset zoom & pan whenever the modal or image changes
+  const resetZoom = () => {
+    setZoomScale(1);
+    setPanOffset({ x: 0, y: 0 });
+  };
+
+  const openModal = (index) => {
+    setActiveModalIndex(index);
+    resetZoom();
+  };
+
+  const closeModal = () => {
+    setActiveModalIndex(null);
+    resetZoom();
+  };
+
+  const handlePrevImage = () => {
+    if (activeModalIndex === null) return;
+    setActiveModalIndex((prev) => (prev === 0 ? filteredItems.length - 1 : prev - 1));
+    resetZoom();
+  };
+
+  const handleNextImage = () => {
+    if (activeModalIndex === null) return;
+    setActiveModalIndex((prev) => (prev === filteredItems.length - 1 ? 0 : prev + 1));
+    resetZoom();
+  };
+
+  const handleZoomIn = () => {
+    setZoomScale((prev) => Math.min(prev + 0.5, 3.5));
+  };
+
+  const handleZoomOut = () => {
+    setZoomScale((prev) => {
+      const next = Math.max(prev - 0.5, 1);
+      if (next === 1) setPanOffset({ x: 0, y: 0 });
+      return next;
+    });
+  };
+
+  const handleImageClick = () => {
+    if (zoomScale === 1) {
+      setZoomScale(2);
+    } else if (zoomScale === 2) {
+      setZoomScale(3);
+    } else {
+      resetZoom();
+    }
+  };
+
+  // Dragging / Pan handling
+  const handleMouseDown = (e) => {
+    if (zoomScale <= 1) return;
+    setIsDragging(true);
+    setDragStart({ x: e.clientX - panOffset.x, y: e.clientY - panOffset.y });
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging || zoomScale <= 1) return;
+    e.preventDefault();
+    setPanOffset({
+      x: e.clientX - dragStart.x,
+      y: e.clientY - dragStart.y
+    });
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  // Keyboard navigation & body overflow lock
+  useEffect(() => {
+    if (activeModalIndex === null) return;
+
+    document.body.style.overflow = 'hidden';
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') closeModal();
+      if (e.key === 'ArrowLeft') handlePrevImage();
+      if (e.key === 'ArrowRight') handleNextImage();
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [activeModalIndex, filteredItems.length]);
+
+  const activeItem = activeModalIndex !== null ? filteredItems[activeModalIndex] : null;
+
   return (
     <section id="galeria" className="py-20 bg-gradient-to-b from-white via-[#faf7f5] to-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -165,7 +261,7 @@ export default function Gallery() {
             Fotografías de Nuestros Talleres
           </h2>
           <p className="text-[#6b5852] text-base sm:text-lg font-light">
-            Echa un vistazo a la calidez de nuestras clases presenciales, los detalles de las piezas terminadas y la alegría de nuestras participantes.
+            Haz clic en cualquiera de las imágenes para ampliarla con nuestra lupa de alta definición y apreciar el nivel de detalle de cada pincelada y acabado.
           </p>
 
           {/* Gallery Filters */}
@@ -217,10 +313,11 @@ export default function Gallery() {
 
         {/* Grid View */}
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredItems.map((item) => (
+          {filteredItems.map((item, index) => (
             <div
               key={item.id}
-              className="group relative h-80 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 bg-[#3d2c29]"
+              onClick={() => openModal(index)}
+              className="group relative h-80 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 bg-[#3d2c29] cursor-pointer"
             >
               <picture>
                 <source srcSet={item.image} type="image/webp" />
@@ -231,7 +328,13 @@ export default function Gallery() {
                   loading="lazy"
                 />
               </picture>
-              <div className="absolute inset-0 bg-gradient-to-t from-[#3d2c29]/90 via-[#3d2c29]/30 to-transparent opacity-80 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 text-white">
+
+              {/* Hover Lupa Overlay Icon */}
+              <div className="absolute top-4 right-4 bg-black/50 hover:bg-black/80 text-white p-2.5 rounded-full backdrop-blur-xs transition-opacity opacity-80 group-hover:opacity-100 group-hover:scale-110">
+                <ZoomIn className="w-5 h-5" />
+              </div>
+
+              <div className="absolute inset-0 bg-gradient-to-t from-[#3d2c29]/95 via-[#3d2c29]/30 to-transparent opacity-80 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 text-white">
                 <span className="text-[11px] font-bold uppercase tracking-widest text-[#e8a598]">
                   {item.tag}
                 </span>
@@ -241,6 +344,9 @@ export default function Gallery() {
                 <p className="text-xs text-white/80 font-light mt-0.5 line-clamp-2">
                   {item.subtitle}
                 </p>
+                <span className="inline-flex items-center gap-1 mt-2 text-[11px] font-semibold text-[#f2dfd8] group-hover:underline">
+                  <Maximize2 className="w-3.5 h-3.5" /> Ampliar detalles con lupa
+                </span>
               </div>
             </div>
           ))}
@@ -261,6 +367,131 @@ export default function Gallery() {
         </div>
 
       </div>
+
+      {/* Lightbox Modal with Zoom / Magnifier */}
+      {activeItem && (
+        <div
+          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex flex-col justify-between p-4 sm:p-6 transition-opacity duration-300 select-none"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) closeModal();
+          }}
+        >
+          {/* Top Bar / Controls */}
+          <div className="flex items-center justify-between gap-4 text-white z-10">
+            <div className="flex items-center gap-3">
+              <span className="px-3 py-1 bg-[#c87563] text-white text-xs font-bold uppercase tracking-widest rounded-full">
+                {activeItem.tag}
+              </span>
+              <span className="text-xs text-white/70 font-mono hidden sm:inline">
+                {activeModalIndex + 1} de {filteredItems.length}
+              </span>
+            </div>
+
+            {/* Zoom Controls */}
+            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md px-3 py-1.5 rounded-2xl border border-white/20">
+              <button
+                onClick={handleZoomOut}
+                disabled={zoomScale <= 1}
+                className="p-1.5 hover:bg-white/20 rounded-lg transition-colors disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
+                title="Alejar (-)"
+              >
+                <ZoomOut className="w-5 h-5 text-white" />
+              </button>
+
+              <span className="text-xs font-mono font-bold px-2 text-white min-w-[3.5rem] text-center">
+                {Math.round(zoomScale * 100)}%
+              </span>
+
+              <button
+                onClick={handleZoomIn}
+                disabled={zoomScale >= 3.5}
+                className="p-1.5 hover:bg-white/20 rounded-lg transition-colors disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
+                title="Acercar (+)"
+              >
+                <ZoomIn className="w-5 h-5 text-white" />
+              </button>
+
+              <button
+                onClick={resetZoom}
+                disabled={zoomScale === 1}
+                className="p-1.5 hover:bg-white/20 rounded-lg transition-colors disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer border-l border-white/20 ml-1 pl-2"
+                title="Restablecer tamaño"
+              >
+                <RotateCcw className="w-4 h-4 text-white" />
+              </button>
+            </div>
+
+            {/* Close Modal */}
+            <button
+              onClick={closeModal}
+              className="p-2 bg-white/10 hover:bg-white/30 rounded-full text-white transition-all cursor-pointer"
+              title="Cerrar (Esc)"
+            >
+              <X className="w-6 h-6" />
+            </button>
+          </div>
+
+          {/* Main Image Stage */}
+          <div
+            className="relative flex-1 flex items-center justify-center overflow-hidden my-4 cursor-grab active:cursor-grabbing"
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseUp}
+          >
+            {/* Prev Image Arrow */}
+            <button
+              onClick={handlePrevImage}
+              className="absolute left-2 sm:left-6 z-20 p-3 bg-black/50 hover:bg-black/80 text-white rounded-full backdrop-blur-xs transition-all cursor-pointer border border-white/10"
+              title="Imagen anterior (flecha izquierda)"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+
+            {/* Zoomable Image Container */}
+            <div
+              className="transition-transform duration-200 ease-out flex items-center justify-center max-w-full max-h-full"
+              style={{
+                transform: `translate(${panOffset.x}px, ${panOffset.y}px) scale(${zoomScale})`,
+                cursor: zoomScale > 1 ? (isDragging ? 'grabbing' : 'grab') : 'zoom-in'
+              }}
+              onClick={handleImageClick}
+            >
+              <picture>
+                <source srcSet={activeItem.image} type="image/webp" />
+                <img
+                  src={activeItem.fallback}
+                  alt={activeItem.alt}
+                  className="max-h-[75vh] max-w-[90vw] sm:max-w-[80vw] object-contain rounded-2xl shadow-2xl select-none"
+                  draggable={false}
+                />
+              </picture>
+            </div>
+
+            {/* Next Image Arrow */}
+            <button
+              onClick={handleNextImage}
+              className="absolute right-2 sm:right-6 z-20 p-3 bg-black/50 hover:bg-black/80 text-white rounded-full backdrop-blur-xs transition-all cursor-pointer border border-white/10"
+              title="Siguiente imagen (flecha derecha)"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+          </div>
+
+          {/* Bottom Info Bar */}
+          <div className="max-w-3xl mx-auto w-full text-center space-y-1 text-white z-10 bg-black/60 p-4 rounded-2xl backdrop-blur-md border border-white/10">
+            <h3 className="font-serif text-lg sm:text-xl font-bold text-[#f2dfd8]">
+              {activeItem.title}
+            </h3>
+            <p className="text-xs sm:text-sm text-white/80 font-light">
+              {activeItem.subtitle}
+            </p>
+            <p className="text-[11px] text-[#e8a598] pt-1 italic">
+              💡 {zoomScale > 1 ? 'Haz clic y arrastra para examinar detalles en alta definición. Haz clic nuevamente para ajustar el zoom.' : 'Haz clic sobre la imagen o usa los botones de zoom para ver en detalle el pincelado y acabado.'}
+            </p>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
