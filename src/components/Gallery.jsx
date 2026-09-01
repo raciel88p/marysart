@@ -81,16 +81,6 @@ export default function Gallery() {
       tag: 'Taller Presencial'
     },
     {
-      id: 12,
-      category: 'pintura',
-      title: 'Orgullo en Cada Creación',
-      subtitle: 'Piezas listas para decorar tu hogar o regalar',
-      image: '/images/gallery/taller-12.webp',
-      fallback: '/images/gallery/taller-12.jpg',
-      alt: 'Participantes sonrientes sosteniendo sus piezas de resina pintadas a mano',
-      tag: 'Pintura & Resina'
-    },
-    {
       id: 13,
       category: 'pintura',
       title: 'Técnicas de Acabado Profesional',
