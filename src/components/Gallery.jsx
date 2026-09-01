@@ -1,11 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Camera, ChevronLeft, ChevronRight, Pause, Play, Sparkles, Image as ImageIcon } from 'lucide-react';
+import React, { useState } from 'react';
+import { Camera } from 'lucide-react';
 
 export default function Gallery() {
   const [filter, setFilter] = useState('todos');
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [viewMode, setViewMode] = useState('carousel'); // 'carousel' | 'grid'
 
   const galleryItems = [
     {
@@ -15,7 +12,7 @@ export default function Gallery() {
       subtitle: 'Participantes compartiendo en nuestro espacio de trabajo',
       image: '/images/gallery/taller-6.webp',
       fallback: '/images/gallery/taller-6.jpg',
-      alt: 'Grupo de alumnas y alumnas en taller presencial de elaboración de velas artesanales y pintura de figuras de resina en Costa Rica',
+      alt: 'Grupo de alumnas en taller presencial de elaboración de velas artesanales y pintura de figuras de resina en Costa Rica',
       tag: 'Taller Presencial'
     },
     {
@@ -69,46 +66,6 @@ export default function Gallery() {
       tag: 'Momentos Especiales'
     },
     {
-      id: 7,
-      category: 'talleres',
-      title: 'Acompañamiento Personalizado',
-      subtitle: 'Guía paso a paso para perfeccionar tus técnicas',
-      image: '/images/gallery/taller-7.webp',
-      fallback: '/images/gallery/taller-7.jpg',
-      alt: 'Participante aplicando técnicas de pintura sobre figura de resina en clase presencial',
-      tag: 'Taller Presencial'
-    },
-    {
-      id: 8,
-      category: 'velas',
-      title: 'Creación de Velas de Cera de Soya',
-      subtitle: 'Materiales 100% naturales, aromas y diseños únicos',
-      image: '/images/gallery/taller-8.webp',
-      fallback: '/images/gallery/taller-8.jpg',
-      alt: 'Mesa de trabajo con insumos y molde de cera para elaboración de velas artesanales',
-      tag: 'Velas Artesanales'
-    },
-    {
-      id: 9,
-      category: 'pintura',
-      title: 'Detalles y Sombreados en Resina',
-      subtitle: 'Expresa tu creatividad en cada pincelada',
-      image: '/images/gallery/taller-9.webp',
-      fallback: '/images/gallery/taller-9.jpg',
-      alt: 'Alumna mostrando complacida su figura decorativa en resina terminada',
-      tag: 'Pintura & Resina'
-    },
-    {
-      id: 10,
-      category: 'talleres',
-      title: 'Paso a Paso en Cada Taller',
-      subtitle: 'Aprende las mejores técnicas de la mano de expertas',
-      image: '/images/gallery/taller-10.webp',
-      fallback: '/images/gallery/taller-10.jpg',
-      alt: 'Momento de aprendizaje práctico durante la clase de pintura y resina',
-      tag: 'Experiencia Taller'
-    },
-    {
       id: 11,
       category: 'talleres',
       title: 'Convivencia y Creatividad',
@@ -147,16 +104,6 @@ export default function Gallery() {
       fallback: '/images/gallery/taller-14.jpg',
       alt: 'Velas artesanales aromáticas terminadas y decoradas con elementos naturales',
       tag: 'Velas Artesanales'
-    },
-    {
-      id: 15,
-      category: 'talleres',
-      title: 'Aprendizaje Práctico Directo',
-      subtitle: 'Sin experiencia previa requerida, todos son bienvenidos',
-      image: '/images/gallery/taller-15.webp',
-      fallback: '/images/gallery/taller-15.jpg',
-      alt: 'Alumnas realizando mezclas y aplicando acabados en sus proyectos',
-      tag: 'Taller Presencial'
     },
     {
       id: 16,
@@ -204,32 +151,6 @@ export default function Gallery() {
     ? galleryItems
     : galleryItems.filter(item => item.category === filter);
 
-  // Reset slider index when filter changes
-  useEffect(() => {
-    setCurrentIndex(0);
-  }, [filter]);
-
-  // Auto-play interval effect for carousel
-  useEffect(() => {
-    if (!isPlaying || filteredItems.length <= 1) return;
-
-    const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % filteredItems.length);
-    }, 4500);
-
-    return () => clearInterval(timer);
-  }, [isPlaying, filteredItems.length]);
-
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? filteredItems.length - 1 : prevIndex - 1));
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % filteredItems.length);
-  };
-
-  const currentItem = filteredItems[currentIndex] || filteredItems[0];
-
   return (
     <section id="galeria" className="py-20 bg-gradient-to-b from-white via-[#faf7f5] to-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -247,8 +168,8 @@ export default function Gallery() {
             Echa un vistazo a la calidez de nuestras clases presenciales, los detalles de las piezas terminadas y la alegría de nuestras participantes.
           </p>
 
-          {/* Gallery Filters & View Switcher */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-b border-[#ebdcd7] pb-6">
+          {/* Gallery Filters */}
+          <div className="flex items-center justify-center pt-4 border-b border-[#ebdcd7] pb-6">
             <div className="flex flex-wrap items-center justify-center gap-2">
               <button
                 onClick={() => setFilter('todos')}
@@ -291,154 +212,39 @@ export default function Gallery() {
                 Pintura & Resina
               </button>
             </div>
-
-            {/* View mode toggle */}
-            <div className="inline-flex items-center bg-white p-1 rounded-xl shadow-sm border border-[#ebdcd7]">
-              <button
-                onClick={() => setViewMode('carousel')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors cursor-pointer ${
-                  viewMode === 'carousel'
-                    ? 'bg-[#f2dfd8] text-[#8c483b] font-semibold'
-                    : 'text-[#8c7a6b] hover:text-[#3d2c29]'
-                }`}
-                title="Modo carrusel rotativo"
-              >
-                <Sparkles className="w-3.5 h-3.5" />
-                Carrusel
-              </button>
-              <button
-                onClick={() => setViewMode('grid')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors cursor-pointer ${
-                  viewMode === 'grid'
-                    ? 'bg-[#f2dfd8] text-[#8c483b] font-semibold'
-                    : 'text-[#8c7a6b] hover:text-[#3d2c29]'
-                }`}
-                title="Modo cuadrícula"
-              >
-                <ImageIcon className="w-3.5 h-3.5" />
-                Cuadrícula
-              </button>
-            </div>
           </div>
         </div>
 
-        {/* Carousel View */}
-        {viewMode === 'carousel' && (
-          <div className="mt-8 relative max-w-5xl mx-auto">
+        {/* Grid View */}
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredItems.map((item) => (
             <div
-              className="relative rounded-3xl overflow-hidden bg-[#3d2c29] shadow-2xl group min-h-[400px] sm:min-h-[500px] flex items-center justify-center"
-              onMouseEnter={() => setIsPlaying(false)}
-              onMouseLeave={() => setIsPlaying(true)}
+              key={item.id}
+              className="group relative h-80 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 bg-[#3d2c29]"
             >
-              {/* Active Image */}
               <picture>
-                <source srcSet={currentItem.image} type="image/webp" />
+                <source srcSet={item.image} type="image/webp" />
                 <img
-                  src={currentItem.fallback}
-                  alt={currentItem.alt}
-                  className="w-full h-[450px] sm:h-[550px] object-cover transition-all duration-700 ease-in-out"
+                  src={item.fallback}
+                  alt={item.alt}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  loading="lazy"
                 />
               </picture>
-
-              {/* Gradient Overlay & Content */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#2a1d1a]/95 via-[#2a1d1a]/40 to-transparent flex flex-col justify-end p-6 sm:p-10 text-white">
-                <div className="max-w-2xl space-y-2">
-                  <div className="flex items-center gap-3">
-                    <span className="px-3 py-1 bg-[#c87563] text-white text-[11px] font-bold uppercase tracking-widest rounded-full shadow">
-                      {currentItem.tag}
-                    </span>
-                    <span className="text-xs text-white/80 font-mono">
-                      {currentIndex + 1} / {filteredItems.length}
-                    </span>
-                  </div>
-                  <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white drop-shadow">
-                    {currentItem.title}
-                  </h3>
-                  <p className="text-white/90 text-sm sm:text-base font-light">
-                    {currentItem.subtitle}
-                  </p>
-                </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#3d2c29]/90 via-[#3d2c29]/30 to-transparent opacity-80 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 text-white">
+                <span className="text-[11px] font-bold uppercase tracking-widest text-[#e8a598]">
+                  {item.tag}
+                </span>
+                <h3 className="font-serif text-lg font-bold mt-1 leading-snug">
+                  {item.title}
+                </h3>
+                <p className="text-xs text-white/80 font-light mt-0.5 line-clamp-2">
+                  {item.subtitle}
+                </p>
               </div>
-
-              {/* Prev / Next Controls */}
-              <button
-                onClick={handlePrev}
-                aria-label="Imagen anterior"
-                className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/40 hover:bg-black/75 text-white flex items-center justify-center transition-all backdrop-blur-xs opacity-90 hover:scale-110 cursor-pointer"
-              >
-                <ChevronLeft className="w-6 h-6" />
-              </button>
-
-              <button
-                onClick={handleNext}
-                aria-label="Siguiente imagen"
-                className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/40 hover:bg-black/75 text-white flex items-center justify-center transition-all backdrop-blur-xs opacity-90 hover:scale-110 cursor-pointer"
-              >
-                <ChevronRight className="w-6 h-6" />
-              </button>
-
-              {/* Play / Pause Toggle Button */}
-              <button
-                onClick={() => setIsPlaying(!isPlaying)}
-                aria-label={isPlaying ? 'Pausar reproducción' : 'Iniciar reproducción'}
-                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/40 hover:bg-black/75 text-white flex items-center justify-center transition-all backdrop-blur-xs cursor-pointer"
-                title={isPlaying ? 'Pausar galería' : 'Reproducir galería'}
-              >
-                {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4 ml-0.5" />}
-              </button>
             </div>
-
-            {/* Slide Dots Indicator */}
-            <div className="flex items-center justify-center gap-2 mt-6">
-              {filteredItems.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setCurrentIndex(idx)}
-                  aria-label={`Ir a foto ${idx + 1}`}
-                  className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
-                    currentIndex === idx
-                      ? 'w-8 bg-[#c87563]'
-                      : 'w-2.5 bg-[#ebdcd7] hover:bg-[#c87563]/50'
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* Grid View */}
-        {viewMode === 'grid' && (
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredItems.map((item, idx) => (
-              <div
-                key={item.id}
-                onClick={() => {
-                  setCurrentIndex(idx);
-                  setViewMode('carousel');
-                }}
-                className="group relative h-80 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer bg-[#3d2c29]"
-              >
-                <picture>
-                  <source srcSet={item.image} type="image/webp" />
-                  <img
-                    src={item.fallback}
-                    alt={item.alt}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    loading="lazy"
-                  />
-                </picture>
-                <div className="absolute inset-0 bg-gradient-to-t from-[#3d2c29]/90 via-[#3d2c29]/30 to-transparent opacity-80 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 text-white">
-                  <span className="text-[11px] font-bold uppercase tracking-widest text-[#e8a598]">
-                    {item.tag}
-                  </span>
-                  <h3 className="font-serif text-lg font-bold mt-1 leading-snug">
-                    {item.title}
-                  </h3>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
+          ))}
+        </div>
 
         {/* Callout */}
         <div className="mt-12 text-center text-xs sm:text-sm text-[#8c7a6b]">
