@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Sparkles, Menu, X, MessageCircle, Grid, Package, Home } from 'lucide-react';
+import { Sparkles, Menu, X, MessageCircle, Grid, Package, HeartHandshake, MessageSquareQuote } from 'lucide-react';
 
 export default function Navbar({ currentView, onNavigateHome, onNavigateCatalog, onNavigatePieces }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -34,7 +34,7 @@ export default function Navbar({ currentView, onNavigateHome, onNavigateCatalog,
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-[#5c4a43]">
+          <nav className="hidden md:flex items-center gap-5 lg:gap-6 text-sm font-medium text-[#5c4a43]">
             <a
               href="/"
               onClick={(e) => { e.preventDefault(); onNavigateHome(); }}
@@ -64,16 +64,39 @@ export default function Navbar({ currentView, onNavigateHome, onNavigateCatalog,
               <Package className="w-4 h-4 text-[#c87563]" />
               <span>Catálogo Piezas</span>
             </a>
-            <a href="#cursos" onClick={currentView !== 'home' ? onNavigateHome : undefined} className="hover:text-[#e8a598] transition-colors">
+            <a
+              href="#servicios"
+              onClick={currentView !== 'home' ? onNavigateHome : undefined}
+              className="hover:text-[#e8a598] transition-colors"
+            >
+              Servicios
+            </a>
+            <a
+              href="#cursos"
+              onClick={currentView !== 'home' ? onNavigateHome : undefined}
+              className="hover:text-[#e8a598] transition-colors"
+            >
               Talleres
             </a>
-            <a href="#galeria" onClick={currentView !== 'home' ? onNavigateHome : undefined} className="hover:text-[#e8a598] transition-colors">
+            <a
+              href="#galeria"
+              onClick={currentView !== 'home' ? onNavigateHome : undefined}
+              className="hover:text-[#e8a598] transition-colors"
+            >
               Galería
             </a>
-            <a href="#testimonios" onClick={currentView !== 'home' ? onNavigateHome : undefined} className="hover:text-[#e8a598] transition-colors">
+            <a
+              href="#testimonios"
+              onClick={currentView !== 'home' ? onNavigateHome : undefined}
+              className="hover:text-[#e8a598] transition-colors font-medium text-[#3d2c29]"
+            >
               Testimonios
             </a>
-            <a href="#faqs" onClick={currentView !== 'home' ? onNavigateHome : undefined} className="hover:text-[#e8a598] transition-colors">
+            <a
+              href="#faqs"
+              onClick={currentView !== 'home' ? onNavigateHome : undefined}
+              className="hover:text-[#e8a598] transition-colors"
+            >
               FAQs
             </a>
           </nav>
@@ -95,7 +118,7 @@ export default function Navbar({ currentView, onNavigateHome, onNavigateCatalog,
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-[#3d2c29] p-2 rounded-lg hover:bg-[#eedcd5] transition-colors"
+              className="text-[#3d2c29] p-2 rounded-lg hover:bg-[#eedcd5] transition-colors cursor-pointer"
               aria-label="Abrir menú"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -109,22 +132,29 @@ export default function Navbar({ currentView, onNavigateHome, onNavigateCatalog,
         <div className="md:hidden bg-[#faf7f5] border-b border-[#e8ded5] px-4 pt-2 pb-6 space-y-3">
           <button
             onClick={() => { onNavigateHome(); setMobileMenuOpen(false); }}
-            className="block w-full text-left py-2 text-[#3d2c29] font-medium hover:text-[#e8a598]"
+            className="block w-full text-left py-2 text-[#3d2c29] font-medium hover:text-[#e8a598] cursor-pointer"
           >
             Inicio
           </button>
           <button
             onClick={() => { onNavigateCatalog(); setMobileMenuOpen(false); }}
-            className="block w-full text-left py-2 text-[#c87563] font-bold"
+            className="block w-full text-left py-2 text-[#c87563] font-bold cursor-pointer"
           >
             Catálogo de Cursos
           </button>
           <button
             onClick={() => { onNavigatePieces(); setMobileMenuOpen(false); }}
-            className="block w-full text-left py-2 text-[#c87563] font-bold"
+            className="block w-full text-left py-2 text-[#c87563] font-bold cursor-pointer"
           >
             Catálogo de Piezas
           </button>
+          <a
+            href="#servicios"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block py-2 text-[#3d2c29] font-medium hover:text-[#e8a598]"
+          >
+            Servicios
+          </a>
           <a
             href="#cursos"
             onClick={() => setMobileMenuOpen(false)}

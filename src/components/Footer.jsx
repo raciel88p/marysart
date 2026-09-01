@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heart, MapPin, Phone, Mail, Rss, Grid, Package } from 'lucide-react';
+import { Heart, MapPin, Phone, Rss, Grid, Package } from 'lucide-react';
 
 export default function Footer({ onOpenModal, onNavigateHome, onNavigateCatalog, onNavigatePieces, onSelectCourseDetail }) {
   const whatsappMessage = encodeURIComponent(
@@ -126,7 +126,7 @@ export default function Footer({ onOpenModal, onNavigateHome, onNavigateCatalog,
               <li>
                 <button
                   onClick={() => onOpenModal && onOpenModal('nosotras')}
-                  className="hover:text-[#e8a598] transition-colors text-left"
+                  className="hover:text-[#e8a598] transition-colors text-left cursor-pointer"
                 >
                   Sobre Nosotras (Resina Art & Mary)
                 </button>
@@ -134,7 +134,7 @@ export default function Footer({ onOpenModal, onNavigateHome, onNavigateCatalog,
               <li>
                 <button
                   onClick={() => onOpenModal && onOpenModal('reembolsos')}
-                  className="hover:text-[#e8a598] transition-colors text-left"
+                  className="hover:text-[#e8a598] transition-colors text-left cursor-pointer"
                 >
                   Política de Reembolso & Reprogramación
                 </button>
@@ -142,7 +142,7 @@ export default function Footer({ onOpenModal, onNavigateHome, onNavigateCatalog,
               <li>
                 <button
                   onClick={() => onOpenModal && onOpenModal('terminos')}
-                  className="hover:text-[#e8a598] transition-colors text-left"
+                  className="hover:text-[#e8a598] transition-colors text-left cursor-pointer"
                 >
                   Términos y Condiciones
                 </button>
@@ -150,7 +150,7 @@ export default function Footer({ onOpenModal, onNavigateHome, onNavigateCatalog,
               <li>
                 <button
                   onClick={() => onOpenModal && onOpenModal('privacidad')}
-                  className="hover:text-[#e8a598] transition-colors text-left"
+                  className="hover:text-[#e8a598] transition-colors text-left cursor-pointer"
                 >
                   Política de Privacidad
                 </button>
@@ -178,15 +178,9 @@ export default function Footer({ onOpenModal, onNavigateHome, onNavigateCatalog,
                 <span>Turrialba y San Carlos, Costa Rica</span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-[#e8a598] shrink-0" />
-                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                <Phone className="w-5 h-5 text-[#25D366] shrink-0" />
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="hover:text-white font-medium transition-colors">
                   WhatsApp: +506 6036-7249
-                </a>
-              </li>
-              <li className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-[#e8a598] shrink-0" />
-                <a href="mailto:info@resinaartmary.cr" className="hover:text-white transition-colors">
-                  info@resinaartmary.cr
                 </a>
               </li>
             </ul>

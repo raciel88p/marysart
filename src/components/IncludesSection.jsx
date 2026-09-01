@@ -36,7 +36,7 @@ export default function IncludesSection() {
   ];
 
   return (
-    <section id="experiencia" className="py-20 bg-[#f7eeea] relative overflow-hidden">
+    <section id="servicios" className="py-20 bg-[#f7eeea] relative overflow-hidden">
       {/* Decorative SVG Patterns */}
       <div className="absolute top-0 right-0 -mt-12 -mr-12 w-64 h-64 bg-[#e8a598]/20 rounded-full blur-2xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 -mb-12 -ml-12 w-64 h-64 bg-[#d4a373]/20 rounded-full blur-2xl pointer-events-none" />
@@ -47,10 +47,10 @@ export default function IncludesSection() {
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#f2dfd8] text-[#8c483b] text-xs font-bold uppercase tracking-wider">
             <HeartHandshake className="w-4 h-4" />
-            <span>Cuidamos Cada Detalle</span>
+            <span>Nuestros Servicios & Experiencias</span>
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#3d2c29] font-bold">
-            ¿Qué Hace Especial la Experiencia Resina Art & Mary?
+            ¿Qué Servicios e Inclusiones te Ofrecemos?
           </h2>
           <p className="text-[#6b5852] text-lg font-light">
             Más que un curso tradicional, creamos un verdadero ritual para consentirte, recargar energías y descubrir tu capacidad creadora.
