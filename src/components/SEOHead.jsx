@@ -79,6 +79,24 @@ export const seoMetaData = {
       'description': 'Catálogo de piezas decorativas con clase de pintura gratis'
     }
   },
+  services: {
+    title: 'Servicios de Restauración Sacra y Arte en Resina | Resina Art & Mary',
+    description: 'Restauración profesional de imágenes sacras, vírgenes y pesebres, y confección de piezas de resina personalizadas a tu gusto en Costa Rica.',
+    canonical: `${BASE_URL}/servicios`,
+    image: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&q=80&w=1200',
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      'name': 'Servicios de Restauración Sacra y Arte en Resina Personalizado',
+      'provider': {
+        '@type': 'LocalBusiness',
+        'name': 'Resina Art & Mary',
+        'telephone': '+50660367249'
+      },
+      'areaServed': 'Costa Rica',
+      'description': 'Servicios profesionales de restauración de imágenes religiosas y encargo de piezas artesanales en resina.'
+    }
+  },
   '404': {
     title: 'Página No Encontrada (404) | Resina Art & Mary',
     description: 'La página solicitada no está disponible. Explora nuestros cursos de velas y pintura en Costa Rica.',

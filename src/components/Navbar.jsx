@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Sparkles, Menu, X, MessageCircle, Grid, Package, HeartHandshake, MessageSquareQuote } from 'lucide-react';
+import { Sparkles, Menu, X, MessageCircle, Grid, Package, ShieldCheck } from 'lucide-react';
 
-export default function Navbar({ currentView, onNavigateHome, onNavigateCatalog, onNavigatePieces }) {
+export default function Navbar({ currentView, onNavigateHome, onNavigateCatalog, onNavigatePieces, onNavigateServices }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const whatsappMessage = encodeURIComponent(
@@ -45,6 +45,16 @@ export default function Navbar({ currentView, onNavigateHome, onNavigateCatalog,
               Inicio
             </a>
             <a
+              href="/servicios"
+              onClick={(e) => { e.preventDefault(); onNavigateServices && onNavigateServices(); }}
+              className={`inline-flex items-center gap-1 hover:text-[#e8a598] transition-colors ${
+                currentView === 'services' ? 'text-[#c87563] font-bold' : ''
+              }`}
+            >
+              <ShieldCheck className="w-4 h-4 text-[#c87563]" />
+              <span>Servicios Especiales</span>
+            </a>
+            <a
               href="/cursos"
               onClick={(e) => { e.preventDefault(); onNavigateCatalog(); }}
               className={`inline-flex items-center gap-1 hover:text-[#e8a598] transition-colors ${
@@ -63,13 +73,6 @@ export default function Navbar({ currentView, onNavigateHome, onNavigateCatalog,
             >
               <Package className="w-4 h-4 text-[#c87563]" />
               <span>Catálogo Piezas</span>
-            </a>
-            <a
-              href="#servicios"
-              onClick={currentView !== 'home' ? onNavigateHome : undefined}
-              className="hover:text-[#e8a598] transition-colors"
-            >
-              Servicios
             </a>
             <a
               href="#cursos"
@@ -137,6 +140,12 @@ export default function Navbar({ currentView, onNavigateHome, onNavigateCatalog,
             Inicio
           </button>
           <button
+            onClick={() => { onNavigateServices && onNavigateServices(); setMobileMenuOpen(false); }}
+            className="block w-full text-left py-2 text-[#c87563] font-bold cursor-pointer"
+          >
+            Servicios (Restauración & Resina)
+          </button>
+          <button
             onClick={() => { onNavigateCatalog(); setMobileMenuOpen(false); }}
             className="block w-full text-left py-2 text-[#c87563] font-bold cursor-pointer"
           >
@@ -149,18 +158,11 @@ export default function Navbar({ currentView, onNavigateHome, onNavigateCatalog,
             Catálogo de Piezas
           </button>
           <a
-            href="#servicios"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-[#3d2c29] font-medium hover:text-[#e8a598]"
-          >
-            Servicios
-          </a>
-          <a
             href="#cursos"
             onClick={() => setMobileMenuOpen(false)}
             className="block py-2 text-[#3d2c29] font-medium hover:text-[#e8a598]"
           >
-            Talleres
+            Talleres Presenciales
           </a>
           <a
             href="#galeria"

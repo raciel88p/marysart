@@ -1,7 +1,7 @@
 import React from 'react';
-import { Heart, MapPin, Phone, Rss, Grid, Package } from 'lucide-react';
+import { Heart, MapPin, Phone, Rss, Grid, Package, ShieldCheck } from 'lucide-react';
 
-export default function Footer({ onOpenModal, onNavigateHome, onNavigateCatalog, onNavigatePieces, onSelectCourseDetail }) {
+export default function Footer({ onOpenModal, onNavigateHome, onNavigateCatalog, onNavigatePieces, onNavigateServices, onSelectCourseDetail }) {
   const whatsappMessage = encodeURIComponent(
     "¡Hola Resina Art & Mary! Deseo recibir información sobre los cursos de Velas Artesanales y Pintura."
   );
@@ -25,7 +25,7 @@ export default function Footer({ onOpenModal, onNavigateHome, onNavigateCatalog,
               </span>
             </div>
             <p className="text-xs sm:text-sm text-[#a8988e] leading-relaxed">
-              Taller de Velas Artesanales de Cera de Soya, Pintura Creativa y Pátinas en Costa Rica. Un espacio diseñado para reconectar con tu esencia, relajarte y crear belleza con tus manos.
+              Taller de Velas Artesanales de Cera de Soya, Pintura Creativa, Pátinas y Restauración de Arte Sacro en Costa Rica. Un espacio diseñado para reconectar con tu esencia, relajarte y crear belleza con tus manos.
             </p>
             <div className="flex items-center gap-3 pt-2">
               <a
@@ -65,8 +65,20 @@ export default function Footer({ onOpenModal, onNavigateHome, onNavigateCatalog,
 
           {/* Subpages Navigation */}
           <div className="space-y-4">
-            <h3 className="font-serif text-lg font-bold text-white">Catálogos & Subpáginas</h3>
+            <h3 className="font-serif text-lg font-bold text-white">Servicios & Catálogos</h3>
             <ul className="space-y-2.5 text-sm text-[#a8988e]">
+              {onNavigateServices && (
+                <li>
+                  <a
+                    href="/servicios"
+                    onClick={(e) => { e.preventDefault(); onNavigateServices(); }}
+                    className="hover:text-[#e8a598] transition-colors text-left flex items-center gap-1.5 font-bold text-[#e8a598]"
+                  >
+                    <ShieldCheck className="w-3.5 h-3.5" />
+                    <span>Restauración Sacra & Arte Personalizado</span>
+                  </a>
+                </li>
+              )}
               <li>
                 <a
                   href="/cursos"
@@ -105,15 +117,6 @@ export default function Footer({ onOpenModal, onNavigateHome, onNavigateCatalog,
                   className="hover:text-[#e8a598] transition-colors text-left block"
                 >
                   Curso Básico de Velas
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/cursos/patinas"
-                  onClick={(e) => { e.preventDefault(); onSelectCourseDetail && onSelectCourseDetail('patinas'); }}
-                  className="hover:text-[#e8a598] transition-colors text-left block"
-                >
-                  Curso de Pátinas
                 </a>
               </li>
             </ul>

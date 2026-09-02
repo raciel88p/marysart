@@ -12,6 +12,7 @@ import StaticPagesModal from './components/StaticPagesModal';
 import CatalogPage from './components/CatalogPage';
 import PieceCatalogPage from './components/PieceCatalogPage';
 import CourseDetailPage from './components/CourseDetailPage';
+import ServicesPage from './components/ServicesPage';
 import NotFoundPage from './components/NotFoundPage';
 import SEOHead from './components/SEOHead';
 
@@ -30,6 +31,7 @@ export function parseRoute(path) {
   if (normalized === '/' || normalized === '') return { view: 'home', courseId: null, isNotFound: false };
   if (normalized === '/cursos' || normalized === '/cursos/') return { view: 'catalog', courseId: null, isNotFound: false };
   if (normalized === '/piezas' || normalized === '/piezas/') return { view: 'pieces', courseId: null, isNotFound: false };
+  if (normalized === '/servicios' || normalized === '/servicios/') return { view: 'services', courseId: null, isNotFound: false };
 
   if (normalized.startsWith('/cursos/')) {
     const courseId = normalized.replace('/cursos/', '').replace(/\/$/, '');
@@ -69,6 +71,7 @@ export default function App({ initialPath = '/' }) {
   const handleNavigateHome = () => navigateTo('/');
   const handleNavigateCatalog = () => navigateTo('/cursos');
   const handleNavigatePieces = () => navigateTo('/piezas');
+  const handleNavigateServices = () => navigateTo('/servicios');
   const handleSelectCourseDetail = (courseId) => navigateTo(`/cursos/${courseId}`);
 
   const currentView = route.view;
@@ -93,6 +96,7 @@ export default function App({ initialPath = '/' }) {
         onNavigateHome={handleNavigateHome}
         onNavigateCatalog={handleNavigateCatalog}
         onNavigatePieces={handleNavigatePieces}
+        onNavigateServices={handleNavigateServices}
       />
 
       {/* Main Page Content based on View */}
@@ -123,6 +127,14 @@ export default function App({ initialPath = '/' }) {
           />
         )}
 
+        {currentView === 'services' && (
+          <ServicesPage
+            onNavigateHome={handleNavigateHome}
+            onNavigateCatalog={handleNavigateCatalog}
+            onNavigatePieces={handleNavigatePieces}
+          />
+        )}
+
         {currentView === 'course-detail' && (
           <CourseDetailPage
             courseId={selectedCourseId}
@@ -147,6 +159,7 @@ export default function App({ initialPath = '/' }) {
         onNavigateHome={handleNavigateHome}
         onNavigateCatalog={handleNavigateCatalog}
         onNavigatePieces={handleNavigatePieces}
+        onNavigateServices={handleNavigateServices}
         onSelectCourseDetail={handleSelectCourseDetail}
       />
 
