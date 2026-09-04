@@ -40,7 +40,7 @@ export default function Footer({ onOpenModal, onNavigateHome, onNavigateCatalog,
                 </svg>
               </a>
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/ResinaArtMary"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-[#3d2c29] hover:bg-[#e8a598] text-white flex items-center justify-center transition-colors"
