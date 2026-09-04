@@ -346,12 +346,12 @@ export default function Gallery() {
         <div className="mt-12 text-center text-xs sm:text-sm text-[#8c7a6b]">
           Síguenos en Instagram{' '}
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/arte_resina_barro/"
             target="_blank"
             rel="noopener noreferrer"
             className="font-bold text-[#c87563] underline hover:text-[#b56250]"
           >
-            @resinaartmary.cr
+            @arte_resina_barro
           </a>{' '}
           para ver más historias en vivo y momentos de cada clase.
         </div>
