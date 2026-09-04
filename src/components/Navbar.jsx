@@ -36,15 +36,6 @@ export default function Navbar({ currentView, onNavigateHome, onNavigateCatalog,
           {/* Desktop Navigation Links */}
           <nav className="hidden md:flex items-center gap-5 lg:gap-6 text-sm font-medium text-[#5c4a43]">
             <a
-              href="/"
-              onClick={(e) => { e.preventDefault(); onNavigateHome(); }}
-              className={`hover:text-[#e8a598] transition-colors ${
-                currentView === 'home' ? 'text-[#c87563] font-bold' : ''
-              }`}
-            >
-              Inicio
-            </a>
-            <a
               href="/servicios"
               onClick={(e) => { e.preventDefault(); onNavigateServices && onNavigateServices(); }}
               className={`inline-flex items-center gap-1 hover:text-[#e8a598] transition-colors ${
@@ -133,12 +124,6 @@ export default function Navbar({ currentView, onNavigateHome, onNavigateCatalog,
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="md:hidden bg-[#faf7f5] border-b border-[#e8ded5] px-4 pt-2 pb-6 space-y-3">
-          <button
-            onClick={() => { onNavigateHome(); setMobileMenuOpen(false); }}
-            className="block w-full text-left py-2 text-[#3d2c29] font-medium hover:text-[#e8a598] cursor-pointer"
-          >
-            Inicio
-          </button>
           <button
             onClick={() => { onNavigateServices && onNavigateServices(); setMobileMenuOpen(false); }}
             className="block w-full text-left py-2 text-[#c87563] font-bold cursor-pointer"
