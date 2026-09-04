@@ -1,5 +1,5 @@
 import React from 'react';
-import { Star, Quote, Heart } from 'lucide-react';
+import { Star, Quote, Heart, Video } from 'lucide-react';
 
 export default function Testimonials() {
   const testimonials = [
@@ -111,6 +111,33 @@ export default function Testimonials() {
               ))}
             </div>
             <span className="font-medium">Basado en testimonios de alumnas reales en Costa Rica</span>
+          </div>
+        </div>
+
+        {/* Facebook Video Featured Section */}
+        <div className="mt-16 max-w-3xl mx-auto text-center space-y-6">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f2dfd8] text-[#8c483b] text-xs font-bold uppercase tracking-wider">
+            <Video className="w-4 h-4" />
+            <span>Video Destacado de los Talleres en Turrialba</span>
+          </div>
+
+          <p className="text-[#6b5852] text-sm sm:text-base font-light">
+            Echa un vistazo a la experiencia en vivo grabada durante nuestras sesiones culturales y artísticas.
+          </p>
+
+          <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-[#3d2c29] border border-[#e8ded5] max-w-[560px] mx-auto aspect-video flex items-center justify-center">
+            <iframe
+              src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FCUTURALTURRIALBA%2Fvideos%2F2344413052968813%2F&show_text=false&width=560&t=0"
+              width="560"
+              height="314"
+              style={{ border: 'none', overflow: 'hidden' }}
+              scrolling="no"
+              frameBorder="0"
+              allowFullScreen={true}
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+              className="w-full h-full object-cover rounded-3xl"
+              title="Video de Talleres de Arte en Turrialba"
+            />
           </div>
         </div>
 
