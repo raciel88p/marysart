@@ -131,19 +131,6 @@ export default function Navbar({
                       </div>
                     </div>
                   </a>
-
-                  <div className="mt-2 pt-2 border-t border-[#f3ece6]">
-                    <a
-                      href="/servicios"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        handleAllServicesClick();
-                      }}
-                      className="block text-center py-2 text-xs font-bold text-[#c87563] hover:text-[#a65646] hover:bg-[#f8ece9] rounded-lg transition-colors"
-                    >
-                      Ver catálogo general de servicios →
-                    </a>
-                  </div>
                 </div>
               )}
             </div>
@@ -260,16 +247,6 @@ export default function Navbar({
                   className="block py-1.5 text-[#3d2c29] font-medium hover:text-[#c87563]"
                 >
                   ✨ Arte Personalizado en Resina & Encapsulados
-                </a>
-                <a
-                  href="/servicios"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleAllServicesClick();
-                  }}
-                  className="block py-1.5 text-[#c87563] font-bold underline text-xs"
-                >
-                  Ver todos los servicios →
                 </a>
               </div>
             )}
