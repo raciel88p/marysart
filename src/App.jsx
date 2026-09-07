@@ -29,7 +29,17 @@ export const VALID_COURSE_IDS = [
 
 export const VALID_SERVICE_IDS = [
   'restauracion-sacra',
-  'arte-resina-personalizado'
+  'arte-resina-personalizado',
+  'restauracion-imagenes-religiosas-costa-rica',
+  'restauracion-santos-resina',
+  'reparacion-virgenes-yeso',
+  'restauracion-esculturas-religiosas',
+  'pintar-imagen-virgen',
+  'restauracion-figuras-religiosas-antiguas',
+  'reparar-cristo-resina',
+  'restauracion-imagenes-catolicas',
+  'restauracion-imagenes-iglesias',
+  'restauracion-profesional-esculturas'
 ];
 
 export function parseRoute(path) {

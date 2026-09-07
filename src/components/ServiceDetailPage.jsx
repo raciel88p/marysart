@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowLeft, ShieldCheck, Sparkles, MessageCircle, CheckCircle, Package, ArrowRight, HeartHandshake, Palette, HelpCircle } from 'lucide-react';
+import { ArrowLeft, ShieldCheck, MessageCircle, CheckCircle, Palette, HelpCircle } from 'lucide-react';
 
 export const servicesData = {
   'restauracion-sacra': {
@@ -115,6 +115,177 @@ export const servicesData = {
         a: 'Ofrecemos precios especiales al por mayor para bodas, bautizos, recuerdos empresariales y regalos navideños.'
       }
     ]
+  },
+  'restauracion-imagenes-religiosas-costa-rica': {
+    id: 'restauracion-imagenes-religiosas-costa-rica',
+    tag: 'Servicio en Costa Rica',
+    title: 'Restauración de Imágenes Religiosas en Costa Rica',
+    subtitle: 'Servicio profesional de restauración y conservación de imágenes sagradas en todo Costa Rica',
+    description: 'Ofrecemos restauración profesional de imágenes religiosas en Turrialba, Cartago, San José, San Carlos y todo Costa Rica. Recuperamos piezas afectadas por roturas, desprendimiento de pintura o desgaste natural con técnicas artísticas de alta calidad y máxima fidelidad devocional.',
+    badgeIcon: <ShieldCheck className="w-5 h-5 text-[#c87563]" />,
+    bannerImage: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&q=80&w=1200',
+    whatsappMessage: '¡Hola Resina Art & Mary! Deseo información sobre restauración de imágenes religiosas en Costa Rica.',
+    processSteps: [
+      { title: '1. Diagnóstico por Foto', desc: 'Envíanos imágenes de tu figura para evaluar el nivel de restauración requerido en Costa Rica.' },
+      { title: '2. Recepción o Envío', desc: 'Coordinamos la recepción en Turrialba o San Carlos, o envío seguro por encomienda nacional.' },
+      { title: '3. Reparación Estructural', desc: 'Sellamos fisuras, unimos partes quebradas y reconstruimos elementos faltantes.' },
+      { title: '4. Repintado y Acabados', desc: 'Aplicamos óleos y acrílicos de alta calidad con técnicas tradicionales de policromía.' }
+    ],
+    materialsHandled: ['Imágenes en Resina', 'Vírgenes y Santos en Yeso', 'Figuras en Madera', 'Piezas de Altar y Templos'],
+    faqs: [{ q: '¿Tienen cobertura en todo el país?', a: 'Sí, recibimos y enviamos piezas a cualquier provincia de Costa Rica.' }]
+  },
+  'restauracion-santos-resina': {
+    id: 'restauracion-santos-resina',
+    tag: 'Especialidad Resina',
+    title: 'Restauración de Santos de Resina',
+    subtitle: 'Especialistas en la reconstrucción y repintado de esculturas y santos en resina sintética',
+    description: 'Las figuras de santos fabricadas en resina son resistentes pero propensas a decoloración, rayones o quebraduras en extremidades. En Resina Art & Mary empleamos resinas especiales para resanar partes dañadas y devolverles un colorido vibrante y duradero.',
+    badgeIcon: <ShieldCheck className="w-5 h-5 text-[#c87563]" />,
+    bannerImage: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&q=80&w=1200',
+    whatsappMessage: '¡Hola Resina Art & Mary! Quisiera cotizar la restauración de un santo de resina.',
+    processSteps: [
+      { title: '1. Inspección de Soporte de Resina', desc: 'Identificamos rajaduras y puntos de tensión en la pieza de resina.' },
+      { title: '2. Lijado y Relleno', desc: 'Rellenamos con resina de curado rápido y pulimos fino.' },
+      { title: '3. Policromía y Sombras', desc: 'Restauramos los mantos, túnicas y detalles del rostro a mano.' }
+    ],
+    materialsHandled: ['San Judas Tadeo', 'San José', 'San Antonio', 'San Miguel Arcángel'],
+    faqs: [{ q: '¿Queda visible la pegadura?', a: 'No, pulimos e integramos el color de forma que la unión resulte imperceptible.' }]
+  },
+  'reparacion-virgenes-yeso': {
+    id: 'reparacion-virgenes-yeso',
+    tag: 'Yeso Tradicional',
+    title: 'Reparación de Vírgenes de Yeso',
+    subtitle: 'Restauración delicada de imágenes de la Santísima Virgen confeccionadas en yeso o escayola',
+    description: 'El yeso es un material frágil que se descascara con facilidad. Restauramos delicadamente esculturas de la Virgen María (Los Ángeles, Carmen, Guadalupe, La Milagrosa y más), reconstruyendo manos, rostros, mantos y aureolas.',
+    badgeIcon: <ShieldCheck className="w-5 h-5 text-[#c87563]" />,
+    bannerImage: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&q=80&w=1200',
+    whatsappMessage: '¡Hola Resina Art & Mary! Necesito reparar una imagen de la Virgen en yeso.',
+    processSteps: [
+      { title: '1. Despolvado y Fijación', desc: 'Consolidamos el yeso poroso para evitar descascaramientos.' },
+      { title: '2. Reconstrucción con Pasta', desc: 'Modelamos los dedos o bordes del manto dañados.' },
+      { title: '3. Pintura Fina y Dorado', desc: 'Aplicamos la policromía mariana tradicional y dorados metálicos.' }
+    ],
+    materialsHandled: ['Virgen de los Ángeles', 'Virgen del Carmen', 'Virgen de Guadalupe', 'Nuestra Señora del Rosario'],
+    faqs: [{ q: '¿Se pueden retocar solo las áreas dañadas?', a: 'Realizamos integración tonal respetando las zonas en buen estado original.' }]
+  },
+  'restauracion-esculturas-religiosas': {
+    id: 'restauracion-esculturas-religiosas',
+    tag: 'Escultura Sacra',
+    title: 'Restauración de Esculturas Religiosas',
+    subtitle: 'Conservación artística integral para esculturas religiosas de diversos tamaños y materiales',
+    description: 'Servicio dedicado a la restauración de esculturas religiosas para capillas, parroquias y colecciones familiares particulares. Unimos maestría artesanal y conservación para preservar el valor cultural y espiritual de cada obra.',
+    badgeIcon: <ShieldCheck className="w-5 h-5 text-[#c87563]" />,
+    bannerImage: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&q=80&w=1200',
+    whatsappMessage: '¡Hola Resina Art & Mary! Deseo información sobre restauración de esculturas religiosas.',
+    processSteps: [
+      { title: '1. Diagnóstico de la Obra', desc: 'Análisis detallado del estilo escultórico y nivel de deterioro.' },
+      { title: '2. Limpieza de Capas', desc: 'Remoción de repintes antiguos inapropiados si aplica.' },
+      { title: '3. Reintegración y Sellado', desc: 'Restablecimiento de la capa pictórica y capa final de protección.' }
+    ],
+    materialsHandled: ['Esculturas de bulto redondo', 'Relieves religiosos', 'Crucifijos', 'Ángeles y Querubines'],
+    faqs: [{ q: '¿Restauran piezas grandes?', a: 'Sí, atendemos esculturas desde 20 cm hasta piezas grandes de altar.' }]
+  },
+  'pintar-imagen-virgen': {
+    id: 'pintar-imagen-virgen',
+    tag: 'Pintura y Repintado',
+    title: 'Pintar Imagen de la Virgen',
+    subtitle: 'Servicio de repintado y embellecimiento artesanal para imágenes marianas',
+    description: '¿Tienes una imagen de la Virgen descolorida o deseas personalizar su manto con tonos específicos o detalles dorados? Ofrecemos el servicio de pintura a mano con pigmentos de excelente calidad y pátinas elegantes.',
+    badgeIcon: <Palette className="w-5 h-5 text-[#c87563]" />,
+    bannerImage: 'https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&q=80&w=1200',
+    whatsappMessage: '¡Hola Resina Art & Mary! Quisiera solicitar el servicio para pintar una imagen de la Virgen.',
+    processSteps: [
+      { title: '1. Elección de Tonalidades', desc: 'Definimos contigo los colores de túnica, manto, estrellas y aureola.' },
+      { title: '2. Decapación o Imprimación', desc: 'Preparamos la superficie para asegurar que la pintura se adhiera perfectamente.' },
+      { title: '3. Pintura Fina a Pincel', desc: 'Detallamos sombras, rasgos faciales y detalles en pan de oro o metálicos.' }
+    ],
+    materialsHandled: ['Vírgenes en Yeso y Biscocho', 'Vírgenes en Resina', 'Figuras Decorativas Marianas'],
+    faqs: [{ q: '¿Pueden personalizar los colores?', a: '¡Totalmente! Pintamos la pieza según tus preferencias devocionales y estéticas.' }]
+  },
+  'restauracion-figuras-religiosas-antiguas': {
+    id: 'restauracion-figuras-religiosas-antiguas',
+    tag: 'Antigüedades Sacras',
+    title: 'Restauración de Figuras Religiosas Antiguas',
+    subtitle: 'Cuidado y restauración conservadora de reliquias y figuras religiosas antiguas de herencia familiar',
+    description: 'Las figuras religiosas antiguas guardan recuerdos de generaciones. Aplicamos criterios de conservación respetando la pátina del tiempo, estabilizando los materiales y reponiendo faltantes sin alterar el valor histórico de la reliquia.',
+    badgeIcon: <ShieldCheck className="w-5 h-5 text-[#c87563]" />,
+    bannerImage: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&q=80&w=1200',
+    whatsappMessage: '¡Hola Resina Art & Mary! Me interesa restaurar una figura religiosa antigua de valor familiar.',
+    processSteps: [
+      { title: '1. Conservación de Antigüedades', desc: 'Evaluamos la pátina histórica y materiales antiguos.' },
+      { title: '2. Limpieza Respetuosa', desc: 'Limpiamos contaminantes acumulados preservando la capa original.' },
+      { title: '3. Retoque Discreto', desc: 'Restauramos únicamente las pérdidas severas de policromía y masa.' }
+    ],
+    materialsHandled: ['Santos Antiguos de Madera', 'Niños Dios de Herencia', 'Vírgenes Antiguas de Pasta o Yeso'],
+    faqs: [{ q: '¿Pierde valor la pieza al restaurarla?', a: 'Al usar técnicas conservadoras, aseguramos la longevidad de la pieza sin arruinar su esencia histórica.' }]
+  },
+  'reparar-cristo-resina': {
+    id: 'reparar-cristo-resina',
+    tag: 'Crucifijos y Cristos',
+    title: 'Reparar Cristo de Resina',
+    subtitle: 'Especialistas en la reconstrucción de brazos, dedos, cruz y llagas en Cristos de resina',
+    description: 'Los Cristos articulados o de pared en resina a menudo sufren caídas que fracturan brazos, corona de espinas o la cruz. Brindamos una reparación estructural fuerte y un repintado hiperrealista para devolver la solemnidad al Señor.',
+    badgeIcon: <ShieldCheck className="w-5 h-5 text-[#c87563]" />,
+    bannerImage: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&q=80&w=1200',
+    whatsappMessage: '¡Hola Resina Art & Mary! Necesito reparar un Cristo en resina.',
+    processSteps: [
+      { title: '1. Ensamble y Refuerzo', desc: 'Insertamos espigas o alambres para reforzar articulaciones o brazos rotos.' },
+      { title: '2. Reconstrucción de Llagas y Rostro', desc: 'Modelamos las áreas dañadas con masillas epóxicas.' },
+      { title: '3. Repintado del Pizote y Paño de Pureza', desc: 'Restauramos encarnados, sangres y paño de pureza con máximo realismo.' }
+    ],
+    materialsHandled: ['Cristo Resucitado', 'Cristo Yacente', 'Crucifijos de Pared', 'Cristo de la Misericordia'],
+    faqs: [{ q: '¿El brazo reparado resistirá colgarse de nuevo?', a: 'Sí, reforzamos las uniones internamente con pernos para asegurar solidez total.' }]
+  },
+  'restauracion-imagenes-catolicas': {
+    id: 'restauracion-imagenes-catolicas',
+    tag: 'Devoción Católica',
+    title: 'Restauración de Imágenes Católicas',
+    subtitle: 'Servicio completo para imágenes del santoral católico, pesebres y devo ciones de hogar',
+    description: 'Restauramos imágenes católicas de todas las advocaciones: Sagrado Corazón de Jesús, Divino Niño, San Martín de Porres, Arcángeles y pesebres completos. Cuidamos cada detalle para que tu espacio de oración conserve su esplendor.',
+    badgeIcon: <ShieldCheck className="w-5 h-5 text-[#c87563]" />,
+    bannerImage: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&q=80&w=1200',
+    whatsappMessage: '¡Hola Resina Art & Mary! Deseo información sobre restauración de imágenes católicas.',
+    processSteps: [
+      { title: '1. Revisión de Piezas', desc: 'Verificamos el conjunto de imágenes o figura individual.' },
+      { title: '2. Saneamiento', desc: 'Eliminamos moho, humedad o capas defectuosas.' },
+      { title: '3. Reintegración Croma', desc: 'Aplicamos colores originales respetando la iconografía católica.' }
+    ],
+    materialsHandled: ['Sagrado Corazón', 'Divino Niño', 'San Expedito', 'Nacimientos Completo Navideños'],
+    faqs: [{ q: '¿Restauran nacimientos de Navidad enteros?', a: 'Sí, restauramos conjuntos completos de pesebre.' }]
+  },
+  'restauracion-imagenes-iglesias': {
+    id: 'restauracion-imagenes-iglesias',
+    tag: 'Templos y Parroquias',
+    title: 'Restauración de Imágenes para Iglesias',
+    subtitle: 'Restauración a gran escala para imágenes parroquiales, capillas y procesiones',
+    description: 'Ofrecemos soluciones integrales de conservación y restauración de imágenes religiosas para iglesias, parroquias y capillas en Costa Rica. Tratamos imágenes procesionales y de retablo con acabados de alta durabilidad.',
+    badgeIcon: <ShieldCheck className="w-5 h-5 text-[#c87563]" />,
+    bannerImage: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&q=80&w=1200',
+    whatsappMessage: '¡Hola Resina Art & Mary! Deseamos cotizar la restauración de imágenes para una iglesia / parroquia.',
+    processSteps: [
+      { title: '1. Inspección In Situ / Cotización', desc: 'Coordinamos evaluación técnica del estado de las imágenes parroquiales.' },
+      { title: '2. Tratamiento Conservador', desc: 'Consolidación estructural apta para manipulación procesional.' },
+      { title: '3. Acabados Finales', desc: 'Protección para resistencia ambiental en recintos parroquiales.' }
+    ],
+    materialsHandled: ['Imágenes Procesionales', 'Esculturas de Retablo', 'Andas y Atributos Sagrados'],
+    faqs: [{ q: '¿Emiten cotización formal para comités parroquiales?', a: 'Sí, brindamos propuestas detalladas para comités e iglesias.' }]
+  },
+  'restauracion-profesional-esculturas': {
+    id: 'restauracion-profesional-esculturas',
+    tag: 'Servicio Profesional',
+    title: 'Restauración Profesional de Esculturas',
+    subtitle: 'Servicio técnico superior de restauración en resina, yeso, cerámica y madera',
+    description: 'Nuestra experiencia técnica abarca la reparación avanzada y restauración profesional de esculturas decorativas y sacras. Empleamos pigmentos profesionales, masillas de conservación y barnices de protección UV para resultados impecables.',
+    badgeIcon: <ShieldCheck className="w-5 h-5 text-[#c87563]" />,
+    bannerImage: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&q=80&w=1200',
+    whatsappMessage: '¡Hola Resina Art & Mary! Solicito información sobre el servicio de restauración profesional de esculturas.',
+    processSteps: [
+      { title: '1. Diagnóstico Escultórico', desc: 'Estudio de soporte, patologías y soluciones técnicas.' },
+      { title: '2. Reconstrucción Fiel', desc: 'Modelado artesanal de volúmenes y texturas originales.' },
+      { title: '3. Sellado de Alta Resistencia', desc: 'Aplicación de selladores profesionales que garantizan permanencia del color.' }
+    ],
+    materialsHandled: ['Esculturas de Resina y Fibra', 'Esculturas Cerámicas y Biscocho', 'Yeso Policromado', 'Madera Cincelada'],
+    faqs: [{ q: '¿Ofrecen garantía en el acabado?', a: 'Sí, garantizamos un trabajo artesanal de altísima durabilidad y acabado fino.' }]
   }
 };
 

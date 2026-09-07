@@ -83,33 +83,46 @@ export default function Navbar({
 
               {/* Dropdown Menu */}
               {servicesDropdownOpen && (
-                <div className="absolute top-full left-0 w-80 bg-white rounded-xl shadow-xl border border-[#e8ded5] py-3 px-2 z-50">
-                  <div className="px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#8c7a6b] border-b border-[#f3ece6] mb-1">
-                    Restauración Sacra & Religiosa
+                <div className="absolute top-full left-0 w-96 bg-white rounded-2xl shadow-2xl border border-[#e8ded5] py-3 px-3 z-50 max-h-[80vh] overflow-y-auto">
+                  <div className="px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#8c7a6b] border-b border-[#f3ece6] mb-2 flex items-center justify-between">
+                    <span>Restauración Sacra & Especialidades</span>
+                    <ShieldCheck className="w-3.5 h-3.5 text-[#c87563]" />
                   </div>
-                  <a
-                    href="/servicios/restauracion-sacra"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleServiceClick('restauracion-sacra');
-                    }}
-                    className="group flex items-start gap-3 p-2.5 rounded-lg hover:bg-[#faf4f0] transition-colors"
-                  >
-                    <div className="w-8 h-8 rounded-lg bg-[#f8ece9] text-[#c87563] flex items-center justify-center shrink-0 group-hover:bg-[#c87563] group-hover:text-white transition-colors">
-                      <ShieldCheck className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <div className="text-sm font-semibold text-[#3d2c29] group-hover:text-[#c87563] transition-colors">
-                        Restauración de Imágenes Religiosas
-                      </div>
-                      <div className="text-xs text-[#73635a] mt-0.5">
-                        Santos de resina, vírgenes de yeso, Cristos y figuras sagradas.
-                      </div>
-                    </div>
-                  </a>
 
-                  <div className="px-3 pt-3 pb-1.5 text-xs font-semibold uppercase tracking-wider text-[#8c7a6b] border-b border-[#f3ece6] mb-1 mt-1">
-                    Arte Personalizado
+                  <div className="space-y-0.5">
+                    {[
+                      { id: 'restauracion-sacra', label: 'Restauración de Imágenes Religiosas' },
+                      { id: 'restauracion-imagenes-religiosas-costa-rica', label: 'Restauración de Imágenes Religiosas en Costa Rica' },
+                      { id: 'restauracion-santos-resina', label: 'Restauración de Santos de Resina' },
+                      { id: 'reparacion-virgenes-yeso', label: 'Reparación de Vírgenes de Yeso' },
+                      { id: 'restauracion-esculturas-religiosas', label: 'Restauración de Esculturas Religiosas' },
+                      { id: 'pintar-imagen-virgen', label: 'Pintar Imagen de la Virgen' },
+                      { id: 'restauracion-figuras-religiosas-antiguas', label: 'Restauración de Figuras Religiosas Antiguas' },
+                      { id: 'reparar-cristo-resina', label: 'Reparar Cristo de Resina' },
+                      { id: 'restauracion-imagenes-catolicas', label: 'Restauración de Imágenes Católicas' },
+                      { id: 'restauracion-imagenes-iglesias', label: 'Restauración de Imágenes para Iglesias' },
+                      { id: 'restauracion-profesional-esculturas', label: 'Restauración Profesional de Esculturas' }
+                    ].map((item) => (
+                      <a
+                        key={item.id}
+                        href={`/servicios/${item.id}`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleServiceClick(item.id);
+                        }}
+                        className="group flex items-center gap-2.5 p-2 rounded-lg hover:bg-[#faf4f0] transition-colors"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#c87563] shrink-0 group-hover:scale-125 transition-transform" />
+                        <span className="text-xs font-medium text-[#3d2c29] group-hover:text-[#c87563] transition-colors">
+                          {item.label}
+                        </span>
+                      </a>
+                    ))}
+                  </div>
+
+                  <div className="px-3 pt-3 pb-1.5 text-xs font-semibold uppercase tracking-wider text-[#8c7a6b] border-b border-[#f3ece6] mb-1 mt-2 flex items-center justify-between">
+                    <span>Arte Personalizado</span>
+                    <Sparkles className="w-3.5 h-3.5 text-[#c87563]" />
                   </div>
                   <a
                     href="/servicios/arte-resina-personalizado"
@@ -117,19 +130,12 @@ export default function Navbar({
                       e.preventDefault();
                       handleServiceClick('arte-resina-personalizado');
                     }}
-                    className="group flex items-start gap-3 p-2.5 rounded-lg hover:bg-[#faf4f0] transition-colors"
+                    className="group flex items-center gap-2.5 p-2 rounded-lg hover:bg-[#faf4f0] transition-colors"
                   >
-                    <div className="w-8 h-8 rounded-lg bg-[#f8ece9] text-[#c87563] flex items-center justify-center shrink-0 group-hover:bg-[#c87563] group-hover:text-white transition-colors">
-                      <Sparkles className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <div className="text-sm font-semibold text-[#3d2c29] group-hover:text-[#c87563] transition-colors">
-                        Arte Personalizado en Resina
-                      </div>
-                      <div className="text-xs text-[#73635a] mt-0.5">
-                        Encapsulados botánicos, recuerdos para eventos y piezas únicas.
-                      </div>
-                    </div>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#c87563] shrink-0 group-hover:scale-125 transition-transform" />
+                    <span className="text-xs font-medium text-[#3d2c29] group-hover:text-[#c87563] transition-colors">
+                      Arte Personalizado en Resina
+                    </span>
                   </a>
                 </div>
               )}
@@ -227,27 +233,33 @@ export default function Navbar({
             </div>
 
             {mobileServicesOpen && (
-              <div className="pl-3 pr-2 py-2 space-y-2 bg-[#f8ece9]/50 rounded-lg text-sm mt-2">
-                <a
-                  href="/servicios/restauracion-sacra"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleServiceClick('restauracion-sacra');
-                  }}
-                  className="block py-1.5 text-[#3d2c29] font-medium hover:text-[#c87563]"
-                >
-                  ✝️ Restauración de Imágenes Religiosas (Santos, Vírgenes, Cristos)
-                </a>
-                <a
-                  href="/servicios/arte-resina-personalizado"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleServiceClick('arte-resina-personalizado');
-                  }}
-                  className="block py-1.5 text-[#3d2c29] font-medium hover:text-[#c87563]"
-                >
-                  ✨ Arte Personalizado en Resina & Encapsulados
-                </a>
+              <div className="pl-3 pr-2 py-2 space-y-1 bg-[#f8ece9]/50 rounded-lg text-xs sm:text-sm mt-2 max-h-60 overflow-y-auto">
+                {[
+                  { id: 'restauracion-sacra', label: '✝️ Restauración de Imágenes Religiosas' },
+                  { id: 'restauracion-imagenes-religiosas-costa-rica', label: '🇨🇷 Restauración de Imágenes Religiosas en CR' },
+                  { id: 'restauracion-santos-resina', label: '✨ Restauración de Santos de Resina' },
+                  { id: 'reparacion-virgenes-yeso', label: '🌹 Reparación de Vírgenes de Yeso' },
+                  { id: 'restauracion-esculturas-religiosas', label: '🏛️ Restauración de Esculturas Religiosas' },
+                  { id: 'pintar-imagen-virgen', label: '🎨 Pintar Imagen de la Virgen' },
+                  { id: 'restauracion-figuras-religiosas-antiguas', label: '🏺 Restauración de Figuras Antiguas' },
+                  { id: 'reparar-cristo-resina', label: '✝️ Reparar Cristo de Resina' },
+                  { id: 'restauracion-imagenes-catolicas', label: '🙏 Restauración de Imágenes Católicas' },
+                  { id: 'restauracion-imagenes-iglesias', label: '⛪ Restauración de Imágenes para Iglesias' },
+                  { id: 'restauracion-profesional-esculturas', label: '🛠️ Restauración Profesional de Esculturas' },
+                  { id: 'arte-resina-personalizado', label: '✨ Arte Personalizado en Resina' }
+                ].map((item) => (
+                  <a
+                    key={item.id}
+                    href={`/servicios/${item.id}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleServiceClick(item.id);
+                    }}
+                    className="block py-1.5 text-[#3d2c29] font-medium hover:text-[#c87563] transition-colors"
+                  >
+                    {item.label}
+                  </a>
+                ))}
               </div>
             )}
           </div>
