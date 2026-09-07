@@ -111,6 +111,7 @@ export default function App({ initialPath = '/' }) {
         onNavigateCatalog={handleNavigateCatalog}
         onNavigatePieces={handleNavigatePieces}
         onNavigateServices={handleNavigateServices}
+        onSelectServiceDetail={handleSelectServiceDetail}
       />
 
       {/* Main Page Content based on View */}

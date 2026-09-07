@@ -1,13 +1,38 @@
 import React, { useState } from 'react';
-import { Sparkles, Menu, X, MessageCircle, Grid, Package, ShieldCheck } from 'lucide-react';
+import { Sparkles, Menu, X, MessageCircle, Grid, Package, ShieldCheck, ChevronDown } from 'lucide-react';
 
-export default function Navbar({ currentView, onNavigateHome, onNavigateCatalog, onNavigatePieces, onNavigateServices }) {
+export default function Navbar({
+  currentView,
+  onNavigateHome,
+  onNavigateCatalog,
+  onNavigatePieces,
+  onNavigateServices,
+  onSelectServiceDetail
+}) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(true);
 
   const whatsappMessage = encodeURIComponent(
-    "¡Hola Resina Art & Mary! Deseo recibir información sobre los cursos de Velas Artesanales y Pintura."
+    "¡Hola Resina Art & Mary! Deseo recibir información sobre los servicios de restauración de imágenes y arte en resina."
   );
   const whatsappUrl = `https://wa.me/50660367249?text=${whatsappMessage}`;
+
+  const handleServiceClick = (serviceId) => {
+    if (onSelectServiceDetail) {
+      onSelectServiceDetail(serviceId);
+    } else if (onNavigateServices) {
+      onNavigateServices();
+    }
+    setServicesDropdownOpen(false);
+    setMobileMenuOpen(false);
+  };
+
+  const handleAllServicesClick = () => {
+    if (onNavigateServices) onNavigateServices();
+    setServicesDropdownOpen(false);
+    setMobileMenuOpen(false);
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-[#faf7f5]/90 backdrop-blur-md border-b border-[#e8ded5]">
@@ -35,16 +60,94 @@ export default function Navbar({ currentView, onNavigateHome, onNavigateCatalog,
 
           {/* Desktop Navigation Links */}
           <nav className="hidden md:flex items-center gap-5 lg:gap-6 text-sm font-medium text-[#5c4a43]">
-            <a
-              href="/servicios"
-              onClick={(e) => { e.preventDefault(); onNavigateServices && onNavigateServices(); }}
-              className={`inline-flex items-center gap-1 hover:text-[#e8a598] transition-colors ${
-                currentView === 'services' ? 'text-[#c87563] font-bold' : ''
-              }`}
+            {/* Servicios Dropdown */}
+            <div
+              className="relative py-4"
+              onMouseEnter={() => setServicesDropdownOpen(true)}
+              onMouseLeave={() => setServicesDropdownOpen(false)}
             >
-              <ShieldCheck className="w-4 h-4 text-[#c87563]" />
-              <span>Servicios Especiales</span>
-            </a>
+              <a
+                href="/servicios"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleAllServicesClick();
+                }}
+                className={`inline-flex items-center gap-1.5 hover:text-[#e8a598] transition-colors cursor-pointer ${
+                  currentView === 'services' || currentView === 'service-detail' ? 'text-[#c87563] font-bold' : ''
+                }`}
+              >
+                <ShieldCheck className="w-4 h-4 text-[#c87563]" />
+                <span>Servicios Especiales</span>
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${servicesDropdownOpen ? 'rotate-180' : ''}`} />
+              </a>
+
+              {/* Dropdown Menu */}
+              {servicesDropdownOpen && (
+                <div className="absolute top-full left-0 w-80 bg-white rounded-xl shadow-xl border border-[#e8ded5] py-3 px-2 z-50">
+                  <div className="px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#8c7a6b] border-b border-[#f3ece6] mb-1">
+                    Restauración Sacra & Religiosa
+                  </div>
+                  <a
+                    href="/servicios/restauracion-sacra"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleServiceClick('restauracion-sacra');
+                    }}
+                    className="group flex items-start gap-3 p-2.5 rounded-lg hover:bg-[#faf4f0] transition-colors"
+                  >
+                    <div className="w-8 h-8 rounded-lg bg-[#f8ece9] text-[#c87563] flex items-center justify-center shrink-0 group-hover:bg-[#c87563] group-hover:text-white transition-colors">
+                      <ShieldCheck className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="text-sm font-semibold text-[#3d2c29] group-hover:text-[#c87563] transition-colors">
+                        Restauración de Imágenes Religiosas
+                      </div>
+                      <div className="text-xs text-[#73635a] mt-0.5">
+                        Santos de resina, vírgenes de yeso, Cristos y figuras sagradas.
+                      </div>
+                    </div>
+                  </a>
+
+                  <div className="px-3 pt-3 pb-1.5 text-xs font-semibold uppercase tracking-wider text-[#8c7a6b] border-b border-[#f3ece6] mb-1 mt-1">
+                    Arte Personalizado
+                  </div>
+                  <a
+                    href="/servicios/arte-resina-personalizado"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleServiceClick('arte-resina-personalizado');
+                    }}
+                    className="group flex items-start gap-3 p-2.5 rounded-lg hover:bg-[#faf4f0] transition-colors"
+                  >
+                    <div className="w-8 h-8 rounded-lg bg-[#f8ece9] text-[#c87563] flex items-center justify-center shrink-0 group-hover:bg-[#c87563] group-hover:text-white transition-colors">
+                      <Sparkles className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="text-sm font-semibold text-[#3d2c29] group-hover:text-[#c87563] transition-colors">
+                        Arte Personalizado en Resina
+                      </div>
+                      <div className="text-xs text-[#73635a] mt-0.5">
+                        Encapsulados botánicos, recuerdos para eventos y piezas únicas.
+                      </div>
+                    </div>
+                  </a>
+
+                  <div className="mt-2 pt-2 border-t border-[#f3ece6]">
+                    <a
+                      href="/servicios"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleAllServicesClick();
+                      }}
+                      className="block text-center py-2 text-xs font-bold text-[#c87563] hover:text-[#a65646] hover:bg-[#f8ece9] rounded-lg transition-colors"
+                    >
+                      Ver catálogo general de servicios →
+                    </a>
+                  </div>
+                </div>
+              )}
+            </div>
+
             <a
               href="/cursos"
               onClick={(e) => { e.preventDefault(); onNavigateCatalog(); }}
@@ -124,21 +227,63 @@ export default function Navbar({ currentView, onNavigateHome, onNavigateCatalog,
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="md:hidden bg-[#faf7f5] border-b border-[#e8ded5] px-4 pt-2 pb-6 space-y-3">
-          <button
-            onClick={() => { onNavigateServices && onNavigateServices(); setMobileMenuOpen(false); }}
-            className="block w-full text-left py-2 text-[#c87563] font-bold cursor-pointer"
-          >
-            Servicios (Restauración & Resina)
-          </button>
+          <div>
+            <div
+              onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+              className="flex items-center justify-between py-2 text-[#c87563] font-bold cursor-pointer border-b border-[#e8ded5]/60"
+            >
+              <span className="flex items-center gap-2">
+                <ShieldCheck className="w-4 h-4 text-[#c87563]" />
+                Servicios Especiales
+              </span>
+              <ChevronDown className={`w-4 h-4 transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`} />
+            </div>
+
+            {mobileServicesOpen && (
+              <div className="pl-3 pr-2 py-2 space-y-2 bg-[#f8ece9]/50 rounded-lg text-sm mt-2">
+                <a
+                  href="/servicios/restauracion-sacra"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleServiceClick('restauracion-sacra');
+                  }}
+                  className="block py-1.5 text-[#3d2c29] font-medium hover:text-[#c87563]"
+                >
+                  ✝️ Restauración de Imágenes Religiosas (Santos, Vírgenes, Cristos)
+                </a>
+                <a
+                  href="/servicios/arte-resina-personalizado"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleServiceClick('arte-resina-personalizado');
+                  }}
+                  className="block py-1.5 text-[#3d2c29] font-medium hover:text-[#c87563]"
+                >
+                  ✨ Arte Personalizado en Resina & Encapsulados
+                </a>
+                <a
+                  href="/servicios"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleAllServicesClick();
+                  }}
+                  className="block py-1.5 text-[#c87563] font-bold underline text-xs"
+                >
+                  Ver todos los servicios →
+                </a>
+              </div>
+            )}
+          </div>
+
           <button
             onClick={() => { onNavigateCatalog(); setMobileMenuOpen(false); }}
-            className="block w-full text-left py-2 text-[#c87563] font-bold cursor-pointer"
+            className="block w-full text-left py-2 text-[#3d2c29] font-medium hover:text-[#c87563] cursor-pointer"
           >
             Catálogo de Cursos
           </button>
           <button
             onClick={() => { onNavigatePieces(); setMobileMenuOpen(false); }}
-            className="block w-full text-left py-2 text-[#c87563] font-bold cursor-pointer"
+            className="block w-full text-left py-2 text-[#3d2c29] font-medium hover:text-[#c87563] cursor-pointer"
           >
             Catálogo de Piezas
           </button>
