@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { coursesData } from './CourseDetailPage';
 import { servicesData } from './ServiceDetailPage';
 
@@ -164,17 +164,54 @@ export function getMetaData(view, activeId) {
   return seoMetaData[view] || seoMetaData.home;
 }
 
-export default function SEOHead({ view, activeId, path }) {
+export default function SEOHead({ view, activeId }) {
   const meta = getMetaData(view, activeId);
 
-  // Dynamic document title update on client side
-  if (typeof document !== 'undefined') {
+  useEffect(() => {
+    if (typeof document === 'undefined') return;
+
+    // Title
     document.title = meta.title;
-  }
+
+    // Meta description
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (!metaDesc) {
+      metaDesc = document.createElement('meta');
+      metaDesc.setAttribute('name', 'description');
+      document.head.appendChild(metaDesc);
+    }
+    metaDesc.setAttribute('content', meta.description);
+
+    // Canonical URL link tag
+    let linkCanonical = document.querySelector('link[rel="canonical"]');
+    if (!linkCanonical) {
+      linkCanonical = document.createElement('link');
+      linkCanonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(linkCanonical);
+    }
+    linkCanonical.setAttribute('href', meta.canonical);
+
+    // Helper for og meta tags
+    const setOgMeta = (property, content) => {
+      let ogTag = document.querySelector(`meta[property="${property}"]`);
+      if (!ogTag) {
+        ogTag = document.createElement('meta');
+        ogTag.setAttribute('property', property);
+        document.head.appendChild(ogTag);
+      }
+      ogTag.setAttribute('content', content);
+    };
+
+    setOgMeta('og:title', meta.title);
+    setOgMeta('og:description', meta.description);
+    setOgMeta('og:url', meta.canonical);
+    if (meta.image) {
+      setOgMeta('og:image', meta.image);
+    }
+  }, [view, activeId, meta]);
 
   return (
     <>
-      {/* Managed via SSR Injection as well as React render */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(meta.schema || {}) }}

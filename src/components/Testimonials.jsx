@@ -88,6 +88,7 @@ export default function Testimonials() {
                   alt={t.name}
                   className="w-10 h-10 rounded-full object-cover ring-2 ring-[#e8a598] shrink-0"
                   loading="lazy"
+                  decoding="async"
                 />
                 <div>
                   <h3 className="font-serif font-bold text-[#3d2c29] text-sm leading-tight">

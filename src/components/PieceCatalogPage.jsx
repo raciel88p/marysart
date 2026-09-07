@@ -339,6 +339,7 @@ export default function PieceCatalogPage({ onNavigateHome, onNavigateCatalog }) 
                         alt={piece.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         loading="lazy"
+                        decoding="async"
                       />
                       <span className={`absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-bold shadow-sm ${
                         piece.status === 'Disponible'
@@ -415,6 +416,8 @@ export default function PieceCatalogPage({ onNavigateHome, onNavigateCatalog }) 
                   src={selectedPieceModal.image}
                   alt={selectedPieceModal.title}
                   className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <span className="absolute bottom-4 right-4 bg-[#3d2c29] text-white text-lg font-serif font-bold px-4 py-1.5 rounded-xl">
                   {selectedPieceModal.price}

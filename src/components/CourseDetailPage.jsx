@@ -359,6 +359,7 @@ export default function CourseDetailPage({ courseId, onNavigateHome, onNavigateC
                 alt={course.title}
                 className="w-full h-full object-cover"
                 loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -463,6 +464,7 @@ export default function CourseDetailPage({ courseId, onNavigateHome, onNavigateC
                   alt={course.instructor.name}
                   className="w-14 h-14 rounded-full object-cover border-2 border-[#c87563]"
                   loading="lazy"
+                  decoding="async"
                 />
                 <div>
                   <h3 className="font-bold text-base text-[#3d2c29]">{course.instructor.name}</h3>

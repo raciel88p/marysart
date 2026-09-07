@@ -316,6 +316,7 @@ export default function Gallery() {
                   alt={item.alt}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   loading="lazy"
+                  decoding="async"
                 />
               </picture>
 
@@ -454,6 +455,8 @@ export default function Gallery() {
                   alt={activeItem.alt}
                   className="max-h-[75vh] max-w-[90vw] sm:max-w-[80vw] object-contain rounded-2xl shadow-2xl select-none"
                   draggable={false}
+                  loading="lazy"
+                  decoding="async"
                 />
               </picture>
             </div>

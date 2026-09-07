@@ -75,18 +75,21 @@ export default function Hero() {
                   src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80"
                   alt="Participante"
                   loading="lazy"
+                  decoding="async"
                 />
                 <img
                   className="inline-block h-10 w-10 rounded-full ring-2 ring-white object-cover"
                   src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=120&q=80"
                   alt="Participante"
                   loading="lazy"
+                  decoding="async"
                 />
                 <img
                   className="inline-block h-10 w-10 rounded-full ring-2 ring-white object-cover"
                   src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80"
                   alt="Participante"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div className="text-xs sm:text-sm text-[#6b5852] text-left">
@@ -107,6 +110,7 @@ export default function Hero() {
                     alt="Velas artesanales de cera de soya"
                     className="w-full h-56 object-cover transform group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent flex items-end p-3 text-white text-xs font-serif font-medium">
                     Velas Aromáticas
@@ -118,6 +122,7 @@ export default function Hero() {
                     alt="Taller de pintura y arte"
                     className="w-full h-40 object-cover transform group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent flex items-end p-3 text-white text-xs font-serif font-medium">
                     Expresión en Lienzo
@@ -132,6 +137,7 @@ export default function Hero() {
                     alt="Detalles botánicos y mechas"
                     className="w-full h-40 object-cover transform group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent flex items-end p-3 text-white text-xs font-serif font-medium">
                     Ingredientes 100% Naturales
@@ -143,6 +149,7 @@ export default function Hero() {
                     alt="Ambiente del taller y amigas"
                     className="w-full h-56 object-cover transform group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent flex items-end p-3 text-white text-xs font-serif font-medium">
                     Momentos de Conexión

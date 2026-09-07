@@ -65,6 +65,7 @@ export default function NotFoundPage({ onNavigateHome, onNavigateCatalog, onSele
                   src={course.image}
                   alt={course.title}
                   loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute top-3 left-3 bg-[#8c483b] text-white text-xs font-semibold px-3 py-1 rounded-full shadow">
