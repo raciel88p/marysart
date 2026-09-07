@@ -5,7 +5,7 @@ import { getMetaData } from './components/SEOHead.jsx'
 
 export function render(url) {
   const route = parseRoute(url);
-  const meta = getMetaData(route.view, route.courseId);
+  const meta = getMetaData(route.view, route.id);
 
   const html = renderToString(
     <StrictMode>

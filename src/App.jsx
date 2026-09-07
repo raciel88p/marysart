@@ -13,6 +13,7 @@ import CatalogPage from './components/CatalogPage';
 import PieceCatalogPage from './components/PieceCatalogPage';
 import CourseDetailPage from './components/CourseDetailPage';
 import ServicesPage from './components/ServicesPage';
+import ServiceDetailPage from './components/ServiceDetailPage';
 import NotFoundPage from './components/NotFoundPage';
 import SEOHead from './components/SEOHead';
 
@@ -26,21 +27,33 @@ export const VALID_COURSE_IDS = [
   'velas-avanzado'
 ];
 
+export const VALID_SERVICE_IDS = [
+  'restauracion-sacra',
+  'arte-resina-personalizado'
+];
+
 export function parseRoute(path) {
   const normalized = (path || '/').split('?')[0].split('#')[0];
-  if (normalized === '/' || normalized === '') return { view: 'home', courseId: null, isNotFound: false };
-  if (normalized === '/cursos' || normalized === '/cursos/') return { view: 'catalog', courseId: null, isNotFound: false };
-  if (normalized === '/piezas' || normalized === '/piezas/') return { view: 'pieces', courseId: null, isNotFound: false };
-  if (normalized === '/servicios' || normalized === '/servicios/') return { view: 'services', courseId: null, isNotFound: false };
+  if (normalized === '/' || normalized === '') return { view: 'home', id: null, isNotFound: false };
+  if (normalized === '/cursos' || normalized === '/cursos/') return { view: 'catalog', id: null, isNotFound: false };
+  if (normalized === '/piezas' || normalized === '/piezas/') return { view: 'pieces', id: null, isNotFound: false };
+  if (normalized === '/servicios' || normalized === '/servicios/') return { view: 'services', id: null, isNotFound: false };
 
   if (normalized.startsWith('/cursos/')) {
     const courseId = normalized.replace('/cursos/', '').replace(/\/$/, '');
     if (VALID_COURSE_IDS.includes(courseId)) {
-      return { view: 'course-detail', courseId, isNotFound: false };
+      return { view: 'course-detail', id: courseId, isNotFound: false };
     }
   }
 
-  return { view: '404', courseId: null, isNotFound: true };
+  if (normalized.startsWith('/servicios/')) {
+    const serviceId = normalized.replace('/servicios/', '').replace(/\/$/, '');
+    if (VALID_SERVICE_IDS.includes(serviceId)) {
+      return { view: 'service-detail', id: serviceId, isNotFound: false };
+    }
+  }
+
+  return { view: '404', id: null, isNotFound: true };
 }
 
 export default function App({ initialPath = '/' }) {
@@ -73,9 +86,10 @@ export default function App({ initialPath = '/' }) {
   const handleNavigatePieces = () => navigateTo('/piezas');
   const handleNavigateServices = () => navigateTo('/servicios');
   const handleSelectCourseDetail = (courseId) => navigateTo(`/cursos/${courseId}`);
+  const handleSelectServiceDetail = (serviceId) => navigateTo(`/servicios/${serviceId}`);
 
   const currentView = route.view;
-  const selectedCourseId = route.courseId;
+  const activeId = route.id;
 
   const handleOpenModal = (pageType) => {
     setActiveModalPage(pageType);
@@ -88,7 +102,7 @@ export default function App({ initialPath = '/' }) {
   return (
     <div className="min-h-screen bg-[#faf7f5] flex flex-col font-sans text-[#4a3e3d] selection:bg-[#f2dfd8] selection:text-[#8c483b]">
       {/* Dynamic SEO Head Management */}
-      <SEOHead view={currentView} courseId={selectedCourseId} path={initialPath} />
+      <SEOHead view={currentView} activeId={activeId} path={initialPath} />
 
       {/* Navigation Header */}
       <Navbar
@@ -132,12 +146,23 @@ export default function App({ initialPath = '/' }) {
             onNavigateHome={handleNavigateHome}
             onNavigateCatalog={handleNavigateCatalog}
             onNavigatePieces={handleNavigatePieces}
+            onSelectServiceDetail={handleSelectServiceDetail}
+          />
+        )}
+
+        {currentView === 'service-detail' && (
+          <ServiceDetailPage
+            serviceId={activeId}
+            onNavigateHome={handleNavigateHome}
+            onNavigateServices={handleNavigateServices}
+            onNavigatePieces={handleNavigatePieces}
+            onNavigateCatalog={handleNavigateCatalog}
           />
         )}
 
         {currentView === 'course-detail' && (
           <CourseDetailPage
-            courseId={selectedCourseId}
+            courseId={activeId}
             onNavigateHome={handleNavigateHome}
             onNavigateCatalog={handleNavigateCatalog}
             onNavigatePieces={handleNavigatePieces}
@@ -161,6 +186,7 @@ export default function App({ initialPath = '/' }) {
         onNavigatePieces={handleNavigatePieces}
         onNavigateServices={handleNavigateServices}
         onSelectCourseDetail={handleSelectCourseDetail}
+        onSelectServiceDetail={handleSelectServiceDetail}
       />
 
       {/* Floating Action Button */}

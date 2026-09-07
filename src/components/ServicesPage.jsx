@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowLeft, Sparkles, HeartHandshake, ShieldCheck, Palette, MessageCircle, CheckCircle, Package, ArrowRight } from 'lucide-react';
 
-export default function ServicesPage({ onNavigateHome, onNavigateCatalog, onNavigatePieces }) {
+export default function ServicesPage({ onNavigateHome, onNavigateCatalog, onNavigatePieces, onSelectServiceDetail }) {
   const sacraMessage = encodeURIComponent(
     "¡Hola Resina Art & Mary! Deseo consultar sobre el servicio de Restauración de Imágenes Sacras y Religiosas."
   );
@@ -90,19 +90,18 @@ export default function ServicesPage({ onNavigateHome, onNavigateCatalog, onNavi
                     <CheckCircle className="w-4 h-4 text-[#c87563] shrink-0 mt-0.5" />
                     <span>Aplicación de pan de oro, plata y pátinas finas</span>
                   </div>
-                  <div className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-[#c87563] shrink-0 mt-0.5" />
-                    <span>Consolidación estructural en yeso, madera y resina</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-[#c87563] shrink-0 mt-0.5" />
-                    <span>Capas protectoras de conservación de larga duración</span>
-                  </div>
                 </div>
               </div>
 
               {/* Call to action */}
               <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                <button
+                  onClick={() => onSelectServiceDetail && onSelectServiceDetail('restauracion-sacra')}
+                  className="inline-flex items-center justify-center gap-2 bg-[#c87563] hover:bg-[#b56250] text-white px-6 py-3.5 rounded-full font-bold text-sm transition-all shadow-md cursor-pointer"
+                >
+                  <span>Ver Subpágina e Información Completa</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
                 <a
                   href={sacraWhatsappUrl}
                   target="_blank"
@@ -110,11 +109,8 @@ export default function ServicesPage({ onNavigateHome, onNavigateCatalog, onNavi
                   className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] text-white px-6 py-3.5 rounded-full font-bold text-sm transition-all shadow-md hover:shadow-lg"
                 >
                   <MessageCircle className="w-5 h-5 fill-current" />
-                  <span>Cotizar Restauración por WhatsApp</span>
+                  <span>Cotizar por WhatsApp</span>
                 </a>
-                <span className="text-xs text-[#8c7a6b] text-center sm:text-left">
-                  📍 Atención en Turrialba y San Carlos con opción de recepción de piezas.
-                </span>
               </div>
             </div>
 
@@ -132,9 +128,12 @@ export default function ServicesPage({ onNavigateHome, onNavigateCatalog, onNavi
                 </p>
               </div>
 
-              <div className="p-4 rounded-xl bg-white border border-[#e8ded5] text-xs text-[#8c483b] font-medium italic">
-                "Trabajamos con devoción y profesionalismo para preservar las tradiciones de tu hogar."
-              </div>
+              <button
+                onClick={() => onSelectServiceDetail && onSelectServiceDetail('restauracion-sacra')}
+                className="w-full py-3 bg-white border border-[#e8ded5] hover:bg-[#faf7f5] text-[#8c483b] rounded-xl text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
+              >
+                Explorar Detalles del Servicio Sacro →
+              </button>
             </div>
 
           </div>
@@ -145,25 +144,25 @@ export default function ServicesPage({ onNavigateHome, onNavigateCatalog, onNavi
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
 
             {/* Visual Card */}
-            <div className="lg:col-span-5 bg-[#faf2ef] p-8 rounded-3xl border border-[#ebdcd7] space-y-6 order-2 lg:order-1">
-              <div className="w-12 h-12 rounded-2xl bg-[#3d2c29] text-white flex items-center justify-center shadow-md">
-                <Palette className="w-6 h-6 text-[#e8a598]" />
+            <div className="lg:col-span-5 bg-[#faf2ef] p-8 rounded-3xl border border-[#ebdcd7] space-y-6 order-2 lg:order-1 flex flex-col justify-between h-full">
+              <div className="space-y-4">
+                <div className="w-12 h-12 rounded-2xl bg-[#3d2c29] text-white flex items-center justify-center shadow-md">
+                  <Palette className="w-6 h-6 text-[#e8a598]" />
+                </div>
+                <h3 className="font-serif text-xl font-bold text-[#3d2c29]">
+                  Obra Única Creada a Tu Gusto
+                </h3>
+                <p className="text-xs sm:text-sm text-[#6b5852] leading-relaxed">
+                  Tú eliges el motivo, las tonalidades, los dorados o acabados en envejecido. Nos encargamos de plasmar cada detalle artesanal con pigmentos y selladores de máxima calidad.
+                </p>
               </div>
-              <h3 className="font-serif text-xl font-bold text-[#3d2c29]">
-                Obra Única Creada a Tu Gusto
-              </h3>
-              <p className="text-xs sm:text-sm text-[#6b5852] leading-relaxed">
-                Tú eliges el motivo, las tonalidades, los dorados o acabados en envejecido. Nos encargamos de plasmar cada detalle artesanal con pigmentos y selladores de máxima calidad.
-              </p>
 
-              <div className="space-y-2 pt-2 border-t border-[#ebdcd7] text-xs text-[#5c4a43]">
-                <div className="font-bold uppercase tracking-wider text-[#8c483b]">Ideal para:</div>
-                <ul className="space-y-1 list-disc list-inside text-[#6b5852]">
-                  <li>Regalos especiales y recuerdos personalizados</li>
-                  <li>Decoración exclusiva para salas, altares y oficinas</li>
-                  <li>Recuerdos para eventos y celebraciones</li>
-                </ul>
-              </div>
+              <button
+                onClick={() => onSelectServiceDetail && onSelectServiceDetail('arte-resina-personalizado')}
+                className="w-full py-3 bg-white border border-[#e8ded5] hover:bg-[#faf7f5] text-[#8c483b] rounded-xl text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
+              >
+                Explorar Detalles de Encargos Personalizados →
+              </button>
             </div>
 
             <div className="lg:col-span-7 space-y-6 order-1 lg:order-2">
@@ -196,15 +195,18 @@ export default function ServicesPage({ onNavigateHome, onNavigateCatalog, onNavi
                     <CheckCircle className="w-4 h-4 text-[#c87563] shrink-0 mt-0.5" />
                     <span>Variedad de temas: Sacros, Africanas, Hadas, Hogar y Navidad</span>
                   </div>
-                  <div className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-[#c87563] shrink-0 mt-0.5" />
-                    <span>Empaque especial y entrega personalizada</span>
-                  </div>
                 </div>
               </div>
 
               {/* Call to Action */}
               <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                <button
+                  onClick={() => onSelectServiceDetail && onSelectServiceDetail('arte-resina-personalizado')}
+                  className="inline-flex items-center justify-center gap-2 bg-[#c87563] hover:bg-[#b56250] text-white px-6 py-3.5 rounded-full font-bold text-sm transition-all shadow-md cursor-pointer"
+                >
+                  <span>Ver Subpágina e Información Completa</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
                 <a
                   href={resinaWhatsappUrl}
                   target="_blank"
@@ -212,15 +214,8 @@ export default function ServicesPage({ onNavigateHome, onNavigateCatalog, onNavi
                   className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] text-white px-6 py-3.5 rounded-full font-bold text-sm transition-all shadow-md hover:shadow-lg"
                 >
                   <MessageCircle className="w-5 h-5 fill-current" />
-                  <span>Encargar Pieza Personalizada</span>
+                  <span>Encargar por WhatsApp</span>
                 </a>
-                <button
-                  onClick={onNavigatePieces}
-                  className="inline-flex items-center justify-center gap-1.5 bg-[#f2dfd8] hover:bg-[#ebd0c7] text-[#8c483b] px-5 py-3 rounded-full font-bold text-xs uppercase tracking-wider transition-all cursor-pointer"
-                >
-                  <Package className="w-4 h-4" />
-                  <span>Ver Catálogo de Diseños</span>
-                </button>
               </div>
             </div>
 

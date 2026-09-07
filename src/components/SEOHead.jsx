@@ -1,5 +1,6 @@
 import React from 'react';
 import { coursesData } from './CourseDetailPage';
+import { servicesData } from './ServiceDetailPage';
 
 const BASE_URL = 'https://resinaartmary.cr';
 
@@ -105,9 +106,9 @@ export const seoMetaData = {
   }
 };
 
-export function getMetaData(view, courseId) {
-  if (view === 'course-detail' && courseId && coursesData[courseId]) {
-    const course = coursesData[courseId];
+export function getMetaData(view, activeId) {
+  if (view === 'course-detail' && activeId && coursesData[activeId]) {
+    const course = coursesData[activeId];
     const instructorName = typeof course.instructor === 'object' ? course.instructor.name : course.instructor;
     return {
       title: `${course.title} | Resina Art & Mary Costa Rica`,
@@ -138,11 +139,33 @@ export function getMetaData(view, courseId) {
     };
   }
 
+  if (view === 'service-detail' && activeId && servicesData[activeId]) {
+    const service = servicesData[activeId];
+    return {
+      title: `${service.title} | Resina Art & Mary Costa Rica`,
+      description: `${service.subtitle}. ${service.description.substring(0, 140)}...`,
+      canonical: `${BASE_URL}/servicios/${service.id}`,
+      image: service.bannerImage,
+      schema: {
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        'name': service.title,
+        'description': service.subtitle,
+        'provider': {
+          '@type': 'LocalBusiness',
+          'name': 'Resina Art & Mary',
+          'telephone': '+50660367249'
+        },
+        'areaServed': 'Costa Rica'
+      }
+    };
+  }
+
   return seoMetaData[view] || seoMetaData.home;
 }
 
-export default function SEOHead({ view, courseId, path }) {
-  const meta = getMetaData(view, courseId);
+export default function SEOHead({ view, activeId, path }) {
+  const meta = getMetaData(view, activeId);
 
   // Dynamic document title update on client side
   if (typeof document !== 'undefined') {
