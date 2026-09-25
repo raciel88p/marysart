@@ -1,0 +1,118 @@
+---
+import ShopLayout from '../layouts/ShopLayout.astro';
+
+const canvaCatalogs = [
+  {
+    id: 'canva-1',
+    number: 'Duendes y Hadas',
+    title: 'Duendes y Hadas',
+    desc: 'Colección mágica de figuras de duendes, hadas y seres místico-fantasiosos.',
+    url: 'https://canva.link/c2ba9dnbjbw0jm4'
+  },
+  {
+    id: 'canva-2',
+    number: 'Religiosos',
+    title: 'Religiosos',
+    desc: 'Esculturas sacras, vírgenes, ángeles y figuras devocionales.',
+    url: 'https://canva.link/elg8ke0fdza9st2'
+  },
+  {
+    id: 'canva-3',
+    number: 'Animales',
+    title: 'Animales',
+    desc: 'Figuras detalladas de fauna silvestre, mascotas y criaturas de la naturaleza.',
+    url: 'https://canva.link/ouazp1ozgd3zwlz'
+  },
+  {
+    id: 'canva-4',
+    number: 'Africanas',
+    title: 'Africanas',
+    desc: 'Esculturas y bustos de estilo étnico africano con acabados artísticos.',
+    url: 'https://canva.link/l9nsz009fgnu0l6'
+  },
+  {
+    id: 'canva-5',
+    number: 'Hogar',
+    title: 'Hogar',
+    desc: 'Piezas decorativas, maceteros, jarrones y elementos utilitarios para tu espacio.',
+    url: 'https://canva.link/plhkmmzzgz67upn'
+  },
+  {
+    id: 'canva-6',
+    number: 'Navideñas',
+    title: 'Navideñas',
+    desc: 'Pasitos, portales, nacimientos y adornos de temporada navideña.',
+    url: 'https://canva.link/62d3xsm2tx9b0wg'
+  }
+];
+
+const piecesSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Catálogo de Piezas & Revistas Digitales Canva | Mary's Art Costa Rica",
+  "description": "Explora nuestras revistas digitales en Canva con cientos de modelos de piezas en bizcocho de resina y yeso para escoger y pintar a mano."
+};
+---
+
+<ShopLayout
+  title="Catálogo de Piezas & Revistas Canva | Mary's Art Costa Rica"
+  description="Explora nuestras revistas digitales Canva por categorías (Religiosos, Duendes, Animales, Africanas, Hogar, Navideños) para solicitar y personalizar tu escultura de resina."
+  schema={piecesSchema}
+>
+  <div class="bg-stone-900 text-stone-100 py-16 sm:py-20 border-b border-stone-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+      <span class="text-xs font-bold uppercase tracking-widest text-amber-400">Catálogo para Escoger Piezas</span>
+      <h1 class="font-serif text-3xl sm:text-5xl font-bold">
+        Revistas & Catálogos Digitales en Canva
+      </h1>
+      <p class="text-xs sm:text-sm text-stone-300 max-w-2xl mx-auto">
+        Abre cualquiera de nuestras revistas interactivas en Canva para ver fotos en alta resolución de cada modelo en bizcocho listo para encargar y pintar a mano.
+      </p>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12">
+    <!-- Canva Magazines Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {canvaCatalogs.map((cat) => (
+        <div class="bg-white dark:bg-stone-900 rounded-3xl p-6 border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-md transition-all flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <span class="text-[10px] uppercase font-bold tracking-wider bg-amber-100 dark:bg-amber-900/60 text-amber-900 dark:text-amber-300 px-2.5 py-1 rounded-full inline-block">
+              {cat.number}
+            </span>
+            <h2 class="font-serif text-2xl font-bold text-stone-900 dark:text-stone-100">
+              {cat.title}
+            </h2>
+            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
+              {cat.desc}
+            </p>
+          </div>
+
+          <a
+            href={cat.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full bg-amber-800 hover:bg-amber-900 text-white font-bold text-xs py-3 px-4 rounded-xl text-center flex items-center justify-center gap-2 transition-colors shadow-sm"
+          >
+            <span>Ver Revista Digital Canva ↗</span>
+          </a>
+        </div>
+      ))}
+    </div>
+
+    <!-- Direct WhatsApp Callout -->
+    <div class="bg-amber-50 dark:bg-stone-800 p-8 rounded-3xl border border-amber-200 dark:border-stone-700 text-center space-y-4">
+      <h3 class="font-serif text-xl font-bold text-stone-900 dark:text-stone-100">¿Viste un modelo que te gustó en la revista de Canva?</h3>
+      <p class="text-xs text-stone-600 dark:text-stone-300 max-w-xl mx-auto">
+        Envíanos una captura de pantalla o el nombre del modelo por WhatsApp al +506 6036-7249 y coordinaremos la preparación, tonos y envío de tu pieza.
+      </p>
+      <a
+        href="https://wa.me/50660367249?text=Hola%20Mary's%20Art,%20vi%20un%20modelo%20en%20el%20cat%C3%A1logo%20de%20Canva%20y%20me%20gustar%C3%ADa%20consultar"
+        target="_blank"
+        class="inline-block bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs px-6 py-3 rounded-xl shadow-md"
+      >
+        Encargar Modelo por WhatsApp
+      </a>
+    </div>
+  </div>
+</ShopLayout>

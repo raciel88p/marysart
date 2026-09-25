@@ -1,5 +1,8 @@
 ---
 import categories from '../data/categories.json';
+import { servicesData } from '../data/services.js';
+
+const servicesList = Object.values(servicesData);
 ---
 
 <header class="sticky top-0 z-50 bg-stone-50/90 dark:bg-stone-900/90 backdrop-blur-md border-b border-stone-200/80 dark:border-stone-800 transition-colors">
@@ -27,6 +30,7 @@ import categories from '../data/categories.json';
       <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-stone-700 dark:text-stone-300">
         <a href="/" class="hover:text-amber-800 dark:hover:text-amber-400 transition-colors">Inicio</a>
 
+        <!-- Colecciones Dropdown -->
         <div class="relative group">
           <a href="/catalogo" class="hover:text-amber-800 dark:hover:text-amber-400 transition-colors flex items-center gap-1 py-2">
             Colecciones
@@ -43,7 +47,26 @@ import categories from '../data/categories.json';
           </div>
         </div>
 
-        <a href="/servicios" class="hover:text-amber-800 dark:hover:text-amber-400 transition-colors">Restauración & Servicios</a>
+        <!-- Restauración & Servicios Dropdown -->
+        <div class="relative group">
+          <a href="/servicios" class="hover:text-amber-800 dark:hover:text-amber-400 transition-colors flex items-center gap-1 py-2">
+            Restauración & Servicios
+            <svg class="w-4 h-4 text-stone-400 group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </a>
+          <!-- Dropdown with all 12 services -->
+          <div class="absolute top-full left-0 w-96 bg-white dark:bg-stone-900 shadow-xl rounded-2xl border border-stone-100 dark:border-stone-800 py-3 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 z-50 max-h-[75vh] overflow-y-auto">
+            <a href="/servicios" class="block px-4 py-2 text-xs font-semibold text-amber-800 dark:text-amber-400 uppercase tracking-wider border-b border-stone-100 dark:border-stone-800">
+              Ver Todos los Servicios & Cotizar
+            </a>
+            {servicesList.map((service) => (
+              <a href={`/servicios/${service.id}`} class="block px-4 py-2 hover:bg-stone-50 dark:hover:bg-stone-800 text-stone-700 dark:text-stone-300 transition-colors border-b border-stone-50 dark:border-stone-800/40">
+                <span class="block text-xs font-bold text-stone-900 dark:text-stone-100">{service.title}</span>
+                <span class="block text-[10px] text-amber-800 dark:text-amber-400 font-medium">{service.tag}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+
         <a href="/talleres" class="hover:text-amber-800 dark:hover:text-amber-400 transition-colors">Talleres Presenciales</a>
         <a href="/blog" class="hover:text-amber-800 dark:hover:text-amber-400 transition-colors">Blog & Consejos</a>
         <a href="/club-vip" class="hover:text-amber-800 dark:hover:text-amber-400 transition-colors text-amber-800 dark:text-amber-400 font-semibold flex items-center gap-1">
@@ -67,7 +90,7 @@ import categories from '../data/categories.json';
 
         <!-- WhatsApp Direct Fast Button -->
         <a href="https://wa.me/50660367249?text=Hola%20Mary's%20Art,%20me%20gustar%C3%ADa%20hacer%20una%20consulta%20sobre%20sus%20piezas" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold px-4 py-2.5 rounded-full transition-all shadow-sm hover:shadow">
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
           Contactar
         </a>
       </div>
