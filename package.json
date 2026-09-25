@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "node server.js",
-    "build": "astro build && npm run build:client && npm run build:server",
+    "build": "npm run build:client && astro build && cp -r dist/astro/* dist/client/ && npm run build:server",
     "build:astro": "astro build",
     "build:client": "vite build --outDir dist/client",
     "build:server": "vite build --outDir dist/server --ssr src/entry-server.jsx",
