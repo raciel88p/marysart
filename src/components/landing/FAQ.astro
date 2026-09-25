@@ -1,0 +1,60 @@
+---
+const faqs = [
+  {
+    question: "¿Cada pieza es diferente?",
+    answer: "Sí, absolutamente. Al ser elaboradas y pintadas completamente a mano, cada pieza posee matices, pinceladas y acabados únicos. No existen dos figuras exactamente iguales."
+  },
+  {
+    question: "¿Cuánto tarda el envío?",
+    answer: "Los envíos nacionales dentro de Costa Rica se realizan entre 2 y 4 días hábiles. Si es un pedido personalizado, el tiempo de elaboración es de 5 a 7 días hábiles."
+  },
+  {
+    question: "¿Aceptan pedidos personalizados?",
+    answer: "¡Sí! Podemos personalizar tonalidades, acabados y detalles especiales para que tu figura encaje perfectamente en la decoración de tu hogar."
+  },
+  {
+    question: "¿Cómo cuido mi figura?",
+    answer: "Para conservar la belleza y el brillo de la resina pintada a mano, limpia suavemente con un paño seco o levemente húmedo de microfibra. Evita el uso de productos químicos abrasivos y luz solar directa prolongada."
+  }
+];
+---
+
+<section id="faq" class="py-24 bg-[#F5F0E6] dark:bg-[#1E1B18] transition-colors">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+      <span class="text-xs uppercase tracking-widest text-[#C86D51] font-semibold">
+        Preguntas Frecuentes
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-serif font-bold text-[#332E2A] dark:text-[#FDFBF7]">
+        Resolvemos Tus Dudas
+      </h2>
+      <p class="text-sm text-[#665E55] dark:text-[#C5BCB1] font-light">
+        Todo lo que necesitas saber sobre nuestras piezas artesanales de resina.
+      </p>
+      <div class="w-16 h-0.5 bg-[#C86D51] mx-auto rounded-full"></div>
+    </div>
+
+    <!-- Accordion Details list -->
+    <div class="space-y-4">
+      {faqs.map((faq) => (
+        <details class="group bg-[#FDFBF7] dark:bg-[#282420] border border-[#EAE3D2] dark:border-[#332E2A] rounded-2xl p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer shadow-xs transition-all duration-200 hover:border-[#C86D51]">
+          <summary class="flex items-center justify-between font-serif text-lg font-bold text-[#332E2A] dark:text-[#FDFBF7]">
+            <span>{faq.question}</span>
+            <span class="ml-4 shrink-0 p-1.5 rounded-full bg-[#F5F0E6] dark:bg-[#1E1B18] text-[#C86D51] group-open:-rotate-180 transition-transform duration-300">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </span>
+          </summary>
+          <div class="mt-4 pt-4 border-t border-[#EAE3D2]/60 dark:border-[#332E2A]">
+            <p class="text-sm text-[#665E55] dark:text-[#C5BCB1] font-light leading-relaxed">
+              {faq.answer}
+            </p>
+          </div>
+        </details>
+      ))}
+    </div>
+
+  </div>
+</section>

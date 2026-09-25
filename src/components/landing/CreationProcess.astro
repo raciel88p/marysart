@@ -1,0 +1,69 @@
+---
+const steps = [
+  {
+    number: "01",
+    title: "Diseño",
+    description: "Conceptualización inspirada en la serenidad y la elegancia clásica del hogar."
+  },
+  {
+    number: "02",
+    title: "Moldeado",
+    description: "Vaciado minucioso en resina de alta densidad para lograr acabados firmes y perfectos."
+  },
+  {
+    number: "03",
+    title: "Pintado completamente a mano",
+    description: "Pincelada a pincelada por nuestra artista para plasmar luces, sombras y textura vivaz."
+  },
+  {
+    number: "04",
+    title: "Empaque artesanal",
+    description: "Protección cuidadosa y presentación de regalo lista para emocionar al desempaquetar."
+  }
+];
+---
+
+<section id="proceso" class="py-24 bg-[#FDFBF7] dark:bg-[#181614] relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center max-w-3xl mx-auto mb-20 space-y-4">
+      <span class="text-xs uppercase tracking-widest text-[#C86D51] font-semibold">
+        El Valor de lo Hecho a Mano
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-serif font-bold text-[#332E2A] dark:text-[#FDFBF7]">
+        Cómo Nace Cada Pieza
+      </h2>
+      <p class="text-sm sm:text-base text-[#665E55] dark:text-[#C5BCB1] font-light">
+        Un recorrido artesanal de 4 pasos donde la pasión por el detalle se transforma en belleza para tu hogar.
+      </p>
+      <div class="w-16 h-0.5 bg-[#C86D51] mx-auto rounded-full"></div>
+    </div>
+
+    <!-- Timeline Grid -->
+    <div class="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+      <!-- Connector line for larger screens -->
+      <div class="hidden lg:block absolute top-12 left-12 right-12 h-0.5 bg-[#EAE3D2] dark:bg-[#332E2A] -z-0"></div>
+
+      {steps.map((step) => (
+        <div class="relative z-10 flex flex-col items-center text-center p-8 rounded-2xl bg-[#F5F0E6]/50 dark:bg-[#211E1A]/50 border border-[#EAE3D2] dark:border-[#332E2A] hover:border-[#C86D51] transition-all duration-300 group">
+
+          <!-- Step Number Badge -->
+          <div class="w-16 h-16 rounded-full bg-[#C86D51] text-white flex items-center justify-center font-serif text-2xl font-bold shadow-md mb-6 group-hover:scale-110 transition-transform duration-300">
+            {step.number}
+          </div>
+
+          <h3 class="text-xl font-serif font-bold text-[#332E2A] dark:text-[#FDFBF7] mb-3 group-hover:text-[#C86D51] transition-colors">
+            {step.title}
+          </h3>
+
+          <p class="text-xs text-[#665E55] dark:text-[#C5BCB1] leading-relaxed font-light">
+            {step.description}
+          </p>
+
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
