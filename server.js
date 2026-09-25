@@ -29,12 +29,13 @@ async function createServer() {
   app.use((req, res, next) => {
     const pathname = req.path.replace(/\/$/, '');
     if (pathname === '/marys-arts' || pathname === '/landing') {
-      const astroPagePath = isProd
-        ? path.resolve(process.cwd(), `dist/astro${pathname}/index.html`)
-        : path.resolve(process.cwd(), `dist/astro${pathname}/index.html`);
+      const pageDirIndex = path.resolve(process.cwd(), `dist/astro${pathname}/index.html`);
+      const pageFileIndex = path.resolve(process.cwd(), `dist/astro${pathname}.html`);
 
-      if (fs.existsSync(astroPagePath)) {
-        return res.status(200).set({ 'Content-Type': 'text/html' }).sendFile(astroPagePath);
+      if (fs.existsSync(pageDirIndex)) {
+        return res.status(200).set({ 'Content-Type': 'text/html' }).sendFile(pageDirIndex);
+      } else if (fs.existsSync(pageFileIndex)) {
+        return res.status(200).set({ 'Content-Type': 'text/html' }).sendFile(pageFileIndex);
       }
     }
     next();
