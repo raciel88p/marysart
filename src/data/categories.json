@@ -6,7 +6,7 @@
     "description": "Devoción, protección y paz en esculturas pintadas a mano con detalles sagrados.",
     "icon": "Cross",
     "badge": "Más Populares",
-    "featuredImage": "/images/gallery/taller-1.jpg"
+    "featuredImage": "/images/gallery/taller-4.jpg"
   },
   {
     "id": "angeles",
@@ -24,7 +24,7 @@
     "description": "Aves, fauna y elementos florales que conectan tu hogar con la biodiversidad de Costa Rica.",
     "icon": "Flower2",
     "badge": "Inspiración Verde",
-    "featuredImage": "/images/gallery/taller-11.jpg"
+    "featuredImage": "/images/gallery/taller-19.jpg"
   },
   {
     "id": "navidad",
@@ -33,7 +33,7 @@
     "description": "Nacimientos y adornos decembrinos creados para perdurar por generaciones.",
     "icon": "Heart",
     "badge": "Temporada Exclusiva",
-    "featuredImage": "/images/gallery/taller-17.jpg"
+    "featuredImage": "/images/gallery/taller-18.jpg"
   },
   {
     "id": "vintage",
@@ -42,6 +42,6 @@
     "description": "Acabados pátina, bronce envejecido y elegancia atemporal con personalidad única.",
     "icon": "Crown",
     "badge": "Piezas Únicas",
-    "featuredImage": "/images/gallery/taller-14.jpg"
+    "featuredImage": "/images/gallery/taller-13.jpg"
   }
 ]
