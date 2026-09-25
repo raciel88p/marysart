@@ -1,22 +1,22 @@
 [
   {
     "id": "prod-1",
-    "slug": "virgen-de-los-angeles-patrona-cr",
-    "name": "Virgen de los Ángeles - Edición Artesanal Especial",
+    "slug": "sagrada-familia-labrada-yeso",
+    "name": "Sagrada Familia Labrada de Yeso",
     "category": "Religiosos & Sacros",
     "categorySlug": "religiosos",
-    "price": 28500,
-    "originalPrice": 34000,
+    "price": 200000,
+    "originalPrice": 225000,
     "rating": 5.0,
     "reviewCount": 42,
-    "artisanTime": "16 horas de detalle y pintura dorada a mano",
-    "story": "Cada imagen de La Negrita es moldeada individualmente en resina fina y pintada a mano por artesanas de Turrialba. Captura la serenidad, devoción y protección para bendecir tu hogar o regalar a un ser querido.",
-    "emotionalBenefit": "Aporta paz interior, protección y un sentimiento de devoción que llena el hogar de tranquilidad y gratitud.",
-    "dimensions": "28 cm de alto x 14 cm de ancho",
-    "materials": "Resina de alta densidad, pigmentos orgánicos y acrílicos con acabado hojilla de oro.",
+    "artisanTime": "24 horas de esculpido y pintado minucioso a mano",
+    "story": "Hermosa representación de la Sagrada Familia esculpida en yeso de alta densidad. Cada detalle de las vestiduras y rostros refleja la devoción y la calidez del hogar.",
+    "emotionalBenefit": "Llena el salón principal o recibidor de paz, unidad familiar y bendición celestial.",
+    "dimensions": "Altura: 43 cm (San José)",
+    "materials": "Yeso fino de alta resistencia, acabado artesanal mate con destellos sutiles.",
     "images": [
-      "/images/gallery/taller-4.jpg",
-      "/images/gallery/taller-13.jpg"
+      "/images/gallery/WhatsApp Image 2026-09-25 at 14.35.58.jpeg",
+      "/images/gallery/WhatsApp Image 2026-09-25 at 14.35.58 (1).jpeg"
     ],
     "isFeatured": true,
     "inStock": true,
@@ -25,146 +25,202 @@
       "name": "Empaque de Regalo Premium + Tarjeta Personalizada Escrita a Mano",
       "price": 3500
     },
-    "relatedProducts": ["san-miguel-arcangel-resina", "sagrada-familia-clasica"]
+    "relatedProducts": ["sagrada-familia-corona-yeso", "sagrada-familia-cuadro-resina"]
   },
   {
     "id": "prod-2",
-    "slug": "san-miguel-arcangel-resina",
-    "name": "San Miguel Arcángel Custodio",
+    "slug": "sagrada-familia-corona-yeso",
+    "name": "Sagrada Familia en Corona Ornamental",
     "category": "Religiosos & Sacros",
     "categorySlug": "religiosos",
-    "price": 32000,
-    "originalPrice": 38000,
+    "price": 200000,
+    "originalPrice": 230000,
     "rating": 4.9,
     "reviewCount": 38,
-    "artisanTime": "18 horas de pintura técnica en veladuras",
-    "story": "Símbolo universal de protección espiritual y fuerza. Pintado con sutiles tonalidades metálicas y detalles finos que resaltan la espada y las alas victoriosas.",
-    "emotionalBenefit": "Llena la entrada o la sala de tu hogar con una vibración de fortaleza, amparo y paz para toda la familia.",
-    "dimensions": "32 cm de alto x 18 cm de ancho",
-    "materials": "Resina polimérica premium con acabado en pátinas artesanalmente aplicadas.",
+    "artisanTime": "18 horas de acabado artesanal",
+    "story": "Composición artística que enmarca a la Sagrada Familia dentro de una corona festiva y acogedora. Ideal para coronar la entrada o el comedor en épocas especiales.",
+    "emotionalBenefit": "Aporta una sensación de acogida, elegancia y luz divina a quienes cruzan la puerta de tu hogar.",
+    "dimensions": "Altura: 31 cm",
+    "materials": "Yeso ornamental, tonalidades marfil, dorado y hojilla decorativa.",
     "images": [
-      "/images/gallery/taller-13.jpg",
-      "/images/gallery/taller-5.jpg"
+      "/images/gallery/WhatsApp Image 2026-09-25 at 14.35.58.jpeg",
+      "/images/gallery/WhatsApp Image 2026-09-25 at 14.35.58 (2).jpeg"
     ],
     "isFeatured": true,
     "inStock": true,
     "orderBump": {
       "id": "bump-2",
-      "name": "Oración de Protección impresa en Papel Pergamino Artesanal",
-      "price": 2500
+      "name": "Base de madera curada para montaje de pared o mesa",
+      "price": 4500
     },
-    "relatedProducts": ["virgen-de-los-angeles-patrona-cr", "angel-de-la-guarda-hogar"]
+    "relatedProducts": ["sagrada-familia-labrada-yeso", "par-de-candelabros-yeso"]
   },
   {
     "id": "prod-3",
-    "slug": "angel-de-la-guarda-hogar",
-    "name": "Ángel Dulce Bendición del Hogar",
-    "category": "Ángeles",
-    "categorySlug": "angeles",
-    "price": 22000,
-    "originalPrice": 26000,
-    "rating": 4.9,
+    "slug": "par-de-candelabros-yeso",
+    "name": "Par de Candelabros Clásicos de Yeso",
+    "category": "Vintage & Colección",
+    "categorySlug": "vintage",
+    "price": 200000,
+    "originalPrice": 220000,
+    "rating": 5.0,
     "reviewCount": 29,
-    "artisanTime": "12 horas de acabado artesanal",
-    "story": "Una pieza delicada que transmite la ternura de la protección angelical. Ideal para dormitorios, repisas o como regalo de bautizo y primera comunión.",
-    "emotionalBenefit": "Aporta una sensación constante de ternura, calma nocturna y dulce compañía.",
-    "dimensions": "22 cm de alto x 12 cm de ancho",
-    "materials": "Resina fina blanca, matices suaves en rosa terracota y toques dorados.",
+    "artisanTime": "14 horas de pátina en bronce envejecido y dorado",
+    "story": "Elegantes candelabros de inspiración renacentista trabajados en yeso y pintados a mano. Aportan una majestuosidad atemporal a la mesa de comedor o repisa.",
+    "emotionalBenefit": "Crea una atmósfera cálida, íntima y distinguida para veladas inolvidables en familia.",
+    "dimensions": "Altura: 22 cm cada uno",
+    "materials": "Yeso denso pulido con acentuación dorada y pátina envejecida.",
     "images": [
-      "/images/gallery/taller-5.jpg",
-      "/images/gallery/taller-18.jpg"
+      "/images/gallery/WhatsApp Image 2026-09-25 at 14.35.58.jpeg",
+      "/images/gallery/WhatsApp Image 2026-09-25 at 14.35.58 (3).jpeg"
     ],
-    "isFeatured": true,
+    "isFeatured": false,
     "inStock": true,
     "orderBump": {
       "id": "bump-1",
       "name": "Empaque de Regalo Premium + Tarjeta Personalizada Escrita a Mano",
       "price": 3500
     },
-    "relatedProducts": ["virgen-de-los-angeles-patrona-cr", "conjunto-fauna-bosque"]
+    "relatedProducts": ["sagrada-familia-corona-yeso", "santa-con-buzon-resina"]
   },
   {
     "id": "prod-4",
-    "slug": "conjunto-fauna-bosque",
-    "name": "Pareja de Venados del Bosque Verde Oliva",
+    "slug": "sagrada-familia-cuadro-resina",
+    "name": "Cuadro Relieve Sagrada Familia",
+    "category": "Religiosos & Sacros",
+    "categorySlug": "religiosos",
+    "price": 200000,
+    "originalPrice": 235000,
+    "rating": 4.9,
+    "reviewCount": 31,
+    "artisanTime": "20 horas de pigmentación fina sobre resina",
+    "story": "Relieve enmarcados en resina polimérica con un acabado de piedra y pátinas suaves. Una pieza tridimensional de presencia solemne.",
+    "emotionalBenefit": "Invita a la calma y la reflexión diaria en el rincón sagrado de tu hogar.",
+    "dimensions": "Altura: 27 cm x 19 cm de ancho",
+    "materials": "Resina de alta densidad con tinte tierra, dorado sobrio y textura símil tallado.",
+    "images": [
+      "/images/gallery/WhatsApp Image 2026-09-25 at 14.35.58.jpeg",
+      "/images/gallery/WhatsApp Image 2026-09-25 at 14.35.58 (4).jpeg"
+    ],
+    "isFeatured": true,
+    "inStock": true,
+    "orderBump": {
+      "id": "bump-2",
+      "name": "Soporte de exhibición artesanal para mesa",
+      "price": 3000
+    },
+    "relatedProducts": ["sagrada-familia-labrada-yeso", "sagrada-familia-techo-resina"]
+  },
+  {
+    "id": "prod-5",
+    "slug": "santa-con-buzon-resina",
+    "name": "Santa Claus con Buzón de los Deseos",
+    "category": "Navidad & Edición Especial",
+    "categorySlug": "navidad",
+    "price": 200000,
+    "originalPrice": 240000,
+    "rating": 5.0,
+    "reviewCount": 47,
+    "artisanTime": "26 horas de pintura detallada en vestiduras y accesorios",
+    "story": "Figura navideña llena de ilusión y nostalgia. Representa a Santa revisando las cartas de los niños ante su buzón tradicional.",
+    "emotionalBenefit": "Despierta la magia de la infancia, la ilusión y la alegría de compartir la Navidad en familia.",
+    "dimensions": "Altura: 43 cm x 32 cm de ancho",
+    "materials": "Resina resistente, detalles pintados a mano en rojo vivo, nieve táctil y acentos dorados.",
+    "images": [
+      "/images/gallery/WhatsApp Image 2026-09-25 at 14.35.58.jpeg",
+      "/images/gallery/WhatsApp Image 2026-09-25 at 14.35.58 (5).jpeg"
+    ],
+    "isFeatured": true,
+    "inStock": true,
+    "orderBump": {
+      "id": "bump-1",
+      "name": "Empaque de Regalo Premium + Cartas Navideñas Impresas en Pergamino",
+      "price": 3500
+    },
+    "relatedProducts": ["par-de-arboles-lisos-resina", "arbol-drapeado-resina"]
+  },
+  {
+    "id": "prod-6",
+    "slug": "par-de-arboles-lisos-resina",
+    "name": "Par de Árboles Estilizados Esmeralda",
     "category": "Jardín & Naturaleza",
     "categorySlug": "jardin",
-    "price": 29500,
-    "originalPrice": 35000,
-    "rating": 5.0,
-    "reviewCount": 18,
-    "artisanTime": "14 horas de degradado verde oliva y tierra",
-    "story": "Inspirados en la majestuosidad de la fauna costarricense, estas dos figuras aportan la serenidad y la frescura de la naturaleza al interior de tu casa.",
-    "emotionalBenefit": "Conecta tus espacios interiores con la tranquilidad de la naturaleza y el verde de Costa Rica.",
-    "dimensions": "Venado grande: 25 cm x 15 cm | Venado pequeño: 18 cm x 12 cm",
-    "materials": "Resina ecológica con pigmentación verde oliva y tierra suave.",
+    "price": 200000,
+    "originalPrice": 220000,
+    "rating": 4.8,
+    "reviewCount": 19,
+    "artisanTime": "16 horas de aplicación de escarcha fina y veladuras verdes",
+    "story": "Par de pinos minimalistas de resina en un profundo tono esmeralda con matices dorados. Diseñados para aportar un toque contemporáneo y natural.",
+    "emotionalBenefit": "Transmite serenidad boscosa, frescura y refinamiento minimalista a la decoración.",
+    "dimensions": "Altura: 31 cm x 22 cm de ancho",
+    "materials": "Resina ecológica con acabado de escarcha reflectante y pigmentos verde esmeralda.",
     "images": [
-      "/images/gallery/taller-19.jpg",
-      "/images/gallery/taller-13.jpg"
+      "/images/gallery/WhatsApp Image 2026-09-25 at 14.35.58.jpeg",
+      "/images/gallery/WhatsApp Image 2026-09-25 at 14.35.58 (6).jpeg"
     ],
     "isFeatured": false,
     "inStock": true,
     "orderBump": {
       "id": "bump-3",
-      "name": "Base de madera rústica curada artesanalmente",
-      "price": 4500
+      "name": "Juego de 2 velas LED decorativas luz cálida",
+      "price": 4000
     },
-    "relatedProducts": ["búho-sabiduría-dorado", "nacimiento-navideno-artesanal"]
+    "relatedProducts": ["arbol-drapeado-resina", "santa-con-buzon-resina"]
   },
   {
-    "id": "prod-5",
-    "slug": "búho-sabiduría-dorado",
-    "name": "Búho de la Sabiduría Vintage",
-    "category": "Vintage & Colección",
-    "categorySlug": "vintage",
-    "price": 19500,
-    "originalPrice": 24000,
-    "rating": 4.8,
-    "reviewCount": 24,
-    "artisanTime": "10 horas de pincelada seca envejecida",
-    "story": "Esculpido con texturas plumadas profundas y un acabado en bronce viejo y dorado que le otorgan un carácter sofisticado y clásico.",
-    "emotionalBenefit": "Aporta un toque intelectual, elegante y de buena fortuna a tu biblioteca, escritorio o recibidor.",
-    "dimensions": "20 cm de alto x 11 cm de ancho",
-    "materials": "Resina densa con acabados metálicos en bronce y pátina oscura.",
+    "id": "prod-7",
+    "slug": "arbol-drapeado-resina",
+    "name": "Árbol Drapeado Escultural",
+    "category": "Navidad & Edición Especial",
+    "categorySlug": "navidad",
+    "price": 200000,
+    "originalPrice": 230000,
+    "rating": 5.0,
+    "reviewCount": 33,
+    "artisanTime": "22 horas de trabajo en texturas drapeadas y encaje artesanal",
+    "story": "Majestuosa pieza escultural con caídas drapeadas y lazo delicado en la cima. Una obra de arte decorativa que se convierte en el centro de atención de cualquier mesa.",
+    "emotionalBenefit": "Aporta una elegancia deslumbrante, distinción y un espíritu festivo único.",
+    "dimensions": "Altura: 60 cm x 18 cm de ancho",
+    "materials": "Resina pulida con apliques texturizados en plata dulce y cuentas brillantes.",
     "images": [
-      "/images/gallery/taller-13.jpg",
-      "/images/gallery/taller-4.jpg"
+      "/images/gallery/WhatsApp Image 2026-09-25 at 14.35.58.jpeg",
+      "/images/gallery/WhatsApp Image 2026-09-25 at 14.35.58 (7).jpeg"
     ],
-    "isFeatured": false,
+    "isFeatured": true,
     "inStock": true,
     "orderBump": {
       "id": "bump-1",
       "name": "Empaque de Regalo Premium + Tarjeta Personalizada Escrita a Mano",
       "price": 3500
     },
-    "relatedProducts": ["conjunto-fauna-bosque", "sagrada-familia-clasica"]
+    "relatedProducts": ["par-de-arboles-lisos-resina", "santa-con-buzon-resina"]
   },
   {
-    "id": "prod-6",
-    "slug": "nacimiento-navideno-artesanal",
-    "name": "Nacimiento Navideño Familiar (Set 5 Piezas)",
-    "category": "Navidad & Edición Especial",
-    "categorySlug": "navidad",
-    "price": 48000,
-    "originalPrice": 58000,
+    "id": "prod-8",
+    "slug": "sagrada-familia-techo-resina",
+    "name": "Sagrada Familia con Techo de Resina",
+    "category": "Religiosos & Sacros",
+    "categorySlug": "religiosos",
+    "price": 200000,
+    "originalPrice": 240000,
     "rating": 5.0,
-    "reviewCount": 56,
-    "artisanTime": "24 horas de trabajo minucioso en cada personaje",
-    "story": "El centro de atención de las fiestas patrias y navideñas. Diseñado para transmitirse de generación en generación como un tesoro familiar lleno de fe y amor.",
-    "emotionalBenefit": "Reúne a la familia en torno a las tradiciones vivas, la calidez del hogar y la magia navideña.",
-    "dimensions": "Pieza principal: 30 cm de alto | Set completo para espacio de 50 cm",
-    "materials": "Resina de gala, finas pinceladas de dorado resplandeciente y terracota.",
+    "reviewCount": 51,
+    "artisanTime": "28 horas de moldeado de cobijo y tonos cálidos",
+    "story": "Pesebre esculpido bajo la estructura protectora de una gruta o techo artesanal en resina. Simboliza el resguardo y el amor incondicional del hogar.",
+    "emotionalBenefit": "Inspira paz profunda, protección del hogar y la bendición del amor familiar.",
+    "dimensions": "Altura: 44 cm x 26 cm de ancho",
+    "materials": "Resina técnica de alta densidad, efecto corteza natural y tonos cobrizos.",
     "images": [
-      "/images/gallery/taller-18.jpg",
-      "/images/gallery/taller-19.jpg"
+      "/images/gallery/WhatsApp Image 2026-09-25 at 14.35.58.jpeg",
+      "/images/gallery/WhatsApp Image 2026-09-25 at 14.35.58 (8).jpeg"
     ],
     "isFeatured": true,
     "inStock": true,
     "orderBump": {
       "id": "bump-4",
-      "name": "Luces LED cálidas invisibles para iluminar el Pesebre",
+      "name": "Luces LED micro-cálidas para iluminar la cueva",
       "price": 3000
     },
-    "relatedProducts": ["virgen-de-los-angeles-patrona-cr", "sagrada-familia-clasica"]
+    "relatedProducts": ["sagrada-familia-labrada-yeso", "sagrada-familia-cuadro-resina"]
   }
 ]
