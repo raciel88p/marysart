@@ -1,0 +1,46 @@
+---
+import ShopLayout from '../../layouts/ShopLayout.astro';
+import products from '../../data/products.json';
+
+export function getStaticPaths() {
+  return [
+    { params: { slug: 'navidad' }, props: { title: 'Colección Navideña Especial 2026', bg: 'from-red-950 via-stone-900 to-amber-950', category: 'navidad' } },
+    { params: { slug: 'dia-de-la-madre' }, props: { title: 'Regalos Llenos de Amor para Mamá', bg: 'from-amber-950 via-stone-900 to-rose-950', category: 'religiosos' } },
+    { params: { slug: 'ediciones-limitadas' }, props: { title: 'Ediciones Limitadas Pintadas a Mano', bg: 'from-stone-900 via-amber-950 to-stone-900', category: 'vintage' } }
+  ];
+}
+
+const { title, bg, category } = Astro.props;
+const campaignProducts = products.filter(p => p.categorySlug === category || p.isFeatured);
+---
+
+<ShopLayout
+  title={`${title} | Mary's Art Costa Rica`}
+  description={`Descubre la colección especial de ${title}. Piezas artesanales exclusivas de resina pintadas a mano para Costa Rica.`}
+>
+  <div class={`bg-gradient-to-b ${bg} text-white py-16 sm:py-24`}>
+    <div class="max-w-4xl mx-auto px-4 text-center space-y-4">
+      <span class="text-xs uppercase tracking-widest font-bold text-amber-300">Campaña Exclusiva</span>
+      <h1 class="font-serif text-3xl sm:text-5xl font-bold">{title}</h1>
+      <p class="text-xs sm:text-base text-stone-300 max-w-xl mx-auto">
+        Asegura tu pieza artesanal con tiempo. Elaboración limitada para garantizar la más alta calidad y acabado.
+      </p>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {campaignProducts.map(prod => (
+        <div class="bg-white dark:bg-stone-900 rounded-2xl overflow-hidden border border-stone-200 dark:border-stone-800 p-5 space-y-3">
+          <img src={prod.images[0]} alt={prod.name} class="w-full h-56 object-cover rounded-xl" />
+          <h3 class="font-serif font-bold text-stone-900 dark:text-stone-100 text-lg">{prod.name}</h3>
+          <p class="text-xs text-stone-600 dark:text-stone-300 line-clamp-2">{prod.story}</p>
+          <div class="flex items-center justify-between border-t border-stone-100 dark:border-stone-800 pt-3">
+            <span class="font-serif font-bold text-amber-800 dark:text-amber-400">₡{prod.price.toLocaleString('es-CR')}</span>
+            <a href={`/producto/${prod.slug}`} class="bg-amber-800 text-white text-xs px-4 py-2 rounded-xl font-medium">Ver Pieza</a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</ShopLayout>

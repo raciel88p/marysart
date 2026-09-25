@@ -1,0 +1,134 @@
+---
+import ShopLayout from '../layouts/ShopLayout.astro';
+
+const vipSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Club VIP Mary's Art | Beneficios Exclusivos y Descuentos",
+  "description": "Únete al Club VIP de Mary's Art en Costa Rica. Obtén acceso anticipado a nuevas colecciones de figuras de resina, lanzamientos de temporada y descuentos exclusivos."
+};
+---
+
+<ShopLayout
+  title="Club VIP Mary's Art | Beneficios Exclusivos para Clientes Frecuentes"
+  description="Accede a preventas exclusivas de Nacimientos Navideños, descuentos del 15% en talleres presenciales y regalitos especiales con tus compras."
+  schema={vipSchema}
+>
+  <!-- VIP Hero Banner -->
+  <section class="bg-gradient-to-b from-stone-900 via-amber-950 to-stone-900 text-amber-50 py-16 sm:py-24 border-b border-amber-900/40">
+    <div class="max-w-4xl mx-auto px-4 text-center space-y-6">
+      <span class="inline-block bg-amber-800/80 text-amber-200 text-xs uppercase tracking-widest font-bold px-3 py-1 rounded-full border border-amber-600/40">
+        👑 Comunidad Exclusiva de Decoración
+      </span>
+
+      <h1 class="font-serif text-3xl sm:text-5xl font-bold leading-tight">
+        Bienvenida al Club VIP <br /><span class="text-amber-300 italic">Mary's Art Costa Rica</span>
+      </h1>
+
+      <p class="text-stone-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+        Creado para nuestras clientes más queridas que aprecian el arte artesanal y aman convertir cada rincón de su hogar en un refugio lleno de belleza y luz.
+      </p>
+    </div>
+  </section>
+
+  <!-- VIP Benefits Grid -->
+  <section class="py-16 bg-white dark:bg-stone-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h2 class="font-serif text-3xl font-bold text-stone-900 dark:text-stone-100">Beneficios de ser Miembro VIP</h2>
+        <p class="text-stone-600 dark:text-stone-400 text-xs sm:text-sm mt-1">Disfruta de privilegios pensados especialmente para ti.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="p-6 bg-stone-50 dark:bg-stone-800 rounded-2xl border border-amber-200/50 dark:border-stone-700 space-y-3">
+          <div class="w-12 h-12 rounded-xl bg-amber-100 dark:bg-amber-900/50 flex items-center justify-center text-2xl">🎁</div>
+          <h3 class="font-serif text-lg font-bold text-stone-900 dark:text-stone-100">15% OFF en Tu Primera Compra VIP</h3>
+          <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">Cupón instantáneo aplicado en tu pedido al registrarte vía WhatsApp o formulario.</p>
+        </div>
+
+        <div class="p-6 bg-stone-50 dark:bg-stone-800 rounded-2xl border border-amber-200/50 dark:border-stone-700 space-y-3">
+          <div class="w-12 h-12 rounded-xl bg-amber-100 dark:bg-amber-900/50 flex items-center justify-center text-2xl">⚡</div>
+          <h3 class="font-serif text-lg font-bold text-stone-900 dark:text-stone-100">Preventas Exclusivas</h3>
+          <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">Reserva Nacimientos Navideños y Ediciones Limitadas 7 días antes del lanzamiento público.</p>
+        </div>
+
+        <div class="p-6 bg-stone-50 dark:bg-stone-800 rounded-2xl border border-amber-200/50 dark:border-stone-700 space-y-3">
+          <div class="w-12 h-12 rounded-xl bg-amber-100 dark:bg-amber-900/50 flex items-center justify-center text-2xl">🎨</div>
+          <h3 class="font-serif text-lg font-bold text-stone-900 dark:text-stone-100">Descuento en Talleres Presenciales</h3>
+          <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">Acceso a clases de pintura en resina y pátinas en Turrialba y San Carlos con precio de miembro.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive VIP Registration Form -->
+  <section class="py-16 bg-stone-100 dark:bg-stone-950">
+    <div class="max-w-xl mx-auto px-4 bg-white dark:bg-stone-900 p-8 rounded-3xl shadow-xl border border-stone-200 dark:border-stone-800">
+      <div class="text-center space-y-2 mb-6">
+        <h3 class="font-serif text-2xl font-bold text-stone-900 dark:text-stone-100">Únete Gratis Hoy</h3>
+        <p class="text-xs text-stone-600 dark:text-stone-400">Completa tus datos y guarda tu estado VIP en este navegador.</p>
+      </div>
+
+      <form id="vip-form" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold uppercase text-stone-600 dark:text-stone-400 mb-1">Nombre Completo *</label>
+          <input type="text" id="vip-name" required placeholder="Ej: María Elena" class="w-full text-xs p-3 rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-stone-100 focus:outline-none focus:border-amber-800">
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold uppercase text-stone-600 dark:text-stone-400 mb-1">Número de WhatsApp *</label>
+          <input type="tel" id="vip-phone" required placeholder="Ej: +506 8888-8888" class="w-full text-xs p-3 rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-stone-100 focus:outline-none focus:border-amber-800">
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold uppercase text-stone-600 dark:text-stone-400 mb-1">Provincia de Costa Rica</label>
+          <select id="vip-province" class="w-full text-xs p-3 rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-stone-100 focus:outline-none">
+            <option value="Cartago">Cartago (Turrialba)</option>
+            <option value="Alajuela">Alajuela (San Carlos)</option>
+            <option value="San José">San José</option>
+            <option value="Heredia">Heredia</option>
+            <option value="Puntarenas">Puntarenas</option>            <option value="Guanacaste">Guanacaste</option>
+            <option value="Limón">Limón</option>
+          </select>
+        </div>
+
+        <button type="submit" class="w-full bg-amber-800 hover:bg-amber-900 text-white font-bold text-sm py-3.5 rounded-xl transition-all shadow-md">
+          Activar Mi Membresía VIP Gratis
+        </button>
+      </form>
+
+      <div id="vip-success-message" class="hidden p-4 bg-emerald-50 text-emerald-900 rounded-2xl text-center space-y-2 mt-4 border border-emerald-200">
+        <p class="font-serif font-bold text-base">🎉 ¡Felicidades! Ya eres Miembro VIP</p>
+        <p class="text-xs">Usa el código <strong class="text-emerald-900">VIPMARY15</strong> en tu próximo pedido por WhatsApp para recibir un 15% de descuento.</p>
+      </div>
+    </div>
+  </section>
+</ShopLayout>
+
+<script>
+  const vipForm = document.getElementById('vip-form') as HTMLFormElement;
+  const successBox = document.getElementById('vip-success-message');
+
+  // Check if already VIP in localStorage
+  if (localStorage.getItem('marys_art_vip_member') === 'true') {
+    if (vipForm) vipForm.classList.add('hidden');
+    if (successBox) successBox.classList.remove('hidden');
+  }
+
+  vipForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = (document.getElementById('vip-name') as HTMLInputElement).value;
+    const phone = (document.getElementById('vip-phone') as HTMLInputElement).value;
+    const province = (document.getElementById('vip-province') as HTMLSelectElement).value;
+
+    localStorage.setItem('marys_art_vip_member', 'true');
+    localStorage.setItem('marys_art_vip_info', JSON.stringify({ name, phone, province }));
+
+    vipForm.classList.add('hidden');
+    if (successBox) successBox.classList.remove('hidden');
+
+    // Notify WhatsApp
+    const msg = encodeURIComponent(`👑 *NUEVO REGISTRO CLUB VIP MARY'S ART*\n\nNombre: ${name}\nTeléfono: ${phone}\nProvincia: ${province}\n\nDesearía confirmar mi beneficio del 15% de descuento.`);
+    window.open(`https://wa.me/50660367249?text=${msg}`, '_blank');
+  });
+</script>

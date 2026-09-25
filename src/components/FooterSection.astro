@@ -1,0 +1,81 @@
+---
+import categories from '../data/categories.json';
+---
+
+<footer class="bg-stone-900 text-stone-300 pt-16 pb-12 border-t border-stone-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+
+      <!-- Brand & Mission -->
+      <div class="space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-amber-700 to-amber-500 flex items-center justify-center text-white font-serif text-xl font-bold">
+            M
+          </div>
+          <div>
+            <span class="font-serif text-2xl font-bold tracking-tight text-white block">Mary's Art</span>
+            <span class="text-[10px] uppercase tracking-widest text-amber-400 font-medium">Costa Rica</span>
+          </div>
+        </div>
+        <p class="text-xs text-stone-400 leading-relaxed">
+          No vendemos figuras. Creamos emociones, belleza y tranquilidad para llenar tu hogar con la calidez de piezas pintadas 100% a mano.
+        </p>
+        <div class="pt-2 text-xs text-amber-300 flex items-center gap-2">
+          <span>📍 Talleres en Turrialba & San Carlos</span>
+        </div>
+      </div>
+
+      <!-- Categories Links -->
+      <div>
+        <h4 class="font-serif text-sm font-bold text-white uppercase tracking-wider mb-4 border-b border-stone-800 pb-2">Colecciones</h4>
+        <ul class="space-y-2 text-xs">
+          {categories.map((cat) => (
+            <li>
+              <a href={`/catalogo?categoria=${cat.slug}`} class="hover:text-amber-400 transition-colors flex items-center gap-1.5">
+                <span class="text-amber-600">›</span> {cat.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Customer Care & Program -->
+      <div>
+        <h4 class="font-serif text-sm font-bold text-white uppercase tracking-wider mb-4 border-b border-stone-800 pb-2">Atención & Beneficios</h4>
+        <ul class="space-y-2 text-xs">
+          <li><a href="/club-vip" class="hover:text-amber-400 transition-colors flex items-center gap-1">👑 Club VIP Mary's Art</a></li>
+          <li><a href="/blog" class="hover:text-amber-400 transition-colors">Blog & Guías de Cuidados</a></li>
+          <li><a href="/talleres" class="hover:text-amber-400 transition-colors">Talleres Presenciales de Pintura</a></li>
+          <li><a href="/campanas/navidad" class="hover:text-amber-400 transition-colors">Colección Navideña Especial</a></li>
+          <li><a href="https://wa.me/50660367249" target="_blank" class="hover:text-amber-400 transition-colors">Atención por WhatsApp</a></li>
+        </ul>
+      </div>
+
+      <!-- Guarantee & Contact -->
+      <div class="space-y-4">
+        <h4 class="font-serif text-sm font-bold text-white uppercase tracking-wider mb-2 border-b border-stone-800 pb-2">Garantía Artesanal</h4>
+        <div class="bg-stone-800/80 p-4 rounded-xl border border-stone-700/60 space-y-2">
+          <p class="text-xs text-stone-300 font-medium flex items-center gap-2">
+            <span class="text-amber-400 text-base">🛡️</span> Compra 100% Segura por WhatsApp
+          </p>
+          <p class="text-[11px] text-stone-400">
+            Envíos asegurados por Correos de Costa Rica o encomienda directa a todas las provincias.
+          </p>
+        </div>
+        <a href="https://wa.me/50660367249?text=Hola%20Mary's%20Art" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold py-2.5 px-4 rounded-xl transition-all inline-flex items-center justify-center gap-2">
+          WhatsApp +506 6036-7249
+        </a>
+      </div>
+
+    </div>
+
+    <div class="pt-8 border-t border-stone-800 text-center md:flex md:justify-between md:items-center text-[11px] text-stone-500 space-y-4 md:space-y-0">
+      <p>© {new Date().getFullYear()} Mary's Art Costa Rica. Todos los derechos reservados. Pintado a mano con amor.</p>
+      <div class="flex justify-center gap-6">
+        <a href="https://www.instagram.com/arte_resina_barro/" target="_blank" rel="noopener" class="hover:text-stone-300 transition-colors">Instagram</a>
+        <a href="https://www.facebook.com/ResinaArtMary" target="_blank" rel="noopener" class="hover:text-stone-300 transition-colors">Facebook</a>
+        <a href="/politicas" class="hover:text-stone-300 transition-colors">Envíos & Devoluciones</a>
+      </div>
+    </div>
+  </div>
+</footer>
