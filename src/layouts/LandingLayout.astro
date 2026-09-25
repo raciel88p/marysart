@@ -1,0 +1,221 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import '../index.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  image?: string;
+  faqList?: Array<{ question: string; answer: string }>;
+}
+
+const {
+  title = "Marys Arts | Figuras y Adornos de Resina Pintados a Mano | Piezas Únicas para Tu Hogar",
+  description = "Descubre Marys Arts: figuras y adornos de resina pintados completamente a mano. Llena tu hogar de calidez, elegancia y personalidad con piezas artesanales únicas.",
+  canonical = "https://resinaartmary.com/marys-arts",
+  image = "/images/gallery/taller-1.jpg",
+  faqList = [
+    { question: "¿Cada pieza es diferente?", answer: "Sí, absolutamente. Al ser elaboradas y pintadas completamente a mano, cada pieza posee matices, pinceladas y acabados únicos. No existen dos figuras exactamente iguales." },
+    { question: "¿Cuánto tarda el envío?", answer: "Los envíos nacionales dentro de Costa Rica se realizan entre 2 y 4 días hábiles. Si es un pedido personalizado, el tiempo de elaboración es de 5 a 7 días hábiles." },
+    { question: "¿Aceptan pedidos personalizados?", answer: "¡Sí! Podemos personalizar tonalidades, acabados y detalles especiales para que tu figura encaje perfectamente en la decoración de tu hogar." },
+    { question: "¿Cómo cuido mi figura?", answer: "Para conservar la belleza y el brillo de la resina pintada a mano, limpia suavemente con un paño seco o levemente húmedo de microfibra. Evita el uso de productos químicos abrasivos y luz solar directa prolongada." }
+  ]
+} = Astro.props;
+
+// Schema.org structured data
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Marys Arts",
+  "url": "https://resinaartmary.com",
+  "logo": "https://resinaartmary.com/images/gallery/taller-1.jpg",
+  "description": "Figuras y adornos de resina pintados a mano para crear hogares llenos de elegancia y calidez.",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+506-6036-7249",
+    "contactType": "customer service",
+    "areaServed": "CR",
+    "availableLanguage": "Spanish"
+  }
+};
+
+const productSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Colección Artesanal de Resina Marys Arts",
+  "image": [
+    "https://resinaartmary.com/images/gallery/taller-1.jpg",
+    "https://resinaartmary.com/images/gallery/taller-2.jpg",
+    "https://resinaartmary.com/images/gallery/taller-3.jpg"
+  ],
+  "description": "Figuras y adornos decorativos de resina hechos y pintados completamente a mano.",
+  "brand": {
+    "@type": "Brand",
+    "name": "Marys Arts"
+  },
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "CRC",
+    "availability": "https://schema.org/InStock"
+  }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://resinaartmary.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Marys Arts",
+      "item": "https://resinaartmary.com/marys-arts"
+    }
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqList.map(item => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.answer
+    }
+  }))
+};
+---
+
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={image} />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={image} />
+
+  <!-- Fonts Google Playfair Display & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Structured Data JSON-LD -->
+  <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <ClientRouter />
+
+  <script is:inline>
+    // Theme initialization to avoid flash
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme === 'dark' || (!storedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
+</head>
+<body class="bg-[#FDFBF7] dark:bg-[#181614] text-[#332E2A] dark:text-[#EAE3D2] font-sans antialiased selection:bg-[#C86D51] selection:text-white transition-colors duration-300">
+
+  <!-- Header / Navigation Bar for Marys Arts Landing -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-[#FDFBF7]/90 dark:bg-[#181614]/90 border-b border-[#EAE3D2]/60 dark:border-[#332E2A]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="/marys-arts" class="group flex items-center space-x-3">
+        <span class="font-serif text-2xl font-bold tracking-tight text-[#332E2A] dark:text-[#FDFBF7] group-hover:text-[#C86D51] transition-colors">
+          Marys <span class="italic text-[#C86D51] font-normal">Arts</span>
+        </span>
+      </a>
+
+      <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+        <a href="#beneficios" class="hover:text-[#C86D51] transition-colors">Beneficios</a>
+        <a href="#historia" class="hover:text-[#C86D51] transition-colors">Nuestra Esencia</a>
+        <a href="#colecciones" class="hover:text-[#C86D51] transition-colors">Colecciones</a>
+        <a href="#proceso" class="hover:text-[#C86D51] transition-colors">Creación</a>
+        <a href="#testimonios" class="hover:text-[#C86D51] transition-colors">Testimonios</a>
+        <a href="#faq" class="hover:text-[#C86D51] transition-colors">FAQ</a>
+      </nav>
+
+      <div class="flex items-center space-x-4">
+        <!-- Dark Mode Toggle Button -->
+        <button id="theme-toggle" aria-label="Cambiar tema de color" class="p-2.5 rounded-full text-[#332E2A] dark:text-[#EAE3D2] hover:bg-[#EAE3D2]/50 dark:hover:bg-[#332E2A]/50 transition-colors">
+          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+          </svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.707.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 100 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+
+        <a
+          href="https://wa.me/50660367249?text=Hola%20Marys%20Arts,%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n%20sobre%20las%20piezas%20de%20resina%20hechas%20a%20mano."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hidden sm:inline-flex items-center px-4 py-2 text-xs uppercase tracking-wider font-semibold rounded-full bg-[#C86D51] hover:bg-[#B35C41] text-white shadow-sm hover:shadow transition-all duration-200"
+        >
+          Pedir por WhatsApp
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <slot />
+  </main>
+
+  <script is:inline>
+    // Theme toggle setup
+    const darkIcon = document.getElementById('theme-toggle-dark-icon');
+    const lightIcon = document.getElementById('theme-toggle-light-icon');
+    const themeToggleBtn = document.getElementById('theme-toggle');
+
+    function updateIcons() {
+      if (document.documentElement.classList.contains('dark')) {
+        lightIcon?.classList.remove('hidden');
+        darkIcon?.classList.add('hidden');
+      } else {
+        darkIcon?.classList.remove('hidden');
+        lightIcon?.classList.add('hidden');
+      }
+    }
+
+    updateIcons();
+
+    themeToggleBtn?.addEventListener('click', function() {
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+      updateIcons();
+    });
+  </script>
+</body>
+</html>

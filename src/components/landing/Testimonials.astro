@@ -1,0 +1,107 @@
+---
+const testimonials = [
+  {
+    name: "Carmen Monge",
+    city: "San José, Costa Rica",
+    photo: "/images/gallery/taller-1.jpg",
+    stars: 5,
+    comment: "Compré una figura de ángel para la mesa central de mi sala. La textura y los detalles de la pintura a mano son una obra de arte. Todos mis invitados quedan fascinados con la serenidad que transmite."
+  },
+  {
+    name: "Lucía Valverde",
+    city: "Cartago, Costa Rica",
+    photo: "/images/gallery/taller-2.jpg",
+    stars: 5,
+    comment: "Buscaba un regalo con verdadero valor sentimental para el cumpleaños de mi madre. La figura de resina vino perfectamente empacada. Ella casi llora al abrirla; es de una elegancia inigualable."
+  },
+  {
+    name: "Elena Bermúdez",
+    city: "Heredia, Costa Rica",
+    photo: "/images/gallery/taller-3.jpg",
+    stars: 5,
+    comment: "Tengo tres figuras en mi recibidor y cambiaron por completo la vibra de mi casa. Tienen un acabado cálido y sofisticado que no se encuentra en las tiendas convencionales."
+  },
+  {
+    name: "Marta Rodríguez",
+    city: "Alajuela, Costa Rica",
+    photo: "/images/gallery/taller-4.jpg",
+    stars: 5,
+    comment: "La atención por WhatsApp fue personalizada y extremadamente amable. Me ayudaron a elegir la pieza que mejor combinaba con los colores de mi terraza. ¡Superó mis expectativas!"
+  },
+  {
+    name: "Silvia Jiménez",
+    city: "Pérez Zeledón, Costa Rica",
+    photo: "/images/gallery/taller-5.jpg",
+    stars: 5,
+    comment: "Se nota que cada detalle está hecho con amor. La calidad de la resina es excelente, pesa adecuadamente y la pintura permanece reluciente. Recomiendo totalmente a Marys Arts."
+  },
+  {
+    name: "Patricia Solano",
+    city: "Escazú, Costa Rica",
+    photo: "/images/gallery/taller-6.jpg",
+    stars: 5,
+    comment: "Es reconfortante saber que apoyas el arte local costarricense mientras decoras tu hogar con piezas únicas y de nivel internacional. ¡Ya quiero mi próxima colección!"
+  }
+];
+---
+
+<section id="testimonios" class="py-24 bg-[#F5F0E6] dark:bg-[#1E1B18] transition-colors">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+      <span class="text-xs uppercase tracking-widest text-[#C86D51] font-semibold">
+        Historias de Clientes
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-serif font-bold text-[#332E2A] dark:text-[#FDFBF7]">
+        Lo Que Dicen Quienes Ya Crearon Su Hogar
+      </h2>
+      <p class="text-sm sm:text-base text-[#665E55] dark:text-[#C5BCB1] font-light">
+        Experiencias reales de mujeres que llenaron sus espacios de emoción y elegancia con Marys Arts.
+      </p>
+      <div class="w-16 h-0.5 bg-[#C86D51] mx-auto rounded-full"></div>
+    </div>
+
+    <!-- Testimonials Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {testimonials.map((item) => (
+        <div class="p-8 rounded-2xl bg-[#FDFBF7] dark:bg-[#282420] border border-[#EAE3D2] dark:border-[#332E2A] shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
+          <div class="space-y-4">
+            <!-- Stars -->
+            <div class="flex items-center space-x-1 text-[#C86D51]">
+              {Array.from({ length: item.stars }).map(() => (
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                </svg>
+              ))}
+            </div>
+
+            <!-- Comment -->
+            <p class="text-sm text-[#665E55] dark:text-[#C5BCB1] italic leading-relaxed font-light">
+              "{item.comment}"
+            </p>
+          </div>
+
+          <!-- User Info -->
+          <div class="flex items-center space-x-4 pt-6 border-t border-[#EAE3D2]/60 dark:border-[#332E2A] mt-6">
+            <img
+              src={item.photo}
+              alt={item.name}
+              loading="lazy"
+              decoding="async"
+              class="w-12 h-12 rounded-full object-cover border-2 border-[#C86D51]"
+            />
+            <div>
+              <h3 class="text-sm font-serif font-bold text-[#332E2A] dark:text-[#FDFBF7]">
+                {item.name}
+              </h3>
+              <p class="text-xs text-[#82786E] dark:text-[#A89F93]">
+                {item.city}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

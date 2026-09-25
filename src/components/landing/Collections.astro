@@ -1,0 +1,126 @@
+---
+const collections = [
+  {
+    id: "animales",
+    name: "Animales",
+    description: "Espíritu silvestre y ternura modelada en figuras de resina llenas de detalle.",
+    image: "/images/gallery/taller-11.jpg",
+    badge: "Colección Silvestre"
+  },
+  {
+    id: "angeles",
+    name: "Ángeles",
+    description: "Símbolos de protección, serenidad y luz celestial para cuidar cada rincón.",
+    image: "/images/gallery/taller-13.jpg",
+    badge: "Protección & Paz"
+  },
+  {
+    id: "jardin",
+    name: "Jardín",
+    description: "Adornos resistentes diseñados para integrar frescura y encanto a tus espacios verdes.",
+    image: "/images/gallery/taller-14.jpg",
+    badge: "Armonía Verde"
+  },
+  {
+    id: "navidad",
+    name: "Navidad",
+    description: "Ediciones especiales para llenar de magia y tradición tus celebraciones familiares.",
+    image: "/images/gallery/taller-16.jpg",
+    badge: "Tradición Familiar"
+  },
+  {
+    id: "cocina",
+    name: "Cocina",
+    description: "Detalles cálidos y artesanales que transforman el corazón del hogar.",
+    image: "/images/gallery/taller-17.jpg",
+    badge: "Calidez del Hogar"
+  },
+  {
+    id: "vintage",
+    name: "Vintage",
+    description: "Pinceladas y acabados patinados evocadores del encanto clásico.",
+    image: "/images/gallery/taller-18.jpg",
+    badge: "Encanto Clásico"
+  },
+  {
+    id: "flores",
+    name: "Flores",
+    description: "Creaciones botánicas eternas en resina que mantienen la frescura todo el año.",
+    image: "/images/gallery/taller-19.jpg",
+    badge: "Belleza Eterna"
+  },
+  {
+    id: "ediciones-limitadas",
+    name: "Ediciones Limitadas",
+    description: "Piezas magistrales únicas producidas en tirajes ultra exclusivos.",
+    image: "/images/gallery/taller-1.jpg",
+    badge: "Exclusivo"
+  }
+];
+---
+
+<section id="colecciones" class="py-24 bg-[#F5F0E6] dark:bg-[#1E1B18] transition-colors">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+      <span class="text-xs uppercase tracking-widest text-[#C86D51] font-semibold">
+        Explora Nuestras Categorías
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-serif font-bold text-[#332E2A] dark:text-[#FDFBF7]">
+        Colecciones Diseñadas para Inspirar
+      </h2>
+      <p class="text-sm sm:text-base text-[#665E55] dark:text-[#C5BCB1] font-light">
+        Cada categoría agrupa adornos y figuras pintadas a mano creadas para complementar el estilo de tu espacio.
+      </p>
+      <div class="w-16 h-0.5 bg-[#C86D51] mx-auto rounded-full"></div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {collections.map(item => (
+        <div class="group rounded-2xl bg-[#FDFBF7] dark:bg-[#282420] border border-[#EAE3D2] dark:border-[#332E2A] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <!-- Image with Badge -->
+            <div class="relative h-56 overflow-hidden bg-[#EAE3D2]/30">
+              <img
+                src={item.image}
+                alt={item.name}
+                loading="lazy"
+                decoding="async"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <span class="absolute top-3 left-3 px-3 py-1 text-[10px] font-semibold tracking-wider uppercase rounded-full bg-white/90 dark:bg-[#181614]/90 text-[#332E2A] dark:text-[#FDFBF7] backdrop-blur-md border border-white/30 shadow-xs">
+                {item.badge}
+              </span>
+            </div>
+
+            <!-- Content Body -->
+            <div class="p-6 space-y-3">
+              <h3 class="text-xl font-serif font-bold text-[#332E2A] dark:text-[#FDFBF7] group-hover:text-[#C86D51] transition-colors">
+                {item.name}
+              </h3>
+              <p class="text-xs text-[#665E55] dark:text-[#C5BCB1] leading-relaxed font-light">
+                {item.description}
+              </p>
+            </div>
+          </div>
+
+          <!-- Card Button Footer -->
+          <div class="p-6 pt-0">
+            <a
+              href={`https://wa.me/50660367249?text=${encodeURIComponent(`Hola Marys Arts, me interesa conocer las piezas disponibles de la colección ${item.name}.`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-full inline-flex justify-center items-center px-4 py-2.5 text-xs font-semibold uppercase tracking-wider text-[#C86D51] dark:text-[#E29377] bg-[#F5F0E6] dark:bg-[#1E1B18] group-hover:bg-[#C86D51] group-hover:text-white rounded-xl transition-all duration-200"
+            >
+              <span>Consultar Piezas</span>
+              <svg class="ml-1.5 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

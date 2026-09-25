@@ -25,6 +25,21 @@ async function createServer() {
     app.use(serveStatic(path.resolve(process.cwd(), 'dist/client'), { index: false }));
   }
 
+  // Serve Astro generated static pages for /marys-arts and /landing if available
+  app.use((req, res, next) => {
+    const pathname = req.path.replace(/\/$/, '');
+    if (pathname === '/marys-arts' || pathname === '/landing') {
+      const astroPagePath = isProd
+        ? path.resolve(process.cwd(), `dist/astro${pathname}/index.html`)
+        : path.resolve(process.cwd(), `dist/astro${pathname}/index.html`);
+
+      if (fs.existsSync(astroPagePath)) {
+        return res.status(200).set({ 'Content-Type': 'text/html' }).sendFile(astroPagePath);
+      }
+    }
+    next();
+  });
+
   app.use(async (req, res, next) => {
     const url = req.originalUrl;
 
