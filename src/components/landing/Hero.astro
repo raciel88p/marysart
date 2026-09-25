@@ -1,97 +1,45 @@
 ---
 ---
 
-<section class="relative overflow-hidden pt-12 pb-20 lg:pt-20 lg:pb-32 bg-gradient-to-b from-[#FDFBF7] via-[#F9F5EE] to-[#FDFBF7] dark:from-[#181614] dark:via-[#211E1A] dark:to-[#181614]">
-  <!-- Decorative subtle blur circles -->
-  <div class="absolute top-1/4 left-10 w-72 h-72 bg-[#EAE3D2]/40 dark:bg-[#332E2A]/30 rounded-full blur-3xl pointer-events-none"></div>
-  <div class="absolute bottom-10 right-10 w-96 h-96 bg-[#D88362]/10 dark:bg-[#C86D51]/10 rounded-full blur-3xl pointer-events-none"></div>
+<section class="relative bg-gradient-to-b from-stone-100 via-stone-50 to-amber-50/40 dark:from-stone-900 dark:via-stone-900 dark:to-stone-950 pt-12 pb-20 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+        <span class="inline-block bg-amber-100 dark:bg-amber-900/50 text-amber-900 dark:text-amber-300 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">
+          Marca Marys Arts
+        </span>
 
-      <!-- Content Column -->
-      <div class="lg:col-span-6 space-y-8 text-center lg:text-left">
-        <div class="inline-flex items-center space-x-2 bg-[#EAE3D2]/60 dark:bg-[#332E2A] px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest text-[#C86D51] dark:text-[#E29377]">
-          <span>✨ Edición Artesanal Exclusiva</span>
-        </div>
-
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-[#332E2A] dark:text-[#FDFBF7] leading-[1.15]">
-          Cada rincón de tu hogar merece una <span class="italic font-normal text-[#C86D51]">historia</span>.
+        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-stone-900 dark:text-stone-100 leading-tight">
+          Cada rincón de tu hogar <br />
+          <span class="text-amber-800 dark:text-amber-400 italic">merece una historia.</span>
         </h1>
 
-        <p class="text-lg sm:text-xl text-[#665E55] dark:text-[#C5BCB1] font-light max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+        <p class="text-base sm:text-lg text-stone-600 dark:text-stone-300 max-w-xl mx-auto lg:mx-0 leading-relaxed">
           Descubre piezas de resina pintadas completamente a mano que llenan tu hogar de calidez, elegancia y personalidad.
         </p>
 
-        <!-- CTA Action Buttons -->
-        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
-          <a
-            href="https://wa.me/50660367249?text=Hola%20Marys%20Arts!%20Deseo%20comprar%20piezas%20de%20su%20colecci%C3%B3n%20artesanal."
-            target="_blank"
-            rel="noopener noreferrer"
-            class="w-full sm:w-auto inline-flex justify-center items-center px-8 py-4 text-base font-medium text-white bg-[#C86D51] hover:bg-[#B35C41] rounded-full shadow-lg shadow-[#C86D51]/20 hover:shadow-xl hover:shadow-[#C86D51]/30 transform hover:-translate-y-0.5 transition-all duration-200"
-          >
-            <span>Comprar colección</span>
-            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-            </svg>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
+          <a href="#colecciones" class="bg-amber-800 hover:bg-amber-900 text-white font-medium text-base px-8 py-3.5 rounded-2xl shadow-lg transition-all text-center">
+            Comprar colección
           </a>
-
-          <a
-            href="#colecciones"
-            class="w-full sm:w-auto inline-flex justify-center items-center px-8 py-4 text-base font-medium text-[#332E2A] dark:text-[#EAE3D2] bg-white dark:bg-[#282420] border border-[#EAE3D2] dark:border-[#332E2A] hover:bg-[#F5F0E6] dark:hover:bg-[#332E2A] rounded-full shadow-sm transition-all duration-200"
-          >
-            <span>Ver catálogo</span>
+          <a href="/catalogo" class="bg-stone-200 dark:bg-stone-800 hover:bg-stone-300 text-stone-800 dark:text-stone-200 font-medium text-base px-8 py-3.5 rounded-2xl transition-all text-center">
+            Ver catálogo
           </a>
         </div>
-
-        <!-- Trust stats badge -->
-        <div class="pt-6 border-t border-[#EAE3D2]/60 dark:border-[#332E2A] flex flex-wrap justify-center lg:justify-start gap-8 text-xs text-[#82786E] dark:text-[#A89F93]">
-          <div class="flex items-center space-x-2">
-            <span class="text-[#C86D51] font-bold text-base">★ 4.9/5</span>
-            <span>+1,200 Hogares Felices</span>
-          </div>
-          <div class="flex items-center space-x-2">
-            <span class="text-[#556B2F] font-bold text-base">100%</span>
-            <span>Pintadas a Mano</span>
-          </div>
-        </div>
-
       </div>
 
-      <!-- Image Showcase Column -->
-      <div class="lg:col-span-6 relative pt-4 pb-6 sm:pb-8">
-        <div class="relative mx-auto max-w-md sm:max-w-xl lg:max-w-none">
-
-          <!-- Main Decorator Image -->
-          <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-[#282420] aspect-[4/5] sm:aspect-[3/4] group">
-            <img
-              src="/images/gallery/taller-1.jpg"
-              alt="Mujer decorando su sala con hermosas figuras de resina hechas a mano por Marys Arts"
-              loading="lazy"
-              decoding="async"
-              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
-            />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-
-            <!-- Bottom Text Badge -->
-            <div class="absolute bottom-6 left-6 right-6 p-4 rounded-xl backdrop-blur-md bg-white/90 dark:bg-[#181614]/90 border border-white/40 shadow-lg text-left z-10">
-              <p class="text-xs font-serif italic text-[#C86D51] font-medium">Detalle único para tu rincón favorito</p>
-              <p class="text-sm font-semibold text-[#332E2A] dark:text-[#FDFBF7]">Edición Artesanal Limitada</p>
-            </div>
+      <div class="lg:col-span-5 relative">
+        <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-stone-800">
+          <img
+            src="/images/gallery/taller-1.jpg"
+            alt="Mujer decorando su sala con piezas artesanales"
+            class="w-full h-[450px] object-cover"
+            loading="eager"
+          />
+          <div class="absolute bottom-4 left-4 right-4 bg-white/90 dark:bg-stone-900/90 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-stone-100 dark:border-stone-800">
+            <p class="font-serif text-sm font-semibold text-stone-900 dark:text-stone-100">"Llena cada espacio con serenidad y detalles únicos."</p>
           </div>
-
-          <!-- Secondary Floating Workshop Preview Image -->
-          <div class="hidden sm:block absolute top-8 -left-4 sm:-left-6 w-36 sm:w-40 rounded-2xl overflow-hidden border-4 border-white dark:border-[#282420] shadow-2xl z-20 hover:scale-105 transition-transform duration-300">
-            <img
-              src="/images/gallery/taller-3.jpg"
-              alt="Detalle de taller de resina pintado a mano"
-              loading="lazy"
-              decoding="async"
-              class="w-full h-24 sm:h-28 object-cover"
-            />
-          </div>
-
         </div>
       </div>
 

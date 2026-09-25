@@ -1,0 +1,72 @@
+---
+import ShopLayout from '../../layouts/ShopLayout.astro';
+import { servicesData } from '../../components/ServiceDetailPage.jsx';
+
+const servicesList = Object.values(servicesData);
+
+const servicesSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Servicios de Restauración de Imágenes Sacras y Arte en Resina",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Mary's Art Costa Rica",
+    "telephone": "+50660367249",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Turrialba y San Carlos",
+      "addressCountry": "CR"
+    }
+  },
+  "description": "Restauración profesional de vírgenes, santos, crucifijos y piezas sacras en Costa Rica."
+};
+---
+
+<ShopLayout
+  title="Servicios Especializados de Restauración y Arte en Resina | Mary's Art"
+  description="Restauración profesional de imágenes religiosas, vírgenes, santos, crucifijos y esculturas en Costa Rica (Turrialba, San Carlos, San José). Encargos de resina personalizados."
+  schema={servicesSchema}
+>
+  <div class="bg-stone-900 text-stone-100 py-16 sm:py-20 border-b border-stone-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+      <span class="text-xs font-bold uppercase tracking-widest text-amber-400">Taller & Encargos Especiales</span>
+      <h1 class="font-serif text-3xl sm:text-5xl font-bold">
+        Servicios de Restauración & Arte Personalizado
+      </h1>
+      <p class="text-xs sm:text-sm text-stone-300 max-w-2xl mx-auto">
+        Conservamos el valor espiritual y sentimental de tus piezas religiosas familiares y creamos esculturas en resina a tu gusto en Costa Rica.
+      </p>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {servicesList.map((service) => (
+        <div class="bg-white dark:bg-stone-900 rounded-3xl p-6 border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-md transition-all flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <span class="text-[10px] uppercase font-bold tracking-wider bg-amber-100 dark:bg-amber-900/60 text-amber-900 dark:text-amber-300 px-2.5 py-1 rounded-full inline-block">
+              {service.tag}
+            </span>
+            <h2 class="font-serif text-xl font-bold text-stone-900 dark:text-stone-100">
+              <a href={`/servicios/${service.id}`} class="hover:text-amber-800 dark:hover:text-amber-400">{service.title}</a>
+            </h2>
+            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed line-clamp-3">
+              {service.subtitle}
+            </p>
+          </div>
+
+          <div class="pt-3 border-t border-stone-100 dark:border-stone-800 flex justify-between items-center text-xs">
+            <a href={`/servicios/${service.id}`} class="font-bold text-amber-800 dark:text-amber-400 hover:underline">Ver Servicio →</a>
+            <a
+              href={`https://wa.me/50660367249?text=${encodeURIComponent(service.whatsappMessage)}`}
+              target="_blank"
+              class="bg-emerald-600 text-white font-semibold px-3 py-1.5 rounded-lg text-[11px] flex items-center gap-1"
+            >
+              Cotizar WhatsApp
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</ShopLayout>
