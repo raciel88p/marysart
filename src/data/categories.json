@@ -1,0 +1,47 @@
+[
+  {
+    "id": "religiosos",
+    "slug": "religiosos",
+    "name": "Imágenes Religiosas y Sacras",
+    "description": "Devoción, protección y paz en esculturas pintadas a mano con detalles sagrados.",
+    "icon": "Cross",
+    "badge": "Más Populares",
+    "featuredImage": "/images/gallery/IMG-20250212-WA0032.jpg"
+  },
+  {
+    "id": "angeles",
+    "slug": "angeles",
+    "name": "Ángeles y Guardianes",
+    "description": "Piezas delicadas llenas de ternura y luz para custodiar tus espacios más queridos.",
+    "icon": "Sparkles",
+    "badge": "Edición Calidez",
+    "featuredImage": "/images/gallery/IMG-20250212-WA0034.jpg"
+  },
+  {
+    "id": "jardin",
+    "slug": "jardin",
+    "name": "Jardín y Naturaleza",
+    "description": "Aves, fauna y elementos florales que conectan tu hogar con la biodiversidad de Costa Rica.",
+    "icon": "Flower2",
+    "badge": "Inspiración Verde",
+    "featuredImage": "/images/gallery/IMG-20250212-WA0036.jpg"
+  },
+  {
+    "id": "navidad",
+    "slug": "navidad",
+    "name": "Navidad y Ediciones Limitadas",
+    "description": "Nacimientos y adornos decembrinos creados para perdurar por generaciones.",
+    "icon": "Heart",
+    "badge": "Temporada Exclusiva",
+    "featuredImage": "/images/gallery/IMG-20250212-WA0040.jpg"
+  },
+  {
+    "id": "vintage",
+    "slug": "vintage",
+    "name": "Colección Vintage & Clásica",
+    "description": "Acabados pátina, bronce envejecido y elegancia atemporal con personalidad única.",
+    "icon": "Crown",
+    "badge": "Piezas Únicas",
+    "featuredImage": "/images/gallery/IMG-20250212-WA0038.jpg"
+  }
+]

@@ -1,0 +1,57 @@
+---
+import ShopLayout from '../../layouts/ShopLayout.astro';
+import posts from '../../data/blog.json';
+
+const blogSchema = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Blog de Decoración y Consejos Artesanales | Mary's Art",
+  "description": "Aprende a decorar tu hogar con espiritualidad, calidez y piezas de resina pintadas a mano."
+};
+---
+
+<ShopLayout
+  title="Blog & Consejos de Decoración Artesanal | Mary's Art Costa Rica"
+  description="Guías sobre cuidado de esculturas de resina, ideas de decoración interior, devoción y regalos inolvidables."
+  schema={blogSchema}
+>
+  <div class="bg-stone-100 dark:bg-stone-900 border-b border-stone-200 dark:border-stone-800 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-2">
+      <span class="text-xs font-bold uppercase tracking-widest text-amber-800 dark:text-amber-400">Inspiración & Cuidados</span>
+      <h1 class="font-serif text-3xl sm:text-5xl font-bold text-stone-900 dark:text-stone-100">
+        Blog Mary's Art
+      </h1>
+      <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-400 max-w-xl mx-auto">
+        Ideas, guías prácticas y secretos artesanales para llenar tus espacios de calidez y paz.
+      </p>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {posts.map((post) => (
+        <article class="bg-white dark:bg-stone-900 rounded-3xl overflow-hidden border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+          <div class="space-y-4">
+            <img src={post.image} alt={post.title} class="w-full h-64 object-cover" />
+            <div class="p-6 space-y-3">
+              <div class="flex items-center gap-3 text-xs text-amber-800 dark:text-amber-400 font-bold">
+                <span>{post.category}</span>
+                <span>•</span>
+                <span class="text-stone-400 font-normal">{post.readTime}</span>
+              </div>
+              <h2 class="font-serif text-xl font-bold text-stone-900 dark:text-stone-100 leading-snug">
+                <a href={`/blog/${post.slug}`} class="hover:text-amber-800 dark:hover:text-amber-400">{post.title}</a>
+              </h2>
+              <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">{post.excerpt}</p>
+            </div>
+          </div>
+
+          <div class="p-6 pt-0 flex justify-between items-center text-xs border-t border-stone-100 dark:border-stone-800 pt-4">
+            <span class="text-stone-500">{post.author}</span>
+            <a href={`/blog/${post.slug}`} class="font-bold text-amber-800 dark:text-amber-400 hover:underline">Leer artículo completo →</a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</ShopLayout>

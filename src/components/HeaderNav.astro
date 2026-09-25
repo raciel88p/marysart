@@ -1,0 +1,109 @@
+---
+import categories from '../data/categories.json';
+---
+
+<header class="sticky top-0 z-50 bg-stone-50/90 dark:bg-stone-900/90 backdrop-blur-md border-b border-stone-200/80 dark:border-stone-800 transition-colors">
+  <!-- Promo Bar -->
+  <div class="bg-amber-900 text-amber-50 text-xs py-1.5 px-4 text-center font-medium tracking-wide flex justify-center items-center gap-2">
+    <span>✨ <strong>Envíos a todo Costa Rica</strong> | Envío GRATIS en compras mayores a ₡35.000</span>
+    <span class="hidden md:inline-block bg-amber-800 px-2 py-0.5 rounded text-[10px]">TALLERES EN TURRIALBA & SAN CARLOS</span>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-amber-700 to-amber-500 flex items-center justify-center text-white font-serif text-xl font-bold shadow-md group-hover:scale-105 transition-transform">
+          M
+        </div>
+        <div>
+          <span class="font-serif text-2xl font-bold tracking-tight text-stone-900 dark:text-stone-100 block leading-none">Mary's Art</span>
+          <span class="text-[10px] uppercase tracking-widest text-amber-800 dark:text-amber-400 font-medium">Arte & Resina Costa Rica</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-stone-700 dark:text-stone-300">
+        <a href="/" class="hover:text-amber-800 dark:hover:text-amber-400 transition-colors">Inicio</a>
+
+        <div class="relative group">
+          <a href="/catalogo" class="hover:text-amber-800 dark:hover:text-amber-400 transition-colors flex items-center gap-1 py-2">
+            Colecciones
+            <svg class="w-4 h-4 text-stone-400 group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </a>
+          <!-- Dropdown -->
+          <div class="absolute top-full left-0 w-64 bg-white dark:bg-stone-900 shadow-xl rounded-2xl border border-stone-100 dark:border-stone-800 py-3 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 z-50">
+            <a href="/catalogo" class="block px-4 py-2 text-xs font-semibold text-amber-800 dark:text-amber-400 uppercase tracking-wider border-b border-stone-100 dark:border-stone-800">Ver Todo el Catálogo</a>
+            {categories.map((cat) => (
+              <a href={`/catalogo?categoria=${cat.slug}`} class="block px-4 py-2 hover:bg-stone-50 dark:hover:bg-stone-800 text-stone-700 dark:text-stone-300 transition-colors">
+                {cat.name}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <a href="/talleres" class="hover:text-amber-800 dark:hover:text-amber-400 transition-colors">Talleres Presenciales</a>
+        <a href="/blog" class="hover:text-amber-800 dark:hover:text-amber-400 transition-colors">Blog & Consejos</a>
+        <a href="/club-vip" class="hover:text-amber-800 dark:hover:text-amber-400 transition-colors text-amber-800 dark:text-amber-400 font-semibold flex items-center gap-1">
+          <span class="text-xs">👑</span> Club VIP
+        </a>
+      </nav>
+
+      <!-- Actions -->
+      <div class="flex items-center gap-3">
+        <!-- Dark Mode Toggle -->
+        <button id="theme-toggle" aria-label="Cambiar modo oscuro" class="p-2 rounded-full text-stone-600 dark:text-stone-300 hover:bg-stone-200/60 dark:hover:bg-stone-800 transition-colors">
+          <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+          <svg class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+        </button>
+
+        <!-- Cart Toggle Button -->
+        <button id="open-cart-btn" aria-label="Ver carrito" class="relative bg-amber-800 hover:bg-amber-900 text-white p-2.5 rounded-full shadow-sm hover:shadow transition-all flex items-center justify-center">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+          <span id="cart-badge" class="absolute -top-1 -right-1 bg-amber-500 text-stone-900 font-bold text-[10px] w-5 h-5 rounded-full flex items-center justify-center border-2 border-white dark:border-stone-900 hidden">0</span>
+        </button>
+
+        <!-- WhatsApp Direct Fast Button -->
+        <a href="https://wa.me/50660367249?text=Hola%20Mary's%20Art,%20me%20gustar%C3%ADa%20hacer%20una%20consulta%20sobre%20sus%20piezas" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold px-4 py-2.5 rounded-full transition-all shadow-sm hover:shadow">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          Contactar
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Dark mode handler
+  const themeToggle = document.getElementById('theme-toggle');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  }
+
+  // Cart Badge updater listener
+  function updateCartBadge() {
+    const cart = JSON.parse(localStorage.getItem('marys_art_cart') || '[]');
+    const totalCount = cart.reduce((sum: number, item: any) => sum + item.quantity, 0);
+    const badge = document.getElementById('cart-badge');
+    if (badge) {
+      if (totalCount > 0) {
+        badge.textContent = totalCount.toString();
+        badge.classList.remove('hidden');
+      } else {
+        badge.classList.add('hidden');
+      }
+    }
+  }
+
+  window.addEventListener('cart-updated', updateCartBadge);
+  document.addEventListener('DOMContentLoaded', updateCartBadge);
+</script>

@@ -1,0 +1,276 @@
+---
+---
+
+<div id="cart-drawer-overlay" class="fixed inset-0 bg-stone-900/60 backdrop-blur-xs z-50 opacity-0 pointer-events-none transition-opacity duration-300">
+  <div id="cart-drawer-content" class="fixed right-0 top-0 bottom-0 w-full max-w-md bg-stone-50 dark:bg-stone-900 shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300 border-l border-stone-200 dark:border-stone-800">
+
+    <!-- Drawer Header -->
+    <div class="p-4 sm:p-6 border-b border-stone-200 dark:border-stone-800 flex items-center justify-between bg-white dark:bg-stone-900">
+      <div class="flex items-center gap-2">
+        <svg class="w-6 h-6 text-amber-800 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+        <h3 class="font-serif text-xl font-bold text-stone-900 dark:text-stone-100">Tu Pedido Artesanal</h3>
+      </div>
+      <button id="close-cart-btn" class="p-2 text-stone-400 hover:text-stone-700 dark:hover:text-stone-200 rounded-full">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+      </button>
+    </div>
+
+    <!-- Free Shipping Progress Bar -->
+    <div class="p-4 bg-amber-50/80 dark:bg-stone-800/80 border-b border-amber-100 dark:border-stone-800">
+      <div class="flex justify-between items-center text-xs font-medium text-stone-800 dark:text-stone-200 mb-1.5">
+        <span id="shipping-status-text">Envío GRATIS en Costa Rica a partir de ₡35.000</span>
+        <span id="shipping-percent-text" class="font-bold text-amber-800 dark:text-amber-400">0%</span>
+      </div>
+      <div class="w-full h-2 bg-stone-200 dark:bg-stone-700 rounded-full overflow-hidden">
+        <div id="shipping-progress-bar" class="h-full bg-amber-800 dark:bg-amber-500 transition-all duration-300 w-0"></div>
+      </div>
+    </div>
+
+    <!-- Cart Items List / Empty State -->
+    <div class="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4" id="cart-items-container">
+      <div id="cart-empty-state" class="text-center py-12 space-y-4">
+        <div class="w-16 h-16 rounded-full bg-stone-100 dark:bg-stone-800 flex items-center justify-center mx-auto text-stone-400">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+        </div>
+        <p class="font-serif text-lg text-stone-700 dark:text-stone-300">Tu carrito está vacío</p>
+        <p class="text-xs text-stone-500 max-w-xs mx-auto">Explora nuestras piezas únicas pintadas a mano y llena tu hogar de calidez.</p>
+        <a href="/catalogo" class="inline-block bg-amber-800 text-white text-xs font-medium px-5 py-2.5 rounded-full hover:bg-amber-900 transition-colors">
+          Explorar Colecciones
+        </a>
+      </div>
+
+      <div id="cart-items-list" class="space-y-4 hidden"></div>
+    </div>
+
+    <!-- Order Bump Section -->
+    <div id="order-bump-box" class="px-4 sm:px-6 py-3 bg-amber-50 dark:bg-stone-800/90 border-t border-amber-200/60 dark:border-stone-700 hidden">
+      <label class="flex items-start gap-3 cursor-pointer">
+        <input type="checkbox" id="order-bump-checkbox" class="mt-1 rounded border-stone-300 text-amber-800 focus:ring-amber-800">
+        <div class="text-xs">
+          <span class="font-bold text-amber-900 dark:text-amber-300 block">✨ Añadir Empaque Especial de Regalo (+₡3.500)</span>
+          <span class="text-stone-600 dark:text-stone-300 leading-tight block">Caja artesanal con lazo de yute y tarjeta escrita a mano con tu mensaje especial.</span>
+        </div>
+      </label>
+    </div>
+
+    <!-- Checkout / Form Footer -->
+    <div id="cart-footer" class="p-4 sm:p-6 bg-white dark:bg-stone-900 border-t border-stone-200 dark:border-stone-800 space-y-4 hidden">
+      <!-- Location and Customer Info -->
+      <div class="space-y-2">
+        <label class="block text-xs font-semibold uppercase tracking-wider text-stone-600 dark:text-stone-400">Datos para Envío en Costa Rica</label>
+        <input type="text" id="customer-name" placeholder="Tu Nombre Completo *" class="w-full text-xs p-2.5 rounded-lg border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-stone-100 focus:outline-none focus:border-amber-800">
+        <input type="text" id="customer-location" placeholder="Provincia / Cantón (Ej: San José, Cartago, Turrialba) *" class="w-full text-xs p-2.5 rounded-lg border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800 text-stone-900 dark:text-stone-100 focus:outline-none focus:border-amber-800">
+      </div>
+
+      <!-- Price Breakdown -->
+      <div class="space-y-1.5 text-xs text-stone-600 dark:text-stone-400 pt-2 border-t border-stone-100 dark:border-stone-800">
+        <div class="flex justify-between">
+          <span>Subtotal Piezas:</span>
+          <span id="cart-subtotal" class="font-medium text-stone-900 dark:text-stone-100">₡0</span>
+        </div>
+        <div class="flex justify-between">
+          <span>Envío (Costa Rica):</span>
+          <span id="cart-shipping" class="font-medium text-stone-900 dark:text-stone-100">₡3.000</span>
+        </div>
+        <div class="flex justify-between font-serif text-base font-bold text-stone-900 dark:text-stone-100 pt-1 border-t border-stone-200 dark:border-stone-800">
+          <span>Total Est. con Envío:</span>
+          <span id="cart-total" class="text-amber-800 dark:text-amber-400">₡0</span>
+        </div>
+      </div>
+
+      <!-- WhatsApp Direct Order Button -->
+      <button id="send-whatsapp-order-btn" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm py-3 px-4 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2">
+        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+        Completar Pedido por WhatsApp
+      </button>
+      <p class="text-[10px] text-center text-stone-500">Atención personalizada directa por la artesana María desde el taller.</p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  const overlay = document.getElementById('cart-drawer-overlay');
+  const drawerContent = document.getElementById('cart-drawer-content');
+  const openBtn = document.getElementById('open-cart-btn');
+  const closeBtn = document.getElementById('close-cart-btn');
+
+  function openCart() {
+    overlay?.classList.remove('opacity-0', 'pointer-events-none');
+    drawerContent?.classList.remove('translate-x-full');
+    renderCart();
+  }
+
+  function closeCart() {
+    overlay?.classList.add('opacity-0', 'pointer-events-none');
+    drawerContent?.classList.add('translate-x-full');
+  }
+
+  openBtn?.addEventListener('click', openCart);
+  closeBtn?.addEventListener('click', closeCart);
+  overlay?.addEventListener('click', (e) => {
+    if (e.target === overlay) closeCart();
+  });
+
+  window.addEventListener('open-cart-drawer', openCart);
+
+  function formatCRC(amount: number) {
+    return '₡' + amount.toLocaleString('es-CR');
+  }
+
+  function renderCart() {
+    const cart = JSON.parse(localStorage.getItem('marys_art_cart') || '[]');
+    const emptyState = document.getElementById('cart-empty-state');
+    const itemsList = document.getElementById('cart-items-list');
+    const orderBumpBox = document.getElementById('order-bump-box');
+    const footer = document.getElementById('cart-footer');
+
+    if (cart.length === 0) {
+      emptyState?.classList.remove('hidden');
+      itemsList?.classList.add('hidden');
+      orderBumpBox?.classList.add('hidden');
+      footer?.classList.add('hidden');
+      updateShippingProgress(0);
+      return;
+    }
+
+    emptyState?.classList.add('hidden');
+    itemsList?.classList.remove('hidden');
+    orderBumpBox?.classList.remove('hidden');
+    footer?.classList.remove('hidden');
+
+    let subtotal = 0;
+    if (itemsList) {
+      itemsList.innerHTML = cart.map((item: any, index: number) => {
+        subtotal += item.price * item.quantity;
+        return `
+          <div class="flex items-center gap-3 p-3 bg-white dark:bg-stone-800 rounded-xl border border-stone-200/80 dark:border-stone-700 shadow-xs">
+            <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded-lg">
+            <div class="flex-1 min-w-0">
+              <h4 class="text-xs font-bold text-stone-900 dark:text-stone-100 truncate">${item.name}</h4>
+              <p class="text-xs text-amber-800 dark:text-amber-400 font-semibold">${formatCRC(item.price)}</p>
+
+              <div class="flex items-center gap-2 mt-2">
+                <button data-action="dec" data-index="${index}" class="w-5 h-5 rounded bg-stone-100 dark:bg-stone-700 text-stone-700 dark:text-stone-300 font-bold text-xs hover:bg-stone-200 transition-colors">-</button>
+                <span class="text-xs font-semibold w-4 text-center text-stone-800 dark:text-stone-200">${item.quantity}</span>
+                <button data-action="inc" data-index="${index}" class="w-5 h-5 rounded bg-stone-100 dark:bg-stone-700 text-stone-700 dark:text-stone-300 font-bold text-xs hover:bg-stone-200 transition-colors">+</button>
+              </div>
+            </div>
+            <button data-action="remove" data-index="${index}" class="text-stone-400 hover:text-red-500 p-1">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+            </button>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Handle Order Bump Checkbox
+    const bumpCheckbox = document.getElementById('order-bump-checkbox') as HTMLInputElement;
+    const bumpAmount = bumpCheckbox && bumpCheckbox.checked ? 3500 : 0;
+
+    const shippingFee = subtotal >= 35000 ? 0 : 3000;
+    const finalTotal = subtotal + bumpAmount + shippingFee;
+
+    const subtotalEl = document.getElementById('cart-subtotal');
+    const shippingEl = document.getElementById('cart-shipping');
+    const totalEl = document.getElementById('cart-total');
+
+    if (subtotalEl) subtotalEl.textContent = formatCRC(subtotal);
+    if (shippingEl) shippingEl.textContent = shippingFee === 0 ? 'GRATIS' : formatCRC(shippingFee);
+    if (totalEl) totalEl.textContent = formatCRC(finalTotal);
+
+    updateShippingProgress(subtotal);
+  }
+
+  function updateShippingProgress(subtotal: number) {
+    const threshold = 35000;
+    const percent = Math.min(100, Math.round((subtotal / threshold) * 100));
+
+    const bar = document.getElementById('shipping-progress-bar');
+    const statusText = document.getElementById('shipping-status-text');
+    const percentText = document.getElementById('shipping-percent-text');
+
+    if (bar) bar.style.width = `${percent}%`;
+    if (percentText) percentText.textContent = `${percent}%`;
+
+    if (statusText) {
+      if (subtotal >= threshold) {
+        statusText.innerHTML = '🎉 ¡Felicidades! Tienes <strong>ENVÍO GRATIS</strong> en Costa Rica';
+      } else {
+        const remaining = threshold - subtotal;
+        statusText.innerHTML = `Agrega <strong>${formatCRC(remaining)}</strong> más para envío GRATIS`;
+      }
+    }
+  }
+
+  // Handle Cart Item Actions (+, -, remove)
+  document.getElementById('cart-items-list')?.addEventListener('click', (e) => {
+    const target = (e.target as HTMLElement).closest('button');
+    if (!target) return;
+
+    const action = target.getAttribute('data-action');
+    const indexStr = target.getAttribute('data-index');
+    if (action === null || indexStr === null) return;
+
+    const index = parseInt(indexStr, 10);
+    const cart = JSON.parse(localStorage.getItem('marys_art_cart') || '[]');
+
+    if (action === 'inc') {
+      cart[index].quantity += 1;
+    } else if (action === 'dec') {
+      cart[index].quantity -= 1;
+      if (cart[index].quantity <= 0) cart.splice(index, 1);
+    } else if (action === 'remove') {
+      cart.splice(index, 1);
+    }
+
+    localStorage.setItem('marys_art_cart', JSON.stringify(cart));
+    window.dispatchEvent(new Event('cart-updated'));
+    renderCart();
+  });
+
+  document.getElementById('order-bump-checkbox')?.addEventListener('change', renderCart);
+
+  // WhatsApp Order Submission
+  document.getElementById('send-whatsapp-order-btn')?.addEventListener('click', () => {
+    const cart = JSON.parse(localStorage.getItem('marys_art_cart') || '[]');
+    if (cart.length === 0) return;
+
+    const nameInput = document.getElementById('customer-name') as HTMLInputElement;
+    const locationInput = document.getElementById('customer-location') as HTMLInputElement;
+    const bumpCheckbox = document.getElementById('order-bump-checkbox') as HTMLInputElement;
+
+    const name = nameInput.value.trim() || 'Cliente';
+    const location = locationInput.value.trim() || 'Costa Rica';
+    const hasBump = bumpCheckbox && bumpCheckbox.checked;
+
+    let subtotal = 0;
+    let itemsText = cart.map((item: any) => {
+      const itemTotal = item.price * item.quantity;
+      subtotal += itemTotal;
+      return `• ${item.quantity}x ${item.name} (${formatCRC(itemTotal)})`;
+    }).join('\n');
+
+    const bumpAmount = hasBump ? 3500 : 0;
+    const shippingFee = subtotal >= 35000 ? 0 : 3000;
+    const finalTotal = subtotal + bumpAmount + shippingFee;
+
+    let msg = `✨ *NUEVO PEDIDO DE MARY'S ART* ✨\n\n`;
+    msg += `👤 *Cliente:* ${name}\n`;
+    msg += `📍 *Ubicación:* ${location}\n\n`;
+    msg += `📦 *DETALLE DE PIEZAS:*\n${itemsText}\n\n`;
+
+    if (hasBump) {
+      msg += `🎁 *Empaque Especial de Regalo con Tarjeta:* Sí (+₡3.500)\n`;
+    }
+
+    msg += `🚚 *Envío en Costa Rica:* ${shippingFee === 0 ? 'GRATIS' : formatCRC(shippingFee)}\n`;
+    msg += `💰 *TOTAL A PAGAR:* *${formatCRC(finalTotal)}*\n\n`;
+    msg += `Quedo atento(a) a las instrucciones para coordinar el pago por Sinpe Móvil o transferencia. ¡Muchas gracias!`;
+
+    const encoded = encodeURIComponent(msg);
+    window.open(`https://wa.me/50660367249?text=${encoded}`, '_blank');
+  });
+
+  document.addEventListener('DOMContentLoaded', renderCart);
+</script>

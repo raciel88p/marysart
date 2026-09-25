@@ -1,0 +1,390 @@
+---
+import ShopLayout from '../layouts/ShopLayout.astro';
+import products from '../data/products.json';
+import categories from '../data/categories.json';
+
+const featuredProducts = products.filter(p => p.isFeatured);
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://marys-art.cr/#organization",
+      "name": "Mary's Art Costa Rica",
+      "url": "https://marys-art.cr",
+      "logo": "https://marys-art.cr/images/gallery/IMG-20250212-WA0032.jpg",
+      "description": "Taller artesanal de escultura y figuras de resina pintadas 100% a mano en Turrialba y San Carlos, Costa Rica.",
+      "telephone": "+50660367249",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Turrialba",
+        "addressRegion": "Cartago",
+        "addressCountry": "CR"
+      }
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://marys-art.cr/#localbusiness",
+      "name": "Mary's Art - Taller Artesanal de Resina",
+      "image": "https://marys-art.cr/images/gallery/IMG-20250212-WA0032.jpg",
+      "telephone": "+50660367249",
+      "priceRange": "₡15.000 - ₡60.000",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "San Carlos y Turrialba",
+        "addressLocality": "Turrialba / San Carlos",
+        "addressCountry": "Costa Rica"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://marys-art.cr/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cada pieza de resina de Mary's Art es completamente diferente?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Aunque la base es moldeada en resina de alta densidad, cada pieza es pintada completamente a mano por la artesana María y su equipo en Costa Rica, lo que otorga matices, pinceladas y acabados de hojilla únicos e irrepetibles."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto tarda el envío de las figuras en Costa Rica?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Los envíos a cualquier provincia de Costa Rica tardan entre 2 a 4 días hábiles mediante Correos de Costa Rica o encomienda directa. El envío es GRATIS en compras superiores a ₡35.000."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Dónde están ubicados los talleres de Mary's Art?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Los talleres presenciales y centros de producción artesanal de Mary's Art se encuentran en Turrialba (Cartago) y San Carlos (Alajuela), Costa Rica."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Aceptan pedidos personalizados de colores o restauraciones?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, aceptamos pedidos de colores personalizados y restauración de imágenes religiosas. Puedes coordinar directamente por WhatsApp al +506 6036-7249."
+          }
+        }
+      ]
+    }
+  ]
+};
+---
+
+<ShopLayout
+  title="Mary's Art | Figuras y Adornos de Resina Pintados a Mano en Costa Rica"
+  description="Transforma tu casa en un hogar lleno de paz, belleza y calidez con piezas artesanales pintadas completamente a mano por la artesana María desde Turrialba y San Carlos."
+  schema={schema}
+>
+
+  <!-- HERO EMOCIONAL -->
+  <section class="relative min-h-[85vh] flex items-center bg-gradient-to-b from-stone-100 via-stone-50 to-amber-50/30 dark:from-stone-900 dark:via-stone-900 dark:to-stone-950 overflow-hidden py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-100/80 dark:bg-amber-900/40 text-amber-900 dark:text-amber-300 text-xs font-semibold tracking-wide">
+            <span>✨ Arte hecho con amor en Costa Rica</span>
+          </div>
+
+          <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-stone-900 dark:text-stone-100 leading-[1.15]">
+            Cada rincón de tu hogar <br class="hidden sm:inline" />
+            <span class="text-amber-800 dark:text-amber-400 italic">merece una historia.</span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-stone-600 dark:text-stone-300 max-w-2xl leading-relaxed mx-auto lg:mx-0">
+            Descubre piezas de resina pintadas completamente a mano que llenan tus espacios de calidez, elegancia y personalidad única. No vendemos adornos, creamos momentos de paz.
+          </p>
+
+          <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            <a
+              href="/catalogo"
+              class="w-full sm:w-auto bg-amber-800 hover:bg-amber-900 text-white font-medium text-base px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 text-center"
+            >
+              Comprar Colección
+            </a>
+            <a
+              href="https://wa.me/50660367249?text=Hola%20Mary's%20Art,%20me%20gustar%C3%ADa%20ver%20el%20cat%C3%A1logo"
+              target="_blank"
+              class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-medium text-base px-8 py-4 rounded-2xl shadow-md transition-all text-center flex items-center justify-center gap-2"
+            >
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+              Consultar por WhatsApp
+            </a>
+          </div>
+
+          <!-- Trust Badges -->
+          <div class="pt-6 grid grid-cols-3 gap-4 border-t border-stone-200 dark:border-stone-800 text-stone-600 dark:text-stone-400 text-xs">
+            <div>
+              <span class="block font-bold text-stone-900 dark:text-stone-100 text-sm">100% Artesanal</span>
+              Pintadas a mano
+            </div>
+            <div>
+              <span class="block font-bold text-stone-900 dark:text-stone-100 text-sm">Envíos Costa Rica</span>
+              Garantizados
+            </div>
+            <div>
+              <span class="block font-bold text-stone-900 dark:text-stone-100 text-sm">Piezas Únicas</span>
+              Sin producción masiva
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 relative">
+          <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-stone-800">
+            <img
+              src="/images/gallery/IMG-20250212-WA0032.jpg"
+              alt="Mujer decorando su sala con esculturas de resina pintadas a mano"
+              class="w-full h-[450px] sm:h-[550px] object-cover"
+              loading="eager"
+            />
+            <div class="absolute bottom-4 left-4 right-4 bg-white/90 dark:bg-stone-900/90 backdrop-blur-md p-4 rounded-2xl border border-stone-100 dark:border-stone-800 shadow-lg">
+              <p class="font-serif text-sm font-semibold text-stone-900 dark:text-stone-100">"Siento que mi sala ahora respira paz y espiritualidad."</p>
+              <p class="text-xs text-amber-800 dark:text-amber-400 mt-0.5">— Carmen M., Cartago (Cliente VIP)</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFICIOS -->
+  <section class="py-16 bg-white dark:bg-stone-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h2 class="font-serif text-3xl font-bold text-stone-900 dark:text-stone-100">¿Por qué elegir Mary's Art?</h2>
+        <p class="text-stone-600 dark:text-stone-400 text-sm mt-2">Detalles que marcan la diferencia entre un objeto común y una obra llena de alma.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="p-6 bg-stone-50 dark:bg-stone-800 rounded-2xl border border-stone-100 dark:border-stone-700/60 space-y-3">
+          <div class="w-12 h-12 rounded-xl bg-amber-100 dark:bg-amber-900/50 flex items-center justify-center text-amber-800 dark:text-amber-300 text-2xl">🎨</div>
+          <h3 class="font-serif text-lg font-bold text-stone-900 dark:text-stone-100">Pintadas a mano</h3>
+          <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">Cada trazo es elaborado cuidadosamente con pinceles finos y pátinas por artesanas dedicadas.</p>
+        </div>
+
+        <div class="p-6 bg-stone-50 dark:bg-stone-800 rounded-2xl border border-stone-100 dark:border-stone-700/60 space-y-3">
+          <div class="w-12 h-12 rounded-xl bg-amber-100 dark:bg-amber-900/50 flex items-center justify-center text-amber-800 dark:text-amber-300 text-2xl">✨</div>
+          <h3 class="font-serif text-lg font-bold text-stone-900 dark:text-stone-100">Piezas Únicas</h3>
+          <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">No hay dos iguales. Los matices y acabados hacen de tu escultura un objeto exclusivo.</p>
+        </div>
+
+        <div class="p-6 bg-stone-50 dark:bg-stone-800 rounded-2xl border border-stone-100 dark:border-stone-700/60 space-y-3">
+          <div class="w-12 h-12 rounded-xl bg-amber-100 dark:bg-amber-900/50 flex items-center justify-center text-amber-800 dark:text-amber-300 text-2xl">🎁</div>
+          <h3 class="font-serif text-lg font-bold text-stone-900 dark:text-stone-100">Regalo Perfecto</h3>
+          <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">Envía una bendición o un recuerdo inolvidable para cumpleaños, bautizos y bodas.</p>
+        </div>
+
+        <div class="p-6 bg-stone-50 dark:bg-stone-800 rounded-2xl border border-stone-100 dark:border-stone-700/60 space-y-3">
+          <div class="w-12 h-12 rounded-xl bg-amber-100 dark:bg-amber-900/50 flex items-center justify-center text-amber-800 dark:text-amber-300 text-2xl">💎</div>
+          <h3 class="font-serif text-lg font-bold text-stone-900 dark:text-stone-100">Materiales Premium</h3>
+          <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">Resina de alta densidad y pigmentos con capa protectora contra polvo y decoloración.</p>
+        </div>
+
+        <div class="p-6 bg-stone-50 dark:bg-stone-800 rounded-2xl border border-stone-100 dark:border-stone-700/60 space-y-3">
+          <div class="w-12 h-12 rounded-xl bg-amber-100 dark:bg-amber-900/50 flex items-center justify-center text-amber-800 dark:text-amber-300 text-2xl">🌱</div>
+          <h3 class="font-serif text-lg font-bold text-stone-900 dark:text-stone-100">Producción Artesanal</h3>
+          <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">Apoyas al talento costarricense y a los talleres comunitarios de Turrialba y San Carlos.</p>
+        </div>
+
+        <div class="p-6 bg-stone-50 dark:bg-stone-800 rounded-2xl border border-stone-100 dark:border-stone-700/60 space-y-3">
+          <div class="w-12 h-12 rounded-xl bg-amber-100 dark:bg-amber-900/50 flex items-center justify-center text-amber-800 dark:text-amber-300 text-2xl">❤️</div>
+          <h3 class="font-serif text-lg font-bold text-stone-900 dark:text-stone-100">Hecho con Amor</h3>
+          <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">Atención paciente a cada detalle para transmitir buena energía y serenidad a tu espacio.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN EMOCIONAL -->
+  <section class="py-20 bg-stone-900 text-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-3xl mx-auto text-center space-y-6">
+        <span class="text-amber-400 uppercase tracking-widest text-xs font-semibold">Nuestra Filosofía</span>
+        <h2 class="font-serif text-3xl sm:text-5xl font-bold leading-tight">No decoras una casa. <br /><span class="italic text-amber-300">Creas un hogar.</span></h2>
+        <p class="text-stone-300 text-base sm:text-lg leading-relaxed font-light">
+          El hogar es el refugio donde se guardan las memorias más queridas. Creemos firmemente que los pequeños detalles despiertan sentimientos de paz, bienestar, felicidad y protección para toda tu familia.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLECCIONES -->
+  <section class="py-16 bg-stone-50 dark:bg-stone-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-end mb-10">
+        <div>
+          <h2 class="font-serif text-3xl font-bold text-stone-900 dark:text-stone-100">Colecciones Especiales</h2>
+          <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-400 mt-1">Explora nuestras líneas temáticas diseñadas para cada estilo de hogar.</p>
+        </div>
+        <a href="/catalogo" class="text-xs font-bold text-amber-800 dark:text-amber-400 hover:underline">Ver todo ›</a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {categories.map((cat) => (
+          <a href={`/catalogo?categoria=${cat.slug}`} class="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all h-64 block">
+            <img src={cat.featuredImage} alt={cat.name} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div class="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-stone-950/20 to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4 text-white">
+              <span class="text-[10px] uppercase font-bold tracking-wider bg-amber-800/80 px-2 py-0.5 rounded text-amber-100 inline-block mb-1">{cat.badge}</span>
+              <h3 class="font-serif text-xl font-bold group-hover:text-amber-300 transition-colors">{cat.name}</h3>
+              <p class="text-xs text-stone-300 line-clamp-1">{cat.description}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTOS DESTACADOS -->
+  <section class="py-16 bg-white dark:bg-stone-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h2 class="font-serif text-3xl font-bold text-stone-900 dark:text-stone-100">Piezas Más Amadas</h2>
+        <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-400 mt-1">Nuestras esculturas con mayor valor sentimental y popularidad entre clientes.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {featuredProducts.map((prod) => (
+          <div class="bg-stone-50 dark:bg-stone-800 rounded-2xl overflow-hidden border border-stone-200/80 dark:border-stone-700 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+            <div>
+              <div class="relative h-64 overflow-hidden">
+                <img src={prod.images[0]} alt={prod.name} class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+                <span class="absolute top-3 right-3 bg-amber-800 text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow-xs">Pintado a mano</span>
+              </div>
+              <div class="p-5 space-y-2">
+                <div class="flex items-center justify-between text-xs text-stone-500 dark:text-stone-400">
+                  <span>{prod.category}</span>
+                  <span class="text-amber-600 font-bold">★ {prod.rating} ({prod.reviewCount})</span>
+                </div>
+                <h3 class="font-serif text-lg font-bold text-stone-900 dark:text-stone-100">
+                  <a href={`/producto/${prod.slug}`} class="hover:text-amber-800 dark:hover:text-amber-400">{prod.name}</a>
+                </h3>
+                <p class="text-xs text-stone-600 dark:text-stone-300 line-clamp-2 leading-relaxed">{prod.story}</p>
+              </div>
+            </div>
+
+            <div class="p-5 pt-0 space-y-3">
+              <div class="flex items-baseline justify-between border-t border-stone-200/60 dark:border-stone-700/60 pt-3">
+                <div>
+                  <span class="text-lg font-bold text-amber-900 dark:text-amber-400 font-serif">₡{prod.price.toLocaleString('es-CR')}</span>
+                  <span class="text-xs text-stone-400 line-through ml-1.5">₡{prod.originalPrice.toLocaleString('es-CR')}</span>
+                </div>
+                <span class="text-[10px] text-emerald-700 dark:text-emerald-400 font-medium">Disponible</span>
+              </div>
+
+              <div class="grid grid-cols-2 gap-2">
+                <a href={`/producto/${prod.slug}`} class="text-center bg-stone-200 dark:bg-stone-700 hover:bg-stone-300 text-stone-800 dark:text-stone-100 text-xs font-semibold py-2.5 rounded-xl transition-colors">
+                  Ver Detalles
+                </a>
+                <button
+                  data-add-cart
+                  data-id={prod.id}
+                  data-name={prod.name}
+                  data-price={prod.price}
+                  data-image={prod.images[0]}
+                  class="bg-amber-800 hover:bg-amber-900 text-white text-xs font-semibold py-2.5 rounded-xl transition-colors shadow-xs flex items-center justify-center gap-1"
+                >
+                  <span>🛒 Agregar</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- GEO & PREGUNTAS FRECUENTES (Optimización IA: ChatGPT, Perplexity, Google) -->
+  <section class="py-16 bg-stone-50 dark:bg-stone-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <div class="text-center space-y-2">
+        <span class="text-xs font-bold uppercase text-amber-800 dark:text-amber-400 tracking-widest">Preguntas Frecuentes</span>
+        <h2 class="font-serif text-3xl font-bold text-stone-900 dark:text-stone-100">Respuestas Clave sobre Nuestras Piezas</h2>
+      </div>
+
+      <div class="space-y-4">
+        <details class="bg-white dark:bg-stone-900 p-5 rounded-2xl border border-stone-200 dark:border-stone-800 group">
+          <summary class="font-serif font-bold text-stone-900 dark:text-stone-100 cursor-pointer flex justify-between items-center text-sm sm:text-base">
+            ¿Cada pieza es completamente diferente?
+            <span class="text-amber-800 dark:text-amber-400 text-xl group-open:rotate-45 transition-transform">+</span>
+          </summary>
+          <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-300 mt-3 leading-relaxed">
+            Sí. Cada figura es pintada 100% a mano de forma individual por la artesana María en Costa Rica. Los matices de sombreado, ojos y veladuras hacen de cada creación un objeto irrepetible.
+          </p>
+        </details>
+
+        <details class="bg-white dark:bg-stone-900 p-5 rounded-2xl border border-stone-200 dark:border-stone-800 group">
+          <summary class="font-serif font-bold text-stone-900 dark:text-stone-100 cursor-pointer flex justify-between items-center text-sm sm:text-base">
+            ¿Cuánto tarda el envío y cuál es el costo?
+            <span class="text-amber-800 dark:text-amber-400 text-xl group-open:rotate-45 transition-transform">+</span>
+          </summary>
+          <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-300 mt-3 leading-relaxed">
+            Realizamos envíos a todo Costa Rica mediante Correos de Costa Rica o encomiendas autorizadas en 2 a 4 días hábiles. El costo de envío estándar es de ₡3.000 y es <strong>GRATIS en compras mayores a ₡35.000</strong>.
+          </p>
+        </details>
+
+        <details class="bg-white dark:bg-stone-900 p-5 rounded-2xl border border-stone-200 dark:border-stone-800 group">
+          <summary class="font-serif font-bold text-stone-900 dark:text-stone-100 cursor-pointer flex justify-between items-center text-sm sm:text-base">
+            ¿Dónde imparten los talleres presenciales?
+            <span class="text-amber-800 dark:text-amber-400 text-xl group-open:rotate-45 transition-transform">+</span>
+          </summary>
+          <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-300 mt-3 leading-relaxed">
+            Impartimos talleres presenciales de pintura en resina y pátinas en nuestros dos centros de Costa Rica: Turrialba (Cartago) y San Carlos (Alajuela).
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="py-16 bg-amber-900 text-amber-50 text-center relative overflow-hidden">
+    <div class="max-w-4xl mx-auto px-4 relative z-10 space-y-6">
+      <h2 class="font-serif text-3xl sm:text-4xl font-bold">Haz que cada espacio de tu hogar tenga un detalle especial</h2>
+      <p class="text-amber-200 text-sm sm:text-base max-w-xl mx-auto">Coordinamos tu pedido directamente por WhatsApp para personalizar colores y detalles de tu escultura.</p>
+      <a
+        href="https://wa.me/50660367249?text=Hola%20Mary's%20Art,%20deseo%20hacer%20un%20pedido%20personalizado"
+        target="_blank"
+        class="inline-block bg-white text-amber-900 font-bold text-base px-8 py-4 rounded-2xl shadow-xl hover:bg-amber-100 transition-all"
+      >
+        Comprar Ahora por WhatsApp
+      </a>
+    </div>
+  </section>
+
+</ShopLayout>
+
+<script>
+  document.querySelectorAll('[data-add-cart]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const id = btn.getAttribute('data-id');
+      const name = btn.getAttribute('data-name');
+      const price = parseFloat(btn.getAttribute('data-price') || '0');
+      const image = btn.getAttribute('data-image');
+
+      if (!id || !name) return;
+
+      const cart = JSON.parse(localStorage.getItem('marys_art_cart') || '[]');
+      const existing = cart.find((item: any) => item.id === id);
+
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({ id, name, price, image, quantity: 1 });
+      }
+
+      localStorage.setItem('marys_art_cart', JSON.stringify(cart));
+      window.dispatchEvent(new Event('cart-updated'));
+      window.dispatchEvent(new Event('open-cart-drawer'));
+    });
+  });
+</script>

@@ -25,21 +25,23 @@ async function createServer() {
     app.use(serveStatic(path.resolve(process.cwd(), 'dist/client'), { index: false }));
   }
 
-  // Serve Astro generated static pages for /marys-arts and /landing if available
+  // Serve Astro generated static pages for all Astro routes
   app.use((req, res, next) => {
-    const pathname = req.path.replace(/\/$/, '');
-    if (pathname === '/marys-arts' || pathname === '/landing') {
-      const candidates = [
-        path.resolve(process.cwd(), `dist/client${pathname}/index.html`),
-        path.resolve(process.cwd(), `dist/client${pathname}.html`),
-        path.resolve(process.cwd(), `dist/astro${pathname}/index.html`),
-        path.resolve(process.cwd(), `dist/astro${pathname}.html`)
-      ];
+    let pathname = req.path;
+    if (pathname !== '/' && pathname.endsWith('/')) {
+      pathname = pathname.slice(0, -1);
+    }
 
-      for (const candidate of candidates) {
-        if (fs.existsSync(candidate)) {
-          return res.status(200).set({ 'Content-Type': 'text/html' }).sendFile(candidate);
-        }
+    const candidates = [
+      path.resolve(process.cwd(), `dist/client${pathname === '/' ? '/index' : pathname}/index.html`),
+      path.resolve(process.cwd(), `dist/client${pathname}.html`),
+      path.resolve(process.cwd(), `dist/astro${pathname === '/' ? '/index' : pathname}/index.html`),
+      path.resolve(process.cwd(), `dist/astro${pathname}.html`)
+    ];
+
+    for (const candidate of candidates) {
+      if (fs.existsSync(candidate)) {
+        return res.status(200).set({ 'Content-Type': 'text/html' }).sendFile(candidate);
       }
     }
     next();
@@ -98,7 +100,6 @@ async function createServer() {
       if (!isProd && vite) {
         vite.ssrFixStacktrace(e);
       }
-      // Fallback: serve index.html directly without SSR if SSR encounters an error
       try {
         const clientHtmlPath = path.resolve(process.cwd(), 'dist/client/index.html');
         if (fs.existsSync(clientHtmlPath)) {
