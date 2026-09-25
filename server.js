@@ -33,9 +33,9 @@ async function createServer() {
     }
 
     const candidates = [
-      path.resolve(process.cwd(), `dist/client${pathname === '/' ? '/index' : pathname}/index.html`),
+      path.resolve(process.cwd(), `dist/client${pathname === '/' ? '' : pathname}/index.html`),
       path.resolve(process.cwd(), `dist/client${pathname}.html`),
-      path.resolve(process.cwd(), `dist/astro${pathname === '/' ? '/index' : pathname}/index.html`),
+      path.resolve(process.cwd(), `dist/astro${pathname === '/' ? '' : pathname}/index.html`),
       path.resolve(process.cwd(), `dist/astro${pathname}.html`)
     ];
 
