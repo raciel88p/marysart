@@ -1,0 +1,303 @@
+---
+import LandingLayout from '../../layouts/LandingLayout.astro';
+import { SEASONS_DATA } from '../../data/seasons.js';
+
+export function getStaticPaths() {
+  return SEASONS_DATA.map((season) => ({
+    params: { month: season.month },
+    props: { season }
+  }));
+}
+
+const { season } = Astro.props;
+
+const seasonSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": `https://resinaartmary.com/temporadas/${season.month}`,
+      "url": `https://resinaartmary.com/temporadas/${season.month}`,
+      "name": season.seo.title,
+      "description": season.seo.metaDescription,
+      "inLanguage": "es-CR"
+    },
+    {
+      "@type": "Organization",
+      "name": "Mary's Art - Resina Art & Mary",
+      "url": "https://resinaartmary.com",
+      "logo": "https://resinaartmary.com/images/logo.png",
+      "description": "Decoración artesanal, restauración de piezas religiosas y esculturas en resina pintadas a mano en Costa Rica."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": season.faq.map((item) => ({
+        "@type": "Question",
+        "name": item.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": item.a
+        }
+      }))
+    }
+  ]
+};
+
+const whatsappBaseUrl = "https://wa.me/50660367249";
+const ctaMsg = encodeURIComponent(`Hola María, quisiera consultar sobre la colección de ${season.monthName}: "${season.hero.primaryCta}"`);
+const whatsappCtaUrl = `${whatsappBaseUrl}?text=${ctaMsg}`;
+---
+
+<LandingLayout
+  title={season.seo.title}
+  description={season.seo.metaDescription}
+  ogImage={season.hero.image}
+  schema={seasonSchema}
+>
+  <!-- SEO Hidden Metadata for AI Search Agents (AEO/GEO) -->
+  <div class="sr-only">
+    <h2>{season.seo.h1}</h2>
+    <p>{season.seo.aiOverview}</p>
+    <ul>
+      {season.seo.keywords.map(kw => <li>{kw}</li>)}
+    </ul>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="relative min-h-[85vh] flex items-center justify-center bg-stone-900 text-stone-100 overflow-hidden py-20">
+    <div class="absolute inset-0 z-0">
+      <img
+        src={season.hero.image}
+        alt={season.hero.title}
+        class="w-full h-full object-cover opacity-35 filter brightness-90 transition-transform duration-1000 hover:scale-105"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-900/60 to-transparent"></div>
+    </div>
+
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-400/30 text-amber-300 text-xs font-semibold tracking-widest uppercase backdrop-blur-md">
+        <span>🗓️ Temporada de {season.monthName}</span>
+        <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+        <span>{season.theme}</span>
+      </div>
+
+      <h1 class="font-serif text-3xl sm:text-5xl md:text-6xl font-bold leading-tight text-white tracking-tight drop-shadow-md">
+        {season.hero.title}
+      </h1>
+
+      <p class="text-stone-300 text-base sm:text-lg md:text-xl max-w-3xl mx-auto font-light leading-relaxed">
+        {season.hero.subtitle}
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+        <a
+          href={whatsappCtaUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="w-full sm:w-auto px-8 py-4 bg-amber-700 hover:bg-amber-600 text-white font-medium text-sm rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 text-center"
+        >
+          {season.hero.primaryCta}
+        </a>
+        <a
+          href="#historia"
+          class="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 text-stone-200 border border-stone-400/30 font-medium text-sm rounded-full backdrop-blur-sm transition-all duration-300 text-center"
+        >
+          {season.hero.secondaryCta}
+        </a>
+      </div>
+
+      <p class="text-xs text-stone-400 italic font-serif">
+        "{season.tagline}"
+      </p>
+    </div>
+  </section>
+
+  <!-- StoryBrand Section: Story & Transformation -->
+  <section id="historia" class="py-20 bg-stone-50 dark:bg-stone-900 text-stone-800 dark:text-stone-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <div class="text-center space-y-4">
+        <span class="text-amber-800 dark:text-amber-400 text-xs uppercase tracking-widest font-bold">Una historia para conectar</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-stone-900 dark:text-stone-100">
+          No decoras una casa. Creas un refugio para tu alma.
+        </h2>
+        <div class="w-16 h-0.5 bg-amber-700 mx-auto"></div>
+      </div>
+
+      <div class="prose dark:prose-invert max-w-none text-base sm:text-lg text-stone-600 dark:text-stone-300 leading-relaxed font-light space-y-6 bg-white dark:bg-stone-800 p-8 sm:p-12 rounded-3xl shadow-sm border border-stone-200/80 dark:border-stone-700">
+        <p class="first-letter:text-5xl first-letter:font-serif first-letter:font-bold first-letter:text-amber-800 dark:first-letter:text-amber-400 first-letter:mr-3 first-letter:float-left">
+          {season.story}
+        </p>
+
+        <!-- Problem & Transformation Split -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8 border-t border-stone-100 dark:border-stone-700 not-prose">
+          <div class="bg-stone-50 dark:bg-stone-900 p-6 rounded-2xl border border-rose-100 dark:border-stone-700 space-y-3">
+            <div class="text-rose-700 dark:text-rose-400 text-xs font-bold uppercase tracking-wider">El Desafío</div>
+            <h3 class="font-serif font-bold text-lg text-stone-900 dark:text-stone-100">{season.problem.feeling}</h3>
+            <p class="text-xs text-stone-500 dark:text-stone-400">{season.problem.losing}</p>
+          </div>
+
+          <div class="bg-amber-50/60 dark:bg-stone-900 p-6 rounded-2xl border border-amber-200/60 dark:border-stone-700 space-y-3">
+            <div class="text-amber-800 dark:text-amber-400 text-xs font-bold uppercase tracking-wider">La Transformación</div>
+            <h3 class="font-serif font-bold text-lg text-stone-900 dark:text-stone-100">{season.transformation.after}</h3>
+            <p class="text-xs text-stone-600 dark:text-stone-300">De: {season.transformation.before}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Items / Experiences -->
+  <section class="py-20 bg-white dark:bg-stone-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <span class="text-amber-800 dark:text-amber-400 text-xs font-bold uppercase tracking-widest">Experiencias de {season.monthName}</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-stone-900 dark:text-stone-100">Piezas y vivencias que transforman</h2>
+        <p class="text-stone-600 dark:text-stone-400 text-sm">Diseñadas a mano en Turrialba y San Carlos con amor infinito.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {season.featuredItems.map((item) => (
+          <div class="bg-stone-50 dark:bg-stone-900 rounded-3xl p-8 border border-stone-200/80 dark:border-stone-800 hover:shadow-xl transition-all duration-300 space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-300 flex items-center justify-center font-serif text-xl font-bold">
+              ✨
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-stone-900 dark:text-stone-100">{item.title}</h3>
+            <p class="text-stone-600 dark:text-stone-300 text-sm leading-relaxed">{item.description}</p>
+            <div class="pt-4 border-t border-stone-200 dark:border-stone-800 text-xs font-medium text-amber-800 dark:text-amber-400">
+              💡 Impacto Emocional: {item.impact}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Emotional & Functional Benefits Grid -->
+  <section class="py-20 bg-stone-100 dark:bg-stone-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white dark:bg-stone-800 p-8 rounded-3xl space-y-4 shadow-sm border border-stone-200/60 dark:border-stone-700">
+          <span class="text-2xl">❤️</span>
+          <h3 class="font-serif text-xl font-bold text-stone-900 dark:text-stone-100">Beneficios Emocionales</h3>
+          <ul class="space-y-2 text-xs sm:text-sm text-stone-600 dark:text-stone-300">
+            {season.benefits.emotional.map(b => (
+              <li class="flex items-start gap-2">
+                <span class="text-amber-700">✓</span>
+                <span>{b}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="bg-white dark:bg-stone-800 p-8 rounded-3xl space-y-4 shadow-sm border border-stone-200/60 dark:border-stone-700">
+          <span class="text-2xl">🌿</span>
+          <h3 class="font-serif text-xl font-bold text-stone-900 dark:text-stone-100">Beneficios Funcionales</h3>
+          <ul class="space-y-2 text-xs sm:text-sm text-stone-600 dark:text-stone-300">
+            {season.benefits.functional.map(b => (
+              <li class="flex items-start gap-2">
+                <span class="text-amber-700">✓</span>
+                <span>{b}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="bg-white dark:bg-stone-800 p-8 rounded-3xl space-y-4 shadow-sm border border-stone-200/60 dark:border-stone-700">
+          <span class="text-2xl">🏡</span>
+          <h3 class="font-serif text-xl font-bold text-stone-900 dark:text-stone-100">Beneficios Sociales</h3>
+          <ul class="space-y-2 text-xs sm:text-sm text-stone-600 dark:text-stone-300">
+            {season.benefits.social.map(b => (
+              <li class="flex items-start gap-2">
+                <span class="text-amber-700">✓</span>
+                <span>{b}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-20 bg-white dark:bg-stone-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12">
+      <div class="space-y-3">
+        <span class="text-amber-800 dark:text-amber-400 text-xs font-bold uppercase tracking-widest">Prueba Social</span>
+        <h2 class="font-serif text-3xl font-bold text-stone-900 dark:text-stone-100">Lo que dicen nuestras clientes en {season.monthName}</h2>
+      </div>
+
+      <div class="grid grid-cols-1 gap-6">
+        {season.testimonials.map((t) => (
+          <div class="bg-stone-50 dark:bg-stone-900 p-8 rounded-3xl border border-stone-200/80 dark:border-stone-800 text-left space-y-4">
+            <div class="flex text-amber-500 gap-1 text-sm">
+              {"★".repeat(t.rating)}
+            </div>
+            <p class="font-serif text-base sm:text-lg text-stone-800 dark:text-stone-200 italic leading-relaxed">
+              "{t.comment}"
+            </p>
+            <div class="text-xs font-bold text-stone-900 dark:text-stone-100">
+              {t.name} — <span class="text-stone-500 dark:text-stone-400 font-normal">{t.city}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="py-16 bg-stone-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 text-center">
+      <h2 class="font-serif text-2xl sm:text-3xl font-bold">Galería Artesanal de {season.monthName}</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        {season.gallery.map((img, idx) => (
+          <div class="overflow-hidden rounded-2xl aspect-square border border-stone-800">
+            <img src={img} alt={`Galería ${season.monthName} ${idx + 1}`} class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" loading="lazy" />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-20 bg-stone-50 dark:bg-stone-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <div class="text-center space-y-2">
+        <h2 class="font-serif text-3xl font-bold text-stone-900 dark:text-stone-100">Preguntas Frecuentes ({season.monthName})</h2>
+        <p class="text-xs text-stone-500">Resolvemos todas tus dudas con total transparencia.</p>
+      </div>
+
+      <div class="space-y-4">
+        {season.faq.map((f) => (
+          <div class="bg-white dark:bg-stone-800 p-6 rounded-2xl border border-stone-200 dark:border-stone-700 space-y-2">
+            <h3 class="font-serif font-bold text-base text-stone-900 dark:text-stone-100">{f.q}</h3>
+            <p class="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">{f.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Emotional Final CTA Section -->
+  <section class="py-20 bg-gradient-to-br from-amber-950 via-stone-900 to-amber-900 text-amber-50 text-center">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <h2 class="font-serif text-3xl sm:text-5xl font-bold leading-tight">
+        {season.ctaText}
+      </h2>
+      <p class="text-stone-300 text-sm sm:text-base max-w-xl mx-auto font-light">
+        Escríbenos directamente a WhatsApp. La artesana María te atenderá personalmente con el cariño que mereces.
+      </p>
+
+      <div>
+        <a
+          href={whatsappCtaUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-base px-10 py-5 rounded-full shadow-2xl hover:scale-105 transition-all"
+        >
+          {season.hero.primaryCta} por WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+</LandingLayout>
