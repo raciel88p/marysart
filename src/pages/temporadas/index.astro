@@ -1,0 +1,69 @@
+---
+import ShopLayout from '../../layouts/ShopLayout.astro';
+import { SEASONS_DATA } from '../../data/seasons.js';
+
+const seasonsIndexSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Calendario de Landing Pages Emocionales por Temporada | Mary's Art",
+  "description": "Explora nuestras experiencias y colecciones artesanales mes a mes en Costa Rica. Historias, transformación y decoración con propósito."
+};
+---
+
+<ShopLayout
+  title="Temporadas y Experiencias del Año | Mary's Art Costa Rica"
+  description="Colecciones emocionales y talleres de arte en resina mes a mes. Enero a Diciembre en Costa Rica."
+  schema={seasonsIndexSchema}
+>
+  <section class="py-16 sm:py-24 bg-stone-900 text-stone-100 text-center border-b border-stone-800">
+    <div class="max-w-4xl mx-auto px-4 space-y-4">
+      <span class="text-amber-400 text-xs font-bold uppercase tracking-widest">Calendario Emocional Anual</span>
+      <h1 class="font-serif text-3xl sm:text-5xl font-bold">12 Meses de Historias y Belleza para tu Hogar</h1>
+      <p class="text-stone-300 text-sm sm:text-base font-light max-w-2xl mx-auto">
+        Cada mes del año tiene un propósito especial. Descubre nuestras landing pages diseñadas para conectar con las emociones de cada temporada.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-stone-50 dark:bg-stone-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {SEASONS_DATA.map((s) => (
+          <a
+            href={`/temporadas/${s.month}`}
+            class="group bg-white dark:bg-stone-900 rounded-3xl overflow-hidden border border-stone-200 dark:border-stone-800 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between"
+          >
+            <div class="relative h-48 overflow-hidden">
+              <img
+                src={s.hero.image}
+                alt={s.hero.title}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-stone-950/80 to-transparent"></div>
+              <span class="absolute bottom-3 left-4 bg-amber-800 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">
+                {s.monthName}
+              </span>
+            </div>
+
+            <div class="p-6 space-y-3 flex-1 flex flex-col justify-between">
+              <div>
+                <h2 class="font-serif text-xl font-bold text-stone-900 dark:text-stone-100 group-hover:text-amber-800 dark:group-hover:text-amber-400 transition-colors">
+                  {s.theme}
+                </h2>
+                <p class="text-xs text-stone-500 dark:text-stone-400 mt-1 line-clamp-2">
+                  {s.hero.subtitle}
+                </p>
+              </div>
+
+              <div class="pt-4 border-t border-stone-100 dark:border-stone-800 text-xs font-semibold text-amber-800 dark:text-amber-400 flex items-center justify-between">
+                <span>Ver Landing Page</span>
+                <span>→</span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</ShopLayout>
