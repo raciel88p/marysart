@@ -176,11 +176,10 @@ export default function Navbar({
               Galería
             </a>
             <a
-              href="#testimonios"
-              onClick={currentView !== 'home' ? onNavigateHome : undefined}
+              href="/testimonios"
               className="hover:text-[#e8a598] transition-colors font-medium text-[#3d2c29]"
             >
-              Testimonios
+              Testimonios & Envíos
             </a>
             <a
               href="#faqs"
@@ -291,11 +290,11 @@ export default function Navbar({
             Galería
           </a>
           <a
-            href="#testimonios"
+            href="/testimonios"
             onClick={() => setMobileMenuOpen(false)}
             className="block py-2 text-[#3d2c29] font-medium hover:text-[#e8a598]"
           >
-            Testimonios
+            Testimonios & Envíos
           </a>
           <a
             href="#faqs"

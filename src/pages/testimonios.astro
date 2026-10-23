@@ -1,0 +1,192 @@
+---
+import ShopLayout from '../layouts/ShopLayout.astro';
+
+const testimonialsSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": "Testimonios Reales y Envíos Nacionales | Mary's Art Costa Rica",
+      "description": "Descubre las opiniones reales de nuestras clientes en Costa Rica. Envíos seguros por Correos de Costa Rica por kilo y Ruta Directa San José - Cartago cada 22 días."
+    },
+    {
+      "@type": "LocalBusiness",
+      "name": "Mary's Art - Resina Art & Mary",
+      "image": "https://resinaartmary.com/images/gallery/taller-4.jpg",
+      "telephone": "+50660367249",
+      "priceRange": "₡15.000 - ₡200.000",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Turrialba",
+        "addressRegion": "Cartago",
+        "addressCountry": "CR"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "128"
+      }
+    }
+  ]
+};
+
+const whatsappUrl = "https://wa.me/50660367249?text=Hola%20Do%C3%B1a%20Mary,%20quisiera%20consultar%20sobre%20la%20pr%C3%B3xima%20ruta%20a%20San%20Jos%C3%A9%20y%20Cartago";
+---
+
+<ShopLayout
+  title="Testimonios Reales y Envíos a Todo Costa Rica | Mary's Art"
+  description="Conoce la experiencia de nuestras clientes en Costa Rica. Envíos garantizados por Correos de Costa Rica y nuestra Ruta Directa a San José y Cartago cada 22 días."
+  schema={testimonialsSchema}
+>
+  <!-- Hero Section -->
+  <section class="bg-stone-900 text-stone-100 py-16 sm:py-24 relative overflow-hidden border-b border-stone-800">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 relative z-10">
+      <span class="inline-block bg-amber-500/20 text-amber-300 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full border border-amber-500/30">
+        📦 100% Empaque Antichoque & Envíos Garantizados
+      </span>
+
+      <h1 class="font-serif text-3xl sm:text-5xl font-bold leading-tight">
+        Garantía de Entrega e Historias Reales <br />
+        <span class="text-amber-400 italic">en todo Costa Rica</span>
+      </h1>
+
+      <p class="text-stone-300 text-base sm:text-lg max-w-2xl mx-auto font-light leading-relaxed">
+        Llegamos a las 7 provincias con amor y cuidado supremo. Tus piezas artesanales viajan con empaque especial para llegar intactas a tu puerta.
+      </p>
+    </div>
+  </section>
+
+  <!-- Delivery Modalities Section -->
+  <section class="py-16 bg-stone-50 dark:bg-stone-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <span class="text-amber-800 dark:text-amber-400 text-xs font-bold uppercase tracking-widest">Nuestras 2 Opciones de Entrega</span>
+        <h2 class="font-serif text-3xl font-bold text-stone-900 dark:text-stone-100">Cómo enviamos tus piezas con total seguridad</h2>
+        <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-400">Seleccionamos el mejor método según el volumen y la delicadeza de tu pedido.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Option 1: Correos de Costa Rica -->
+        <div class="bg-white dark:bg-stone-800 p-8 rounded-3xl border border-stone-200 dark:border-stone-700 shadow-lg space-y-6 relative overflow-hidden">
+          <div class="w-14 h-14 bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-300 rounded-2xl flex items-center justify-center text-2xl font-bold">
+            📬
+          </div>
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-amber-800 dark:text-amber-400 block mb-1">Cualquier Rincón del País</span>
+            <h3 class="font-serif text-2xl font-bold text-stone-900 dark:text-stone-100">Correos de Costa Rica (Por Kilo)</h3>
+          </div>
+          <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed">
+            Envíos diarios a las 7 provincias con cálculo de tarifa exacta por peso en kilos. Incluye código de rastreo en tiempo real y protección de triple burbuja.
+          </p>
+          <ul class="space-y-2 text-xs text-stone-600 dark:text-stone-300 border-t border-stone-100 dark:border-stone-700 pt-4">
+            <li class="flex items-center gap-2">✓ <strong>Cobertura:</strong> San José, Alajuela, Cartago, Heredia, Guanacaste, Puntarenas y Limón.</li>
+            <li class="flex items-center gap-2">✓ <strong>Tiempo estimado:</strong> 24 a 48 horas hábiles tras despacho.</li>
+            <li class="flex items-center gap-2">✓ <strong>Rastreo:</strong> Guía oficial enviada por WhatsApp para seguimiento.</li>
+          </ul>
+        </div>
+
+        <!-- Option 2: Ruta Directa -->
+        <div class="bg-amber-900 text-amber-50 p-8 rounded-3xl border border-amber-800 shadow-xl space-y-6 relative overflow-hidden">
+          <div class="w-14 h-14 bg-amber-800 text-amber-200 rounded-2xl flex items-center justify-center text-2xl font-bold">
+            🚛
+          </div>
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-amber-300 block mb-1">Transporte Especializado del Taller</span>
+            <h3 class="font-serif text-2xl font-bold text-white">Ruta Directa San José & Cartago (Cada 22 Días)</h3>
+          </div>
+          <p class="text-xs sm:text-sm text-stone-200 leading-relaxed">
+            Unidad de transporte directo desde nuestro taller en Turrialba. Diseñada para Nacimientos grandes, pedidos de casitas múltiples y esculturas delicadas que prefieres no enviar por correo común.
+          </p>
+          <ul class="space-y-2 text-xs text-amber-200/90 border-t border-amber-800/80 pt-4">
+            <li class="flex items-center gap-2">✓ <strong>Frecuencia:</strong> Recorrido programado cada 22 días calendario.</li>
+            <li class="flex items-center gap-2">✓ <strong>Beneficio:</strong> Cero manipulación de terceros; entregado en mano en tu hogar.</li>
+            <li class="flex items-center gap-2">✓ <strong>Coordinación:</strong> Agendamos la hora exacta de llegada vía WhatsApp.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Real WhatsApp Testimonials Proof -->
+  <section class="py-20 bg-white dark:bg-stone-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <span class="text-amber-800 dark:text-amber-400 text-xs font-bold uppercase tracking-widest">Evidencia Real de Satisfacción</span>
+        <h2 class="font-serif text-3xl font-bold text-stone-900 dark:text-stone-100">Pruebas reales de entregas felices</h2>
+        <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-400">Capturas de mensajes espontáneos enviados por nuestras clientes tras recibir sus paquetes.</p>
+      </div>
+
+      <!-- Feature Highlight: Sam's Delivery Screenshot -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center bg-stone-50 dark:bg-stone-900 p-6 sm:p-10 rounded-3xl border border-stone-200 dark:border-stone-800">
+        <div class="md:col-span-5 flex justify-center">
+          <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-stone-800 max-w-xs">
+            <img
+              src="/images/testimonials/WhatsApp Image 2026-10-20 at 09.27.31.jpeg"
+              alt="Testimonio real de Sam recibiendo su pedido en perfecto estado"
+              class="w-full h-auto object-cover"
+              loading="lazy"
+            />
+            <span class="absolute top-3 right-3 bg-emerald-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow">
+              Verificado ✓
+            </span>
+          </div>
+        </div>
+
+        <div class="md:col-span-7 space-y-6">
+          <div class="flex items-center gap-2 text-amber-500 text-lg">
+            ★★★★★ <span class="text-xs text-stone-500 font-medium">(Cliente Satisfecha)</span>
+          </div>
+
+          <blockquote class="font-serif text-xl sm:text-2xl text-stone-800 dark:text-stone-100 italic leading-relaxed">
+            "Hola buenas noches Doña Mary... Queríamos agradecerle porque nos ha llegado finalmente el pedido. <strong class="text-amber-800 dark:text-amber-400 not-italic font-semibold">Todas llegaron en perfecto estado y hermosas</strong> 🙏🥰."
+          </blockquote>
+
+          <div class="space-y-1">
+            <p class="font-bold text-sm text-stone-900 dark:text-stone-100">Sam</p>
+            <p class="text-xs text-stone-500 dark:text-stone-400">Entrega de set de casitas navideñas artesanales</p>
+          </div>
+
+          <!-- Product Showcase Images -->
+          <div class="grid grid-cols-2 gap-4 pt-4 border-t border-stone-200 dark:border-stone-800">
+            <div class="rounded-xl overflow-hidden aspect-video shadow-sm border border-stone-200 dark:border-stone-800">
+              <img
+                src="/images/testimonials/WhatsApp Image 2026-10-21 at 17.10.46.jpeg"
+                alt="Casitas navideñas preparadas para entrega"
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div class="rounded-xl overflow-hidden aspect-video shadow-sm border border-stone-200 dark:border-stone-800">
+              <img
+                src="/images/testimonials/WhatsApp Image 2026-10-16 at 08.09.47 (1).jpeg"
+                alt="Proceso de secado de piezas en taller"
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-stone-900 text-stone-100 text-center">
+    <div class="max-w-4xl mx-auto px-4 space-y-6">
+      <h2 class="font-serif text-3xl font-bold">¿Tienes dudas sobre la fecha de la próxima Ruta a San José o Cartago?</h2>
+      <p class="text-stone-300 text-xs sm:text-sm max-w-xl mx-auto font-light">
+        Escríbenos directamente a WhatsApp. Te indicamos el costo exacto del envío de tu pieza o la fecha reservada de nuestro transporte.
+      </p>
+      <div>
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm px-8 py-4 rounded-full shadow-lg hover:scale-105 transition-all"
+        >
+          <span>💬 Consultar Fechas de Envío por WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</ShopLayout>
