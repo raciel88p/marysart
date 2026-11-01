@@ -140,6 +140,29 @@ export interface Testimonial {
   date: string;
 }
 
+export interface Category {
+  id: string;
+  slug: string;
+  name: string;
+  description: string;
+  targetAudience: string;
+  iconName: string;
+}
+
+export interface Product {
+  id: string;
+  slug: string;
+  name: string;
+  categorySlug: string;
+  materialSlug: string;
+  dimensions: string;
+  priceCRC: number;
+  description: string;
+  image: string;
+  inStock: boolean;
+  featuredFinishes: string[];
+}
+
 export interface ProgrammaticPageData {
   slug: string;
   url: string;
