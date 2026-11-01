@@ -1,0 +1,183 @@
+---
+import ShopLayout from '../../layouts/ShopLayout.astro';
+import ProgrammaticLinking from '../../components/seo/ProgrammaticLinking.astro';
+import { locationsData } from '../../data/seo/locations.js';
+import { RESIN_VILLAGES } from '../../data/seo/villages';
+
+export function getStaticPaths() {
+  return Object.values(locationsData).map((loc) => ({
+    params: { canton: loc.cantonSlug },
+    props: { location: loc }
+  }));
+}
+
+interface Props {
+  location: any;
+}
+
+const { location } = Astro.props;
+
+const canonicalUrl = `https://marysartcr.com/casitas-resina/${location.cantonSlug}`;
+const metaTitle = `Casitas y Villas de Resina en ${location.cantonName}, ${location.province} | Mary's Art`;
+const metaDescription = `Venta de casitas de resina con luz, villas navideñas y pueblos rústicos en ${location.cantonName}. Envío seguro (${location.deliveryEstimate}) y pedidos por WhatsApp.`;
+
+const structuredSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Product",
+      "@id": `${canonicalUrl}#product`,
+      "name": `Casitas y Villas de Resina en ${location.cantonName}`,
+      "description": `Catálogo de casitas rústicas y villas navideñas de resina para entrega en ${location.cantonName}, ${location.province}.`,
+      "image": "https://marysartcr.com/images/gallery/WhatsApp%20Image%202026-09-25%20at%2014.35.58%20(1).jpeg",
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "CRC",
+        "lowPrice": "15000",
+        "highPrice": "65000",
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@type": "LocalBusiness",
+          "name": "Mary's Art Costa Rica",
+          "telephone": "+50660367249",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": location.cantonName,
+            "addressRegion": location.province,
+            "addressCountry": "CR"
+          }
+        }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonicalUrl}#breadcrumb`,
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://marysartcr.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Directorio", "item": "https://marysartcr.com/directorio" },
+        { "@type": "ListItem", "position": 3, "name": `Casitas de Resina en ${location.cantonName}`, "item": canonicalUrl }
+      ]
+    }
+  ]
+};
+
+const whatsappText = encodeURIComponent(`¡Hola Mary's Art! Deseo comprar casitas y villas navideñas de resina con entrega en ${location.cantonName}, ${location.province}.`);
+const whatsappLink = `https://wa.me/50660367249?text=${whatsappText}`;
+---
+
+<ShopLayout title={metaTitle} description={metaDescription}>
+  <head slot="head">
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:title" content={metaTitle} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:image" content="https://marysartcr.com/images/gallery/WhatsApp%20Image%202026-09-25%20at%2014.35.58%20(1).jpeg" />
+    <meta property="og:url" content={canonicalUrl} />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredSchema)} />
+  </head>
+
+  <!-- Breadcrumbs -->
+  <nav class="bg-amber-50/70 border-b border-amber-100 py-3 text-xs md:text-sm text-stone-600">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ol class="flex items-center space-x-2">
+        <li><a href="/" class="hover:text-amber-800 transition">Inicio</a></li>
+        <li><span>/</span></li>
+        <li><a href="/directorio" class="hover:text-amber-800 transition">Directorio</a></li>
+        <li><span>/</span></li>
+        <li class="font-semibold text-amber-900 truncate">Casitas de Resina en {location.cantonName}</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-b from-amber-50/50 via-white to-stone-50 py-12 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-amber-100 text-amber-900 text-xs font-semibold rounded-full uppercase tracking-wider mb-4">
+          🔥 Lo más vendido de Mary's Art en {location.province}
+        </div>
+        <h1 class="text-3xl md:text-5xl font-serif font-bold text-stone-900 leading-tight">
+          Casitas y Villas de Resina en {location.cantonName}
+        </h1>
+        <p class="mt-4 text-stone-700 leading-relaxed text-base md:text-lg">
+          Descubre nuestra línea más codiciada de <strong>villas navideñas con luz LED, casitas campesinas típicas y dioramas de pueblos en resina de alta densidad</strong> con entregas express garantizadas en {location.cantonName} y toda la provincia de {location.province}.
+        </p>
+
+        <!-- SGE Quick Answer -->
+        <div class="mt-6 p-4 rounded-xl bg-amber-50 border border-amber-200 text-stone-800">
+          <h2 class="text-xs uppercase font-bold tracking-wider text-amber-900 mb-1">Entregas y Envíos a {location.cantonName}</h2>
+          <p class="text-sm leading-relaxed">
+            {location.workshopDistanceNote}. Tiempo de entrega estimado: <strong>{location.deliveryEstimate}</strong> mediante Correos de Costa Rica o ruta directa de taller. Embalaje tricapa con amortiguación anti-impacto.
+          </p>
+        </div>
+
+        <div class="mt-6 flex flex-wrap gap-4">
+          <a
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-6 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition text-base"
+          >
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.35.49 1.199.533 1.286.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.072.376-.043.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/></svg>
+            Consultar Modelos Disponibles por WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Catalog Grid of Best Seller Villages -->
+  <section class="py-12 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl md:text-3xl font-serif font-bold text-stone-900 mb-8">
+        Modelos de Casitas de Resina Disponibles para {location.cantonName}
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {RESIN_VILLAGES.map((v) => (
+          <div class="bg-white rounded-xl border border-stone-200 overflow-hidden shadow-sm hover:shadow-md transition flex flex-col">
+            <img src={v.image} alt={v.name} class="w-full h-48 object-cover" loading="lazy" />
+            <div class="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <span class="text-xs uppercase font-bold text-amber-700 tracking-wider">Top Ventas</span>
+                <h3 class="font-serif font-bold text-stone-900 text-lg mt-1">{v.name}</h3>
+                <p class="text-xs text-stone-600 mt-2 line-clamp-3">{v.description}</p>
+                <div class="mt-3 text-sm font-semibold text-emerald-800">{v.priceRange}</div>
+              </div>
+              <div class="mt-4 pt-3 border-t border-stone-100 flex gap-2">
+                <a
+                  href={`/casitas-villas/${v.slug}`}
+                  class="flex-1 text-center py-2 px-3 bg-amber-50 hover:bg-amber-100 text-amber-900 font-semibold rounded-lg text-xs transition"
+                >
+                  Ver Ficha
+                </a>
+                <a
+                  href={`https://wa.me/50660367249?text=${encodeURIComponent(`Hola Mary's Art, me interesa "${v.name}" para enviar a ${location.cantonName}.`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex-1 text-center py-2 px-3 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-lg text-xs transition"
+                >
+                  Pedir
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Cross-linking -->
+  <ProgrammaticLinking
+    currentUrl={canonicalUrl}
+    relatedLinks={[
+      { label: `Figuras de Yeso en ${location.cantonName}`, url: `/figuras-yeso/${location.cantonSlug}`, category: "Local" },
+      { label: `Figuras de Resina en ${location.cantonName}`, url: `/figuras-resina/${location.cantonSlug}`, category: "Local" },
+      { label: `Restauración en ${location.cantonName}`, url: `/restauracion/${location.cantonSlug}`, category: "Local" },
+      { label: "Villas Navideñas con Luz LED", url: "/casitas-villas/villas-navidenas-con-luz-led", category: "Casitas de Resina" },
+      { label: "Casitas Rústicas Campesinas", url: "/casitas-villas/casitas-rusticas-campesinas-resina", category: "Casitas de Resina" },
+      { label: "Pueblos Miniatura Coleccionables", url: "/casitas-villas/pueblos-miniaturas-resina-coleccionables", category: "Casitas de Resina" },
+      { label: "Fachadas Coloniales de Resina", url: "/casitas-villas/fachadas-coloniales-cuadros-resina", category: "Casitas de Resina" },
+      { label: "Directorio General", url: "/directorio", category: "Navegación" }
+    ]}
+  />
+</ShopLayout>

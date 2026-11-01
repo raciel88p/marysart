@@ -26,6 +26,36 @@ export function getSemanticInternalLinks(currentUrl: string): InternalLinkItem[]
     { title: 'Club VIP & Membresía Artesanal', url: '/club-vip', category: 'Pilares', description: 'Comunidad exclusiva de amantes del arte y la pintura en Costa Rica.' }
   );
 
+  // Casitas & Villas de Resina (Lo más vendido)
+  const villageUrls = [
+    { title: 'Villas Navideñas con Luz LED', url: '/casitas-villas/villas-navidenas-con-luz-led' },
+    { title: 'Casitas Rústicas Campesinas en Resina', url: '/casitas-villas/casitas-rusticas-campesinas-resina' },
+    { title: 'Pueblos en Miniatura Coleccionables', url: '/casitas-villas/pueblos-miniaturas-resina-coleccionables' },
+    { title: 'Fachadas Coloniales de Resina', url: '/casitas-villas/fachadas-coloniales-cuadros-resina' }
+  ];
+  villageUrls.forEach(v => {
+    if (v.url !== currentUrl) {
+      links.push({
+        title: v.title,
+        url: v.url,
+        category: 'Pilares',
+        description: 'Colección artesanal en resina reforzada, nuestro producto más demandado en Costa Rica.'
+      });
+    }
+  });
+
+  // Casitas de Resina por Cantón
+  ['cartago', 'turrialba', 'san-jose', 'alajuela', 'heredia', 'san-carlos'].forEach(cSlug => {
+    const url = `/casitas-resina/${cSlug}`;
+    if (url !== currentUrl && locationsData[cSlug]) {
+      links.push({
+        title: `Casitas y Villas de Resina en ${locationsData[cSlug].cantonName}`,
+        url,
+        category: 'Local'
+      });
+    }
+  });
+
   // Red de SEO Local por Material (principales cantones)
   Object.keys(materialsData).forEach(mSlug => {
     ['cartago', 'turrialba', 'san-jose', 'alajuela', 'heredia', 'escazu'].forEach(cSlug => {

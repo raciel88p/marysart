@@ -140,6 +140,30 @@ export interface Testimonial {
   date: string;
 }
 
+export interface VillageCMSModel {
+  slug: string;
+  name: string;
+  category: 'villa-navidena' | 'casita-rustica' | 'pueblo-miniatura' | 'fachada-campesina';
+  subtitle: string;
+  description: string;
+  material: string;
+  dimensions: string;
+  hasLedSupport: boolean;
+  idealRoom: string;
+  priceRange: string;
+  highlights: string[];
+  image: string;
+  popularOccasions: string[];
+  searchIntentKeywords: string[];
+  details: {
+    origin: string;
+    technique: string;
+    careInstructions: string;
+    weight: string;
+  };
+  faqs: Array<{ q: string; a: string }>;
+}
+
 export interface Category {
   id: string;
   slug: string;
