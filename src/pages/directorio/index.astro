@@ -1,0 +1,147 @@
+---
+import ShopLayout from '../../layouts/ShopLayout.astro';
+import { materialsData } from '../../data/seo/materials.js';
+import { locationsData } from '../../data/seo/locations.js';
+import { animalsData } from '../../data/seo/animals.js';
+import { stylesData, roomsData } from '../../data/seo/styles-rooms.js';
+import { occasionsData } from '../../data/seo/occasions.js';
+import { restorationsData } from '../../data/seo/restorations.js';
+
+const title = "Directorio de Arte, Decoración y Restauración en Costa Rica | Mary's Art";
+const description = "Explora nuestro directorio programático completo: figuras en yeso y resina por cantón, fauna costarricense, estilos para tu hogar, regalos y servicios de restauración sacra.";
+---
+
+<ShopLayout title={title} description={description}>
+  <header class="bg-gradient-to-b from-stone-900 via-stone-900 to-amber-950 text-stone-100 py-16 text-center border-b border-stone-800">
+    <div class="max-w-4xl mx-auto px-4 space-y-4">
+      <nav class="text-xs text-amber-300 flex justify-center gap-2">
+        <a href="/" class="hover:underline">Inicio</a>
+        <span>/</span>
+        <span class="text-white">Directorio Programático</span>
+      </nav>
+      <h1 class="font-serif text-3xl sm:text-5xl font-bold">Directorio de Colecciones & Servicios de Mary's Art</h1>
+      <p class="text-stone-300 text-sm max-w-2xl mx-auto">
+        Acceso centralizado al motor de adquisición orgánica y catálogo de arte artesanal en Costa Rica.
+      </p>
+    </div>
+  </header>
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
+    <!-- Hub: Figuras por Material y Cantón -->
+    <div class="bg-white dark:bg-stone-900 p-8 rounded-3xl border border-stone-200 dark:border-stone-800 shadow-xs space-y-4">
+      <h2 class="font-serif text-2xl font-bold text-stone-900 dark:text-stone-100">1. Figuras de Yeso por Cantón</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 text-xs">
+        {Object.keys(locationsData).map(c => (
+          <a
+            href={`/figuras-yeso/${c}`}
+            class="p-2.5 rounded-xl bg-stone-50 dark:bg-stone-800 hover:bg-amber-100 dark:hover:bg-amber-950/60 text-stone-800 dark:text-stone-200 border border-stone-100 dark:border-stone-700 transition-colors"
+          >
+            Yeso en {locationsData[c].cantonName}
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <!-- Hub: Figuras de Resina por Cantón -->
+    <div class="bg-white dark:bg-stone-900 p-8 rounded-3xl border border-stone-200 dark:border-stone-800 shadow-xs space-y-4">
+      <h2 class="font-serif text-2xl font-bold text-stone-900 dark:text-stone-100">2. Figuras de Resina por Cantón</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 text-xs">
+        {Object.keys(locationsData).map(c => (
+          <a
+            href={`/figuras-resina/${c}`}
+            class="p-2.5 rounded-xl bg-stone-50 dark:bg-stone-800 hover:bg-amber-100 dark:hover:bg-amber-950/60 text-stone-800 dark:text-stone-200 border border-stone-100 dark:border-stone-700 transition-colors"
+          >
+            Resina en {locationsData[c].cantonName}
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <!-- Hub: Fauna en Materiales -->
+    <div class="bg-white dark:bg-stone-900 p-8 rounded-3xl border border-stone-200 dark:border-stone-800 shadow-xs space-y-4">
+      <h2 class="font-serif text-2xl font-bold text-stone-900 dark:text-stone-100">3. Figuras de Animales & Fauna en Materiales</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 text-xs">
+        {Object.keys(animalsData).flatMap(a =>
+          ['yeso', 'resina', 'ceramica', 'madera'].map(m => (
+            <a
+              href={`/figura-${a}-${m}`}
+              class="p-2.5 rounded-xl bg-stone-50 dark:bg-stone-800 hover:bg-amber-100 dark:hover:bg-amber-950/60 text-stone-800 dark:text-stone-200 border border-stone-100 dark:border-stone-700 transition-colors"
+            >
+              {animalsData[a].name} en {materialsData[m]?.shortName || m}
+            </a>
+          ))
+        )}
+      </div>
+    </div>
+
+    <!-- Hub: Estilo y Habitación -->
+    <div class="bg-white dark:bg-stone-900 p-8 rounded-3xl border border-stone-200 dark:border-stone-800 shadow-xs space-y-4">
+      <h2 class="font-serif text-2xl font-bold text-stone-900 dark:text-stone-100">4. Decoración por Estilo y Estancia</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 text-xs">
+        {Object.keys(stylesData).flatMap(s =>
+          Object.keys(roomsData).map(r => (
+            <a
+              href={`/decoracion-${s}-${r}`}
+              class="p-2.5 rounded-xl bg-stone-50 dark:bg-stone-800 hover:bg-amber-100 dark:hover:bg-amber-950/60 text-stone-800 dark:text-stone-200 border border-stone-100 dark:border-stone-700 transition-colors"
+            >
+              {stylesData[s].name.split('&')[0].trim()} en {roomsData[r].name.split(' ')[0]}
+            </a>
+          ))
+        )}
+      </div>
+    </div>
+
+    <!-- Hub: Restauración Especializada y Local -->
+    <div class="bg-white dark:bg-stone-900 p-8 rounded-3xl border border-stone-200 dark:border-stone-800 shadow-xs space-y-4">
+      <h2 class="font-serif text-2xl font-bold text-stone-900 dark:text-stone-100">5. Talleres y Especialidades de Restauración</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 text-xs">
+        {Object.keys(restorationsData).map(r => (
+          <a
+            href={`/restauracion/${r}`}
+            class="p-2.5 rounded-xl bg-stone-50 dark:bg-stone-800 hover:bg-amber-100 dark:hover:bg-amber-950/60 text-stone-800 dark:text-stone-200 border border-stone-100 dark:border-stone-700 transition-colors font-medium"
+          >
+            {restorationsData[r].name}
+          </a>
+        ))}
+        {['turrialba', 'cartago', 'san-jose', 'san-carlos'].map(c => (
+          <a
+            href={`/restauracion/${c}`}
+            class="p-2.5 rounded-xl bg-amber-50 dark:bg-amber-950/40 hover:bg-amber-100 text-amber-900 dark:text-amber-200 border border-amber-200 dark:border-amber-800/60 transition-colors font-semibold"
+          >
+            Restauración en {locationsData[c]?.cantonName}
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <!-- Hub: Clases de Pintura y Arteterapia -->
+    <div class="bg-white dark:bg-stone-900 p-8 rounded-3xl border border-stone-200 dark:border-stone-800 shadow-xs space-y-4">
+      <h2 class="font-serif text-2xl font-bold text-stone-900 dark:text-stone-100">6. Clases de Pintura en Resina & Pátinas por Cantón</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 text-xs">
+        {['turrialba', 'cartago', 'san-jose', 'san-carlos', 'alajuela', 'heredia', 'paraiso'].map(c => (
+          <a
+            href={`/clases-pintura/${c}`}
+            class="p-2.5 rounded-xl bg-stone-50 dark:bg-stone-800 hover:bg-amber-100 dark:hover:bg-amber-950/60 text-stone-800 dark:text-stone-200 border border-stone-100 dark:border-stone-700 transition-colors"
+          >
+            Clases en {locationsData[c]?.cantonName}
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <!-- Hub: Regalos por Ocasión -->
+    <div class="bg-white dark:bg-stone-900 p-8 rounded-3xl border border-stone-200 dark:border-stone-800 shadow-xs space-y-4">
+      <h2 class="font-serif text-2xl font-bold text-stone-900 dark:text-stone-100">7. Regalos Artesanales por Ocasión</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 text-xs">
+        {Object.keys(occasionsData).map(o => (
+          <a
+            href={`/regalo-${o}`}
+            class="p-2.5 rounded-xl bg-stone-50 dark:bg-stone-800 hover:bg-amber-100 dark:hover:bg-amber-950/60 text-stone-800 dark:text-stone-200 border border-stone-100 dark:border-stone-700 transition-colors"
+          >
+            {occasionsData[o].name}
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</ShopLayout>
