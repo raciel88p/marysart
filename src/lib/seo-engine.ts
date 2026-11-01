@@ -791,15 +791,26 @@ export function buildRestorationPage(slug: string): ProgrammaticPageData {
 export function buildCourseLocationPage(cantonSlug: string): ProgrammaticPageData {
   const loc = locationsData[cantonSlug] || locationsData.turrialba;
   const course = coursesData['clases-pintura'];
+  const hasLocalStudio = loc.cantonSlug === 'turrialba' || loc.cantonSlug === 'san-carlos';
 
   const url = `${BASE_URL}/clases-pintura/${loc.cantonSlug}`;
-  const h1 = `Clases de Pintura en Yeso y Resina para ${loc.cantonName}, Costa Rica`;
-  const metaTitle = `Clases de Pintura en Yeso y Resina | Alumnos de ${loc.cantonName} | Mary's Art`;
-  const metaDescription = `Aprende técnicas profesionales de pintura en resina, yeso y pátinas artísticas con la instructora Maria. Talleres presenciales con materiales incluidos para residentes de ${loc.cantonName}.`;
+  const h1 = hasLocalStudio
+    ? `Taller Presencial de Pintura en Yeso y Resina en ${loc.cantonName}, Costa Rica`
+    : `Clases de Pintura en Yeso y Resina para Residentes de ${loc.cantonName}`;
+  const metaTitle = hasLocalStudio
+    ? `Clases de Pintura en Yeso y Resina en ${loc.cantonName} | Taller Mary's Art`
+    : `Clases de Pintura para Residentes de ${loc.cantonName} | Mary's Art CR`;
+  const metaDescription = hasLocalStudio
+    ? `Aprende técnicas profesionales de pintura en resina, yeso y pátinas en nuestra sede presencial de ${loc.cantonName}. Materiales incluidos y clase gratis al comprar tu pieza.`
+    : `Atención a residentes de ${loc.cantonName}: Nuestros talleres presenciales se imparten en las sedes centrales de Turrialba y San Carlos, con jornadas intensivas de fin de semana y kits con asesoría virtual.`;
 
-  const quickAnswer = `Las clases de pintura en yeso y resina de Mary's Art están abiertas para participantes de ${loc.cantonName} y toda la provincia de ${loc.province}. Se imparten en modalidad presencial los miércoles, viernes y sábados en nuestro taller principal de Turrialba, además de jornadas intensivas. La clase es gratuita con la adquisición de la pieza base, e incluye pinturas, pinceles, asesoría personalizada y refrigerio.`;
+  const quickAnswer = hasLocalStudio
+    ? `En nuestra sede física de ${loc.cantonName} impartimos clases presenciales de pintura en yeso y resina los miércoles, viernes y sábados. La clase es 100% gratuita con la compra de tu pieza de catálogo, e incluye el uso libre de pinturas profesionales, pinceles, pátinas al óleo, selladores y refrigerio artesanal.`
+    : `Importante para alumnos de ${loc.cantonName}: Mary's Art no cuenta con sede física en ${loc.cantonName}. Nuestras clases presenciales se imparten exclusivamente en nuestros talleres centrales de Turrialba (Cartago) y San Carlos (Alajuela). Para alumnos que se desplazan desde ${loc.cantonName}, ofrecemos jornadas intensivas de sábado de un solo día o kits de pintura guiados paso a paso por WhatsApp.`;
 
-  const heroSummary = `Descubre el poder relajante de la pintura artesanal. Un espacio de arteterapia, creatividad y compañerismo donde aprenderás desde cero técnicas de pátina, pan de oro y pincel seco.`;
+  const heroSummary = hasLocalStudio
+    ? `Sede presencial en ${loc.cantonName}: Un espacio de arteterapia, creatividad y aprendizaje guiado por la instructora Maria.`
+    : `Información de clases para participantes de ${loc.cantonName}: Te explicamos cómo participar en nuestros talleres en las sedes de Turrialba y San Carlos.`;
 
   const tableAttributes = [
     { key: 'Dirigido a', value: `Residentes de ${loc.cantonName} y zonas aledañas (principiantes y avanzados)` },
