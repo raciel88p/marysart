@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://resinaartmary.cr/sitemap.xml
+Sitemap: https://resinaartmary.cr/sitemap-programmatic.xml
