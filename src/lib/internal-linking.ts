@@ -103,12 +103,12 @@ export function getSemanticInternalLinks(currentUrl: string): InternalLinkItem[]
     }
   });
 
-  // Red de Clases de Pintura
-  ['turrialba', 'cartago', 'san-jose', 'san-carlos'].forEach(cSlug => {
+  // Red de Clases de Pintura (Exclusivamente sedes reales del taller de Maria)
+  ['turrialba', 'san-carlos'].forEach(cSlug => {
     const url = `/clases-pintura/${cSlug}`;
     if (url !== currentUrl) {
       links.push({
-        title: `Clases de pintura en ${locationsData[cSlug].cantonName}`,
+        title: `Taller de pintura en ${locationsData[cSlug].cantonName}`,
         url,
         category: 'Cursos'
       });

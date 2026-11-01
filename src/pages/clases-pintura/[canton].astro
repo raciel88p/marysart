@@ -7,7 +7,8 @@ import { getRelatedLinksForCluster } from '../../lib/internal-linking.js';
 
 export function getStaticPaths() {
   const paths: any[] = [];
-  ['turrialba', 'cartago', 'san-jose', 'san-carlos', 'alajuela', 'heredia', 'paraiso'].forEach((cantonSlug) => {
+  // Sedes físicas reales exclusivas de Mary's Art
+  ['turrialba', 'san-carlos'].forEach((cantonSlug) => {
     paths.push({
       params: { canton: cantonSlug },
       props: { cantonSlug }
