@@ -108,6 +108,66 @@ const description = "Explora nuestro directorio programático completo: figuras 
       </div>
     </div>
 
+      <!-- SECCIÓN DESTACADA: CASITAS Y VILLAS DE RESINA (LO MÁS VENDIDO) -->
+      <section class="bg-gradient-to-br from-amber-50 to-orange-50/40 p-6 md:p-8 rounded-2xl border-2 border-amber-300 shadow-md">
+        <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
+          <div class="flex items-center gap-2">
+            <span class="text-xs uppercase font-extrabold px-3 py-1 bg-amber-600 text-white rounded-full tracking-wider">🔥 Lo Más Vendido</span>
+            <h2 class="text-xl md:text-2xl font-serif font-bold text-amber-950">
+              Casitas y Villas Navideñas / Rústicas de Resina
+            </h2>
+          </div>
+          <span class="text-xs text-amber-800 font-semibold">Modelos con luz LED & entrega nacional</span>
+        </div>
+        <p class="text-sm text-stone-700 mb-6">
+          Nuestras piezas de mayor demanda comercial en todo Costa Rica: villas de resina de alta resistencia con cavidad para luces micro-LED, casitas rústicas campesinas costarricenses y miniaturas coleccionables.
+        </p>
+
+        <h3 class="text-xs uppercase font-bold tracking-wider text-amber-900 mb-3">Modelos Destacados:</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+          <a
+            href="/casitas-villas/villas-navidenas-con-luz-led"
+            class="p-4 rounded-xl bg-white border border-amber-200 hover:border-amber-400 hover:shadow-md transition text-stone-800 group"
+          >
+            <div class="font-bold text-amber-900 group-hover:text-amber-700 text-sm">Villas Navideñas con Luz LED</div>
+            <div class="text-xs text-stone-500 mt-1">Acabado nevado y cavidad para serie</div>
+          </a>
+          <a
+            href="/casitas-villas/casitas-rusticas-campesinas-resina"
+            class="p-4 rounded-xl bg-white border border-amber-200 hover:border-amber-400 hover:shadow-md transition text-stone-800 group"
+          >
+            <div class="font-bold text-amber-900 group-hover:text-amber-700 text-sm">Casitas Campesinas Típicas</div>
+            <div class="text-xs text-stone-500 mt-1">Patrimonio rural y corredores en resina</div>
+          </a>
+          <a
+            href="/casitas-villas/pueblos-miniaturas-resina-coleccionables"
+            class="p-4 rounded-xl bg-white border border-amber-200 hover:border-amber-400 hover:shadow-md transition text-stone-800 group"
+          >
+            <div class="font-bold text-amber-900 group-hover:text-amber-700 text-sm">Pueblos en Miniatura</div>
+            <div class="text-xs text-stone-500 mt-1">Conjuntos modulares coleccionables</div>
+          </a>
+          <a
+            href="/casitas-villas/fachadas-coloniales-cuadros-resina"
+            class="p-4 rounded-xl bg-white border border-amber-200 hover:border-amber-400 hover:shadow-md transition text-stone-800 group"
+          >
+            <div class="font-bold text-amber-900 group-hover:text-amber-700 text-sm">Fachadas Coloniales de Resina</div>
+            <div class="text-xs text-stone-500 mt-1">Cuadros en alto relieve para colgar</div>
+          </a>
+        </div>
+
+        <h3 class="text-xs uppercase font-bold tracking-wider text-amber-900 mb-3">Envíos de Casitas de Resina por Cantón:</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2">
+          {Object.values(locationsData).map((loc) => (
+            <a
+              href={`/casitas-resina/${loc.cantonSlug}`}
+              class="p-2.5 rounded-lg bg-white/80 hover:bg-white border border-amber-200/80 hover:border-amber-400 text-xs font-medium text-stone-800 hover:text-amber-800 transition shadow-2xs"
+            >
+              Casitas en {loc.cantonName}
+            </a>
+          ))}
+        </div>
+      </section>
+
     <!-- Hub: Figuras de Resina por Cantón -->
     <div class="bg-white dark:bg-stone-900 p-8 rounded-3xl border border-stone-200 dark:border-stone-800 shadow-xs space-y-4">
       <h2 class="font-serif text-2xl font-bold text-stone-900 dark:text-stone-100">2. Figuras de Resina por Cantón</h2>

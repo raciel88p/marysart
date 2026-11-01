@@ -1,0 +1,312 @@
+---
+import ShopLayout from '../../layouts/ShopLayout.astro';
+import ProgrammaticLinking from '../../components/seo/ProgrammaticLinking.astro';
+import { RESIN_VILLAGES, type VillageModel } from '../../data/seo/villages';
+
+export function getStaticPaths() {
+  return RESIN_VILLAGES.map((village) => ({
+    params: { slug: village.slug },
+    props: { village }
+  }));
+}
+
+interface Props {
+  village: VillageModel;
+}
+
+const { village } = Astro.props;
+
+const canonicalUrl = `https://marysartcr.com/casitas-villas/${village.slug}`;
+const metaTitle = `${village.name} en Costa Rica | Mary's Art`;
+const metaDescription = `${village.subtitle}. ${village.description.slice(0, 140)}... Envíos a todo el país y venta directa por WhatsApp.`;
+
+const structuredSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Product",
+      "@id": `${canonicalUrl}#product`,
+      "name": village.name,
+      "description": village.description,
+      "image": `https://marysartcr.com${village.image}`,
+      "category": "Decoración de Resina / Villas Navideñas",
+      "material": village.material,
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "CRC",
+        "lowPrice": "15000",
+        "highPrice": "65000",
+        "priceValidUntil": "2027-12-31",
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@type": "LocalBusiness",
+          "name": "Mary's Art Costa Rica",
+          "telephone": "+50660367249",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Turrialba / San Carlos",
+            "addressCountry": "CR"
+          }
+        }
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${canonicalUrl}#faq`,
+      "mainEntity": village.faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonicalUrl}#breadcrumb`,
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://marysartcr.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Casitas & Villas", "item": "https://marysartcr.com/directorio" },
+        { "@type": "ListItem", "position": 3, "name": village.name, "item": canonicalUrl }
+      ]
+    }
+  ]
+};
+
+const whatsappText = encodeURIComponent(`¡Hola Mary's Art! Vi en su catálogo web "${village.name}" y deseo conocer disponibilidad, modelos con luz LED y opciones de envío.`);
+const whatsappLink = `https://wa.me/50660367249?text=${whatsappText}`;
+---
+
+<ShopLayout title={metaTitle} description={metaDescription}>
+  <head slot="head">
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:title" content={metaTitle} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:image" content={`https://marysartcr.com${village.image}`} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:type" content="product" />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredSchema)} />
+  </head>
+
+  <!-- Breadcrumbs -->
+  <nav class="bg-amber-50/70 border-b border-amber-100 py-3 text-xs md:text-sm text-stone-600">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ol class="flex items-center space-x-2">
+        <li><a href="/" class="hover:text-amber-800 transition">Inicio</a></li>
+        <li><span>/</span></li>
+        <li><a href="/directorio" class="hover:text-amber-800 transition">Directorio</a></li>
+        <li><span>/</span></li>
+        <li class="font-semibold text-amber-900 truncate">{village.name}</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-b from-amber-50/50 via-white to-stone-50 py-12 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+
+        <div class="lg:col-span-7">
+          <div class="inline-flex items-center gap-2 px-3 py-1 bg-amber-100 text-amber-900 text-xs font-semibold rounded-full uppercase tracking-wider mb-4">
+            🔥 Lo más vendido de Mary's Art
+          </div>
+          <h1 class="text-3xl md:text-5xl font-serif font-bold text-stone-900 leading-tight">
+            {village.name}
+          </h1>
+          <p class="mt-3 text-lg md:text-xl text-amber-900 font-medium">
+            {village.subtitle}
+          </p>
+          <p class="mt-4 text-stone-700 leading-relaxed text-base md:text-lg">
+            {village.description}
+          </p>
+
+          <!-- Quick facts for Google AI Overviews -->
+          <div class="mt-6 p-4 rounded-xl bg-amber-50 border border-amber-200 text-stone-800">
+            <h2 class="text-xs uppercase font-bold tracking-wider text-amber-900 mb-2">Resumen Rápido (SGE & Quick Answer)</h2>
+            <p class="text-sm leading-relaxed">
+              Las <strong>{village.name}</strong> son fabricadas con resina poliéster reforzada de alta definición, pintadas a mano con sellado antihumedad y diseñadas con orificios internos para integrar luz cálida LED. Diseñadas para perdurar sin desmoronarse año con año.
+            </p>
+          </div>
+
+          <div class="mt-6 flex flex-wrap gap-4">
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 px-6 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition transform hover:-translate-y-0.5 text-base"
+            >
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.35.49 1.199.533 1.286.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.072.376-.043.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/></svg>
+              Cotizar y Comprar por WhatsApp
+            </a>
+            <a
+              href="/directorio"
+              class="inline-flex items-center gap-2 px-6 py-3.5 bg-stone-100 hover:bg-stone-200 text-stone-800 font-semibold rounded-lg transition text-base"
+            >
+              Ver Más Modelos en Directorio
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5">
+          <div class="bg-white p-4 rounded-2xl shadow-xl border border-stone-200 overflow-hidden relative">
+            <img
+              src={village.image}
+              alt={village.name}
+              class="w-full h-80 md:h-96 object-cover rounded-xl"
+              loading="eager"
+            />
+            <div class="absolute bottom-6 right-6 bg-stone-900/85 backdrop-blur-sm text-white px-3.5 py-1.5 rounded-full text-xs font-semibold">
+              Rango: {village.priceRange}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Specifications & Highlights -->
+  <section class="py-12 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+
+        <div class="bg-stone-50 p-6 rounded-xl border border-stone-200">
+          <h2 class="text-xl font-serif font-bold text-stone-900 mb-4">
+            Ficha Técnica & Atributos Artesanales
+          </h2>
+          <table class="w-full text-left text-sm text-stone-700">
+            <tbody>
+              <tr class="border-b border-stone-200">
+                <th class="py-2.5 font-semibold text-stone-900">Material de vaciado</th>
+                <td class="py-2.5">{village.material}</td>
+              </tr>
+              <tr class="border-b border-stone-200">
+                <th class="py-2.5 font-semibold text-stone-900">Dimensiones aprox.</th>
+                <td class="py-2.5">{village.dimensions}</td>
+              </tr>
+              <tr class="border-b border-stone-200">
+                <th class="py-2.5 font-semibold text-stone-900">Soporte Iluminación LED</th>
+                <td class="py-2.5">{village.hasLedSupport ? 'Sí, cavidad interior para serie o foco LED' : 'No requerida / Relieve decorativo'}</td>
+              </tr>
+              <tr class="border-b border-stone-200">
+                <th class="py-2.5 font-semibold text-stone-900">Espacio sugerido</th>
+                <td class="py-2.5">{village.idealRoom}</td>
+              </tr>
+              <tr class="border-b border-stone-200">
+                <th class="py-2.5 font-semibold text-stone-900">Origen & Taller</th>
+                <td class="py-2.5">{village.details.origin}</td>
+              </tr>
+              <tr class="border-b border-stone-200">
+                <th class="py-2.5 font-semibold text-stone-900">Peso aproximado</th>
+                <td class="py-2.5">{village.details.weight}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-serif font-bold text-stone-900 mb-4">
+            ¿Por qué son las piezas más solicitadas?
+          </h2>
+          <ul class="space-y-3">
+            {village.highlights.map((highlight) => (
+              <li class="flex items-start gap-3 text-stone-700">
+                <span class="text-emerald-600 font-bold">✓</span>
+                <span>{highlight}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div class="mt-6 p-4 rounded-xl bg-amber-50/70 border border-amber-200">
+            <h3 class="font-semibold text-amber-900 text-sm mb-1">Cuidado & Mantenimiento</h3>
+            <p class="text-xs md:text-sm text-stone-700 leading-relaxed">
+              {village.details.careInstructions}
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Editorial Section -->
+  <section class="py-12 bg-stone-50 border-y border-stone-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <article class="prose prose-stone max-w-none">
+        <h2 class="text-2xl md:text-3xl font-serif font-bold text-stone-900">
+          La Magia de las Villas y Casitas de Resina Hechas a Mano en Costa Rica
+        </h2>
+        <p class="text-stone-700 leading-relaxed mt-4">
+          En los hogares costarricenses, las villas navideñas y las casitas rústicas representan el punto focal de la decoración familiar. Cada pieza concebida en el taller de <strong>Mary's Art</strong> es desmoldada meticulosamente para asegurar que los techos con imitación teja, chimeneas de piedra, faroles y balcones posean una definición nítida y una solidez estructural inigualable.
+        </p>
+        <p class="text-stone-700 leading-relaxed mt-4">
+          A diferencia de los adornos plásticos importados en masa, nuestras casitas de resina combinan <em>técnicas de pintura al óleo, acrílicos profesionales y barnices termoestables</em> que soportan los niveles de humedad característicos de Cartago, San José, Heredia, Alajuela y las zonas costeras.
+        </p>
+        <h3 class="text-xl font-serif font-bold text-stone-900 mt-6">
+          Iluminación cálida y atmósfera acogedora
+        </h3>
+        <p class="text-stone-700 leading-relaxed">
+          Diseñamos cada modelo pensando en la interacción con la luz. Las cavidades interiores permiten el paso fluido de luces micro-LED, iluminando las ventanas caladas y generando una atmósfera mágica en noches decembrinas o en reuniones de café por la tarde.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- FAQs Section -->
+  <section class="py-12 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl md:text-3xl font-serif font-bold text-stone-900 text-center mb-8">
+        Preguntas Frecuentes sobre Casitas y Villas
+      </h2>
+      <div class="space-y-4">
+        {village.faqs.map((faq) => (
+          <div class="p-5 rounded-xl bg-stone-50 border border-stone-200">
+            <h3 class="text-base font-semibold text-stone-900">{faq.q}</h3>
+            <p class="mt-2 text-sm text-stone-700 leading-relaxed">{faq.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WhatsApp Bottom CTA -->
+  <section class="py-12 bg-amber-900 text-white text-center">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl md:text-4xl font-serif font-bold">
+        ¿Deseas encargar tu {village.name}?
+      </h2>
+      <p class="mt-3 text-amber-100 max-w-xl mx-auto text-sm md:text-base">
+        Contáctanos directamente por WhatsApp para ver fotos de modelos listos para entrega inmediata o coordinar un pedido personalizado con envío a tu cantón.
+      </p>
+      <div class="mt-6">
+        <a
+          href={whatsappLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-8 py-4 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-lg shadow-lg hover:shadow-xl transition text-lg"
+        >
+          Escribir al WhatsApp (+506 6036-7249)
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cross-linking -->
+  <ProgrammaticLinking
+    currentUrl={canonicalUrl}
+    relatedLinks={[
+      { label: "Casitas de Resina en Cartago", url: "/casitas-resina/cartago", category: "Ubicación" },
+      { label: "Casitas de Resina en San José", url: "/casitas-resina/san-jose", category: "Ubicación" },
+      { label: "Casitas de Resina en Alajuela", url: "/casitas-resina/alajuela", category: "Ubicación" },
+      { label: "Casitas de Resina en Heredia", url: "/casitas-resina/heredia", category: "Ubicación" },
+      { label: "Casitas de Resina en Turrialba", url: "/casitas-resina/turrialba", category: "Ubicación" },
+      { label: "Casitas de Resina en San Carlos", url: "/casitas-resina/san-carlos", category: "Ubicación" },
+      { label: "Villas Navideñas con Luz LED", url: "/casitas-villas/villas-navidenas-con-luz-led", category: "Lo más vendido" },
+      { label: "Casitas Rústicas Campesinas", url: "/casitas-villas/casitas-rusticas-campesinas-resina", category: "Lo más vendido" },
+      { label: "Pueblos Miniatura Coleccionables", url: "/casitas-villas/pueblos-miniaturas-resina-coleccionables", category: "Lo más vendido" },
+      { label: "Fachadas Coloniales de Resina", url: "/casitas-villas/fachadas-coloniales-cuadros-resina", category: "Pared y relieve" },
+      { label: "Directorio General de Productos", url: "/directorio", category: "Navegación" }
+    ]}
+  />
+</ShopLayout>
