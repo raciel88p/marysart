@@ -30,20 +30,88 @@ const servicesList = Object.values(servicesData);
       <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-stone-700 dark:text-stone-300">
         <a href="/" class="hover:text-amber-800 dark:hover:text-amber-400 transition-colors">Inicio</a>
 
-        <!-- Colecciones Dropdown -->
+        <!-- Colecciones Mega-Dropdown -->
         <div class="relative group">
           <a href="/catalogo" class="hover:text-amber-800 dark:hover:text-amber-400 transition-colors flex items-center gap-1 py-2">
             Colecciones
             <svg class="w-4 h-4 text-stone-400 group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
           </a>
-          <!-- Dropdown -->
-          <div class="absolute top-full left-0 w-64 bg-white dark:bg-stone-900 shadow-xl rounded-2xl border border-stone-100 dark:border-stone-800 py-3 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 z-50">
-            <a href="/catalogo" class="block px-4 py-2 text-xs font-semibold text-amber-800 dark:text-amber-400 uppercase tracking-wider border-b border-stone-100 dark:border-stone-800">Ver Todo el Catálogo</a>
-            {categories.map((cat) => (
-              <a href={`/catalogo?categoria=${cat.slug}`} class="block px-4 py-2 hover:bg-stone-50 dark:hover:bg-stone-800 text-stone-700 dark:text-stone-300 transition-colors">
-                {cat.name}
+          <!-- Mega Dropdown -->
+          <div class="absolute top-full -left-12 w-[760px] bg-white dark:bg-stone-900 shadow-2xl rounded-2xl border border-stone-100 dark:border-stone-800 p-6 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 z-50 max-h-[85vh] overflow-y-auto">
+            <div class="flex items-center justify-between pb-3 mb-4 border-b border-stone-100 dark:border-stone-800">
+              <span class="text-xs font-bold text-amber-800 dark:text-amber-400 tracking-wider uppercase">Catálogo & Landings de Colecciones</span>
+              <a href="/directorio" class="text-xs text-amber-700 dark:text-amber-400 font-semibold hover:underline flex items-center gap-1">
+                Ver Directorio Completo →
               </a>
-            ))}
+            </div>
+
+            <div class="grid grid-cols-4 gap-6 text-xs">
+              <!-- Columna 1: Categorías Tienda -->
+              <div class="space-y-2">
+                <p class="font-bold text-stone-900 dark:text-stone-100 text-[11px] uppercase tracking-wider text-amber-900 dark:text-amber-300 border-b border-stone-100 dark:border-stone-800 pb-1">Categorías</p>
+                <div class="space-y-1">
+                  <a href="/catalogo" class="block py-1 hover:text-amber-800 dark:hover:text-amber-400 font-semibold text-stone-900 dark:text-stone-100">Ver Catálogo General</a>
+                  {categories.map((cat) => (
+                    <a href={`/catalogo?categoria=${cat.slug}`} class="block py-1 hover:text-amber-800 dark:hover:text-amber-400 text-stone-600 dark:text-stone-400">
+                      {cat.name}
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              <!-- Columna 2: Figuras por Material -->
+              <div class="space-y-2">
+                <p class="font-bold text-stone-900 dark:text-stone-100 text-[11px] uppercase tracking-wider text-amber-900 dark:text-amber-300 border-b border-stone-100 dark:border-stone-800 pb-1">Por Material & Zona</p>
+                <div class="space-y-1">
+                  <span class="block text-[10px] font-bold text-stone-400 uppercase pt-1">Figuras en Yeso:</span>
+                  <a href="/figuras-yeso/cartago" class="block py-0.5 hover:text-amber-800 dark:hover:text-amber-400 text-stone-600 dark:text-stone-400">Yeso en Cartago</a>
+                  <a href="/figuras-yeso/turrialba" class="block py-0.5 hover:text-amber-800 dark:hover:text-amber-400 text-stone-600 dark:text-stone-400">Yeso en Turrialba</a>
+                  <a href="/figuras-yeso/san-jose" class="block py-0.5 hover:text-amber-800 dark:hover:text-amber-400 text-stone-600 dark:text-stone-400">Yeso en San José</a>
+                  <span class="block text-[10px] font-bold text-stone-400 uppercase pt-2">Figuras en Resina:</span>
+                  <a href="/figuras-resina/cartago" class="block py-0.5 hover:text-amber-800 dark:hover:text-amber-400 text-stone-600 dark:text-stone-400">Resina en Cartago</a>
+                  <a href="/figuras-resina/san-jose" class="block py-0.5 hover:text-amber-800 dark:hover:text-amber-400 text-stone-600 dark:text-stone-400">Resina en San José</a>
+                  <a href="/figuras-resina/san-carlos" class="block py-0.5 hover:text-amber-800 dark:hover:text-amber-400 text-stone-600 dark:text-stone-400">Resina en San Carlos</a>
+                </div>
+              </div>
+
+              <!-- Columna 3: Fauna & Esculturas -->
+              <div class="space-y-2">
+                <p class="font-bold text-stone-900 dark:text-stone-100 text-[11px] uppercase tracking-wider text-amber-900 dark:text-amber-300 border-b border-stone-100 dark:border-stone-800 pb-1">Fauna & Esculturas</p>
+                <div class="space-y-1">
+                  <a href="/figura-colibri-yeso" class="block py-1 hover:text-amber-800 dark:hover:text-amber-400 text-stone-600 dark:text-stone-400">Colibrí en yeso</a>
+                  <a href="/figura-colibri-resina" class="block py-1 hover:text-amber-800 dark:hover:text-amber-400 text-stone-600 dark:text-stone-400">Colibrí en resina</a>
+                  <a href="/figura-buho-resina" class="block py-1 hover:text-amber-800 dark:hover:text-amber-400 text-stone-600 dark:text-stone-400">Búho en resina</a>
+                  <a href="/figura-tucan-resina" class="block py-1 hover:text-amber-800 dark:hover:text-amber-400 text-stone-600 dark:text-stone-400">Tucán en resina</a>
+                  <a href="/figura-jaguar-resina" class="block py-1 hover:text-amber-800 dark:hover:text-amber-400 text-stone-600 dark:text-stone-400">Jaguar en resina</a>
+                  <a href="/figura-tortuga-resina" class="block py-1 hover:text-amber-800 dark:hover:text-amber-400 text-stone-600 dark:text-stone-400">Tortuga en resina</a>
+                  <a href="/figura-mariposa-resina" class="block py-1 hover:text-amber-800 dark:hover:text-amber-400 text-stone-600 dark:text-stone-400">Mariposa Morpho</a>
+                </div>
+              </div>
+
+              <!-- Columna 4: Estilos & Ocasiones -->
+              <div class="space-y-2">
+                <p class="font-bold text-stone-900 dark:text-stone-100 text-[11px] uppercase tracking-wider text-amber-900 dark:text-amber-300 border-b border-stone-100 dark:border-stone-800 pb-1">Estilos & Regalos</p>
+                <div class="space-y-1">
+                  <span class="block text-[10px] font-bold text-stone-400 uppercase pt-1">Estilo Decorativo:</span>
+                  <a href="/decoracion-rustico-sala" class="block py-0.5 hover:text-amber-800 dark:hover:text-amber-400 text-stone-600 dark:text-stone-400">Rústico en Sala</a>
+                  <a href="/decoracion-vintage-sala" class="block py-0.5 hover:text-amber-800 dark:hover:text-amber-400 text-stone-600 dark:text-stone-400">Vintage en Sala</a>
+                  <a href="/decoracion-minimalista-sala" class="block py-0.5 hover:text-amber-800 dark:hover:text-amber-400 text-stone-600 dark:text-stone-400">Minimalista en Sala</a>
+                  <span class="block text-[10px] font-bold text-stone-400 uppercase pt-2">Regalos por Ocasión:</span>
+                  <a href="/regalo-dia-de-la-madre" class="block py-0.5 hover:text-amber-800 dark:hover:text-amber-400 text-stone-600 dark:text-stone-400">Día de la Madre</a>
+                  <a href="/regalo-bautizo-primera-comunion" class="block py-0.5 hover:text-amber-800 dark:hover:text-amber-400 text-stone-600 dark:text-stone-400">Bautizo & Comunión</a>
+                  <a href="/regalo-inauguracion-casa" class="block py-0.5 hover:text-amber-800 dark:hover:text-amber-400 text-stone-600 dark:text-stone-400">Inauguración Casa</a>
+                  <a href="/regalo-navidad" class="block py-0.5 hover:text-amber-800 dark:hover:text-amber-400 text-stone-600 dark:text-stone-400">Navidad & Fiestas</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Footer banner inside mega menu -->
+            <div class="mt-4 pt-3 border-t border-stone-100 dark:border-stone-800 flex items-center justify-between text-xs bg-amber-50/50 dark:bg-stone-800/60 p-2.5 rounded-xl">
+              <span class="text-stone-600 dark:text-stone-400">¿Buscas una pieza o acabado a la medida?</span>
+              <a href="https://wa.me/50660367249?text=Hola%20Mary's%20Art,%20deseo%20consultar%20sobre%20una%20pieza%20personalizada" target="_blank" class="font-bold text-emerald-600 dark:text-emerald-400 hover:underline">
+                Cotizar por WhatsApp →
+              </a>
+            </div>
           </div>
         </div>
 
