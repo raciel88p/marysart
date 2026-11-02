@@ -86,7 +86,7 @@ export const RESIN_VILLAGES: VillageModel[] = [
       'Resistente a climas húmedos y cálidos sin deformarse',
       'Disponible en acabado natural o esmaltado protector semi-mate'
     ],
-    image: '/images/gallery/WhatsApp Image 2026-09-25 at 14.35.58 (2).jpeg',
+    image: '/images/gallery/WhatsApp Image 2026-10-20 at 12.05.49.jpeg',
     popularOccasions: ['Fiestas Patrias', 'Regalos corporativos para extranjeros', 'Decoración de quintas', 'Día del Padre'],
     searchIntentKeywords: [
       'casitas rusticas tipicas de resina',
