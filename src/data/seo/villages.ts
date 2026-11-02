@@ -71,7 +71,7 @@ export const RESIN_VILLAGES: VillageModel[] = [
   },
   {
     slug: 'casitas-rusticas-campesinas-resina',
-    name: 'Casitas Rústicas Campesinas Costarricenses en Resina',
+    name: 'casitas de resina Costa Rica',
     category: 'casita-rustica',
     subtitle: 'Homenaje al patrimonio rural tico: corredores, tejas de barro simuladas y barriales pintados a mano',
     description: 'Piezas escultóricas representativas de la arquitectura vernácula costarricense. Reproducen con asombroso detalle casas de adobe y madera, corredores amplios, gallos en cercas, tinajeras y carretas tradicionales. La resina artística permite moldear relieves milimétricos en paredes agrietadas y maderas añejadas.',
